@@ -1,0 +1,13 @@
+# # UpdateUserProfileVM
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | **string** |  | [optional]
+**username** | **string** |  | [optional]
+**email** | **string** |  | [optional]
+**password_new** | **string** |  | [optional]
+**password_new2** | **string** |  | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

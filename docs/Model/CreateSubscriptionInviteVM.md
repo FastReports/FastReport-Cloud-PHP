@@ -1,0 +1,11 @@
+# # CreateSubscriptionInviteVM
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**usages** | **int** |  | [optional]
+**durable** | **bool** |  | [optional]
+**expired_date** | [**\DateTime**](\DateTime.md) |  | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
