@@ -13,10 +13,7 @@ Name | Type | Description | Notes
 **subscription_id** | **string** |  | [optional]
 **status** | [**\OpenAPI\Client\cloud\fastreport\model\FileStatus**](FileStatus.md) |  | [optional]
 **status_reason** | [**\OpenAPI\Client\cloud\fastreport\model\FileStatusReason**](FileStatusReason.md) |  | [optional]
-**id** | **string** |  | [optional]
-**created_time** | [**\DateTime**](\DateTime.md) |  | [optional]
-**creator_user_id** | **string** |  | [optional]
-**edited_time** | [**\DateTime**](\DateTime.md) |  | [optional]
-**editor_user_id** | **string** |  | [optional]
+**error_message** | **string** |  | [optional]
+**is_deleted** | **bool** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

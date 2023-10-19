@@ -1,11 +1,11 @@
 # OpenAPI\Client\SubscriptionPlansApi
 
-All URIs are relative to http://localhost.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**subscriptionPlansGetSubscriptionPlan()**](SubscriptionPlansApi.md#subscriptionPlansGetSubscriptionPlan) | **GET** /api/manage/v1/SubscriptionPlans/{id} | Returns a subscription plan. Not all subscriptions can be issued for customer.
-[**subscriptionPlansGetSubscriptionPlans()**](SubscriptionPlansApi.md#subscriptionPlansGetSubscriptionPlans) | **GET** /api/manage/v1/SubscriptionPlans | Returns a list of active subscription plans that can be issued to the user.
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**subscriptionPlansGetSubscriptionPlan()**](SubscriptionPlansApi.md#subscriptionPlansGetSubscriptionPlan) | **GET** /api/manage/v1/SubscriptionPlans/{id} | Returns a subscription plan. Not all subscriptions can be issued for customer. |
+| [**subscriptionPlansGetSubscriptionPlans()**](SubscriptionPlansApi.md#subscriptionPlansGetSubscriptionPlans) | **GET** /api/manage/v1/SubscriptionPlans | Returns a list of active subscription plans that can be issued to the user. |
 
 
 ## `subscriptionPlansGetSubscriptionPlan()`
@@ -50,9 +50,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of subsctiption plan |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Identifier of subsctiption plan | |
 
 ### Return type
 
@@ -116,10 +116,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **skip** | **int**| Variable for pagination, defautl value is 0 | [optional] [default to 0]
- **take** | **int**| Variable for pagination, default value is 10 | [optional] [default to 10]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **skip** | **int**| Variable for pagination, defautl value is 0 | [optional] [default to 0] |
+| **take** | **int**| Variable for pagination, default value is 10 | [optional] [default to 10] |
 
 ### Return type
 

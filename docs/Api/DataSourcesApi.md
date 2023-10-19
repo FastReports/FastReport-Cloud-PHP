@@ -1,20 +1,84 @@
 # OpenAPI\Client\DataSourcesApi
 
-All URIs are relative to http://localhost.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**dataSourcesCreateDataSource()**](DataSourcesApi.md#dataSourcesCreateDataSource) | **POST** /api/data/v1/DataSources | Create new data source
-[**dataSourcesDeleteDataSource()**](DataSourcesApi.md#dataSourcesDeleteDataSource) | **DELETE** /api/data/v1/DataSources/{id} | Delete data source by id
-[**dataSourcesFetchData()**](DataSourcesApi.md#dataSourcesFetchData) | **GET** /api/data/v1/DataSources/{id}/fetch | This should connect to a database and set data structure
-[**dataSourcesGetAvailableDataSources()**](DataSourcesApi.md#dataSourcesGetAvailableDataSources) | **GET** /api/data/v1/DataSources | Returns all of the data sources, that current user have permission for in a subscription &lt;br /&gt;  The method will return minimal infomration about the datasources: &lt;br /&gt;  id, name, editedTime, status.
-[**dataSourcesGetDataSource()**](DataSourcesApi.md#dataSourcesGetDataSource) | **GET** /api/data/v1/DataSources/{id} | Get data source by id
-[**dataSourcesGetPermissions()**](DataSourcesApi.md#dataSourcesGetPermissions) | **GET** /api/data/v1/DataSources/{id}/permissions | Get all Data source permissions
-[**dataSourcesRenameDataSource()**](DataSourcesApi.md#dataSourcesRenameDataSource) | **PUT** /api/data/v1/DataSources/{id}/rename | Rename data source by id
-[**dataSourcesUpdateConnectionString()**](DataSourcesApi.md#dataSourcesUpdateConnectionString) | **PUT** /api/data/v1/DataSources/{id}/ConnectionString | Update data source&#39;s connection string by id
-[**dataSourcesUpdatePermissions()**](DataSourcesApi.md#dataSourcesUpdatePermissions) | **POST** /api/data/v1/DataSources/{id}/permissions | Update permissions
-[**dataSourcesUpdateSubscriptionDataSource()**](DataSourcesApi.md#dataSourcesUpdateSubscriptionDataSource) | **PUT** /api/data/v1/DataSources/{id}/updateSubscription | Update data source&#39;s subscription
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**dataSourcesCountDataSourcesAsync()**](DataSourcesApi.md#dataSourcesCountDataSourcesAsync) | **GET** /api/data/v1/DataSources/{subscriptionId}/count | Returns a number of data sources in subscription |
+| [**dataSourcesCreateDataSource()**](DataSourcesApi.md#dataSourcesCreateDataSource) | **POST** /api/data/v1/DataSources | Create new data source |
+| [**dataSourcesDeleteDataSource()**](DataSourcesApi.md#dataSourcesDeleteDataSource) | **DELETE** /api/data/v1/DataSources/{id} | Delete data source by id |
+| [**dataSourcesFetchData()**](DataSourcesApi.md#dataSourcesFetchData) | **GET** /api/data/v1/DataSources/{id}/fetch | This should connect to a database and set data structure |
+| [**dataSourcesGetAvailableDataSources()**](DataSourcesApi.md#dataSourcesGetAvailableDataSources) | **GET** /api/data/v1/DataSources | Returns all of the data sources, that current user have permission for in a subscription &lt;br /&gt;  The method will return minimal infomration about the datasources: &lt;br /&gt;  id, name, editedTime, status. |
+| [**dataSourcesGetDataSource()**](DataSourcesApi.md#dataSourcesGetDataSource) | **GET** /api/data/v1/DataSources/{id} | Get data source by id |
+| [**dataSourcesGetPermissions()**](DataSourcesApi.md#dataSourcesGetPermissions) | **GET** /api/data/v1/DataSources/{id}/permissions | Get all Data source permissions |
+| [**dataSourcesRenameDataSource()**](DataSourcesApi.md#dataSourcesRenameDataSource) | **PUT** /api/data/v1/DataSources/{id}/rename | Rename data source by id |
+| [**dataSourcesUpdateConnectionString()**](DataSourcesApi.md#dataSourcesUpdateConnectionString) | **PUT** /api/data/v1/DataSources/{id}/ConnectionString | Update data source&#39;s connection string by id |
+| [**dataSourcesUpdatePermissions()**](DataSourcesApi.md#dataSourcesUpdatePermissions) | **POST** /api/data/v1/DataSources/{id}/permissions | Update permissions |
+| [**dataSourcesUpdateSubscriptionDataSource()**](DataSourcesApi.md#dataSourcesUpdateSubscriptionDataSource) | **PUT** /api/data/v1/DataSources/{id}/updateSubscription | Update data source&#39;s subscription |
 
+
+## `dataSourcesCountDataSourcesAsync()`
+
+```php
+dataSourcesCountDataSourcesAsync($subscription_id): int
+```
+
+Returns a number of data sources in subscription
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\DataSourcesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$subscription_id = 'subscription_id_example'; // string | subscripiton id
+
+try {
+    $result = $apiInstance->dataSourcesCountDataSourcesAsync($subscription_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DataSourcesApi->dataSourcesCountDataSourcesAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| subscripiton id | |
+
+### Return type
+
+**int**
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `dataSourcesCreateDataSource()`
 
@@ -58,9 +122,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **create_data_source_vm** | [**\OpenAPI\Client\cloud\fastreport\model\CreateDataSourceVM**](../Model/CreateDataSourceVM.md)| create viewmodel | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **create_data_source_vm** | [**\OpenAPI\Client\cloud\fastreport\model\CreateDataSourceVM**](../Model/CreateDataSourceVM.md)| create viewmodel | [optional] |
 
 ### Return type
 
@@ -72,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -120,9 +184,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| data source id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| data source id | |
 
 ### Return type
 
@@ -182,9 +246,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| datasource&#39;s id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| datasource&#39;s id | |
 
 ### Return type
 
@@ -233,10 +297,10 @@ $apiInstance = new OpenAPI\Client\Api\DataSourcesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$subscription_id = 'subscription_id_example'; // string | subscription id
+$subscription_id = 'subscription_id_example'; // string | id of subscription where the datasources are located
 $skip = 0; // int | how many data sources will be skipped
 $take = 10; // int | how many data sources will be taken
-$order_by = new \OpenAPI\Client\cloud\fastreport\model\\OpenAPI\Client\cloud\fastreport\model\DataSourceSorting(); // \OpenAPI\Client\cloud\fastreport\model\DataSourceSorting | field to order by
+$order_by = new \OpenAPI\Client\cloud\fastreport\model\DataSourceSorting(); // DataSourceSorting | field to order by
 $desc = false; // bool | descending sort
 
 try {
@@ -249,13 +313,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscription_id** | **string**| subscription id | [optional]
- **skip** | **int**| how many data sources will be skipped | [optional] [default to 0]
- **take** | **int**| how many data sources will be taken | [optional] [default to 10]
- **order_by** | [**\OpenAPI\Client\cloud\fastreport\model\DataSourceSorting**](../Model/.md)| field to order by | [optional]
- **desc** | **bool**| descending sort | [optional] [default to false]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| id of subscription where the datasources are located | [optional] |
+| **skip** | **int**| how many data sources will be skipped | [optional] [default to 0] |
+| **take** | **int**| how many data sources will be taken | [optional] [default to 10] |
+| **order_by** | [**DataSourceSorting**](../Model/.md)| field to order by | [optional] |
+| **desc** | **bool**| descending sort | [optional] [default to false] |
 
 ### Return type
 
@@ -316,9 +380,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| data source id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| data source id | |
 
 ### Return type
 
@@ -379,9 +443,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| data source id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| data source id | |
 
 ### Return type
 
@@ -443,10 +507,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| data source id |
- **rename_data_source_vm** | [**\OpenAPI\Client\cloud\fastreport\model\RenameDataSourceVM**](../Model/RenameDataSourceVM.md)| rename viewmodel | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| data source id | |
+| **rename_data_source_vm** | [**\OpenAPI\Client\cloud\fastreport\model\RenameDataSourceVM**](../Model/RenameDataSourceVM.md)| rename viewmodel | [optional] |
 
 ### Return type
 
@@ -458,7 +522,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -508,10 +572,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| data source id |
- **update_data_source_connection_string_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateDataSourceConnectionStringVM**](../Model/UpdateDataSourceConnectionStringVM.md)| update viewmodel | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| data source id | |
+| **update_data_source_connection_string_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateDataSourceConnectionStringVM**](../Model/UpdateDataSourceConnectionStringVM.md)| update viewmodel | [optional] |
 
 ### Return type
 
@@ -523,7 +587,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -560,8 +624,8 @@ $apiInstance = new OpenAPI\Client\Api\DataSourcesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
-$update_data_source_permissions_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateDataSourcePermissionsVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateDataSourcePermissionsVM
+$id = 'id_example'; // string | 
+$update_data_source_permissions_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateDataSourcePermissionsVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateDataSourcePermissionsVM | 
 
 try {
     $apiInstance->dataSourcesUpdatePermissions($id, $update_data_source_permissions_vm);
@@ -572,10 +636,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**|  |
- **update_data_source_permissions_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateDataSourcePermissionsVM**](../Model/UpdateDataSourcePermissionsVM.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+| **update_data_source_permissions_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateDataSourcePermissionsVM**](../Model/UpdateDataSourcePermissionsVM.md)|  | [optional] |
 
 ### Return type
 
@@ -587,7 +651,7 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -636,10 +700,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| data source id |
- **update_data_source_subscription_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateDataSourceSubscriptionVM**](../Model/UpdateDataSourceSubscriptionVM.md)| update subscription viewmodel | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| data source id | |
+| **update_data_source_subscription_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateDataSourceSubscriptionVM**](../Model/UpdateDataSourceSubscriptionVM.md)| update subscription viewmodel | [optional] |
 
 ### Return type
 
@@ -651,7 +715,7 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

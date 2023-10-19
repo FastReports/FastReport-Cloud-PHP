@@ -1,12 +1,12 @@
 # OpenAPI\Client\ApiKeysApi
 
-All URIs are relative to http://localhost.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**apiKeysCreateApiKey()**](ApiKeysApi.md#apiKeysCreateApiKey) | **POST** /api/manage/v1/ApiKeys | Create a new apikey, 5 apikeys for user. Hardcoded for ddos.
-[**apiKeysDeleteApiKey()**](ApiKeysApi.md#apiKeysDeleteApiKey) | **DELETE** /api/manage/v1/ApiKeys | Delete an apikey
-[**apiKeysGetApiKeys()**](ApiKeysApi.md#apiKeysGetApiKeys) | **GET** /api/manage/v1/ApiKeys | Returns list with all api keys of current user
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**apiKeysCreateApiKey()**](ApiKeysApi.md#apiKeysCreateApiKey) | **POST** /api/manage/v1/ApiKeys | Create a new apikey, 5 apikeys for user. Hardcoded for ddos. |
+| [**apiKeysDeleteApiKey()**](ApiKeysApi.md#apiKeysDeleteApiKey) | **DELETE** /api/manage/v1/ApiKeys | Delete an apikey |
+| [**apiKeysGetApiKeys()**](ApiKeysApi.md#apiKeysGetApiKeys) | **GET** /api/manage/v1/ApiKeys | Returns list with all api keys of current user |
 
 
 ## `apiKeysCreateApiKey()`
@@ -51,9 +51,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **create_api_key_vm** | [**\OpenAPI\Client\cloud\fastreport\model\CreateApiKeyVM**](../Model/CreateApiKeyVM.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **create_api_key_vm** | [**\OpenAPI\Client\cloud\fastreport\model\CreateApiKeyVM**](../Model/CreateApiKeyVM.md)|  | |
 
 ### Return type
 
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -113,9 +113,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **delete_api_key_vm** | [**\OpenAPI\Client\cloud\fastreport\model\DeleteApiKeyVM**](../Model/DeleteApiKeyVM.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **delete_api_key_vm** | [**\OpenAPI\Client\cloud\fastreport\model\DeleteApiKeyVM**](../Model/DeleteApiKeyVM.md)|  | |
 
 ### Return type
 
@@ -127,7 +127,7 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

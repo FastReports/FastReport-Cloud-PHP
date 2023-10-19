@@ -1,13 +1,14 @@
 # OpenAPI\Client\SubscriptionUsersApi
 
-All URIs are relative to http://localhost.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**subscriptionUsersAddUser()**](SubscriptionUsersApi.md#subscriptionUsersAddUser) | **PUT** /api/manage/v1/Subscriptions/{subscriptionId}/users/{userId} | Add a user to the subscription,  the added users will be displayed in the list of users of the subscription,  and these users will also have an active subscription.
-[**subscriptionUsersGetUsers()**](SubscriptionUsersApi.md#subscriptionUsersGetUsers) | **GET** /api/manage/v1/Subscriptions/{subscriptionId}/users | Returns all users of subscription
-[**subscriptionUsersLeaveSubscripiton()**](SubscriptionUsersApi.md#subscriptionUsersLeaveSubscripiton) | **DELETE** /api/manage/v1/Subscriptions/{subscriptionId}/leave | Allows user to leave subscription,.
-[**subscriptionUsersRemoveUser()**](SubscriptionUsersApi.md#subscriptionUsersRemoveUser) | **DELETE** /api/manage/v1/Subscriptions/{subscriptionId}/users/{userId} | Delete a user from the subscription,  the added users will be displayed in the list of users of the subscription,  and these users will also have an active subscription.
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**subscriptionUsersAddUser()**](SubscriptionUsersApi.md#subscriptionUsersAddUser) | **PUT** /api/manage/v1/Subscriptions/{subscriptionId}/users/{userId} | Add a user to the subscription,  the added users will be displayed in the list of users of the subscription,  and these users will also have an active subscription. |
+| [**subscriptionUsersCountUsersAsync()**](SubscriptionUsersApi.md#subscriptionUsersCountUsersAsync) | **GET** /api/manage/v1/Subscriptions/{subscriptionId}/UsersCount | Returns a number of users in subscription |
+| [**subscriptionUsersGetUsers()**](SubscriptionUsersApi.md#subscriptionUsersGetUsers) | **GET** /api/manage/v1/Subscriptions/{subscriptionId}/users | Returns all users of subscription |
+| [**subscriptionUsersLeaveSubscripiton()**](SubscriptionUsersApi.md#subscriptionUsersLeaveSubscripiton) | **DELETE** /api/manage/v1/Subscriptions/{subscriptionId}/leave | Allows user to leave subscription,. |
+| [**subscriptionUsersRemoveUser()**](SubscriptionUsersApi.md#subscriptionUsersRemoveUser) | **DELETE** /api/manage/v1/Subscriptions/{subscriptionId}/users/{userId} | Delete a user from the subscription,  the added users will be displayed in the list of users of the subscription,  and these users will also have an active subscription. |
 
 
 ## `subscriptionUsersAddUser()`
@@ -52,14 +53,77 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscription_id** | **string**| Idenitifier of subscription |
- **user_id** | **string**| Idenitifier of user |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| Idenitifier of subscription | |
+| **user_id** | **string**| Idenitifier of user | |
 
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `subscriptionUsersCountUsersAsync()`
+
+```php
+subscriptionUsersCountUsersAsync($subscription_id): int
+```
+
+Returns a number of users in subscription
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\SubscriptionUsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$subscription_id = 'subscription_id_example'; // string | 
+
+try {
+    $result = $apiInstance->subscriptionUsersCountUsersAsync($subscription_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SubscriptionUsersApi->subscriptionUsersCountUsersAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**|  | |
+
+### Return type
+
+**int**
 
 ### Authorization
 
@@ -118,11 +182,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscription_id** | **string**| Idenitifier of subscription |
- **skip** | **int**| How many entities skip | [optional] [default to 0]
- **take** | **int**| How many entities take | [optional] [default to 10]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| Idenitifier of subscription | |
+| **skip** | **int**| How many entities skip | [optional] [default to 0] |
+| **take** | **int**| How many entities take | [optional] [default to 10] |
 
 ### Return type
 
@@ -182,9 +246,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscription_id** | **string**| Idenitifier of subscription |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| Idenitifier of subscription | |
 
 ### Return type
 
@@ -245,10 +309,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscription_id** | **string**| Idenitifier of subscription |
- **user_id** | **string**| Idenitifier of user |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| Idenitifier of subscription | |
+| **user_id** | **string**| Idenitifier of user | |
 
 ### Return type
 

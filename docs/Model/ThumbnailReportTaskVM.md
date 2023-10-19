@@ -4,8 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** |  | [optional]
-**subscription_id** | **string** |  | [optional]
-**type** | [**\OpenAPI\Client\cloud\fastreport\model\TaskType**](TaskType.md) |  | [optional]
+**report_id** | **string** |  | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

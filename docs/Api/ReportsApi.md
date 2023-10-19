@@ -1,44 +1,187 @@
 # OpenAPI\Client\ReportsApi
 
-All URIs are relative to http://localhost.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**reportFolderAndFileGetCount()**](ReportsApi.md#reportFolderAndFileGetCount) | **GET** /api/rp/v1/Reports/Folder/{id}/CountFolderAndFiles | Get count of files and folders what contains in a specified folder
-[**reportFolderAndFileGetFoldersAndFiles()**](ReportsApi.md#reportFolderAndFileGetFoldersAndFiles) | **GET** /api/rp/v1/Reports/Folder/{id}/ListFolderAndFiles | Get all folders and files from specified folder
-[**reportFoldersCopyFolder()**](ReportsApi.md#reportFoldersCopyFolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Copy/{folderId} | Move folder to a specified folder
-[**reportFoldersDeleteFolder()**](ReportsApi.md#reportFoldersDeleteFolder) | **DELETE** /api/rp/v1/Reports/Folder/{id} | Delete specified folder
-[**reportFoldersGetBreadcrumbs()**](ReportsApi.md#reportFoldersGetBreadcrumbs) | **GET** /api/rp/v1/Reports/Folder/{id}/Breadcrumbs | Get specified folder breadcrumbs
-[**reportFoldersGetFolder()**](ReportsApi.md#reportFoldersGetFolder) | **GET** /api/rp/v1/Reports/Folder/{id} | Get specified folder
-[**reportFoldersGetFolders()**](ReportsApi.md#reportFoldersGetFolders) | **GET** /api/rp/v1/Reports/Folder/{id}/ListFolders | Get all folders from specified folder
-[**reportFoldersGetFoldersCount()**](ReportsApi.md#reportFoldersGetFoldersCount) | **GET** /api/rp/v1/Reports/Folder/{id}/CountFolders | Get count of folders what contains in a specified folder
-[**reportFoldersGetPermissions()**](ReportsApi.md#reportFoldersGetPermissions) | **GET** /api/rp/v1/Reports/Folder/{id}/permissions | Get all folder permissions
-[**reportFoldersGetRootFolder()**](ReportsApi.md#reportFoldersGetRootFolder) | **GET** /api/rp/v1/Reports/Root | Get user&#39;s root folder (without parents)
-[**reportFoldersMoveFolder()**](ReportsApi.md#reportFoldersMoveFolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Move/{folderId} | Move folder to a specified folder
-[**reportFoldersPostFolder()**](ReportsApi.md#reportFoldersPostFolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Folder | Create folder
-[**reportFoldersRenameFolder()**](ReportsApi.md#reportFoldersRenameFolder) | **PUT** /api/rp/v1/Reports/Folder/{id}/Rename | Rename a folder
-[**reportFoldersUpdateIcon()**](ReportsApi.md#reportFoldersUpdateIcon) | **PUT** /api/rp/v1/Reports/Folder/{id}/Icon | Update a folder&#39;s icon
-[**reportFoldersUpdatePermissions()**](ReportsApi.md#reportFoldersUpdatePermissions) | **POST** /api/rp/v1/Reports/{id}/permissions | Update permissions
-[**reportFoldersUpdateTags()**](ReportsApi.md#reportFoldersUpdateTags) | **PUT** /api/rp/v1/Reports/Folder/{id}/UpdateTags | Update tags
-[**reportsCopyFile()**](ReportsApi.md#reportsCopyFile) | **POST** /api/rp/v1/Reports/File/{id}/Copy/{folderId} | Copy file to a specified folder
-[**reportsDeleteFile()**](ReportsApi.md#reportsDeleteFile) | **DELETE** /api/rp/v1/Reports/File/{id} | Delete specified file
-[**reportsExport()**](ReportsApi.md#reportsExport) | **POST** /api/rp/v1/Reports/File/{id}/Export | Export specified report to a specified format
-[**reportsGetFile()**](ReportsApi.md#reportsGetFile) | **GET** /api/rp/v1/Reports/File/{id} | Get specified file
-[**reportsGetFilesCount()**](ReportsApi.md#reportsGetFilesCount) | **GET** /api/rp/v1/Reports/Folder/{id}/CountFiles | Get count of files what contains in a specified folder
-[**reportsGetFilesList()**](ReportsApi.md#reportsGetFilesList) | **GET** /api/rp/v1/Reports/Folder/{id}/ListFiles | Get all files from specified folder. &lt;br /&gt;  User with Get Entity permission can access this method. &lt;br /&gt;  The method will returns minimal infomration about the file: &lt;br /&gt;  id, name, size, editedTime, createdTime, tags, status, statusReason.
-[**reportsGetPermissions()**](ReportsApi.md#reportsGetPermissions) | **GET** /api/rp/v1/Reports/File/{id}/permissions | Get all file permissions
-[**reportsMoveFile()**](ReportsApi.md#reportsMoveFile) | **POST** /api/rp/v1/Reports/File/{id}/Move/{folderId} | Move file to a specified folder
-[**reportsRenameFile()**](ReportsApi.md#reportsRenameFile) | **PUT** /api/rp/v1/Reports/File/{id}/Rename | Rename a file
-[**reportsUpdateIcon()**](ReportsApi.md#reportsUpdateIcon) | **PUT** /api/rp/v1/Reports/File/{id}/Icon | Update a files&#39;s icon
-[**reportsUpdatePermissions()**](ReportsApi.md#reportsUpdatePermissions) | **POST** /api/rp/v1/Reports/File/{id}/permissions | Update permissions
-[**reportsUpdateTags()**](ReportsApi.md#reportsUpdateTags) | **PUT** /api/rp/v1/Reports/File/{id}/UpdateTags | Update tags
-[**reportsUploadFile()**](ReportsApi.md#reportsUploadFile) | **POST** /api/rp/v1/Reports/Folder/{id}/File | Upload a file to the specified folder  !
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**reportFolderAndFileClearRecycleBin()**](ReportsApi.md#reportFolderAndFileClearRecycleBin) | **DELETE** /api/rp/v1/Reports/{subscriptionId}/ClearRecycleBin | Delete all folders and files from recycle bin |
+| [**reportFolderAndFileDeleteFiles()**](ReportsApi.md#reportFolderAndFileDeleteFiles) | **POST** /api/rp/v1/Reports/{subscriptionId}/DeleteFiles | Delete folders and files |
+| [**reportFolderAndFileGetCount()**](ReportsApi.md#reportFolderAndFileGetCount) | **GET** /api/rp/v1/Reports/Folder/{id}/CountFolderAndFiles | Get count of files and folders what contains in a specified folder |
+| [**reportFolderAndFileGetFoldersAndFiles()**](ReportsApi.md#reportFolderAndFileGetFoldersAndFiles) | **GET** /api/rp/v1/Reports/Folder/{id}/ListFolderAndFiles | Get all folders and files from specified folder |
+| [**reportFolderAndFileGetRecycleBinFoldersAndFiles()**](ReportsApi.md#reportFolderAndFileGetRecycleBinFoldersAndFiles) | **GET** /api/rp/v1/Reports/{subscriptionId}/ListRecycleBinFolderAndFiles | Get all folders and files from recycle bin |
+| [**reportFolderAndFileRecoverAllFromRecycleBin()**](ReportsApi.md#reportFolderAndFileRecoverAllFromRecycleBin) | **POST** /api/rp/v1/Reports/{subscriptionId}/RecoverRecycleBin | Recover all folders and files from recycle bin |
+| [**reportFoldersCalculateFolderSize()**](ReportsApi.md#reportFoldersCalculateFolderSize) | **GET** /api/rp/v1/Reports/Folder/{id}/size | Get specified folder, calculate it&#39;s size |
+| [**reportFoldersCopyFolder()**](ReportsApi.md#reportFoldersCopyFolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Copy/{folderId} | Move folder to a specified folder |
+| [**reportFoldersDeleteFolder()**](ReportsApi.md#reportFoldersDeleteFolder) | **DELETE** /api/rp/v1/Reports/Folder/{id} | Delete specified folder |
+| [**reportFoldersExport()**](ReportsApi.md#reportFoldersExport) | **POST** /api/rp/v1/Reports/Folder/{id}/Export | Export specified report folder to a specified format |
+| [**reportFoldersGetBreadcrumbs()**](ReportsApi.md#reportFoldersGetBreadcrumbs) | **GET** /api/rp/v1/Reports/Folder/{id}/Breadcrumbs | Get specified folder breadcrumbs |
+| [**reportFoldersGetFolder()**](ReportsApi.md#reportFoldersGetFolder) | **GET** /api/rp/v1/Reports/Folder/{id} | Get specified folder |
+| [**reportFoldersGetFolders()**](ReportsApi.md#reportFoldersGetFolders) | **GET** /api/rp/v1/Reports/Folder/{id}/ListFolders | Get all folders from specified folder |
+| [**reportFoldersGetFoldersCount()**](ReportsApi.md#reportFoldersGetFoldersCount) | **GET** /api/rp/v1/Reports/Folder/{id}/CountFolders | Get count of folders what contains in a specified folder |
+| [**reportFoldersGetOrCreate()**](ReportsApi.md#reportFoldersGetOrCreate) | **GET** /api/rp/v1/Reports/Folder/getOrCreate | Get specified folder |
+| [**reportFoldersGetPermissions()**](ReportsApi.md#reportFoldersGetPermissions) | **GET** /api/rp/v1/Reports/Folder/{id}/permissions | Get all folder permissions |
+| [**reportFoldersGetRootFolder()**](ReportsApi.md#reportFoldersGetRootFolder) | **GET** /api/rp/v1/Reports/Root | Get user&#39;s root folder (without parents) |
+| [**reportFoldersMoveFolder()**](ReportsApi.md#reportFoldersMoveFolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Move/{folderId} | Move folder to a specified folder |
+| [**reportFoldersMoveFolderToBin()**](ReportsApi.md#reportFoldersMoveFolderToBin) | **DELETE** /api/rp/v1/Reports/Folder/{id}/ToBin | Move specified folder to recycle bin |
+| [**reportFoldersPostFolder()**](ReportsApi.md#reportFoldersPostFolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Folder | Create folder |
+| [**reportFoldersRecoverFolder()**](ReportsApi.md#reportFoldersRecoverFolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Recover | Recover specified folder |
+| [**reportFoldersRenameFolder()**](ReportsApi.md#reportFoldersRenameFolder) | **PUT** /api/rp/v1/Reports/Folder/{id}/Rename | Rename a folder |
+| [**reportFoldersUpdateIcon()**](ReportsApi.md#reportFoldersUpdateIcon) | **PUT** /api/rp/v1/Reports/Folder/{id}/Icon | Update a folder&#39;s icon |
+| [**reportFoldersUpdatePermissions()**](ReportsApi.md#reportFoldersUpdatePermissions) | **POST** /api/rp/v1/Reports/{id}/permissions | Update permissions |
+| [**reportFoldersUpdateTags()**](ReportsApi.md#reportFoldersUpdateTags) | **PUT** /api/rp/v1/Reports/Folder/{id}/UpdateTags | Update tags |
+| [**reportsCopyFile()**](ReportsApi.md#reportsCopyFile) | **POST** /api/rp/v1/Reports/File/{id}/Copy/{folderId} | Copy file to a specified folder |
+| [**reportsDeleteFile()**](ReportsApi.md#reportsDeleteFile) | **DELETE** /api/rp/v1/Reports/File/{id} | Delete specified file |
+| [**reportsExport()**](ReportsApi.md#reportsExport) | **POST** /api/rp/v1/Reports/File/{id}/Export | Export specified report to a specified format |
+| [**reportsGetFile()**](ReportsApi.md#reportsGetFile) | **GET** /api/rp/v1/Reports/File/{id} | Get specified file |
+| [**reportsGetFileHistory()**](ReportsApi.md#reportsGetFileHistory) | **GET** /api/rp/v1/Reports/File/{id}/History | Returns list of actions, performed on this file |
+| [**reportsGetFilesCount()**](ReportsApi.md#reportsGetFilesCount) | **GET** /api/rp/v1/Reports/Folder/{id}/CountFiles | Get count of files what contains in a specified folder |
+| [**reportsGetFilesList()**](ReportsApi.md#reportsGetFilesList) | **GET** /api/rp/v1/Reports/Folder/{id}/ListFiles | Get all files from specified folder. &lt;br /&gt;  User with Get Entity permission can access this method. &lt;br /&gt;  The method will returns minimal infomration about the file: &lt;br /&gt;  id, name, size, editedTime, createdTime, tags, status, statusReason. |
+| [**reportsGetPermissions()**](ReportsApi.md#reportsGetPermissions) | **GET** /api/rp/v1/Reports/File/{id}/permissions | Get all file permissions |
+| [**reportsMoveFile()**](ReportsApi.md#reportsMoveFile) | **POST** /api/rp/v1/Reports/File/{id}/Move/{folderId} | Move file to a specified folder |
+| [**reportsMoveFileToBin()**](ReportsApi.md#reportsMoveFileToBin) | **DELETE** /api/rp/v1/Reports/File/{id}/ToBin | Move specified file to recycle bin |
+| [**reportsRecoverFile()**](ReportsApi.md#reportsRecoverFile) | **POST** /api/rp/v1/Reports/File/{id}/Recover | Recover specified file from bin |
+| [**reportsRenameFile()**](ReportsApi.md#reportsRenameFile) | **PUT** /api/rp/v1/Reports/File/{id}/Rename | Rename a file |
+| [**reportsStaticPreview()**](ReportsApi.md#reportsStaticPreview) | **POST** /api/rp/v1/Reports/File/{id}/StaticPreview | Make preview for the report.  Generate a new or return exist prepared svg files.  If template was changed will be returned a new.  Pass the &#x60;&#x60; parameter to check prepared timestamp |
+| [**reportsUpdateIcon()**](ReportsApi.md#reportsUpdateIcon) | **PUT** /api/rp/v1/Reports/File/{id}/Icon | Update a files&#39;s icon |
+| [**reportsUpdatePermissions()**](ReportsApi.md#reportsUpdatePermissions) | **POST** /api/rp/v1/Reports/File/{id}/permissions | Update permissions |
+| [**reportsUpdateTags()**](ReportsApi.md#reportsUpdateTags) | **PUT** /api/rp/v1/Reports/File/{id}/UpdateTags | Update tags |
+| [**reportsUploadFile()**](ReportsApi.md#reportsUploadFile) | **POST** /api/rp/v1/Reports/Folder/{id}/File | Upload a file to the specified folder  ! |
 
+
+## `reportFolderAndFileClearRecycleBin()`
+
+```php
+reportFolderAndFileClearRecycleBin($subscription_id)
+```
+
+Delete all folders and files from recycle bin
+
+User with a Delete RecycleBin permission can access this method.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$subscription_id = 'subscription_id_example'; // string | subscription id
+
+try {
+    $apiInstance->reportFolderAndFileClearRecycleBin($subscription_id);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->reportFolderAndFileClearRecycleBin: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| subscription id | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `reportFolderAndFileDeleteFiles()`
+
+```php
+reportFolderAndFileDeleteFiles($subscription_id, $selected_files_for_deleting_vm)
+```
+
+Delete folders and files
+
+User with a Delete permission can access this method.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$subscription_id = 'subscription_id_example'; // string | id of current subscription
+$selected_files_for_deleting_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesForDeletingVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesForDeletingVM | VM with files' ids and params of their destination
+
+try {
+    $apiInstance->reportFolderAndFileDeleteFiles($subscription_id, $selected_files_for_deleting_vm);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->reportFolderAndFileDeleteFiles: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| id of current subscription | |
+| **selected_files_for_deleting_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesForDeletingVM**](../Model/SelectedFilesForDeletingVM.md)| VM with files&#39; ids and params of their destination | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `reportFolderAndFileGetCount()`
 
 ```php
-reportFolderAndFileGetCount($id, $search_pattern): \OpenAPI\Client\cloud\fastreport\model\CountVM
+reportFolderAndFileGetCount($id, $search_pattern, $use_regex): \OpenAPI\Client\cloud\fastreport\model\CountVM
 ```
 
 Get count of files and folders what contains in a specified folder
@@ -69,9 +212,10 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
 );
 $id = 'id_example'; // string | folder id
 $search_pattern = 'search_pattern_example'; // string | string, that must be incuded in file or folder name to be counted <br />              (leave undefined to count all files and folders)
+$use_regex = false; // bool | set this to true if you want to use regular expression to search
 
 try {
-    $result = $apiInstance->reportFolderAndFileGetCount($id, $search_pattern);
+    $result = $apiInstance->reportFolderAndFileGetCount($id, $search_pattern, $use_regex);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportsApi->reportFolderAndFileGetCount: ', $e->getMessage(), PHP_EOL;
@@ -80,10 +224,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| folder id |
- **search_pattern** | **string**| string, that must be incuded in file or folder name to be counted &lt;br /&gt;              (leave undefined to count all files and folders) | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| folder id | |
+| **search_pattern** | **string**| string, that must be incuded in file or folder name to be counted &lt;br /&gt;              (leave undefined to count all files and folders) | [optional] |
+| **use_regex** | **bool**| set this to true if you want to use regular expression to search | [optional] [default to false] |
 
 ### Return type
 
@@ -105,7 +250,7 @@ Name | Type | Description  | Notes
 ## `reportFolderAndFileGetFoldersAndFiles()`
 
 ```php
-reportFolderAndFileGetFoldersAndFiles($id, $skip, $take, $order_by, $desc, $search_pattern): \OpenAPI\Client\cloud\fastreport\model\FilesVM
+reportFolderAndFileGetFoldersAndFiles($id, $skip, $take, $order_by, $desc, $search_pattern, $use_regex): \OpenAPI\Client\cloud\fastreport\model\FilesVM
 ```
 
 Get all folders and files from specified folder
@@ -137,12 +282,13 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
 $id = 'id_example'; // string | folder id
 $skip = 0; // int | number of folder and files, that have to be skipped
 $take = 10; // int | number of folder and files, that have to be returned
-$order_by = new \OpenAPI\Client\cloud\fastreport\model\\OpenAPI\Client\cloud\fastreport\model\FileSorting(); // \OpenAPI\Client\cloud\fastreport\model\FileSorting | indicates a field to sort by
+$order_by = new \OpenAPI\Client\cloud\fastreport\model\FileSorting(); // FileSorting | indicates a field to sort by
 $desc = false; // bool | indicates if sorting is descending
-$search_pattern = ''; // string
+$search_pattern = ''; // string | 
+$use_regex = false; // bool | 
 
 try {
-    $result = $apiInstance->reportFolderAndFileGetFoldersAndFiles($id, $skip, $take, $order_by, $desc, $search_pattern);
+    $result = $apiInstance->reportFolderAndFileGetFoldersAndFiles($id, $skip, $take, $order_by, $desc, $search_pattern, $use_regex);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportsApi->reportFolderAndFileGetFoldersAndFiles: ', $e->getMessage(), PHP_EOL;
@@ -151,18 +297,225 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| folder id |
- **skip** | **int**| number of folder and files, that have to be skipped | [optional] [default to 0]
- **take** | **int**| number of folder and files, that have to be returned | [optional] [default to 10]
- **order_by** | [**\OpenAPI\Client\cloud\fastreport\model\FileSorting**](../Model/.md)| indicates a field to sort by | [optional]
- **desc** | **bool**| indicates if sorting is descending | [optional] [default to false]
- **search_pattern** | **string**|  | [optional] [default to &#39;&#39;]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| folder id | |
+| **skip** | **int**| number of folder and files, that have to be skipped | [optional] [default to 0] |
+| **take** | **int**| number of folder and files, that have to be returned | [optional] [default to 10] |
+| **order_by** | [**FileSorting**](../Model/.md)| indicates a field to sort by | [optional] |
+| **desc** | **bool**| indicates if sorting is descending | [optional] [default to false] |
+| **search_pattern** | **string**|  | [optional] [default to &#39;&#39;] |
+| **use_regex** | **bool**|  | [optional] [default to false] |
 
 ### Return type
 
 [**\OpenAPI\Client\cloud\fastreport\model\FilesVM**](../Model/FilesVM.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `reportFolderAndFileGetRecycleBinFoldersAndFiles()`
+
+```php
+reportFolderAndFileGetRecycleBinFoldersAndFiles($subscription_id, $skip, $take, $order_by, $desc, $search_pattern, $use_regex): \OpenAPI\Client\cloud\fastreport\model\FilesVM
+```
+
+Get all folders and files from recycle bin
+
+User with a Get DeletedFiles permission can access this method.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$subscription_id = 'subscription_id_example'; // string | subscription id
+$skip = 0; // int | number of folder and files, that have to be skipped
+$take = 10; // int | number of folder and files, that have to be returned
+$order_by = new \OpenAPI\Client\cloud\fastreport\model\FileSorting(); // FileSorting | indicates a field to sort by
+$desc = false; // bool | indicates if sorting is descending
+$search_pattern = ''; // string | 
+$use_regex = false; // bool | 
+
+try {
+    $result = $apiInstance->reportFolderAndFileGetRecycleBinFoldersAndFiles($subscription_id, $skip, $take, $order_by, $desc, $search_pattern, $use_regex);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->reportFolderAndFileGetRecycleBinFoldersAndFiles: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| subscription id | |
+| **skip** | **int**| number of folder and files, that have to be skipped | [optional] [default to 0] |
+| **take** | **int**| number of folder and files, that have to be returned | [optional] [default to 10] |
+| **order_by** | [**FileSorting**](../Model/.md)| indicates a field to sort by | [optional] |
+| **desc** | **bool**| indicates if sorting is descending | [optional] [default to false] |
+| **search_pattern** | **string**|  | [optional] [default to &#39;&#39;] |
+| **use_regex** | **bool**|  | [optional] [default to false] |
+
+### Return type
+
+[**\OpenAPI\Client\cloud\fastreport\model\FilesVM**](../Model/FilesVM.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `reportFolderAndFileRecoverAllFromRecycleBin()`
+
+```php
+reportFolderAndFileRecoverAllFromRecycleBin($subscription_id)
+```
+
+Recover all folders and files from recycle bin
+
+User with a Create RecycleBin permission can access this method.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$subscription_id = 'subscription_id_example'; // string | subscription id
+
+try {
+    $apiInstance->reportFolderAndFileRecoverAllFromRecycleBin($subscription_id);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->reportFolderAndFileRecoverAllFromRecycleBin: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| subscription id | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `reportFoldersCalculateFolderSize()`
+
+```php
+reportFoldersCalculateFolderSize($id): \OpenAPI\Client\cloud\fastreport\model\FolderSizeVM
+```
+
+Get specified folder, calculate it's size
+
+User with a Get Entity permission can access this method.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | folder id
+
+try {
+    $result = $apiInstance->reportFoldersCalculateFolderSize($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->reportFoldersCalculateFolderSize: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| folder id | |
+
+### Return type
+
+[**\OpenAPI\Client\cloud\fastreport\model\FolderSizeVM**](../Model/FolderSizeVM.md)
 
 ### Authorization
 
@@ -222,10 +575,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| moving folder id |
- **folder_id** | **string**| destination folder id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| moving folder id | |
+| **folder_id** | **string**| destination folder id | |
 
 ### Return type
 
@@ -247,7 +600,7 @@ Name | Type | Description  | Notes
 ## `reportFoldersDeleteFolder()`
 
 ```php
-reportFoldersDeleteFolder($id, $recursive)
+reportFoldersDeleteFolder($id)
 ```
 
 Delete specified folder
@@ -277,10 +630,9 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     $config
 );
 $id = 'id_example'; // string | folder id
-$recursive = true; // bool | delete all childs
 
 try {
-    $apiInstance->reportFoldersDeleteFolder($id, $recursive);
+    $apiInstance->reportFoldersDeleteFolder($id);
 } catch (Exception $e) {
     echo 'Exception when calling ReportsApi->reportFoldersDeleteFolder: ', $e->getMessage(), PHP_EOL;
 }
@@ -288,10 +640,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| folder id |
- **recursive** | **bool**| delete all childs | [optional] [default to true]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| folder id | |
 
 ### Return type
 
@@ -304,6 +655,73 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `reportFoldersExport()`
+
+```php
+reportFoldersExport($id, $export_report_vm): \OpenAPI\Client\cloud\fastreport\model\FileVM
+```
+
+Export specified report folder to a specified format
+
+User with Execute Export permission on report folder and  Create Entity on an export folder can access this method.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | report folder id
+$export_report_vm = new \OpenAPI\Client\cloud\fastreport\model\ExportReportVM(); // \OpenAPI\Client\cloud\fastreport\model\ExportReportVM | export parameters
+
+try {
+    $result = $apiInstance->reportFoldersExport($id, $export_report_vm);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->reportFoldersExport: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| report folder id | |
+| **export_report_vm** | [**\OpenAPI\Client\cloud\fastreport\model\ExportReportVM**](../Model/ExportReportVM.md)| export parameters | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\cloud\fastreport\model\FileVM**](../Model/FileVM.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -354,9 +772,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| folder id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| folder id | |
 
 ### Return type
 
@@ -419,9 +837,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| folder id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| folder id | |
 
 ### Return type
 
@@ -443,7 +861,7 @@ Name | Type | Description  | Notes
 ## `reportFoldersGetFolders()`
 
 ```php
-reportFoldersGetFolders($id, $skip, $take): \OpenAPI\Client\cloud\fastreport\model\FilesVM
+reportFoldersGetFolders($id, $skip, $take, $order_by, $desc, $search_pattern, $use_regex): \OpenAPI\Client\cloud\fastreport\model\FilesVM
 ```
 
 Get all folders from specified folder
@@ -475,9 +893,13 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
 $id = 'id_example'; // string | folder id
 $skip = 0; // int | number of files, that have to be skipped
 $take = 10; // int | number of files, that have to be returned
+$order_by = new \OpenAPI\Client\cloud\fastreport\model\FileSorting(); // FileSorting | 
+$desc = false; // bool | 
+$search_pattern = ''; // string | 
+$use_regex = false; // bool | 
 
 try {
-    $result = $apiInstance->reportFoldersGetFolders($id, $skip, $take);
+    $result = $apiInstance->reportFoldersGetFolders($id, $skip, $take, $order_by, $desc, $search_pattern, $use_regex);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportsApi->reportFoldersGetFolders: ', $e->getMessage(), PHP_EOL;
@@ -486,11 +908,15 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| folder id |
- **skip** | **int**| number of files, that have to be skipped | [optional] [default to 0]
- **take** | **int**| number of files, that have to be returned | [optional] [default to 10]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| folder id | |
+| **skip** | **int**| number of files, that have to be skipped | [optional] [default to 0] |
+| **take** | **int**| number of files, that have to be returned | [optional] [default to 10] |
+| **order_by** | [**FileSorting**](../Model/.md)|  | [optional] |
+| **desc** | **bool**|  | [optional] [default to false] |
+| **search_pattern** | **string**|  | [optional] [default to &#39;&#39;] |
+| **use_regex** | **bool**|  | [optional] [default to false] |
 
 ### Return type
 
@@ -553,13 +979,82 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| folder id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| folder id | |
 
 ### Return type
 
 [**\OpenAPI\Client\cloud\fastreport\model\CountVM**](../Model/CountVM.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `reportFoldersGetOrCreate()`
+
+```php
+reportFoldersGetOrCreate($name, $subscription_id, $parent_id): \OpenAPI\Client\cloud\fastreport\model\FileVM
+```
+
+Get specified folder
+
+User with a Get Entity permission can access this method.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$name = 'name_example'; // string | folder name
+$subscription_id = 'subscription_id_example'; // string | subscriptionId
+$parent_id = 'parent_id_example'; // string | parent folder id
+
+try {
+    $result = $apiInstance->reportFoldersGetOrCreate($name, $subscription_id, $parent_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->reportFoldersGetOrCreate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **name** | **string**| folder name | [optional] |
+| **subscription_id** | **string**| subscriptionId | [optional] |
+| **parent_id** | **string**| parent folder id | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\cloud\fastreport\model\FileVM**](../Model/FileVM.md)
 
 ### Authorization
 
@@ -604,7 +1099,7 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
+$id = 'id_example'; // string | 
 
 try {
     $result = $apiInstance->reportFoldersGetPermissions($id);
@@ -616,9 +1111,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
 
 ### Return type
 
@@ -681,9 +1176,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscription_id** | **string**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**|  | [optional] |
 
 ### Return type
 
@@ -747,14 +1242,78 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| moving folder id |
- **folder_id** | **string**| destination folder id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| moving folder id | |
+| **folder_id** | **string**| destination folder id | |
 
 ### Return type
 
 [**\OpenAPI\Client\cloud\fastreport\model\FileVM**](../Model/FileVM.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `reportFoldersMoveFolderToBin()`
+
+```php
+reportFoldersMoveFolderToBin($id)
+```
+
+Move specified folder to recycle bin
+
+User with a Delete Entity permission can access this method.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | folder id
+
+try {
+    $apiInstance->reportFoldersMoveFolderToBin($id);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->reportFoldersMoveFolderToBin: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| folder id | |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
@@ -814,10 +1373,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of parent folder id |
- **report_folder_create_vm** | [**\OpenAPI\Client\cloud\fastreport\model\ReportFolderCreateVM**](../Model/ReportFolderCreateVM.md)| create VM | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Identifier of parent folder id | |
+| **report_folder_create_vm** | [**\OpenAPI\Client\cloud\fastreport\model\ReportFolderCreateVM**](../Model/ReportFolderCreateVM.md)| create VM | [optional] |
 
 ### Return type
 
@@ -829,7 +1388,73 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `reportFoldersRecoverFolder()`
+
+```php
+reportFoldersRecoverFolder($id, $recovery_path)
+```
+
+Recover specified folder
+
+User with a Delete Entity permission can access this method.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | folder id
+$recovery_path = 'recovery_path_example'; // string | 
+
+try {
+    $apiInstance->reportFoldersRecoverFolder($id, $recovery_path);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->reportFoldersRecoverFolder: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| folder id | |
+| **recovery_path** | **string**|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -881,10 +1506,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**|  |
- **folder_rename_vm** | [**\OpenAPI\Client\cloud\fastreport\model\FolderRenameVM**](../Model/FolderRenameVM.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+| **folder_rename_vm** | [**\OpenAPI\Client\cloud\fastreport\model\FolderRenameVM**](../Model/FolderRenameVM.md)|  | [optional] |
 
 ### Return type
 
@@ -896,7 +1521,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -948,10 +1573,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of folder |
- **folder_icon_vm** | [**\OpenAPI\Client\cloud\fastreport\model\FolderIconVM**](../Model/FolderIconVM.md)| Update icon model | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Identifier of folder | |
+| **folder_icon_vm** | [**\OpenAPI\Client\cloud\fastreport\model\FolderIconVM**](../Model/FolderIconVM.md)| Update icon model | [optional] |
 
 ### Return type
 
@@ -963,7 +1588,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1000,8 +1625,8 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
-$update_file_permissions_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM
+$id = 'id_example'; // string | 
+$update_file_permissions_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM | 
 
 try {
     $apiInstance->reportFoldersUpdatePermissions($id, $update_file_permissions_vm);
@@ -1012,10 +1637,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**|  |
- **update_file_permissions_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM**](../Model/UpdateFilePermissionsVM.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+| **update_file_permissions_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM**](../Model/UpdateFilePermissionsVM.md)|  | [optional] |
 
 ### Return type
 
@@ -1027,7 +1652,7 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1079,10 +1704,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**|  |
- **folder_tags_update_vm** | [**\OpenAPI\Client\cloud\fastreport\model\FolderTagsUpdateVM**](../Model/FolderTagsUpdateVM.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+| **folder_tags_update_vm** | [**\OpenAPI\Client\cloud\fastreport\model\FolderTagsUpdateVM**](../Model/FolderTagsUpdateVM.md)|  | [optional] |
 
 ### Return type
 
@@ -1094,7 +1719,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1144,10 +1769,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| file id |
- **folder_id** | **string**| folder id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| file id | |
+| **folder_id** | **string**| folder id | |
 
 ### Return type
 
@@ -1209,9 +1834,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| file id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| file id | |
 
 ### Return type
 
@@ -1275,10 +1900,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| report id |
- **export_report_vm** | [**\OpenAPI\Client\cloud\fastreport\model\ExportReportVM**](../Model/ExportReportVM.md)| export parameters | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| report id | |
+| **export_report_vm** | [**\OpenAPI\Client\cloud\fastreport\model\ExportReportVM**](../Model/ExportReportVM.md)| export parameters | [optional] |
 
 ### Return type
 
@@ -1290,7 +1915,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1341,13 +1966,80 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| file id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| file id | |
 
 ### Return type
 
 [**\OpenAPI\Client\cloud\fastreport\model\ReportVM**](../Model/ReportVM.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `reportsGetFileHistory()`
+
+```php
+reportsGetFileHistory($id, $skip, $take): \OpenAPI\Client\cloud\fastreport\model\AuditActionsVM
+```
+
+Returns list of actions, performed on this file
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | 
+$skip = 0; // int | 
+$take = 10; // int | 
+
+try {
+    $result = $apiInstance->reportsGetFileHistory($id, $skip, $take);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->reportsGetFileHistory: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+| **skip** | **int**|  | [optional] [default to 0] |
+| **take** | **int**|  | [optional] [default to 10] |
+
+### Return type
+
+[**\OpenAPI\Client\cloud\fastreport\model\AuditActionsVM**](../Model/AuditActionsVM.md)
 
 ### Authorization
 
@@ -1406,9 +2098,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| folder id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| folder id | |
 
 ### Return type
 
@@ -1430,7 +2122,7 @@ Name | Type | Description  | Notes
 ## `reportsGetFilesList()`
 
 ```php
-reportsGetFilesList($id, $skip, $take, $search_pattern): \OpenAPI\Client\cloud\fastreport\model\ReportsVM
+reportsGetFilesList($id, $skip, $take, $search_pattern, $order_by, $desc, $use_regex): \OpenAPI\Client\cloud\fastreport\model\ReportsVM
 ```
 
 Get all files from specified folder. <br />  User with Get Entity permission can access this method. <br />  The method will returns minimal infomration about the file: <br />  id, name, size, editedTime, createdTime, tags, status, statusReason.
@@ -1460,10 +2152,13 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
 $id = 'id_example'; // string | folder id
 $skip = 0; // int | number of files, that have to be skipped
 $take = 10; // int | number of files, that have to be returned
-$search_pattern = 'search_pattern_example'; // string
+$search_pattern = 'search_pattern_example'; // string | 
+$order_by = new \OpenAPI\Client\cloud\fastreport\model\FileSorting(); // FileSorting | 
+$desc = false; // bool | 
+$use_regex = false; // bool | 
 
 try {
-    $result = $apiInstance->reportsGetFilesList($id, $skip, $take, $search_pattern);
+    $result = $apiInstance->reportsGetFilesList($id, $skip, $take, $search_pattern, $order_by, $desc, $use_regex);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportsApi->reportsGetFilesList: ', $e->getMessage(), PHP_EOL;
@@ -1472,12 +2167,15 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| folder id |
- **skip** | **int**| number of files, that have to be skipped | [optional] [default to 0]
- **take** | **int**| number of files, that have to be returned | [optional] [default to 10]
- **search_pattern** | **string**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| folder id | |
+| **skip** | **int**| number of files, that have to be skipped | [optional] [default to 0] |
+| **take** | **int**| number of files, that have to be returned | [optional] [default to 10] |
+| **search_pattern** | **string**|  | [optional] |
+| **order_by** | [**FileSorting**](../Model/.md)|  | [optional] |
+| **desc** | **bool**|  | [optional] [default to false] |
+| **use_regex** | **bool**|  | [optional] [default to false] |
 
 ### Return type
 
@@ -1526,7 +2224,7 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
+$id = 'id_example'; // string | 
 
 try {
     $result = $apiInstance->reportsGetPermissions($id);
@@ -1538,9 +2236,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
 
 ### Return type
 
@@ -1604,14 +2302,144 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| file id |
- **folder_id** | **string**| folder id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| file id | |
+| **folder_id** | **string**| folder id | |
 
 ### Return type
 
 [**\OpenAPI\Client\cloud\fastreport\model\ReportVM**](../Model/ReportVM.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `reportsMoveFileToBin()`
+
+```php
+reportsMoveFileToBin($id)
+```
+
+Move specified file to recycle bin
+
+User with Delete permission can access the method.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | file id
+
+try {
+    $apiInstance->reportsMoveFileToBin($id);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->reportsMoveFileToBin: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| file id | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `reportsRecoverFile()`
+
+```php
+reportsRecoverFile($id, $recovery_path)
+```
+
+Recover specified file from bin
+
+User with Delete permission can access the method.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | file id
+$recovery_path = 'recovery_path_example'; // string | 
+
+try {
+    $apiInstance->reportsRecoverFile($id, $recovery_path);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->reportsRecoverFile: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| file id | |
+| **recovery_path** | **string**|  | [optional] |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
@@ -1671,10 +2499,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**|  |
- **file_rename_vm** | [**\OpenAPI\Client\cloud\fastreport\model\FileRenameVM**](../Model/FileRenameVM.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+| **file_rename_vm** | [**\OpenAPI\Client\cloud\fastreport\model\FileRenameVM**](../Model/FileRenameVM.md)|  | [optional] |
 
 ### Return type
 
@@ -1686,7 +2514,72 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `reportsStaticPreview()`
+
+```php
+reportsStaticPreview($id, $preview_report_vm): \OpenAPI\Client\cloud\fastreport\model\ExportVM
+```
+
+Make preview for the report.  Generate a new or return exist prepared svg files.  If template was changed will be returned a new.  Pass the `` parameter to check prepared timestamp
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | template id
+$preview_report_vm = new \OpenAPI\Client\cloud\fastreport\model\PreviewReportVM(); // \OpenAPI\Client\cloud\fastreport\model\PreviewReportVM | Model with parameters
+
+try {
+    $result = $apiInstance->reportsStaticPreview($id, $preview_report_vm);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->reportsStaticPreview: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| template id | |
+| **preview_report_vm** | [**\OpenAPI\Client\cloud\fastreport\model\PreviewReportVM**](../Model/PreviewReportVM.md)| Model with parameters | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\cloud\fastreport\model\ExportVM**](../Model/ExportVM.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1738,10 +2631,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**|  |
- **file_icon_vm** | [**\OpenAPI\Client\cloud\fastreport\model\FileIconVM**](../Model/FileIconVM.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+| **file_icon_vm** | [**\OpenAPI\Client\cloud\fastreport\model\FileIconVM**](../Model/FileIconVM.md)|  | [optional] |
 
 ### Return type
 
@@ -1753,7 +2646,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1790,8 +2683,8 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
-$update_file_permissions_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM
+$id = 'id_example'; // string | 
+$update_file_permissions_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM | 
 
 try {
     $apiInstance->reportsUpdatePermissions($id, $update_file_permissions_vm);
@@ -1802,10 +2695,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**|  |
- **update_file_permissions_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM**](../Model/UpdateFilePermissionsVM.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+| **update_file_permissions_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM**](../Model/UpdateFilePermissionsVM.md)|  | [optional] |
 
 ### Return type
 
@@ -1817,7 +2710,7 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1869,10 +2762,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**|  |
- **file_tags_update_vm** | [**\OpenAPI\Client\cloud\fastreport\model\FileTagsUpdateVM**](../Model/FileTagsUpdateVM.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+| **file_tags_update_vm** | [**\OpenAPI\Client\cloud\fastreport\model\FileTagsUpdateVM**](../Model/FileTagsUpdateVM.md)|  | [optional] |
 
 ### Return type
 
@@ -1884,7 +2777,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1936,10 +2829,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of folder |
- **report_create_vm** | [**\OpenAPI\Client\cloud\fastreport\model\ReportCreateVM**](../Model/ReportCreateVM.md)| file&#39;s view model | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Identifier of folder | |
+| **report_create_vm** | [**\OpenAPI\Client\cloud\fastreport\model\ReportCreateVM**](../Model/ReportCreateVM.md)| file&#39;s view model | [optional] |
 
 ### Return type
 
@@ -1951,7 +2844,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

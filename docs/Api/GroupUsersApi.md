@@ -1,13 +1,13 @@
 # OpenAPI\Client\GroupUsersApi
 
-All URIs are relative to http://localhost.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**groupUsersAddUserToGroup()**](GroupUsersApi.md#groupUsersAddUserToGroup) | **PUT** /api/manage/v1/Groups/{id}/Users/{userId} | Add user to the group by identifier
-[**groupUsersGetUsersInGroup()**](GroupUsersApi.md#groupUsersGetUsersInGroup) | **GET** /api/manage/v1/Groups/{id}/Users | Returns users in the group by identifier
-[**groupUsersLeaveFromGroup()**](GroupUsersApi.md#groupUsersLeaveFromGroup) | **DELETE** /api/manage/v1/Groups/{id}/leave | Leave from the group
-[**groupUsersRemoveFromGroup()**](GroupUsersApi.md#groupUsersRemoveFromGroup) | **DELETE** /api/manage/v1/Groups/{id}/Users/{userId} | Remove user from the group by identifier
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**groupUsersAddUserToGroup()**](GroupUsersApi.md#groupUsersAddUserToGroup) | **PUT** /api/manage/v1/Groups/{id}/Users/{userId} | Add user to the group by identifier |
+| [**groupUsersGetUsersInGroup()**](GroupUsersApi.md#groupUsersGetUsersInGroup) | **GET** /api/manage/v1/Groups/{id}/Users | Returns users in the group by identifier |
+| [**groupUsersLeaveFromGroup()**](GroupUsersApi.md#groupUsersLeaveFromGroup) | **DELETE** /api/manage/v1/Groups/{id}/leave | Leave from the group |
+| [**groupUsersRemoveFromGroup()**](GroupUsersApi.md#groupUsersRemoveFromGroup) | **DELETE** /api/manage/v1/Groups/{id}/Users/{userId} | Remove user from the group by identifier |
 
 
 ## `groupUsersAddUserToGroup()`
@@ -52,10 +52,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of group |
- **user_id** | **string**| Identifier of user |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Identifier of group | |
+| **user_id** | **string**| Identifier of user | |
 
 ### Return type
 
@@ -118,11 +118,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of group |
- **skip** | **int**| how many to skip | [optional] [default to 0]
- **take** | **int**| how many to take | [optional] [default to 10]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Identifier of group | |
+| **skip** | **int**| how many to skip | [optional] [default to 0] |
+| **take** | **int**| how many to take | [optional] [default to 10] |
 
 ### Return type
 
@@ -182,9 +182,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of group |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Identifier of group | |
 
 ### Return type
 
@@ -245,10 +245,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of group |
- **user_id** | **string**| Identifier of user |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Identifier of group | |
+| **user_id** | **string**| Identifier of user | |
 
 ### Return type
 

@@ -4,9 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**endpoints** | [**\OpenAPI\Client\cloud\fastreport\model\EndpointVM[]**](EndpointVM.md) |  | [optional]
-**name** | **string** |  | [optional]
-**subscription_id** | **string** |  | [optional]
-**type** | [**\OpenAPI\Client\cloud\fastreport\model\TaskType**](TaskType.md) |  | [optional]
+**headers** | **array<string,string>** |  | [optional]
+**url** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

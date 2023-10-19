@@ -1,24 +1,24 @@
 # OpenAPI\Client\SubscriptionsApi
 
-All URIs are relative to http://localhost.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**subscriptionsGetDefaultPermissions()**](SubscriptionsApi.md#subscriptionsGetDefaultPermissions) | **GET** /api/manage/v1/Subscriptions/{subscriptionId}/defaultPermissions | Get subscription&#39;s default permissions for new entities
-[**subscriptionsGetMyPermissions()**](SubscriptionsApi.md#subscriptionsGetMyPermissions) | **GET** /api/manage/v1/Subscriptions/{subId}/mypermissions | Get user&#39;s permissions for a subscription by id
-[**subscriptionsGetPermissions()**](SubscriptionsApi.md#subscriptionsGetPermissions) | **GET** /api/manage/v1/Subscriptions/{id}/permissions | Get permissions for a subscription by id
-[**subscriptionsGetSubscription()**](SubscriptionsApi.md#subscriptionsGetSubscription) | **GET** /api/manage/v1/Subscriptions/{id} | Returns the subscription by id
-[**subscriptionsGetSubscriptions()**](SubscriptionsApi.md#subscriptionsGetSubscriptions) | **GET** /api/manage/v1/Subscriptions | Returns a list of all subscriptions of current user
-[**subscriptionsRenameSubscription()**](SubscriptionsApi.md#subscriptionsRenameSubscription) | **PUT** /api/manage/v1/Subscriptions/{subscriptionId}/rename | Rename subscription
-[**subscriptionsUpdateDefaultPermissions()**](SubscriptionsApi.md#subscriptionsUpdateDefaultPermissions) | **PUT** /api/manage/v1/Subscriptions/{subscriptionId}/defaultPermissions | Change subscription&#39;s default permissions for new entities
-[**subscriptionsUpdateLocale()**](SubscriptionsApi.md#subscriptionsUpdateLocale) | **PUT** /api/manage/v1/Subscriptions/{subscriptionId}/Locale | Update subscription&#39;s default locale
-[**subscriptionsUpdatePermissions()**](SubscriptionsApi.md#subscriptionsUpdatePermissions) | **POST** /api/manage/v1/Subscriptions/{id}/permissions | Update permissions
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**subscriptionsGetDefaultPermissions()**](SubscriptionsApi.md#subscriptionsGetDefaultPermissions) | **GET** /api/manage/v1/Subscriptions/{subscriptionId}/defaultPermissions | Get subscription&#39;s default permissions for new entities |
+| [**subscriptionsGetMyPermissions()**](SubscriptionsApi.md#subscriptionsGetMyPermissions) | **GET** /api/manage/v1/Subscriptions/{subId}/mypermissions | Get user&#39;s permissions for a subscription by id |
+| [**subscriptionsGetPermissions()**](SubscriptionsApi.md#subscriptionsGetPermissions) | **GET** /api/manage/v1/Subscriptions/{id}/permissions | Get permissions for a subscription by id |
+| [**subscriptionsGetSubscription()**](SubscriptionsApi.md#subscriptionsGetSubscription) | **GET** /api/manage/v1/Subscriptions/{id} | Returns the subscription by id |
+| [**subscriptionsGetSubscriptions()**](SubscriptionsApi.md#subscriptionsGetSubscriptions) | **GET** /api/manage/v1/Subscriptions | Returns a list of all subscriptions of current user |
+| [**subscriptionsRenameSubscription()**](SubscriptionsApi.md#subscriptionsRenameSubscription) | **PUT** /api/manage/v1/Subscriptions/{subscriptionId}/rename | Rename subscription |
+| [**subscriptionsUpdateDefaultPermissions()**](SubscriptionsApi.md#subscriptionsUpdateDefaultPermissions) | **PUT** /api/manage/v1/Subscriptions/{subscriptionId}/defaultPermissions | Change subscription&#39;s default permissions for new entities |
+| [**subscriptionsUpdateLocale()**](SubscriptionsApi.md#subscriptionsUpdateLocale) | **PUT** /api/manage/v1/Subscriptions/{subscriptionId}/Locale | Update subscription&#39;s default locale |
+| [**subscriptionsUpdatePermissions()**](SubscriptionsApi.md#subscriptionsUpdatePermissions) | **POST** /api/manage/v1/Subscriptions/{id}/permissions | Update permissions |
 
 
 ## `subscriptionsGetDefaultPermissions()`
 
 ```php
-subscriptionsGetDefaultPermissions($subscription_id): \OpenAPI\Client\cloud\fastreport\model\DefaultPermissions
+subscriptionsGetDefaultPermissions($subscription_id): \OpenAPI\Client\cloud\fastreport\model\DefaultPermissionsVM
 ```
 
 Get subscription's default permissions for new entities
@@ -57,13 +57,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscription_id** | **string**| id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| id | |
 
 ### Return type
 
-[**\OpenAPI\Client\cloud\fastreport\model\DefaultPermissions**](../Model/DefaultPermissions.md)
+[**\OpenAPI\Client\cloud\fastreport\model\DefaultPermissionsVM**](../Model/DefaultPermissionsVM.md)
 
 ### Authorization
 
@@ -120,9 +120,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sub_id** | **string**| subscription id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **sub_id** | **string**| subscription id | |
 
 ### Return type
 
@@ -171,7 +171,7 @@ $apiInstance = new OpenAPI\Client\Api\SubscriptionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
+$id = 'id_example'; // string | 
 
 try {
     $result = $apiInstance->subscriptionsGetPermissions($id);
@@ -183,9 +183,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
 
 ### Return type
 
@@ -246,9 +246,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of subscription |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Identifier of subscription | |
 
 ### Return type
 
@@ -310,10 +310,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **skip** | **int**| Variable for pagination, defautl value is 0 | [optional] [default to 0]
- **take** | **int**| Variable for pagination, default value is 10 | [optional] [default to 10]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **skip** | **int**| Variable for pagination, defautl value is 0 | [optional] [default to 0] |
+| **take** | **int**| Variable for pagination, default value is 10 | [optional] [default to 10] |
 
 ### Return type
 
@@ -375,10 +375,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscription_id** | **string**| id |
- **rename_subscription_vm** | [**\OpenAPI\Client\cloud\fastreport\model\RenameSubscriptionVM**](../Model/RenameSubscriptionVM.md)| rename VM |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| id | |
+| **rename_subscription_vm** | [**\OpenAPI\Client\cloud\fastreport\model\RenameSubscriptionVM**](../Model/RenameSubscriptionVM.md)| rename VM | |
 
 ### Return type
 
@@ -390,7 +390,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -440,10 +440,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscription_id** | **string**| id |
- **update_default_permissions_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateDefaultPermissionsVM**](../Model/UpdateDefaultPermissionsVM.md)| update default permissions VM |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| id | |
+| **update_default_permissions_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateDefaultPermissionsVM**](../Model/UpdateDefaultPermissionsVM.md)| update default permissions VM | |
 
 ### Return type
 
@@ -455,7 +455,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -505,10 +505,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscription_id** | **string**| id |
- **update_subscription_locale_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionLocaleVM**](../Model/UpdateSubscriptionLocaleVM.md)| update VM |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| id | |
+| **update_subscription_locale_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionLocaleVM**](../Model/UpdateSubscriptionLocaleVM.md)| update VM | |
 
 ### Return type
 
@@ -520,7 +520,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -557,8 +557,8 @@ $apiInstance = new OpenAPI\Client\Api\SubscriptionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
-$update_subscription_permissions_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionPermissionsVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionPermissionsVM
+$id = 'id_example'; // string | 
+$update_subscription_permissions_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionPermissionsVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionPermissionsVM | 
 
 try {
     $apiInstance->subscriptionsUpdatePermissions($id, $update_subscription_permissions_vm);
@@ -569,10 +569,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**|  |
- **update_subscription_permissions_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionPermissionsVM**](../Model/UpdateSubscriptionPermissionsVM.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+| **update_subscription_permissions_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionPermissionsVM**](../Model/UpdateSubscriptionPermissionsVM.md)|  | [optional] |
 
 ### Return type
 
@@ -584,7 +584,7 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

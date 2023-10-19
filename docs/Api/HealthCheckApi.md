@@ -1,10 +1,10 @@
 # OpenAPI\Client\HealthCheckApi
 
-All URIs are relative to http://localhost.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**healthCheckDataGet()**](HealthCheckApi.md#healthCheckDataGet) | **GET** /api/backend/v1/HealthCheck | healthcheck
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**healthCheckDataGet()**](HealthCheckApi.md#healthCheckDataGet) | **GET** /api/backend/v1/HealthCheck | healthcheck |
 
 
 ## `healthCheckDataGet()`

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **usages** | **int** |  | [optional]
 **durable** | **bool** |  | [optional]
 **access_token** | **string** |  | [optional]
-**expired_date** | [**\DateTime**](\DateTime.md) |  | [optional]
+**expired_date** | **\DateTime** |  | [optional]
 **added_users** | [**\OpenAPI\Client\cloud\fastreport\model\InvitedUser[]**](InvitedUser.md) |  | [optional]
 **creator_user_id** | **string** |  | [optional]
 

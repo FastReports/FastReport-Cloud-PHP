@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **author** | **string** |  | [optional]
-**created** | [**\DateTime**](\DateTime.md) |  | [optional]
+**created** | **\DateTime** |  | [optional]
 **creator_version** | **string** |  | [optional]
 **description** | **string** |  | [optional]
-**modified** | [**\DateTime**](\DateTime.md) |  | [optional]
+**modified** | **\DateTime** |  | [optional]
 **name** | **string** |  | [optional]
 **picture** | **string** |  | [optional]
 **preview_picture_ratio** | **float** |  | [optional]

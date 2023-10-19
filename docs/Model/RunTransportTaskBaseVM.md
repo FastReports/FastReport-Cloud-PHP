@@ -4,8 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**files** | [**\OpenAPI\Client\cloud\fastreport\model\RunInputFileVM[]**](RunInputFileVM.md) |  | [optional]
-**subscription_id** | **string** |  | [optional]
-**type** | [**\OpenAPI\Client\cloud\fastreport\model\TaskType**](TaskType.md) |  | [optional]
+**input_file** | [**\OpenAPI\Client\cloud\fastreport\model\RunInputFileVM**](RunInputFileVM.md) |  | [optional]
+**t** | **string** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

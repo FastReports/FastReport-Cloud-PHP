@@ -1,10 +1,10 @@
 # OpenAPI\Client\ConfigurationApi
 
-All URIs are relative to http://localhost.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**configurationGet()**](ConfigurationApi.md#configurationGet) | **GET** /api/v1/Configuration | returns information about server configuration
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**configurationGet()**](ConfigurationApi.md#configurationGet) | **GET** /api/v1/Configuration | returns information about server configuration |
 
 
 ## `configurationGet()`

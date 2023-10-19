@@ -85,6 +85,18 @@ Class | Method | HTTP request | Description
 *ApiKeysApi* | [**apiKeysDeleteApiKey**](docs/Api/ApiKeysApi.md#apikeysdeleteapikey) | **DELETE** /api/manage/v1/ApiKeys | Delete an apikey
 *ApiKeysApi* | [**apiKeysGetApiKeys**](docs/Api/ApiKeysApi.md#apikeysgetapikeys) | **GET** /api/manage/v1/ApiKeys | Returns list with all api keys of current user
 *ConfigurationApi* | [**configurationGet**](docs/Api/ConfigurationApi.md#configurationget) | **GET** /api/v1/Configuration | returns information about server configuration
+*ContactGroupsApi* | [**contactGroupsCreate**](docs/Api/ContactGroupsApi.md#contactgroupscreate) | **POST** /api/v1/ContactGroups/group | Creates contact group
+*ContactGroupsApi* | [**contactGroupsDelete**](docs/Api/ContactGroupsApi.md#contactgroupsdelete) | **DELETE** /api/v1/ContactGroups/{id} | Removes contact by id
+*ContactGroupsApi* | [**contactGroupsGet**](docs/Api/ContactGroupsApi.md#contactgroupsget) | **GET** /api/v1/ContactGroups/{id} | Returns contact group by id
+*ContactGroupsApi* | [**contactGroupsGetList**](docs/Api/ContactGroupsApi.md#contactgroupsgetlist) | **GET** /api/v1/ContactGroups/subscription/{subscriptionId}/groups | Returns contact groups by subscriptionId
+*ContactGroupsApi* | [**contactGroupsUpdate**](docs/Api/ContactGroupsApi.md#contactgroupsupdate) | **PUT** /api/v1/ContactGroups/{id} | Updates contact group by id
+*ContactsApi* | [**contactsCreate**](docs/Api/ContactsApi.md#contactscreate) | **POST** /api/v1/Contacts/contact | Creates new contact
+*ContactsApi* | [**contactsDelete**](docs/Api/ContactsApi.md#contactsdelete) | **DELETE** /api/v1/Contacts/{id} | Removes contact by id
+*ContactsApi* | [**contactsGet**](docs/Api/ContactsApi.md#contactsget) | **GET** /api/v1/Contacts/{id} | Returns contact group by id
+*ContactsApi* | [**contactsGetByGroup**](docs/Api/ContactsApi.md#contactsgetbygroup) | **GET** /api/v1/Contacts/group/{groupId}/contacts | Returns contacts by group id
+*ContactsApi* | [**contactsGetList**](docs/Api/ContactsApi.md#contactsgetlist) | **GET** /api/v1/Contacts/subscription/{subscriptionId}/contacts | Allows to search for contacts
+*ContactsApi* | [**contactsUpdate**](docs/Api/ContactsApi.md#contactsupdate) | **PUT** /api/v1/Contacts/{id} | Updates contact by id
+*DataSourcesApi* | [**dataSourcesCountDataSourcesAsync**](docs/Api/DataSourcesApi.md#datasourcescountdatasourcesasync) | **GET** /api/data/v1/DataSources/{subscriptionId}/count | Returns a number of data sources in subscription
 *DataSourcesApi* | [**dataSourcesCreateDataSource**](docs/Api/DataSourcesApi.md#datasourcescreatedatasource) | **POST** /api/data/v1/DataSources | Create new data source
 *DataSourcesApi* | [**dataSourcesDeleteDataSource**](docs/Api/DataSourcesApi.md#datasourcesdeletedatasource) | **DELETE** /api/data/v1/DataSources/{id} | Delete data source by id
 *DataSourcesApi* | [**dataSourcesFetchData**](docs/Api/DataSourcesApi.md#datasourcesfetchdata) | **GET** /api/data/v1/DataSources/{id}/fetch | This should connect to a database and set data structure
@@ -98,24 +110,33 @@ Class | Method | HTTP request | Description
 *DownloadApi* | [**downloadGetExport**](docs/Api/DownloadApi.md#downloadgetexport) | **GET** /download/e/{id} | Returns a export file with specified id
 *DownloadApi* | [**downloadGetExportThumbnail**](docs/Api/DownloadApi.md#downloadgetexportthumbnail) | **GET** /download/e/{id}/thumbnail | Returns export&#39;s thumbnail
 *DownloadApi* | [**downloadGetExports**](docs/Api/DownloadApi.md#downloadgetexports) | **GET** /download/es/{archiveName} | Returns a zip archive with selected ids
+*DownloadApi* | [**downloadGetLastSVGExport**](docs/Api/DownloadApi.md#downloadgetlastsvgexport) | **GET** /download/lastPreview/{reportId} | returns export, that was created from report with specified id.  INTERNAL USAGE ONLY!
 *DownloadApi* | [**downloadGetReport**](docs/Api/DownloadApi.md#downloadgetreport) | **GET** /download/r/{id} | Returns a prepared file with specified id
 *DownloadApi* | [**downloadGetReportThumbnail**](docs/Api/DownloadApi.md#downloadgetreportthumbnail) | **GET** /download/r/{id}/thumbnail | Returns report&#39;s thumbnail
 *DownloadApi* | [**downloadGetReports**](docs/Api/DownloadApi.md#downloadgetreports) | **GET** /download/rs/{archiveName} | Returns a zip archive with selected files
 *DownloadApi* | [**downloadGetTemplate**](docs/Api/DownloadApi.md#downloadgettemplate) | **GET** /download/t/{id} | Returns a Template file with specified id
 *DownloadApi* | [**downloadGetTemplateThumbnail**](docs/Api/DownloadApi.md#downloadgettemplatethumbnail) | **GET** /download/t/{id}/thumbnail | Returns template&#39;s thumbnail
 *DownloadApi* | [**downloadGetTemplates**](docs/Api/DownloadApi.md#downloadgettemplates) | **GET** /download/ts/{archiveName} | Returns a zip archive with selected files
+*ExportsApi* | [**exportFolderAndFileClearRecycleBin**](docs/Api/ExportsApi.md#exportfolderandfileclearrecyclebin) | **DELETE** /api/rp/v1/Exports/{subscriptionId}/ClearRecycleBin | Delete all folders and files from recycle bin
+*ExportsApi* | [**exportFolderAndFileDeleteFiles**](docs/Api/ExportsApi.md#exportfolderandfiledeletefiles) | **POST** /api/rp/v1/Exports/{subscriptionId}/DeleteFiles | Delete folders and files
 *ExportsApi* | [**exportFolderAndFileGetCount**](docs/Api/ExportsApi.md#exportfolderandfilegetcount) | **GET** /api/rp/v1/Exports/Folder/{id}/CountFolderAndFiles | Get count of files and folders what contains in a specified folder
 *ExportsApi* | [**exportFolderAndFileGetFoldersAndFiles**](docs/Api/ExportsApi.md#exportfolderandfilegetfoldersandfiles) | **GET** /api/rp/v1/Exports/Folder/{id}/ListFolderAndFiles | Get all folders and files from specified folder
+*ExportsApi* | [**exportFolderAndFileGetRecycleBinFoldersAndFiles**](docs/Api/ExportsApi.md#exportfolderandfilegetrecyclebinfoldersandfiles) | **GET** /api/rp/v1/Exports/{subscriptionId}/ListRecycleBinFolderAndFiles | Get all folders and files from recycle bin
+*ExportsApi* | [**exportFolderAndFileRecoverAllFromRecycleBin**](docs/Api/ExportsApi.md#exportfolderandfilerecoverallfromrecyclebin) | **POST** /api/rp/v1/Exports/{subscriptionId}/RecoverRecycleBin | Recover all folders and files from recycle bin
+*ExportsApi* | [**exportFoldersCalculateFolderSize**](docs/Api/ExportsApi.md#exportfolderscalculatefoldersize) | **GET** /api/rp/v1/Exports/Folder/{id}/size | Get specified folder, calculate it&#39;s size
 *ExportsApi* | [**exportFoldersCopyFolder**](docs/Api/ExportsApi.md#exportfolderscopyfolder) | **POST** /api/rp/v1/Exports/Folder/{id}/Copy/{folderId} | Move folder to a specified folder
 *ExportsApi* | [**exportFoldersDeleteFolder**](docs/Api/ExportsApi.md#exportfoldersdeletefolder) | **DELETE** /api/rp/v1/Exports/Folder/{id} | Delete specified folder
 *ExportsApi* | [**exportFoldersGetBreadcrumbs**](docs/Api/ExportsApi.md#exportfoldersgetbreadcrumbs) | **GET** /api/rp/v1/Exports/Folder/{id}/Breadcrumbs | Get specified folder breadcrumbs
 *ExportsApi* | [**exportFoldersGetFolder**](docs/Api/ExportsApi.md#exportfoldersgetfolder) | **GET** /api/rp/v1/Exports/Folder/{id} | Get specified folder
 *ExportsApi* | [**exportFoldersGetFolders**](docs/Api/ExportsApi.md#exportfoldersgetfolders) | **GET** /api/rp/v1/Exports/Folder/{id}/ListFolders | Get all folders from specified folder
 *ExportsApi* | [**exportFoldersGetFoldersCount**](docs/Api/ExportsApi.md#exportfoldersgetfolderscount) | **GET** /api/rp/v1/Exports/Folder/{id}/CountFolders | Get count of folders what contains in a specified folder
+*ExportsApi* | [**exportFoldersGetOrCreate**](docs/Api/ExportsApi.md#exportfoldersgetorcreate) | **GET** /api/rp/v1/Exports/Folder/getOrCreate | Get specified folder
 *ExportsApi* | [**exportFoldersGetPermissions**](docs/Api/ExportsApi.md#exportfoldersgetpermissions) | **GET** /api/rp/v1/Exports/Folder/{id}/permissions | Get all folder permissions
 *ExportsApi* | [**exportFoldersGetRootFolder**](docs/Api/ExportsApi.md#exportfoldersgetrootfolder) | **GET** /api/rp/v1/Exports/Root | Get user&#39;s root folder (without parents)
 *ExportsApi* | [**exportFoldersMoveFolder**](docs/Api/ExportsApi.md#exportfoldersmovefolder) | **POST** /api/rp/v1/Exports/Folder/{id}/Move/{folderId} | Move folder to a specified folder
+*ExportsApi* | [**exportFoldersMoveFolderToBin**](docs/Api/ExportsApi.md#exportfoldersmovefoldertobin) | **DELETE** /api/rp/v1/Exports/Folder/{id}/ToBin | Move specified folder to recycle bin
 *ExportsApi* | [**exportFoldersPostFolder**](docs/Api/ExportsApi.md#exportfolderspostfolder) | **POST** /api/rp/v1/Exports/Folder/{id}/Folder | Create folder
+*ExportsApi* | [**exportFoldersRecoverFolder**](docs/Api/ExportsApi.md#exportfoldersrecoverfolder) | **POST** /api/rp/v1/Exports/Folder/{id}/Recover | Recover specified folder
 *ExportsApi* | [**exportFoldersRenameFolder**](docs/Api/ExportsApi.md#exportfoldersrenamefolder) | **PUT** /api/rp/v1/Exports/Folder/{id}/Rename | Rename a folder
 *ExportsApi* | [**exportFoldersUpdateIcon**](docs/Api/ExportsApi.md#exportfoldersupdateicon) | **PUT** /api/rp/v1/Exports/Folder/{id}/Icon | Update a folder&#39;s icon
 *ExportsApi* | [**exportFoldersUpdatePermissions**](docs/Api/ExportsApi.md#exportfoldersupdatepermissions) | **POST** /api/rp/v1/Exports/{id}/permissions | Update permissions
@@ -123,10 +144,13 @@ Class | Method | HTTP request | Description
 *ExportsApi* | [**exportsCopyFile**](docs/Api/ExportsApi.md#exportscopyfile) | **POST** /api/rp/v1/Exports/File/{id}/Copy/{folderId} | Copy file to a specified folder
 *ExportsApi* | [**exportsDeleteFile**](docs/Api/ExportsApi.md#exportsdeletefile) | **DELETE** /api/rp/v1/Exports/File/{id} | Delete specified file
 *ExportsApi* | [**exportsGetFile**](docs/Api/ExportsApi.md#exportsgetfile) | **GET** /api/rp/v1/Exports/File/{id} | Get specified file
+*ExportsApi* | [**exportsGetFileHistory**](docs/Api/ExportsApi.md#exportsgetfilehistory) | **GET** /api/rp/v1/Exports/File/{id}/History | Returns list of actions, performed on this file
 *ExportsApi* | [**exportsGetFilesCount**](docs/Api/ExportsApi.md#exportsgetfilescount) | **GET** /api/rp/v1/Exports/Folder/{id}/CountFiles | Get count of files what contains in a specified folder
 *ExportsApi* | [**exportsGetFilesList**](docs/Api/ExportsApi.md#exportsgetfileslist) | **GET** /api/rp/v1/Exports/Folder/{id}/ListFiles | Get all files from specified folder. &lt;br /&gt;  User with Get Entity permission can access this method. &lt;br /&gt;  The method will returns minimal infomration about the file: &lt;br /&gt;  id, name, size, editedTime, createdTime, tags, status, statusReason.
 *ExportsApi* | [**exportsGetPermissions**](docs/Api/ExportsApi.md#exportsgetpermissions) | **GET** /api/rp/v1/Exports/File/{id}/permissions | Get all file permissions
 *ExportsApi* | [**exportsMoveFile**](docs/Api/ExportsApi.md#exportsmovefile) | **POST** /api/rp/v1/Exports/File/{id}/Move/{folderId} | Move file to a specified folder
+*ExportsApi* | [**exportsMoveFileToBin**](docs/Api/ExportsApi.md#exportsmovefiletobin) | **DELETE** /api/rp/v1/Exports/File/{id}/ToBin | Move specified file to recycle bin
+*ExportsApi* | [**exportsRecoverFile**](docs/Api/ExportsApi.md#exportsrecoverfile) | **POST** /api/rp/v1/Exports/File/{id}/Recover | Recover specified file from bin
 *ExportsApi* | [**exportsRenameFile**](docs/Api/ExportsApi.md#exportsrenamefile) | **PUT** /api/rp/v1/Exports/File/{id}/Rename | Rename a file
 *ExportsApi* | [**exportsUpdateIcon**](docs/Api/ExportsApi.md#exportsupdateicon) | **PUT** /api/rp/v1/Exports/File/{id}/Icon | Update a files&#39;s icon
 *ExportsApi* | [**exportsUpdatePermissions**](docs/Api/ExportsApi.md#exportsupdatepermissions) | **POST** /api/rp/v1/Exports/File/{id}/permissions | Update permissions
@@ -143,18 +167,27 @@ Class | Method | HTTP request | Description
 *GroupsApi* | [**groupsRenameGroup**](docs/Api/GroupsApi.md#groupsrenamegroup) | **PUT** /api/manage/v1/Groups/{id}/rename | Rename group by identifier
 *GroupsApi* | [**groupsUpdatePermissions**](docs/Api/GroupsApi.md#groupsupdatepermissions) | **POST** /api/manage/v1/Groups/{id}/permissions | Update permissions
 *HealthCheckApi* | [**healthCheckDataGet**](docs/Api/HealthCheckApi.md#healthcheckdataget) | **GET** /api/backend/v1/HealthCheck | healthcheck
+*ReportsApi* | [**reportFolderAndFileClearRecycleBin**](docs/Api/ReportsApi.md#reportfolderandfileclearrecyclebin) | **DELETE** /api/rp/v1/Reports/{subscriptionId}/ClearRecycleBin | Delete all folders and files from recycle bin
+*ReportsApi* | [**reportFolderAndFileDeleteFiles**](docs/Api/ReportsApi.md#reportfolderandfiledeletefiles) | **POST** /api/rp/v1/Reports/{subscriptionId}/DeleteFiles | Delete folders and files
 *ReportsApi* | [**reportFolderAndFileGetCount**](docs/Api/ReportsApi.md#reportfolderandfilegetcount) | **GET** /api/rp/v1/Reports/Folder/{id}/CountFolderAndFiles | Get count of files and folders what contains in a specified folder
 *ReportsApi* | [**reportFolderAndFileGetFoldersAndFiles**](docs/Api/ReportsApi.md#reportfolderandfilegetfoldersandfiles) | **GET** /api/rp/v1/Reports/Folder/{id}/ListFolderAndFiles | Get all folders and files from specified folder
+*ReportsApi* | [**reportFolderAndFileGetRecycleBinFoldersAndFiles**](docs/Api/ReportsApi.md#reportfolderandfilegetrecyclebinfoldersandfiles) | **GET** /api/rp/v1/Reports/{subscriptionId}/ListRecycleBinFolderAndFiles | Get all folders and files from recycle bin
+*ReportsApi* | [**reportFolderAndFileRecoverAllFromRecycleBin**](docs/Api/ReportsApi.md#reportfolderandfilerecoverallfromrecyclebin) | **POST** /api/rp/v1/Reports/{subscriptionId}/RecoverRecycleBin | Recover all folders and files from recycle bin
+*ReportsApi* | [**reportFoldersCalculateFolderSize**](docs/Api/ReportsApi.md#reportfolderscalculatefoldersize) | **GET** /api/rp/v1/Reports/Folder/{id}/size | Get specified folder, calculate it&#39;s size
 *ReportsApi* | [**reportFoldersCopyFolder**](docs/Api/ReportsApi.md#reportfolderscopyfolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Copy/{folderId} | Move folder to a specified folder
 *ReportsApi* | [**reportFoldersDeleteFolder**](docs/Api/ReportsApi.md#reportfoldersdeletefolder) | **DELETE** /api/rp/v1/Reports/Folder/{id} | Delete specified folder
+*ReportsApi* | [**reportFoldersExport**](docs/Api/ReportsApi.md#reportfoldersexport) | **POST** /api/rp/v1/Reports/Folder/{id}/Export | Export specified report folder to a specified format
 *ReportsApi* | [**reportFoldersGetBreadcrumbs**](docs/Api/ReportsApi.md#reportfoldersgetbreadcrumbs) | **GET** /api/rp/v1/Reports/Folder/{id}/Breadcrumbs | Get specified folder breadcrumbs
 *ReportsApi* | [**reportFoldersGetFolder**](docs/Api/ReportsApi.md#reportfoldersgetfolder) | **GET** /api/rp/v1/Reports/Folder/{id} | Get specified folder
 *ReportsApi* | [**reportFoldersGetFolders**](docs/Api/ReportsApi.md#reportfoldersgetfolders) | **GET** /api/rp/v1/Reports/Folder/{id}/ListFolders | Get all folders from specified folder
 *ReportsApi* | [**reportFoldersGetFoldersCount**](docs/Api/ReportsApi.md#reportfoldersgetfolderscount) | **GET** /api/rp/v1/Reports/Folder/{id}/CountFolders | Get count of folders what contains in a specified folder
+*ReportsApi* | [**reportFoldersGetOrCreate**](docs/Api/ReportsApi.md#reportfoldersgetorcreate) | **GET** /api/rp/v1/Reports/Folder/getOrCreate | Get specified folder
 *ReportsApi* | [**reportFoldersGetPermissions**](docs/Api/ReportsApi.md#reportfoldersgetpermissions) | **GET** /api/rp/v1/Reports/Folder/{id}/permissions | Get all folder permissions
 *ReportsApi* | [**reportFoldersGetRootFolder**](docs/Api/ReportsApi.md#reportfoldersgetrootfolder) | **GET** /api/rp/v1/Reports/Root | Get user&#39;s root folder (without parents)
 *ReportsApi* | [**reportFoldersMoveFolder**](docs/Api/ReportsApi.md#reportfoldersmovefolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Move/{folderId} | Move folder to a specified folder
+*ReportsApi* | [**reportFoldersMoveFolderToBin**](docs/Api/ReportsApi.md#reportfoldersmovefoldertobin) | **DELETE** /api/rp/v1/Reports/Folder/{id}/ToBin | Move specified folder to recycle bin
 *ReportsApi* | [**reportFoldersPostFolder**](docs/Api/ReportsApi.md#reportfolderspostfolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Folder | Create folder
+*ReportsApi* | [**reportFoldersRecoverFolder**](docs/Api/ReportsApi.md#reportfoldersrecoverfolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Recover | Recover specified folder
 *ReportsApi* | [**reportFoldersRenameFolder**](docs/Api/ReportsApi.md#reportfoldersrenamefolder) | **PUT** /api/rp/v1/Reports/Folder/{id}/Rename | Rename a folder
 *ReportsApi* | [**reportFoldersUpdateIcon**](docs/Api/ReportsApi.md#reportfoldersupdateicon) | **PUT** /api/rp/v1/Reports/Folder/{id}/Icon | Update a folder&#39;s icon
 *ReportsApi* | [**reportFoldersUpdatePermissions**](docs/Api/ReportsApi.md#reportfoldersupdatepermissions) | **POST** /api/rp/v1/Reports/{id}/permissions | Update permissions
@@ -163,15 +196,20 @@ Class | Method | HTTP request | Description
 *ReportsApi* | [**reportsDeleteFile**](docs/Api/ReportsApi.md#reportsdeletefile) | **DELETE** /api/rp/v1/Reports/File/{id} | Delete specified file
 *ReportsApi* | [**reportsExport**](docs/Api/ReportsApi.md#reportsexport) | **POST** /api/rp/v1/Reports/File/{id}/Export | Export specified report to a specified format
 *ReportsApi* | [**reportsGetFile**](docs/Api/ReportsApi.md#reportsgetfile) | **GET** /api/rp/v1/Reports/File/{id} | Get specified file
+*ReportsApi* | [**reportsGetFileHistory**](docs/Api/ReportsApi.md#reportsgetfilehistory) | **GET** /api/rp/v1/Reports/File/{id}/History | Returns list of actions, performed on this file
 *ReportsApi* | [**reportsGetFilesCount**](docs/Api/ReportsApi.md#reportsgetfilescount) | **GET** /api/rp/v1/Reports/Folder/{id}/CountFiles | Get count of files what contains in a specified folder
 *ReportsApi* | [**reportsGetFilesList**](docs/Api/ReportsApi.md#reportsgetfileslist) | **GET** /api/rp/v1/Reports/Folder/{id}/ListFiles | Get all files from specified folder. &lt;br /&gt;  User with Get Entity permission can access this method. &lt;br /&gt;  The method will returns minimal infomration about the file: &lt;br /&gt;  id, name, size, editedTime, createdTime, tags, status, statusReason.
 *ReportsApi* | [**reportsGetPermissions**](docs/Api/ReportsApi.md#reportsgetpermissions) | **GET** /api/rp/v1/Reports/File/{id}/permissions | Get all file permissions
 *ReportsApi* | [**reportsMoveFile**](docs/Api/ReportsApi.md#reportsmovefile) | **POST** /api/rp/v1/Reports/File/{id}/Move/{folderId} | Move file to a specified folder
+*ReportsApi* | [**reportsMoveFileToBin**](docs/Api/ReportsApi.md#reportsmovefiletobin) | **DELETE** /api/rp/v1/Reports/File/{id}/ToBin | Move specified file to recycle bin
+*ReportsApi* | [**reportsRecoverFile**](docs/Api/ReportsApi.md#reportsrecoverfile) | **POST** /api/rp/v1/Reports/File/{id}/Recover | Recover specified file from bin
 *ReportsApi* | [**reportsRenameFile**](docs/Api/ReportsApi.md#reportsrenamefile) | **PUT** /api/rp/v1/Reports/File/{id}/Rename | Rename a file
+*ReportsApi* | [**reportsStaticPreview**](docs/Api/ReportsApi.md#reportsstaticpreview) | **POST** /api/rp/v1/Reports/File/{id}/StaticPreview | Make preview for the report.  Generate a new or return exist prepared svg files.  If template was changed will be returned a new.  Pass the &#x60;&#x60; parameter to check prepared timestamp
 *ReportsApi* | [**reportsUpdateIcon**](docs/Api/ReportsApi.md#reportsupdateicon) | **PUT** /api/rp/v1/Reports/File/{id}/Icon | Update a files&#39;s icon
 *ReportsApi* | [**reportsUpdatePermissions**](docs/Api/ReportsApi.md#reportsupdatepermissions) | **POST** /api/rp/v1/Reports/File/{id}/permissions | Update permissions
 *ReportsApi* | [**reportsUpdateTags**](docs/Api/ReportsApi.md#reportsupdatetags) | **PUT** /api/rp/v1/Reports/File/{id}/UpdateTags | Update tags
 *ReportsApi* | [**reportsUploadFile**](docs/Api/ReportsApi.md#reportsuploadfile) | **POST** /api/rp/v1/Reports/Folder/{id}/File | Upload a file to the specified folder  !
+*SubscriptionGroupsApi* | [**subscriptionGroupsCountGroupsAsync**](docs/Api/SubscriptionGroupsApi.md#subscriptiongroupscountgroupsasync) | **GET** /api/manage/v1/Subscriptions/{subscriptionId}/count | Returns a number of groups in subscription
 *SubscriptionGroupsApi* | [**subscriptionGroupsGetGroupsList**](docs/Api/SubscriptionGroupsApi.md#subscriptiongroupsgetgroupslist) | **GET** /api/manage/v1/Subscriptions/{subscriptionId}/groups | returns groups of the subscription or subscription user
 *SubscriptionInvitesApi* | [**subscriptionInvitesAcceptInvite**](docs/Api/SubscriptionInvitesApi.md#subscriptioninvitesacceptinvite) | **GET** /api/manage/v1/Subscriptions/{subscriptionId}/invite/{accessToken}/accept | Add a user to the subscription using invite,  the added users will be displayed in the list of users of the subscription,  and these users will also have an active subscription.
 *SubscriptionInvitesApi* | [**subscriptionInvitesCreateInvite**](docs/Api/SubscriptionInvitesApi.md#subscriptioninvitescreateinvite) | **POST** /api/manage/v1/Subscriptions/{subscriptionId}/invite | Create invite to subscription
@@ -180,6 +218,7 @@ Class | Method | HTTP request | Description
 *SubscriptionPlansApi* | [**subscriptionPlansGetSubscriptionPlan**](docs/Api/SubscriptionPlansApi.md#subscriptionplansgetsubscriptionplan) | **GET** /api/manage/v1/SubscriptionPlans/{id} | Returns a subscription plan. Not all subscriptions can be issued for customer.
 *SubscriptionPlansApi* | [**subscriptionPlansGetSubscriptionPlans**](docs/Api/SubscriptionPlansApi.md#subscriptionplansgetsubscriptionplans) | **GET** /api/manage/v1/SubscriptionPlans | Returns a list of active subscription plans that can be issued to the user.
 *SubscriptionUsersApi* | [**subscriptionUsersAddUser**](docs/Api/SubscriptionUsersApi.md#subscriptionusersadduser) | **PUT** /api/manage/v1/Subscriptions/{subscriptionId}/users/{userId} | Add a user to the subscription,  the added users will be displayed in the list of users of the subscription,  and these users will also have an active subscription.
+*SubscriptionUsersApi* | [**subscriptionUsersCountUsersAsync**](docs/Api/SubscriptionUsersApi.md#subscriptionuserscountusersasync) | **GET** /api/manage/v1/Subscriptions/{subscriptionId}/UsersCount | Returns a number of users in subscription
 *SubscriptionUsersApi* | [**subscriptionUsersGetUsers**](docs/Api/SubscriptionUsersApi.md#subscriptionusersgetusers) | **GET** /api/manage/v1/Subscriptions/{subscriptionId}/users | Returns all users of subscription
 *SubscriptionUsersApi* | [**subscriptionUsersLeaveSubscripiton**](docs/Api/SubscriptionUsersApi.md#subscriptionusersleavesubscripiton) | **DELETE** /api/manage/v1/Subscriptions/{subscriptionId}/leave | Allows user to leave subscription,.
 *SubscriptionUsersApi* | [**subscriptionUsersRemoveUser**](docs/Api/SubscriptionUsersApi.md#subscriptionusersremoveuser) | **DELETE** /api/manage/v1/Subscriptions/{subscriptionId}/users/{userId} | Delete a user from the subscription,  the added users will be displayed in the list of users of the subscription,  and these users will also have an active subscription.
@@ -192,24 +231,38 @@ Class | Method | HTTP request | Description
 *SubscriptionsApi* | [**subscriptionsUpdateDefaultPermissions**](docs/Api/SubscriptionsApi.md#subscriptionsupdatedefaultpermissions) | **PUT** /api/manage/v1/Subscriptions/{subscriptionId}/defaultPermissions | Change subscription&#39;s default permissions for new entities
 *SubscriptionsApi* | [**subscriptionsUpdateLocale**](docs/Api/SubscriptionsApi.md#subscriptionsupdatelocale) | **PUT** /api/manage/v1/Subscriptions/{subscriptionId}/Locale | Update subscription&#39;s default locale
 *SubscriptionsApi* | [**subscriptionsUpdatePermissions**](docs/Api/SubscriptionsApi.md#subscriptionsupdatepermissions) | **POST** /api/manage/v1/Subscriptions/{id}/permissions | Update permissions
-*TasksApi* | [**tasksCreateTask**](docs/Api/TasksApi.md#taskscreatetask) | **POST** /api/tasks | Create a new task
-*TasksApi* | [**tasksDeleteTask**](docs/Api/TasksApi.md#tasksdeletetask) | **DELETE** /api/tasks/{taskId} | Delete a task from a storage
-*TasksApi* | [**tasksGet**](docs/Api/TasksApi.md#tasksget) | **GET** /api/tasks/{taskId} | Get a task by a specified id
-*TasksApi* | [**tasksGetList**](docs/Api/TasksApi.md#tasksgetlist) | **GET** /api/tasks | Get tasks list
-*TasksApi* | [**tasksRunTask**](docs/Api/TasksApi.md#tasksruntask) | **POST** /api/tasks/run | Run a task from request body
-*TasksApi* | [**tasksRunTaskById**](docs/Api/TasksApi.md#tasksruntaskbyid) | **POST** /api/tasks/{taskId}/run | Run a task by id
+*TasksApi* | [**tasksCreateTask**](docs/Api/TasksApi.md#taskscreatetask) | **POST** /api/tasks/v1/Tasks | Create a new task
+*TasksApi* | [**tasksDeleteTask**](docs/Api/TasksApi.md#tasksdeletetask) | **DELETE** /api/tasks/v1/Tasks/{taskId} | Delete a task from a storage
+*TasksApi* | [**tasksGet**](docs/Api/TasksApi.md#tasksget) | **GET** /api/tasks/v1/Tasks/{taskId} | Get a task by a specified id
+*TasksApi* | [**tasksGetList**](docs/Api/TasksApi.md#tasksgetlist) | **GET** /api/tasks/v1/Tasks | Get tasks list
+*TasksApi* | [**tasksGetPermissions**](docs/Api/TasksApi.md#tasksgetpermissions) | **GET** /api/tasks/v1/Tasks/{id}/permissions | Get all Task permissions
+*TasksApi* | [**tasksRenameTask**](docs/Api/TasksApi.md#tasksrenametask) | **PUT** /api/tasks/v1/Tasks/{taskId}/rename | Rename a task
+*TasksApi* | [**tasksRunTask**](docs/Api/TasksApi.md#tasksruntask) | **POST** /api/tasks/v1/Tasks/run | Run a task from request body
+*TasksApi* | [**tasksRunTaskById**](docs/Api/TasksApi.md#tasksruntaskbyid) | **POST** /api/tasks/v1/Tasks/{taskId}/run | Run a task by id
+*TasksApi* | [**tasksUpdatePermissions**](docs/Api/TasksApi.md#tasksupdatepermissions) | **POST** /api/tasks/v1/Tasks/{id}/permissions | Update permissions
+*TasksApi* | [**tasksUpdateTask**](docs/Api/TasksApi.md#tasksupdatetask) | **PUT** /api/tasks/v1/Tasks/{taskId} | Update a task
+*TemplatesApi* | [**templateFolderAndFileClearRecycleBin**](docs/Api/TemplatesApi.md#templatefolderandfileclearrecyclebin) | **DELETE** /api/rp/v1/Templates/{subscriptionId}/ClearRecycleBin | Delete all folders and files from recycle bin
+*TemplatesApi* | [**templateFolderAndFileDeleteFiles**](docs/Api/TemplatesApi.md#templatefolderandfiledeletefiles) | **POST** /api/rp/v1/Templates/{subscriptionId}/DeleteFiles | Delete folders and files
 *TemplatesApi* | [**templateFolderAndFileGetCount**](docs/Api/TemplatesApi.md#templatefolderandfilegetcount) | **GET** /api/rp/v1/Templates/Folder/{id}/CountFolderAndFiles | Get count of files and folders what contains in a specified folder
 *TemplatesApi* | [**templateFolderAndFileGetFoldersAndFiles**](docs/Api/TemplatesApi.md#templatefolderandfilegetfoldersandfiles) | **GET** /api/rp/v1/Templates/Folder/{id}/ListFolderAndFiles | Get all folders and files from specified folder
+*TemplatesApi* | [**templateFolderAndFileGetRecycleBinFoldersAndFiles**](docs/Api/TemplatesApi.md#templatefolderandfilegetrecyclebinfoldersandfiles) | **GET** /api/rp/v1/Templates/{subscriptionId}/ListRecycleBinFolderAndFiles | Get all folders and files from recycle bin
+*TemplatesApi* | [**templateFolderAndFileRecoverAllFromRecycleBin**](docs/Api/TemplatesApi.md#templatefolderandfilerecoverallfromrecyclebin) | **POST** /api/rp/v1/Templates/{subscriptionId}/RecoverRecycleBin | Recover all folders and files from recycle bin
+*TemplatesApi* | [**templateFoldersCalculateFolderSize**](docs/Api/TemplatesApi.md#templatefolderscalculatefoldersize) | **GET** /api/rp/v1/Templates/Folder/{id}/size | Get specified folder, calculate it&#39;s size
 *TemplatesApi* | [**templateFoldersCopyFolder**](docs/Api/TemplatesApi.md#templatefolderscopyfolder) | **POST** /api/rp/v1/Templates/Folder/{id}/Copy/{folderId} | Move folder to a specified folder
 *TemplatesApi* | [**templateFoldersDeleteFolder**](docs/Api/TemplatesApi.md#templatefoldersdeletefolder) | **DELETE** /api/rp/v1/Templates/Folder/{id} | Delete specified folder
+*TemplatesApi* | [**templateFoldersExport**](docs/Api/TemplatesApi.md#templatefoldersexport) | **POST** /api/rp/v1/Templates/Folder/{id}/Export | Export specified template folder to a specified format
 *TemplatesApi* | [**templateFoldersGetBreadcrumbs**](docs/Api/TemplatesApi.md#templatefoldersgetbreadcrumbs) | **GET** /api/rp/v1/Templates/Folder/{id}/Breadcrumbs | Get specified folder breadcrumbs
 *TemplatesApi* | [**templateFoldersGetFolder**](docs/Api/TemplatesApi.md#templatefoldersgetfolder) | **GET** /api/rp/v1/Templates/Folder/{id} | Get specified folder
 *TemplatesApi* | [**templateFoldersGetFolders**](docs/Api/TemplatesApi.md#templatefoldersgetfolders) | **GET** /api/rp/v1/Templates/Folder/{id}/ListFolders | Get all folders from specified folder
 *TemplatesApi* | [**templateFoldersGetFoldersCount**](docs/Api/TemplatesApi.md#templatefoldersgetfolderscount) | **GET** /api/rp/v1/Templates/Folder/{id}/CountFolders | Get count of folders what contains in a specified folder
+*TemplatesApi* | [**templateFoldersGetOrCreate**](docs/Api/TemplatesApi.md#templatefoldersgetorcreate) | **GET** /api/rp/v1/Templates/Folder/getOrCreate | Get specified folder
 *TemplatesApi* | [**templateFoldersGetPermissions**](docs/Api/TemplatesApi.md#templatefoldersgetpermissions) | **GET** /api/rp/v1/Templates/Folder/{id}/permissions | Get all folder permissions
 *TemplatesApi* | [**templateFoldersGetRootFolder**](docs/Api/TemplatesApi.md#templatefoldersgetrootfolder) | **GET** /api/rp/v1/Templates/Root | Get user&#39;s root folder (without parents)
 *TemplatesApi* | [**templateFoldersMoveFolder**](docs/Api/TemplatesApi.md#templatefoldersmovefolder) | **POST** /api/rp/v1/Templates/Folder/{id}/Move/{folderId} | Move folder to a specified folder
+*TemplatesApi* | [**templateFoldersMoveFolderToBin**](docs/Api/TemplatesApi.md#templatefoldersmovefoldertobin) | **DELETE** /api/rp/v1/Templates/Folder/{id}/ToBin | Move specified folder to recycle bin
 *TemplatesApi* | [**templateFoldersPostFolder**](docs/Api/TemplatesApi.md#templatefolderspostfolder) | **POST** /api/rp/v1/Templates/Folder/{id}/Folder | Create folder
+*TemplatesApi* | [**templateFoldersPrepare**](docs/Api/TemplatesApi.md#templatefoldersprepare) | **POST** /api/rp/v1/Templates/Folder/{id}/Prepare | Prepare specified template folder to report folder
+*TemplatesApi* | [**templateFoldersRecoverFolder**](docs/Api/TemplatesApi.md#templatefoldersrecoverfolder) | **POST** /api/rp/v1/Templates/Folder/{id}/Recover | Recover specified folder
 *TemplatesApi* | [**templateFoldersRenameFolder**](docs/Api/TemplatesApi.md#templatefoldersrenamefolder) | **PUT** /api/rp/v1/Templates/Folder/{id}/Rename | Rename a folder
 *TemplatesApi* | [**templateFoldersUpdateIcon**](docs/Api/TemplatesApi.md#templatefoldersupdateicon) | **PUT** /api/rp/v1/Templates/Folder/{id}/Icon | Update a folder&#39;s icon
 *TemplatesApi* | [**templateFoldersUpdatePermissions**](docs/Api/TemplatesApi.md#templatefoldersupdatepermissions) | **POST** /api/rp/v1/Templates/{id}/permissions | Update permissions
@@ -218,24 +271,33 @@ Class | Method | HTTP request | Description
 *TemplatesApi* | [**templatesDeleteFile**](docs/Api/TemplatesApi.md#templatesdeletefile) | **DELETE** /api/rp/v1/Templates/File/{id} | Delete specified file
 *TemplatesApi* | [**templatesExport**](docs/Api/TemplatesApi.md#templatesexport) | **POST** /api/rp/v1/Templates/File/{id}/Export | Export specified report template to a specified format
 *TemplatesApi* | [**templatesGetFile**](docs/Api/TemplatesApi.md#templatesgetfile) | **GET** /api/rp/v1/Templates/File/{id} | Get specified file
+*TemplatesApi* | [**templatesGetFileHistory**](docs/Api/TemplatesApi.md#templatesgetfilehistory) | **GET** /api/rp/v1/Templates/File/{id}/History | Returns list of actions, performed on this file
 *TemplatesApi* | [**templatesGetFilesCount**](docs/Api/TemplatesApi.md#templatesgetfilescount) | **GET** /api/rp/v1/Templates/Folder/{id}/CountFiles | Get count of files what contains in a specified folder
 *TemplatesApi* | [**templatesGetFilesList**](docs/Api/TemplatesApi.md#templatesgetfileslist) | **GET** /api/rp/v1/Templates/Folder/{id}/ListFiles | Get all files from specified folder. &lt;br /&gt;  User with Get Entity permission can access this method. &lt;br /&gt;  The method will returns minimal infomration about the file: &lt;br /&gt;  id, name, size, editedTime, createdTime, tags, status, statusReason.
 *TemplatesApi* | [**templatesGetPermissions**](docs/Api/TemplatesApi.md#templatesgetpermissions) | **GET** /api/rp/v1/Templates/File/{id}/permissions | Get all file permissions
 *TemplatesApi* | [**templatesMoveFile**](docs/Api/TemplatesApi.md#templatesmovefile) | **POST** /api/rp/v1/Templates/File/{id}/Move/{folderId} | Move file to a specified folder
+*TemplatesApi* | [**templatesMoveFileToBin**](docs/Api/TemplatesApi.md#templatesmovefiletobin) | **DELETE** /api/rp/v1/Templates/File/{id}/ToBin | Move specified file to recycle bin
 *TemplatesApi* | [**templatesPrepare**](docs/Api/TemplatesApi.md#templatesprepare) | **POST** /api/rp/v1/Templates/File/{id}/Prepare | Prepare specified template to report
+*TemplatesApi* | [**templatesRecoverFile**](docs/Api/TemplatesApi.md#templatesrecoverfile) | **POST** /api/rp/v1/Templates/File/{id}/Recover | Recover specified file from bin
 *TemplatesApi* | [**templatesRenameFile**](docs/Api/TemplatesApi.md#templatesrenamefile) | **PUT** /api/rp/v1/Templates/File/{id}/Rename | Rename a file
+*TemplatesApi* | [**templatesStaticPreview**](docs/Api/TemplatesApi.md#templatesstaticpreview) | **POST** /api/rp/v1/Templates/File/{id}/StaticPreview | Make preview for the report.  Generate a new or return exist prepared svg files.  If template was changed will be returned a new.  Pass the &#x60;&#x60; parameter to check prepared timestamp
+*TemplatesApi* | [**templatesUpdateContent**](docs/Api/TemplatesApi.md#templatesupdatecontent) | **PUT** /api/rp/v1/Templates/File/{id}/Content | Updates contnet of the template
 *TemplatesApi* | [**templatesUpdateIcon**](docs/Api/TemplatesApi.md#templatesupdateicon) | **PUT** /api/rp/v1/Templates/File/{id}/Icon | Update a files&#39;s icon
 *TemplatesApi* | [**templatesUpdatePermissions**](docs/Api/TemplatesApi.md#templatesupdatepermissions) | **POST** /api/rp/v1/Templates/File/{id}/permissions | Update permissions
 *TemplatesApi* | [**templatesUpdateTags**](docs/Api/TemplatesApi.md#templatesupdatetags) | **PUT** /api/rp/v1/Templates/File/{id}/UpdateTags | Update tags
 *TemplatesApi* | [**templatesUploadFile**](docs/Api/TemplatesApi.md#templatesuploadfile) | **POST** /api/rp/v1/Templates/Folder/{id}/File | Upload a file to the specified folder  !
+*UserNotificationsApi* | [**userNotificationsClearNotifications**](docs/Api/UserNotificationsApi.md#usernotificationsclearnotifications) | **DELETE** /api/manage/v1/notifications | Use this endpoint to \&quot;clear\&quot; your notifications
+*UserNotificationsApi* | [**userNotificationsGetNotifications**](docs/Api/UserNotificationsApi.md#usernotificationsgetnotifications) | **GET** /api/manage/v1/notifications | Use this endpoint to recieve notifications
 *UserProfileApi* | [**userProfileGetMyProfile**](docs/Api/UserProfileApi.md#userprofilegetmyprofile) | **GET** /api/manage/v1/UserProfile | Return current profile of the current user
 *UserProfileApi* | [**userProfileGetUserProfile**](docs/Api/UserProfileApi.md#userprofilegetuserprofile) | **GET** /api/manage/v1/UserProfile/{userId} | Return user profile by user identifier.  If the user did not provide information about himself or blocked, then the endpoint will return an empty model. (only id)
 *UserProfileApi* | [**userProfileUpdateMyProfile**](docs/Api/UserProfileApi.md#userprofileupdatemyprofile) | **PUT** /api/manage/v1/UserProfile | Update profile of the current user
+*UserSettingsApi* | [**userSettingsAcceptAgreements**](docs/Api/UserSettingsApi.md#usersettingsacceptagreements) | **POST** /api/manage/v1/UserSettings/accept | Use this endpoint to accept current version of service license agreement
 *UserSettingsApi* | [**userSettingsGetCurrentUserSettings**](docs/Api/UserSettingsApi.md#usersettingsgetcurrentusersettings) | **GET** /api/manage/v1/UserSettings | Return current user settings.
 *UserSettingsApi* | [**userSettingsUpdateMySettings**](docs/Api/UserSettingsApi.md#usersettingsupdatemysettings) | **PUT** /api/manage/v1/UserSettings | Update settings of the current user
 
 ## Models
 
+- [AcceptAgreementsVM](docs/Model/AcceptAgreementsVM.md)
 - [AdminExportFolderCreateVM](docs/Model/AdminExportFolderCreateVM.md)
 - [AdminFolderCreateVM](docs/Model/AdminFolderCreateVM.md)
 - [AdminReportFolderCreateVM](docs/Model/AdminReportFolderCreateVM.md)
@@ -244,17 +306,30 @@ Class | Method | HTTP request | Description
 - [ApiKeyVM](docs/Model/ApiKeyVM.md)
 - [ApiKeysVM](docs/Model/ApiKeysVM.md)
 - [AppMixins](docs/Model/AppMixins.md)
+- [AuditActionVM](docs/Model/AuditActionVM.md)
+- [AuditActionsVM](docs/Model/AuditActionsVM.md)
+- [AuditFilePropertyChangedVM](docs/Model/AuditFilePropertyChangedVM.md)
+- [AuditSubscriptionActionVM](docs/Model/AuditSubscriptionActionVM.md)
+- [AuditTaskActionVM](docs/Model/AuditTaskActionVM.md)
+- [AuditType](docs/Model/AuditType.md)
 - [AuthConfigVM](docs/Model/AuthConfigVM.md)
 - [BreadcrumbsModel](docs/Model/BreadcrumbsModel.md)
 - [BreadcrumbsVM](docs/Model/BreadcrumbsVM.md)
+- [ClearNotificationsVM](docs/Model/ClearNotificationsVM.md)
+- [ContactGroupVM](docs/Model/ContactGroupVM.md)
+- [ContactGroupsVM](docs/Model/ContactGroupsVM.md)
+- [ContactVM](docs/Model/ContactVM.md)
+- [ContactsVM](docs/Model/ContactsVM.md)
 - [CountVM](docs/Model/CountVM.md)
 - [CreateApiKeyVM](docs/Model/CreateApiKeyVM.md)
+- [CreateContactGroupVM](docs/Model/CreateContactGroupVM.md)
+- [CreateContactVM](docs/Model/CreateContactVM.md)
 - [CreateDataSourceAdminVM](docs/Model/CreateDataSourceAdminVM.md)
 - [CreateDataSourceVM](docs/Model/CreateDataSourceVM.md)
 - [CreateEmailTaskVM](docs/Model/CreateEmailTaskVM.md)
-- [CreateEndpointVM](docs/Model/CreateEndpointVM.md)
 - [CreateExportReportTaskVM](docs/Model/CreateExportReportTaskVM.md)
 - [CreateExportTemplateTaskVM](docs/Model/CreateExportTemplateTaskVM.md)
+- [CreateFTPUploadTaskVM](docs/Model/CreateFTPUploadTaskVM.md)
 - [CreateFetchTaskVM](docs/Model/CreateFetchTaskVM.md)
 - [CreateGroupAdminVM](docs/Model/CreateGroupAdminVM.md)
 - [CreateGroupVM](docs/Model/CreateGroupVM.md)
@@ -282,11 +357,10 @@ Class | Method | HTTP request | Description
 - [DataSourceUpdate](docs/Model/DataSourceUpdate.md)
 - [DataSourceVM](docs/Model/DataSourceVM.md)
 - [DataSourcesVM](docs/Model/DataSourcesVM.md)
-- [DefaultPermissions](docs/Model/DefaultPermissions.md)
 - [DefaultPermissionsVM](docs/Model/DefaultPermissionsVM.md)
 - [DeleteApiKeyVM](docs/Model/DeleteApiKeyVM.md)
 - [EmailTaskVM](docs/Model/EmailTaskVM.md)
-- [EndpointVM](docs/Model/EndpointVM.md)
+- [EntityType](docs/Model/EntityType.md)
 - [EntityVM](docs/Model/EntityVM.md)
 - [ExportCreateAdminVM](docs/Model/ExportCreateAdminVM.md)
 - [ExportCreateVM](docs/Model/ExportCreateVM.md)
@@ -299,6 +373,7 @@ Class | Method | HTTP request | Description
 - [ExportVM](docs/Model/ExportVM.md)
 - [ExportVMFilesVMBase](docs/Model/ExportVMFilesVMBase.md)
 - [ExportsVM](docs/Model/ExportsVM.md)
+- [FTPUploadTaskVM](docs/Model/FTPUploadTaskVM.md)
 - [FetchTaskVM](docs/Model/FetchTaskVM.md)
 - [FileAdministrate](docs/Model/FileAdministrate.md)
 - [FileCreate](docs/Model/FileCreate.md)
@@ -326,7 +401,9 @@ Class | Method | HTTP request | Description
 - [FolderCreateVM](docs/Model/FolderCreateVM.md)
 - [FolderIconVM](docs/Model/FolderIconVM.md)
 - [FolderRenameVM](docs/Model/FolderRenameVM.md)
+- [FolderSizeVM](docs/Model/FolderSizeVM.md)
 - [FolderTagsUpdateVM](docs/Model/FolderTagsUpdateVM.md)
+- [FrontendApp](docs/Model/FrontendApp.md)
 - [GroupAdministrate](docs/Model/GroupAdministrate.md)
 - [GroupCreate](docs/Model/GroupCreate.md)
 - [GroupCreateGroupGetGroupUpdateGroupDeleteGroupExecuteGroupAdministratePermission](docs/Model/GroupCreateGroupGetGroupUpdateGroupDeleteGroupExecuteGroupAdministratePermission.md)
@@ -342,12 +419,15 @@ Class | Method | HTTP request | Description
 - [GroupUsersVM](docs/Model/GroupUsersVM.md)
 - [GroupVM](docs/Model/GroupVM.md)
 - [GroupsVM](docs/Model/GroupsVM.md)
+- [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
 - [InputFileVM](docs/Model/InputFileVM.md)
 - [InvitedUser](docs/Model/InvitedUser.md)
 - [MyPermissionsVM](docs/Model/MyPermissionsVM.md)
 - [OutputFileVM](docs/Model/OutputFileVM.md)
 - [PrepareTemplateTaskVM](docs/Model/PrepareTemplateTaskVM.md)
 - [PrepareTemplateVM](docs/Model/PrepareTemplateVM.md)
+- [PreviewReportVM](docs/Model/PreviewReportVM.md)
+- [PreviewTemplateVM](docs/Model/PreviewTemplateVM.md)
 - [ProblemDetails](docs/Model/ProblemDetails.md)
 - [ProfileVisibility](docs/Model/ProfileVisibility.md)
 - [RenameDataSourceVM](docs/Model/RenameDataSourceVM.md)
@@ -361,9 +441,9 @@ Class | Method | HTTP request | Description
 - [ReportVMFilesVMBase](docs/Model/ReportVMFilesVMBase.md)
 - [ReportsVM](docs/Model/ReportsVM.md)
 - [RunEmailTaskVM](docs/Model/RunEmailTaskVM.md)
-- [RunEndpointVM](docs/Model/RunEndpointVM.md)
 - [RunExportReportTaskVM](docs/Model/RunExportReportTaskVM.md)
 - [RunExportTemplateTaskVM](docs/Model/RunExportTemplateTaskVM.md)
+- [RunFTPUploadTaskVM](docs/Model/RunFTPUploadTaskVM.md)
 - [RunFetchTaskVM](docs/Model/RunFetchTaskVM.md)
 - [RunInputFileVM](docs/Model/RunInputFileVM.md)
 - [RunPrepareTemplateTaskVM](docs/Model/RunPrepareTemplateTaskVM.md)
@@ -374,6 +454,8 @@ Class | Method | HTTP request | Description
 - [RunTransportTaskBaseVM](docs/Model/RunTransportTaskBaseVM.md)
 - [RunWebhookTaskVM](docs/Model/RunWebhookTaskVM.md)
 - [SaveMode](docs/Model/SaveMode.md)
+- [SelectedFilesForDeletingVM](docs/Model/SelectedFilesForDeletingVM.md)
+- [SelectedFilesVM](docs/Model/SelectedFilesVM.md)
 - [ServerConfigurationVM](docs/Model/ServerConfigurationVM.md)
 - [SubscriptionAdministrate](docs/Model/SubscriptionAdministrate.md)
 - [SubscriptionCreate](docs/Model/SubscriptionCreate.md)
@@ -396,9 +478,19 @@ Class | Method | HTTP request | Description
 - [SubscriptionUsersVM](docs/Model/SubscriptionUsersVM.md)
 - [SubscriptionVM](docs/Model/SubscriptionVM.md)
 - [SubscriptionsVM](docs/Model/SubscriptionsVM.md)
+- [TaskAdministrate](docs/Model/TaskAdministrate.md)
 - [TaskBaseVM](docs/Model/TaskBaseVM.md)
+- [TaskCreate](docs/Model/TaskCreate.md)
+- [TaskCreateTaskGetTaskUpdateTaskDeleteTaskExecuteTaskAdministratePermission](docs/Model/TaskCreateTaskGetTaskUpdateTaskDeleteTaskExecuteTaskAdministratePermission.md)
+- [TaskDelete](docs/Model/TaskDelete.md)
+- [TaskExecute](docs/Model/TaskExecute.md)
+- [TaskGet](docs/Model/TaskGet.md)
+- [TaskPermission](docs/Model/TaskPermission.md)
+- [TaskPermissionTaskCreateTaskGetTaskUpdateTaskDeleteTaskExecuteTaskAdministratePermissions](docs/Model/TaskPermissionTaskCreateTaskGetTaskUpdateTaskDeleteTaskExecuteTaskAdministratePermissions.md)
+- [TaskPermissions](docs/Model/TaskPermissions.md)
+- [TaskPermissionsVM](docs/Model/TaskPermissionsVM.md)
 - [TaskSettingsVM](docs/Model/TaskSettingsVM.md)
-- [TaskType](docs/Model/TaskType.md)
+- [TaskUpdate](docs/Model/TaskUpdate.md)
 - [TasksVM](docs/Model/TasksVM.md)
 - [TemplateCreateAdminVM](docs/Model/TemplateCreateAdminVM.md)
 - [TemplateCreateVM](docs/Model/TemplateCreateVM.md)
@@ -411,31 +503,46 @@ Class | Method | HTTP request | Description
 - [TimePeriodType](docs/Model/TimePeriodType.md)
 - [TransformTaskBaseVM](docs/Model/TransformTaskBaseVM.md)
 - [TransportTaskBaseVM](docs/Model/TransportTaskBaseVM.md)
+- [UpdateContactGroupVM](docs/Model/UpdateContactGroupVM.md)
+- [UpdateContactVM](docs/Model/UpdateContactVM.md)
 - [UpdateDataSourceConnectionStringVM](docs/Model/UpdateDataSourceConnectionStringVM.md)
 - [UpdateDataSourcePermissionsVM](docs/Model/UpdateDataSourcePermissionsVM.md)
 - [UpdateDataSourceSubscriptionVM](docs/Model/UpdateDataSourceSubscriptionVM.md)
 - [UpdateDefaultPermissionsVM](docs/Model/UpdateDefaultPermissionsVM.md)
+- [UpdateEmailTaskVM](docs/Model/UpdateEmailTaskVM.md)
+- [UpdateExportReportTaskVM](docs/Model/UpdateExportReportTaskVM.md)
+- [UpdateExportTemplateTaskVM](docs/Model/UpdateExportTemplateTaskVM.md)
+- [UpdateFTPUploadTaskVM](docs/Model/UpdateFTPUploadTaskVM.md)
+- [UpdateFetchTaskVM](docs/Model/UpdateFetchTaskVM.md)
+- [UpdateFileContentVM](docs/Model/UpdateFileContentVM.md)
 - [UpdateFilePermissionsVM](docs/Model/UpdateFilePermissionsVM.md)
 - [UpdateGroupPermissionsVM](docs/Model/UpdateGroupPermissionsVM.md)
+- [UpdatePrepareTemplateTaskVM](docs/Model/UpdatePrepareTemplateTaskVM.md)
 - [UpdateSubscriptionLocaleVM](docs/Model/UpdateSubscriptionLocaleVM.md)
 - [UpdateSubscriptionPermissionsVM](docs/Model/UpdateSubscriptionPermissionsVM.md)
+- [UpdateTaskBaseVM](docs/Model/UpdateTaskBaseVM.md)
+- [UpdateTaskPermissionsVM](docs/Model/UpdateTaskPermissionsVM.md)
+- [UpdateThumbnailReportTaskVM](docs/Model/UpdateThumbnailReportTaskVM.md)
+- [UpdateThumbnailTemplateTaskVM](docs/Model/UpdateThumbnailTemplateTaskVM.md)
+- [UpdateTransformTaskBaseVM](docs/Model/UpdateTransformTaskBaseVM.md)
+- [UpdateTransportTaskBaseVM](docs/Model/UpdateTransportTaskBaseVM.md)
 - [UpdateUserProfileVM](docs/Model/UpdateUserProfileVM.md)
 - [UpdateUserSettingsVM](docs/Model/UpdateUserSettingsVM.md)
+- [UpdateWebhookTaskVM](docs/Model/UpdateWebhookTaskVM.md)
 - [UserProfileVM](docs/Model/UserProfileVM.md)
 - [UserSettingsVM](docs/Model/UserSettingsVM.md)
-- [ValidationProblemDetails](docs/Model/ValidationProblemDetails.md)
 - [WebhookTaskVM](docs/Model/WebhookTaskVM.md)
 
 ## Authorization
 
-### ApiKey
-
-- **Type**: HTTP basic authentication
-
-
 ### JWT
 
 - **Type**: Bearer authentication (JWT)
+
+
+### ApiKey
+
+- **Type**: HTTP basic authentication
 
 ## Tests
 

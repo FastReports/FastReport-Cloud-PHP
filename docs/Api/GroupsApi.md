@@ -1,16 +1,16 @@
 # OpenAPI\Client\GroupsApi
 
-All URIs are relative to http://localhost.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**groupsCreateGroup()**](GroupsApi.md#groupsCreateGroup) | **POST** /api/manage/v1/Groups | Create a new user group
-[**groupsDeleteGroup()**](GroupsApi.md#groupsDeleteGroup) | **DELETE** /api/manage/v1/Groups/{id} | Delete group by identifier
-[**groupsGetGroup()**](GroupsApi.md#groupsGetGroup) | **GET** /api/manage/v1/Groups/{id} | Gets group by identifier
-[**groupsGetGroupList()**](GroupsApi.md#groupsGetGroupList) | **GET** /api/manage/v1/Groups | Returns a list of current user&#39;s groups&lt;br /&gt;  This method will return following data about groups : &lt;br /&gt;  Id, Name, Created time (UTC), Edited time (UTC), creator id, &lt;br /&gt;  editor id, subscription id
-[**groupsGetPermissions()**](GroupsApi.md#groupsGetPermissions) | **GET** /api/manage/v1/Groups/{id}/permissions | Gets group permissions by identifier
-[**groupsRenameGroup()**](GroupsApi.md#groupsRenameGroup) | **PUT** /api/manage/v1/Groups/{id}/rename | Rename group by identifier
-[**groupsUpdatePermissions()**](GroupsApi.md#groupsUpdatePermissions) | **POST** /api/manage/v1/Groups/{id}/permissions | Update permissions
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**groupsCreateGroup()**](GroupsApi.md#groupsCreateGroup) | **POST** /api/manage/v1/Groups | Create a new user group |
+| [**groupsDeleteGroup()**](GroupsApi.md#groupsDeleteGroup) | **DELETE** /api/manage/v1/Groups/{id} | Delete group by identifier |
+| [**groupsGetGroup()**](GroupsApi.md#groupsGetGroup) | **GET** /api/manage/v1/Groups/{id} | Gets group by identifier |
+| [**groupsGetGroupList()**](GroupsApi.md#groupsGetGroupList) | **GET** /api/manage/v1/Groups | Returns a list of current user&#39;s groups&lt;br /&gt;  This method will return following data about groups : &lt;br /&gt;  Id, Name, Created time (UTC), Edited time (UTC), creator id, &lt;br /&gt;  editor id, subscription id |
+| [**groupsGetPermissions()**](GroupsApi.md#groupsGetPermissions) | **GET** /api/manage/v1/Groups/{id}/permissions | Gets group permissions by identifier |
+| [**groupsRenameGroup()**](GroupsApi.md#groupsRenameGroup) | **PUT** /api/manage/v1/Groups/{id}/rename | Rename group by identifier |
+| [**groupsUpdatePermissions()**](GroupsApi.md#groupsUpdatePermissions) | **POST** /api/manage/v1/Groups/{id}/permissions | Update permissions |
 
 
 ## `groupsCreateGroup()`
@@ -55,9 +55,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **create_group_vm** | [**\OpenAPI\Client\cloud\fastreport\model\CreateGroupVM**](../Model/CreateGroupVM.md)| Model for creating | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **create_group_vm** | [**\OpenAPI\Client\cloud\fastreport\model\CreateGroupVM**](../Model/CreateGroupVM.md)| Model for creating | [optional] |
 
 ### Return type
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -117,9 +117,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of group |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Identifier of group | |
 
 ### Return type
 
@@ -180,9 +180,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of group |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Identifier of group | |
 
 ### Return type
 
@@ -244,10 +244,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **skip** | **int**| How many groups need to skip | [optional] [default to 0]
- **take** | **int**| How many groups need to take | [optional] [default to 10]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **skip** | **int**| How many groups need to skip | [optional] [default to 0] |
+| **take** | **int**| How many groups need to take | [optional] [default to 10] |
 
 ### Return type
 
@@ -308,9 +308,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of group |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Identifier of group | |
 
 ### Return type
 
@@ -372,10 +372,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of group |
- **rename_group_vm** | [**\OpenAPI\Client\cloud\fastreport\model\RenameGroupVM**](../Model/RenameGroupVM.md)| Model for renaming |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Identifier of group | |
+| **rename_group_vm** | [**\OpenAPI\Client\cloud\fastreport\model\RenameGroupVM**](../Model/RenameGroupVM.md)| Model for renaming | |
 
 ### Return type
 
@@ -387,7 +387,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -424,8 +424,8 @@ $apiInstance = new OpenAPI\Client\Api\GroupsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
-$update_group_permissions_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateGroupPermissionsVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateGroupPermissionsVM
+$id = 'id_example'; // string | 
+$update_group_permissions_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateGroupPermissionsVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateGroupPermissionsVM | 
 
 try {
     $apiInstance->groupsUpdatePermissions($id, $update_group_permissions_vm);
@@ -436,10 +436,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**|  |
- **update_group_permissions_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateGroupPermissionsVM**](../Model/UpdateGroupPermissionsVM.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+| **update_group_permissions_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateGroupPermissionsVM**](../Model/UpdateGroupPermissionsVM.md)|  | [optional] |
 
 ### Return type
 
@@ -451,7 +451,7 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`, `text/json`, `application/_*+json`
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
