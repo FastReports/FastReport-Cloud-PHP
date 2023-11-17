@@ -132,12 +132,36 @@ class ReportsApiTest extends TestCase
     }
 
     /**
+     * Test case for reportFolderAndFileMoveFilesToBin
+     *
+     * Move folders and files to bin.
+     *
+     */
+    public function testReportFolderAndFileMoveFilesToBin()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for reportFolderAndFileRecoverAllFromRecycleBin
      *
      * Recover all folders and files from recycle bin.
      *
      */
     public function testReportFolderAndFileRecoverAllFromRecycleBin()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for reportFolderAndFileRecoverFiles
+     *
+     * Recover folders and files from bin.
+     *
+     */
+    public function testReportFolderAndFileRecoverFiles()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

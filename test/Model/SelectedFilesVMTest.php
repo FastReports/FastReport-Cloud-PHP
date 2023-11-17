@@ -89,6 +89,33 @@ class SelectedFilesVMTest extends TestCase
     }
 
     /**
+     * Test attribute "folder_id"
+     */
+    public function testPropertyFolderId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "search_pattern"
+     */
+    public function testPropertySearchPattern()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "use_regex"
+     */
+    public function testPropertyUseRegex()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "files"
      */
     public function testPropertyFiles()
@@ -101,6 +128,24 @@ class SelectedFilesVMTest extends TestCase
      * Test attribute "folders"
      */
     public function testPropertyFolders()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "path"
+     */
+    public function testPropertyPath()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_bin"
+     */
+    public function testPropertyIsBin()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

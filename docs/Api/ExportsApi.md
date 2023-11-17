@@ -9,7 +9,9 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**exportFolderAndFileGetCount()**](ExportsApi.md#exportFolderAndFileGetCount) | **GET** /api/rp/v1/Exports/Folder/{id}/CountFolderAndFiles | Get count of files and folders what contains in a specified folder |
 | [**exportFolderAndFileGetFoldersAndFiles()**](ExportsApi.md#exportFolderAndFileGetFoldersAndFiles) | **GET** /api/rp/v1/Exports/Folder/{id}/ListFolderAndFiles | Get all folders and files from specified folder |
 | [**exportFolderAndFileGetRecycleBinFoldersAndFiles()**](ExportsApi.md#exportFolderAndFileGetRecycleBinFoldersAndFiles) | **GET** /api/rp/v1/Exports/{subscriptionId}/ListRecycleBinFolderAndFiles | Get all folders and files from recycle bin |
+| [**exportFolderAndFileMoveFilesToBin()**](ExportsApi.md#exportFolderAndFileMoveFilesToBin) | **POST** /api/rp/v1/Exports/{subscriptionId}/ToBin | Move folders and files to bin |
 | [**exportFolderAndFileRecoverAllFromRecycleBin()**](ExportsApi.md#exportFolderAndFileRecoverAllFromRecycleBin) | **POST** /api/rp/v1/Exports/{subscriptionId}/RecoverRecycleBin | Recover all folders and files from recycle bin |
+| [**exportFolderAndFileRecoverFiles()**](ExportsApi.md#exportFolderAndFileRecoverFiles) | **POST** /api/rp/v1/Exports/{subscriptionId}/RecoverFiles | Recover folders and files from bin |
 | [**exportFoldersCalculateFolderSize()**](ExportsApi.md#exportFoldersCalculateFolderSize) | **GET** /api/rp/v1/Exports/Folder/{id}/size | Get specified folder, calculate it&#39;s size |
 | [**exportFoldersCopyFolder()**](ExportsApi.md#exportFoldersCopyFolder) | **POST** /api/rp/v1/Exports/Folder/{id}/Copy/{folderId} | Move folder to a specified folder |
 | [**exportFoldersDeleteFolder()**](ExportsApi.md#exportFoldersDeleteFolder) | **DELETE** /api/rp/v1/Exports/Folder/{id} | Delete specified folder |
@@ -30,7 +32,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**exportFoldersUpdateTags()**](ExportsApi.md#exportFoldersUpdateTags) | **PUT** /api/rp/v1/Exports/Folder/{id}/UpdateTags | Update tags |
 | [**exportsCopyFile()**](ExportsApi.md#exportsCopyFile) | **POST** /api/rp/v1/Exports/File/{id}/Copy/{folderId} | Copy file to a specified folder |
 | [**exportsDeleteFile()**](ExportsApi.md#exportsDeleteFile) | **DELETE** /api/rp/v1/Exports/File/{id} | Delete specified file |
-| [**exportsGetFile()**](ExportsApi.md#exportsGetFile) | **GET** /api/rp/v1/Exports/File/{id} | Get specified file |
+| [**exportsGetFile()**](ExportsApi.md#exportsGetFile) | **GET** /api/rp/v1/Exports/File/{id} |  |
 | [**exportsGetFileHistory()**](ExportsApi.md#exportsGetFileHistory) | **GET** /api/rp/v1/Exports/File/{id}/History | Returns list of actions, performed on this file |
 | [**exportsGetFilesCount()**](ExportsApi.md#exportsGetFilesCount) | **GET** /api/rp/v1/Exports/Folder/{id}/CountFiles | Get count of files what contains in a specified folder |
 | [**exportsGetFilesList()**](ExportsApi.md#exportsGetFilesList) | **GET** /api/rp/v1/Exports/Folder/{id}/ListFiles | Get all files from specified folder. &lt;br /&gt;  User with Get Entity permission can access this method. &lt;br /&gt;  The method will returns minimal infomration about the file: &lt;br /&gt;  id, name, size, editedTime, createdTime, tags, status, statusReason. |
@@ -111,7 +113,7 @@ void (empty response body)
 ## `exportFolderAndFileDeleteFiles()`
 
 ```php
-exportFolderAndFileDeleteFiles($subscription_id, $selected_files_for_deleting_vm)
+exportFolderAndFileDeleteFiles($subscription_id, $selected_files_vm)
 ```
 
 Delete folders and files
@@ -141,10 +143,10 @@ $apiInstance = new OpenAPI\Client\Api\ExportsApi(
     $config
 );
 $subscription_id = 'subscription_id_example'; // string | id of current subscription
-$selected_files_for_deleting_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesForDeletingVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesForDeletingVM | VM with files' ids and params of their destination
+$selected_files_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM | VM with files' ids and params of their destination
 
 try {
-    $apiInstance->exportFolderAndFileDeleteFiles($subscription_id, $selected_files_for_deleting_vm);
+    $apiInstance->exportFolderAndFileDeleteFiles($subscription_id, $selected_files_vm);
 } catch (Exception $e) {
     echo 'Exception when calling ExportsApi->exportFolderAndFileDeleteFiles: ', $e->getMessage(), PHP_EOL;
 }
@@ -155,7 +157,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **subscription_id** | **string**| id of current subscription | |
-| **selected_files_for_deleting_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesForDeletingVM**](../Model/SelectedFilesForDeletingVM.md)| VM with files&#39; ids and params of their destination | [optional] |
+| **selected_files_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM**](../Model/SelectedFilesVM.md)| VM with files&#39; ids and params of their destination | [optional] |
 
 ### Return type
 
@@ -397,6 +399,72 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `exportFolderAndFileMoveFilesToBin()`
+
+```php
+exportFolderAndFileMoveFilesToBin($subscription_id, $selected_files_vm)
+```
+
+Move folders and files to bin
+
+User with a Delete permission can access this method.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ExportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$subscription_id = 'subscription_id_example'; // string | id of current subscription
+$selected_files_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM | VM with files' ids and params of their destination
+
+try {
+    $apiInstance->exportFolderAndFileMoveFilesToBin($subscription_id, $selected_files_vm);
+} catch (Exception $e) {
+    echo 'Exception when calling ExportsApi->exportFolderAndFileMoveFilesToBin: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| id of current subscription | |
+| **selected_files_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM**](../Model/SelectedFilesVM.md)| VM with files&#39; ids and params of their destination | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `exportFolderAndFileRecoverAllFromRecycleBin()`
 
 ```php
@@ -455,6 +523,72 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `exportFolderAndFileRecoverFiles()`
+
+```php
+exportFolderAndFileRecoverFiles($subscription_id, $selected_files_vm)
+```
+
+Recover folders and files from bin
+
+User with a SubscriptionCreate permission can access this method.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ExportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$subscription_id = 'subscription_id_example'; // string | id of current subscription
+$selected_files_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM | VM with files' ids and params of their destination
+
+try {
+    $apiInstance->exportFolderAndFileRecoverFiles($subscription_id, $selected_files_vm);
+} catch (Exception $e) {
+    echo 'Exception when calling ExportsApi->exportFolderAndFileRecoverFiles: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| id of current subscription | |
+| **selected_files_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM**](../Model/SelectedFilesVM.md)| VM with files&#39; ids and params of their destination | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1790,9 +1924,7 @@ void (empty response body)
 exportsGetFile($id): \OpenAPI\Client\cloud\fastreport\model\ExportVM
 ```
 
-Get specified file
 
-User with Get Entity permission can access this method.
 
 ### Example
 
@@ -1816,7 +1948,7 @@ $apiInstance = new OpenAPI\Client\Api\ExportsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | file id
+$id = 'id_example'; // string
 
 try {
     $result = $apiInstance->exportsGetFile($id);
@@ -1830,7 +1962,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| file id | |
+| **id** | **string**|  | |
 
 ### Return type
 

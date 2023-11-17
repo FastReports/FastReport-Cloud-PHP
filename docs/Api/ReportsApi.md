@@ -9,7 +9,9 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**reportFolderAndFileGetCount()**](ReportsApi.md#reportFolderAndFileGetCount) | **GET** /api/rp/v1/Reports/Folder/{id}/CountFolderAndFiles | Get count of files and folders what contains in a specified folder |
 | [**reportFolderAndFileGetFoldersAndFiles()**](ReportsApi.md#reportFolderAndFileGetFoldersAndFiles) | **GET** /api/rp/v1/Reports/Folder/{id}/ListFolderAndFiles | Get all folders and files from specified folder |
 | [**reportFolderAndFileGetRecycleBinFoldersAndFiles()**](ReportsApi.md#reportFolderAndFileGetRecycleBinFoldersAndFiles) | **GET** /api/rp/v1/Reports/{subscriptionId}/ListRecycleBinFolderAndFiles | Get all folders and files from recycle bin |
+| [**reportFolderAndFileMoveFilesToBin()**](ReportsApi.md#reportFolderAndFileMoveFilesToBin) | **POST** /api/rp/v1/Reports/{subscriptionId}/ToBin | Move folders and files to bin |
 | [**reportFolderAndFileRecoverAllFromRecycleBin()**](ReportsApi.md#reportFolderAndFileRecoverAllFromRecycleBin) | **POST** /api/rp/v1/Reports/{subscriptionId}/RecoverRecycleBin | Recover all folders and files from recycle bin |
+| [**reportFolderAndFileRecoverFiles()**](ReportsApi.md#reportFolderAndFileRecoverFiles) | **POST** /api/rp/v1/Reports/{subscriptionId}/RecoverFiles | Recover folders and files from bin |
 | [**reportFoldersCalculateFolderSize()**](ReportsApi.md#reportFoldersCalculateFolderSize) | **GET** /api/rp/v1/Reports/Folder/{id}/size | Get specified folder, calculate it&#39;s size |
 | [**reportFoldersCopyFolder()**](ReportsApi.md#reportFoldersCopyFolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Copy/{folderId} | Move folder to a specified folder |
 | [**reportFoldersDeleteFolder()**](ReportsApi.md#reportFoldersDeleteFolder) | **DELETE** /api/rp/v1/Reports/Folder/{id} | Delete specified folder |
@@ -115,7 +117,7 @@ void (empty response body)
 ## `reportFolderAndFileDeleteFiles()`
 
 ```php
-reportFolderAndFileDeleteFiles($subscription_id, $selected_files_for_deleting_vm)
+reportFolderAndFileDeleteFiles($subscription_id, $selected_files_vm)
 ```
 
 Delete folders and files
@@ -145,10 +147,10 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     $config
 );
 $subscription_id = 'subscription_id_example'; // string | id of current subscription
-$selected_files_for_deleting_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesForDeletingVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesForDeletingVM | VM with files' ids and params of their destination
+$selected_files_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM | VM with files' ids and params of their destination
 
 try {
-    $apiInstance->reportFolderAndFileDeleteFiles($subscription_id, $selected_files_for_deleting_vm);
+    $apiInstance->reportFolderAndFileDeleteFiles($subscription_id, $selected_files_vm);
 } catch (Exception $e) {
     echo 'Exception when calling ReportsApi->reportFolderAndFileDeleteFiles: ', $e->getMessage(), PHP_EOL;
 }
@@ -159,7 +161,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **subscription_id** | **string**| id of current subscription | |
-| **selected_files_for_deleting_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesForDeletingVM**](../Model/SelectedFilesForDeletingVM.md)| VM with files&#39; ids and params of their destination | [optional] |
+| **selected_files_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM**](../Model/SelectedFilesVM.md)| VM with files&#39; ids and params of their destination | [optional] |
 
 ### Return type
 
@@ -401,6 +403,72 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `reportFolderAndFileMoveFilesToBin()`
+
+```php
+reportFolderAndFileMoveFilesToBin($subscription_id, $selected_files_vm)
+```
+
+Move folders and files to bin
+
+User with a Delete permission can access this method.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$subscription_id = 'subscription_id_example'; // string | id of current subscription
+$selected_files_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM | VM with files' ids and params of their destination
+
+try {
+    $apiInstance->reportFolderAndFileMoveFilesToBin($subscription_id, $selected_files_vm);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->reportFolderAndFileMoveFilesToBin: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| id of current subscription | |
+| **selected_files_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM**](../Model/SelectedFilesVM.md)| VM with files&#39; ids and params of their destination | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `reportFolderAndFileRecoverAllFromRecycleBin()`
 
 ```php
@@ -459,6 +527,72 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `reportFolderAndFileRecoverFiles()`
+
+```php
+reportFolderAndFileRecoverFiles($subscription_id, $selected_files_vm)
+```
+
+Recover folders and files from bin
+
+User with a SubscriptionCreate permission can access this method.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$subscription_id = 'subscription_id_example'; // string | id of current subscription
+$selected_files_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM | VM with files' ids and params of their destination
+
+try {
+    $apiInstance->reportFolderAndFileRecoverFiles($subscription_id, $selected_files_vm);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->reportFolderAndFileRecoverFiles: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| id of current subscription | |
+| **selected_files_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM**](../Model/SelectedFilesVM.md)| VM with files&#39; ids and params of their destination | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

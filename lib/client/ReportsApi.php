@@ -88,8 +88,18 @@ class ReportsApi
         'reportFolderAndFileGetRecycleBinFoldersAndFiles' => [
             'application/json',
         ],
+        'reportFolderAndFileMoveFilesToBin' => [
+            'application/json',
+            'text/json',
+            'application/*+json',
+        ],
         'reportFolderAndFileRecoverAllFromRecycleBin' => [
             'application/json',
+        ],
+        'reportFolderAndFileRecoverFiles' => [
+            'application/json',
+            'text/json',
+            'application/*+json',
         ],
         'reportFoldersCalculateFolderSize' => [
             'application/json',
@@ -543,16 +553,16 @@ class ReportsApi
      * Delete folders and files
      *
      * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesForDeletingVM $selected_files_for_deleting_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileDeleteFiles'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function reportFolderAndFileDeleteFiles($subscription_id, $selected_files_for_deleting_vm = null, string $contentType = self::contentTypes['reportFolderAndFileDeleteFiles'][0])
+    public function reportFolderAndFileDeleteFiles($subscription_id, $selected_files_vm = null, string $contentType = self::contentTypes['reportFolderAndFileDeleteFiles'][0])
     {
-        $this->reportFolderAndFileDeleteFilesWithHttpInfo($subscription_id, $selected_files_for_deleting_vm, $contentType);
+        $this->reportFolderAndFileDeleteFilesWithHttpInfo($subscription_id, $selected_files_vm, $contentType);
     }
 
     /**
@@ -561,16 +571,16 @@ class ReportsApi
      * Delete folders and files
      *
      * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesForDeletingVM $selected_files_for_deleting_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileDeleteFiles'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function reportFolderAndFileDeleteFilesWithHttpInfo($subscription_id, $selected_files_for_deleting_vm = null, string $contentType = self::contentTypes['reportFolderAndFileDeleteFiles'][0])
+    public function reportFolderAndFileDeleteFilesWithHttpInfo($subscription_id, $selected_files_vm = null, string $contentType = self::contentTypes['reportFolderAndFileDeleteFiles'][0])
     {
-        $request = $this->reportFolderAndFileDeleteFilesRequest($subscription_id, $selected_files_for_deleting_vm, $contentType);
+        $request = $this->reportFolderAndFileDeleteFilesRequest($subscription_id, $selected_files_vm, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -646,15 +656,15 @@ class ReportsApi
      * Delete folders and files
      *
      * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesForDeletingVM $selected_files_for_deleting_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileDeleteFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reportFolderAndFileDeleteFilesAsync($subscription_id, $selected_files_for_deleting_vm = null, string $contentType = self::contentTypes['reportFolderAndFileDeleteFiles'][0])
+    public function reportFolderAndFileDeleteFilesAsync($subscription_id, $selected_files_vm = null, string $contentType = self::contentTypes['reportFolderAndFileDeleteFiles'][0])
     {
-        return $this->reportFolderAndFileDeleteFilesAsyncWithHttpInfo($subscription_id, $selected_files_for_deleting_vm, $contentType)
+        return $this->reportFolderAndFileDeleteFilesAsyncWithHttpInfo($subscription_id, $selected_files_vm, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -668,16 +678,16 @@ class ReportsApi
      * Delete folders and files
      *
      * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesForDeletingVM $selected_files_for_deleting_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileDeleteFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reportFolderAndFileDeleteFilesAsyncWithHttpInfo($subscription_id, $selected_files_for_deleting_vm = null, string $contentType = self::contentTypes['reportFolderAndFileDeleteFiles'][0])
+    public function reportFolderAndFileDeleteFilesAsyncWithHttpInfo($subscription_id, $selected_files_vm = null, string $contentType = self::contentTypes['reportFolderAndFileDeleteFiles'][0])
     {
         $returnType = '';
-        $request = $this->reportFolderAndFileDeleteFilesRequest($subscription_id, $selected_files_for_deleting_vm, $contentType);
+        $request = $this->reportFolderAndFileDeleteFilesRequest($subscription_id, $selected_files_vm, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -706,13 +716,13 @@ class ReportsApi
      * Create request for operation 'reportFolderAndFileDeleteFiles'
      *
      * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesForDeletingVM $selected_files_for_deleting_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileDeleteFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function reportFolderAndFileDeleteFilesRequest($subscription_id, $selected_files_for_deleting_vm = null, string $contentType = self::contentTypes['reportFolderAndFileDeleteFiles'][0])
+    public function reportFolderAndFileDeleteFilesRequest($subscription_id, $selected_files_vm = null, string $contentType = self::contentTypes['reportFolderAndFileDeleteFiles'][0])
     {
 
         // verify the required parameter 'subscription_id' is set
@@ -753,12 +763,12 @@ class ReportsApi
         );
 
         // for model (json/xml)
-        if (isset($selected_files_for_deleting_vm)) {
+        if (isset($selected_files_vm)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($selected_files_for_deleting_vm));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($selected_files_vm));
             } else {
-                $httpBody = $selected_files_for_deleting_vm;
+                $httpBody = $selected_files_vm;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2156,6 +2166,283 @@ class ReportsApi
     }
 
     /**
+     * Operation reportFolderAndFileMoveFilesToBin
+     *
+     * Move folders and files to bin
+     *
+     * @param  string $subscription_id id of current subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileMoveFilesToBin'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function reportFolderAndFileMoveFilesToBin($subscription_id, $selected_files_vm = null, string $contentType = self::contentTypes['reportFolderAndFileMoveFilesToBin'][0])
+    {
+        $this->reportFolderAndFileMoveFilesToBinWithHttpInfo($subscription_id, $selected_files_vm, $contentType);
+    }
+
+    /**
+     * Operation reportFolderAndFileMoveFilesToBinWithHttpInfo
+     *
+     * Move folders and files to bin
+     *
+     * @param  string $subscription_id id of current subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileMoveFilesToBin'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function reportFolderAndFileMoveFilesToBinWithHttpInfo($subscription_id, $selected_files_vm = null, string $contentType = self::contentTypes['reportFolderAndFileMoveFilesToBin'][0])
+    {
+        $request = $this->reportFolderAndFileMoveFilesToBinRequest($subscription_id, $selected_files_vm, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation reportFolderAndFileMoveFilesToBinAsync
+     *
+     * Move folders and files to bin
+     *
+     * @param  string $subscription_id id of current subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileMoveFilesToBin'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function reportFolderAndFileMoveFilesToBinAsync($subscription_id, $selected_files_vm = null, string $contentType = self::contentTypes['reportFolderAndFileMoveFilesToBin'][0])
+    {
+        return $this->reportFolderAndFileMoveFilesToBinAsyncWithHttpInfo($subscription_id, $selected_files_vm, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation reportFolderAndFileMoveFilesToBinAsyncWithHttpInfo
+     *
+     * Move folders and files to bin
+     *
+     * @param  string $subscription_id id of current subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileMoveFilesToBin'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function reportFolderAndFileMoveFilesToBinAsyncWithHttpInfo($subscription_id, $selected_files_vm = null, string $contentType = self::contentTypes['reportFolderAndFileMoveFilesToBin'][0])
+    {
+        $returnType = '';
+        $request = $this->reportFolderAndFileMoveFilesToBinRequest($subscription_id, $selected_files_vm, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'reportFolderAndFileMoveFilesToBin'
+     *
+     * @param  string $subscription_id id of current subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileMoveFilesToBin'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function reportFolderAndFileMoveFilesToBinRequest($subscription_id, $selected_files_vm = null, string $contentType = self::contentTypes['reportFolderAndFileMoveFilesToBin'][0])
+    {
+
+        // verify the required parameter 'subscription_id' is set
+        if ($subscription_id === null || (is_array($subscription_id) && count($subscription_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $subscription_id when calling reportFolderAndFileMoveFilesToBin'
+            );
+        }
+        if (!preg_match("/^[A-Fa-f0-9]{24}$/", $subscription_id)) {
+            throw new \InvalidArgumentException("invalid value for \"subscription_id\" when calling ReportsApi.reportFolderAndFileMoveFilesToBin, must conform to the pattern /^[A-Fa-f0-9]{24}$/.");
+        }
+        
+
+
+        $resourcePath = '/api/rp/v1/Reports/{subscriptionId}/ToBin';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($subscription_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'subscriptionId' . '}',
+                ObjectSerializer::toPathValue($subscription_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($selected_files_vm)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($selected_files_vm));
+            } else {
+                $httpBody = $selected_files_vm;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation reportFolderAndFileRecoverAllFromRecycleBin
      *
      * Recover all folders and files from recycle bin
@@ -2366,6 +2653,283 @@ class ReportsApi
 
         // for model (json/xml)
         if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation reportFolderAndFileRecoverFiles
+     *
+     * Recover folders and files from bin
+     *
+     * @param  string $subscription_id id of current subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileRecoverFiles'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function reportFolderAndFileRecoverFiles($subscription_id, $selected_files_vm = null, string $contentType = self::contentTypes['reportFolderAndFileRecoverFiles'][0])
+    {
+        $this->reportFolderAndFileRecoverFilesWithHttpInfo($subscription_id, $selected_files_vm, $contentType);
+    }
+
+    /**
+     * Operation reportFolderAndFileRecoverFilesWithHttpInfo
+     *
+     * Recover folders and files from bin
+     *
+     * @param  string $subscription_id id of current subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileRecoverFiles'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function reportFolderAndFileRecoverFilesWithHttpInfo($subscription_id, $selected_files_vm = null, string $contentType = self::contentTypes['reportFolderAndFileRecoverFiles'][0])
+    {
+        $request = $this->reportFolderAndFileRecoverFilesRequest($subscription_id, $selected_files_vm, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation reportFolderAndFileRecoverFilesAsync
+     *
+     * Recover folders and files from bin
+     *
+     * @param  string $subscription_id id of current subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileRecoverFiles'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function reportFolderAndFileRecoverFilesAsync($subscription_id, $selected_files_vm = null, string $contentType = self::contentTypes['reportFolderAndFileRecoverFiles'][0])
+    {
+        return $this->reportFolderAndFileRecoverFilesAsyncWithHttpInfo($subscription_id, $selected_files_vm, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation reportFolderAndFileRecoverFilesAsyncWithHttpInfo
+     *
+     * Recover folders and files from bin
+     *
+     * @param  string $subscription_id id of current subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileRecoverFiles'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function reportFolderAndFileRecoverFilesAsyncWithHttpInfo($subscription_id, $selected_files_vm = null, string $contentType = self::contentTypes['reportFolderAndFileRecoverFiles'][0])
+    {
+        $returnType = '';
+        $request = $this->reportFolderAndFileRecoverFilesRequest($subscription_id, $selected_files_vm, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'reportFolderAndFileRecoverFiles'
+     *
+     * @param  string $subscription_id id of current subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileRecoverFiles'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function reportFolderAndFileRecoverFilesRequest($subscription_id, $selected_files_vm = null, string $contentType = self::contentTypes['reportFolderAndFileRecoverFiles'][0])
+    {
+
+        // verify the required parameter 'subscription_id' is set
+        if ($subscription_id === null || (is_array($subscription_id) && count($subscription_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $subscription_id when calling reportFolderAndFileRecoverFiles'
+            );
+        }
+        if (!preg_match("/^[A-Fa-f0-9]{24}$/", $subscription_id)) {
+            throw new \InvalidArgumentException("invalid value for \"subscription_id\" when calling ReportsApi.reportFolderAndFileRecoverFiles, must conform to the pattern /^[A-Fa-f0-9]{24}$/.");
+        }
+        
+
+
+        $resourcePath = '/api/rp/v1/Reports/{subscriptionId}/RecoverFiles';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($subscription_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'subscriptionId' . '}',
+                ObjectSerializer::toPathValue($subscription_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($selected_files_vm)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($selected_files_vm));
+            } else {
+                $httpBody = $selected_files_vm;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

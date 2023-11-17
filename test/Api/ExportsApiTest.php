@@ -132,12 +132,36 @@ class ExportsApiTest extends TestCase
     }
 
     /**
+     * Test case for exportFolderAndFileMoveFilesToBin
+     *
+     * Move folders and files to bin.
+     *
+     */
+    public function testExportFolderAndFileMoveFilesToBin()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for exportFolderAndFileRecoverAllFromRecycleBin
      *
      * Recover all folders and files from recycle bin.
      *
      */
     public function testExportFolderAndFileRecoverAllFromRecycleBin()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for exportFolderAndFileRecoverFiles
+     *
+     * Recover folders and files from bin.
+     *
+     */
+    public function testExportFolderAndFileRecoverFiles()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -386,7 +410,7 @@ class ExportsApiTest extends TestCase
     /**
      * Test case for exportsGetFile
      *
-     * Get specified file.
+     * .
      *
      */
     public function testExportsGetFile()

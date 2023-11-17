@@ -58,8 +58,13 @@ class SelectedFilesVM implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'is_all_selected' => 'bool',
+        'folder_id' => 'string',
+        'search_pattern' => 'string',
+        'use_regex' => 'bool',
         'files' => 'string[]',
-        'folders' => 'string[]'
+        'folders' => 'string[]',
+        'path' => 'string',
+        'is_bin' => 'bool'
     ];
 
     /**
@@ -71,8 +76,13 @@ class SelectedFilesVM implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'is_all_selected' => null,
+        'folder_id' => null,
+        'search_pattern' => null,
+        'use_regex' => null,
         'files' => null,
-        'folders' => null
+        'folders' => null,
+        'path' => null,
+        'is_bin' => null
     ];
 
     /**
@@ -82,8 +92,13 @@ class SelectedFilesVM implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'is_all_selected' => false,
+		'folder_id' => true,
+		'search_pattern' => true,
+		'use_regex' => false,
 		'files' => true,
-		'folders' => true
+		'folders' => true,
+		'path' => true,
+		'is_bin' => false
     ];
 
     /**
@@ -173,8 +188,13 @@ class SelectedFilesVM implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'is_all_selected' => 'isAllSelected',
+        'folder_id' => 'folderId',
+        'search_pattern' => 'searchPattern',
+        'use_regex' => 'useRegex',
         'files' => 'files',
-        'folders' => 'folders'
+        'folders' => 'folders',
+        'path' => 'path',
+        'is_bin' => 'isBin'
     ];
 
     /**
@@ -184,8 +204,13 @@ class SelectedFilesVM implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'is_all_selected' => 'setIsAllSelected',
+        'folder_id' => 'setFolderId',
+        'search_pattern' => 'setSearchPattern',
+        'use_regex' => 'setUseRegex',
         'files' => 'setFiles',
-        'folders' => 'setFolders'
+        'folders' => 'setFolders',
+        'path' => 'setPath',
+        'is_bin' => 'setIsBin'
     ];
 
     /**
@@ -195,8 +220,13 @@ class SelectedFilesVM implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'is_all_selected' => 'getIsAllSelected',
+        'folder_id' => 'getFolderId',
+        'search_pattern' => 'getSearchPattern',
+        'use_regex' => 'getUseRegex',
         'files' => 'getFiles',
-        'folders' => 'getFolders'
+        'folders' => 'getFolders',
+        'path' => 'getPath',
+        'is_bin' => 'getIsBin'
     ];
 
     /**
@@ -257,8 +287,13 @@ class SelectedFilesVM implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('is_all_selected', $data ?? [], null);
+        $this->setIfExists('folder_id', $data ?? [], null);
+        $this->setIfExists('search_pattern', $data ?? [], null);
+        $this->setIfExists('use_regex', $data ?? [], null);
         $this->setIfExists('files', $data ?? [], null);
         $this->setIfExists('folders', $data ?? [], null);
+        $this->setIfExists('path', $data ?? [], null);
+        $this->setIfExists('is_bin', $data ?? [], null);
     }
 
     /**
@@ -287,6 +322,10 @@ class SelectedFilesVM implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['folder_id']) && !preg_match("/^[A-Fa-f0-9]{24}$/", $this->container['folder_id'])) {
+            $invalidProperties[] = "invalid value for 'folder_id', must be conform to the pattern /^[A-Fa-f0-9]{24}$/.";
+        }
 
         return $invalidProperties;
     }
@@ -326,6 +365,106 @@ class SelectedFilesVM implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable is_all_selected cannot be null');
         }
         $this->container['is_all_selected'] = $is_all_selected;
+
+        return $this;
+    }
+
+    /**
+     * Gets folder_id
+     *
+     * @return string|null
+     */
+    public function getFolderId()
+    {
+        return $this->container['folder_id'];
+    }
+
+    /**
+     * Sets folder_id
+     *
+     * @param string|null $folder_id folder_id
+     *
+     * @return self
+     */
+    public function setFolderId($folder_id)
+    {
+        if (is_null($folder_id)) {
+            array_push($this->openAPINullablesSetToNull, 'folder_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('folder_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($folder_id) && (!preg_match("/^[A-Fa-f0-9]{24}$/", $folder_id))) {
+            throw new \InvalidArgumentException("invalid value for \$folder_id when calling SelectedFilesVM., must conform to the pattern /^[A-Fa-f0-9]{24}$/.");
+        }
+
+        $this->container['folder_id'] = $folder_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets search_pattern
+     *
+     * @return string|null
+     */
+    public function getSearchPattern()
+    {
+        return $this->container['search_pattern'];
+    }
+
+    /**
+     * Sets search_pattern
+     *
+     * @param string|null $search_pattern search_pattern
+     *
+     * @return self
+     */
+    public function setSearchPattern($search_pattern)
+    {
+        if (is_null($search_pattern)) {
+            array_push($this->openAPINullablesSetToNull, 'search_pattern');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('search_pattern', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['search_pattern'] = $search_pattern;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_regex
+     *
+     * @return bool|null
+     */
+    public function getUseRegex()
+    {
+        return $this->container['use_regex'];
+    }
+
+    /**
+     * Sets use_regex
+     *
+     * @param bool|null $use_regex use_regex
+     *
+     * @return self
+     */
+    public function setUseRegex($use_regex)
+    {
+        if (is_null($use_regex)) {
+            throw new \InvalidArgumentException('non-nullable use_regex cannot be null');
+        }
+        $this->container['use_regex'] = $use_regex;
 
         return $this;
     }
@@ -394,6 +533,67 @@ class SelectedFilesVM implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['folders'] = $folders;
+
+        return $this;
+    }
+
+    /**
+     * Gets path
+     *
+     * @return string|null
+     */
+    public function getPath()
+    {
+        return $this->container['path'];
+    }
+
+    /**
+     * Sets path
+     *
+     * @param string|null $path path
+     *
+     * @return self
+     */
+    public function setPath($path)
+    {
+        if (is_null($path)) {
+            array_push($this->openAPINullablesSetToNull, 'path');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('path', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['path'] = $path;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_bin
+     *
+     * @return bool|null
+     */
+    public function getIsBin()
+    {
+        return $this->container['is_bin'];
+    }
+
+    /**
+     * Sets is_bin
+     *
+     * @param bool|null $is_bin is_bin
+     *
+     * @return self
+     */
+    public function setIsBin($is_bin)
+    {
+        if (is_null($is_bin)) {
+            throw new \InvalidArgumentException('non-nullable is_bin cannot be null');
+        }
+        $this->container['is_bin'] = $is_bin;
 
         return $this;
     }

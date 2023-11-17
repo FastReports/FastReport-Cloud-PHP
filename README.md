@@ -122,7 +122,9 @@ Class | Method | HTTP request | Description
 *ExportsApi* | [**exportFolderAndFileGetCount**](docs/Api/ExportsApi.md#exportfolderandfilegetcount) | **GET** /api/rp/v1/Exports/Folder/{id}/CountFolderAndFiles | Get count of files and folders what contains in a specified folder
 *ExportsApi* | [**exportFolderAndFileGetFoldersAndFiles**](docs/Api/ExportsApi.md#exportfolderandfilegetfoldersandfiles) | **GET** /api/rp/v1/Exports/Folder/{id}/ListFolderAndFiles | Get all folders and files from specified folder
 *ExportsApi* | [**exportFolderAndFileGetRecycleBinFoldersAndFiles**](docs/Api/ExportsApi.md#exportfolderandfilegetrecyclebinfoldersandfiles) | **GET** /api/rp/v1/Exports/{subscriptionId}/ListRecycleBinFolderAndFiles | Get all folders and files from recycle bin
+*ExportsApi* | [**exportFolderAndFileMoveFilesToBin**](docs/Api/ExportsApi.md#exportfolderandfilemovefilestobin) | **POST** /api/rp/v1/Exports/{subscriptionId}/ToBin | Move folders and files to bin
 *ExportsApi* | [**exportFolderAndFileRecoverAllFromRecycleBin**](docs/Api/ExportsApi.md#exportfolderandfilerecoverallfromrecyclebin) | **POST** /api/rp/v1/Exports/{subscriptionId}/RecoverRecycleBin | Recover all folders and files from recycle bin
+*ExportsApi* | [**exportFolderAndFileRecoverFiles**](docs/Api/ExportsApi.md#exportfolderandfilerecoverfiles) | **POST** /api/rp/v1/Exports/{subscriptionId}/RecoverFiles | Recover folders and files from bin
 *ExportsApi* | [**exportFoldersCalculateFolderSize**](docs/Api/ExportsApi.md#exportfolderscalculatefoldersize) | **GET** /api/rp/v1/Exports/Folder/{id}/size | Get specified folder, calculate it&#39;s size
 *ExportsApi* | [**exportFoldersCopyFolder**](docs/Api/ExportsApi.md#exportfolderscopyfolder) | **POST** /api/rp/v1/Exports/Folder/{id}/Copy/{folderId} | Move folder to a specified folder
 *ExportsApi* | [**exportFoldersDeleteFolder**](docs/Api/ExportsApi.md#exportfoldersdeletefolder) | **DELETE** /api/rp/v1/Exports/Folder/{id} | Delete specified folder
@@ -143,7 +145,7 @@ Class | Method | HTTP request | Description
 *ExportsApi* | [**exportFoldersUpdateTags**](docs/Api/ExportsApi.md#exportfoldersupdatetags) | **PUT** /api/rp/v1/Exports/Folder/{id}/UpdateTags | Update tags
 *ExportsApi* | [**exportsCopyFile**](docs/Api/ExportsApi.md#exportscopyfile) | **POST** /api/rp/v1/Exports/File/{id}/Copy/{folderId} | Copy file to a specified folder
 *ExportsApi* | [**exportsDeleteFile**](docs/Api/ExportsApi.md#exportsdeletefile) | **DELETE** /api/rp/v1/Exports/File/{id} | Delete specified file
-*ExportsApi* | [**exportsGetFile**](docs/Api/ExportsApi.md#exportsgetfile) | **GET** /api/rp/v1/Exports/File/{id} | Get specified file
+*ExportsApi* | [**exportsGetFile**](docs/Api/ExportsApi.md#exportsgetfile) | **GET** /api/rp/v1/Exports/File/{id} | 
 *ExportsApi* | [**exportsGetFileHistory**](docs/Api/ExportsApi.md#exportsgetfilehistory) | **GET** /api/rp/v1/Exports/File/{id}/History | Returns list of actions, performed on this file
 *ExportsApi* | [**exportsGetFilesCount**](docs/Api/ExportsApi.md#exportsgetfilescount) | **GET** /api/rp/v1/Exports/Folder/{id}/CountFiles | Get count of files what contains in a specified folder
 *ExportsApi* | [**exportsGetFilesList**](docs/Api/ExportsApi.md#exportsgetfileslist) | **GET** /api/rp/v1/Exports/Folder/{id}/ListFiles | Get all files from specified folder. &lt;br /&gt;  User with Get Entity permission can access this method. &lt;br /&gt;  The method will returns minimal infomration about the file: &lt;br /&gt;  id, name, size, editedTime, createdTime, tags, status, statusReason.
@@ -172,7 +174,9 @@ Class | Method | HTTP request | Description
 *ReportsApi* | [**reportFolderAndFileGetCount**](docs/Api/ReportsApi.md#reportfolderandfilegetcount) | **GET** /api/rp/v1/Reports/Folder/{id}/CountFolderAndFiles | Get count of files and folders what contains in a specified folder
 *ReportsApi* | [**reportFolderAndFileGetFoldersAndFiles**](docs/Api/ReportsApi.md#reportfolderandfilegetfoldersandfiles) | **GET** /api/rp/v1/Reports/Folder/{id}/ListFolderAndFiles | Get all folders and files from specified folder
 *ReportsApi* | [**reportFolderAndFileGetRecycleBinFoldersAndFiles**](docs/Api/ReportsApi.md#reportfolderandfilegetrecyclebinfoldersandfiles) | **GET** /api/rp/v1/Reports/{subscriptionId}/ListRecycleBinFolderAndFiles | Get all folders and files from recycle bin
+*ReportsApi* | [**reportFolderAndFileMoveFilesToBin**](docs/Api/ReportsApi.md#reportfolderandfilemovefilestobin) | **POST** /api/rp/v1/Reports/{subscriptionId}/ToBin | Move folders and files to bin
 *ReportsApi* | [**reportFolderAndFileRecoverAllFromRecycleBin**](docs/Api/ReportsApi.md#reportfolderandfilerecoverallfromrecyclebin) | **POST** /api/rp/v1/Reports/{subscriptionId}/RecoverRecycleBin | Recover all folders and files from recycle bin
+*ReportsApi* | [**reportFolderAndFileRecoverFiles**](docs/Api/ReportsApi.md#reportfolderandfilerecoverfiles) | **POST** /api/rp/v1/Reports/{subscriptionId}/RecoverFiles | Recover folders and files from bin
 *ReportsApi* | [**reportFoldersCalculateFolderSize**](docs/Api/ReportsApi.md#reportfolderscalculatefoldersize) | **GET** /api/rp/v1/Reports/Folder/{id}/size | Get specified folder, calculate it&#39;s size
 *ReportsApi* | [**reportFoldersCopyFolder**](docs/Api/ReportsApi.md#reportfolderscopyfolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Copy/{folderId} | Move folder to a specified folder
 *ReportsApi* | [**reportFoldersDeleteFolder**](docs/Api/ReportsApi.md#reportfoldersdeletefolder) | **DELETE** /api/rp/v1/Reports/Folder/{id} | Delete specified folder
@@ -246,7 +250,9 @@ Class | Method | HTTP request | Description
 *TemplatesApi* | [**templateFolderAndFileGetCount**](docs/Api/TemplatesApi.md#templatefolderandfilegetcount) | **GET** /api/rp/v1/Templates/Folder/{id}/CountFolderAndFiles | Get count of files and folders what contains in a specified folder
 *TemplatesApi* | [**templateFolderAndFileGetFoldersAndFiles**](docs/Api/TemplatesApi.md#templatefolderandfilegetfoldersandfiles) | **GET** /api/rp/v1/Templates/Folder/{id}/ListFolderAndFiles | Get all folders and files from specified folder
 *TemplatesApi* | [**templateFolderAndFileGetRecycleBinFoldersAndFiles**](docs/Api/TemplatesApi.md#templatefolderandfilegetrecyclebinfoldersandfiles) | **GET** /api/rp/v1/Templates/{subscriptionId}/ListRecycleBinFolderAndFiles | Get all folders and files from recycle bin
+*TemplatesApi* | [**templateFolderAndFileMoveFilesToBin**](docs/Api/TemplatesApi.md#templatefolderandfilemovefilestobin) | **POST** /api/rp/v1/Templates/{subscriptionId}/ToBin | Move folders and files to bin
 *TemplatesApi* | [**templateFolderAndFileRecoverAllFromRecycleBin**](docs/Api/TemplatesApi.md#templatefolderandfilerecoverallfromrecyclebin) | **POST** /api/rp/v1/Templates/{subscriptionId}/RecoverRecycleBin | Recover all folders and files from recycle bin
+*TemplatesApi* | [**templateFolderAndFileRecoverFiles**](docs/Api/TemplatesApi.md#templatefolderandfilerecoverfiles) | **POST** /api/rp/v1/Templates/{subscriptionId}/RecoverFiles | Recover folders and files from bin
 *TemplatesApi* | [**templateFoldersCalculateFolderSize**](docs/Api/TemplatesApi.md#templatefolderscalculatefoldersize) | **GET** /api/rp/v1/Templates/Folder/{id}/size | Get specified folder, calculate it&#39;s size
 *TemplatesApi* | [**templateFoldersCopyFolder**](docs/Api/TemplatesApi.md#templatefolderscopyfolder) | **POST** /api/rp/v1/Templates/Folder/{id}/Copy/{folderId} | Move folder to a specified folder
 *TemplatesApi* | [**templateFoldersDeleteFolder**](docs/Api/TemplatesApi.md#templatefoldersdeletefolder) | **DELETE** /api/rp/v1/Templates/Folder/{id} | Delete specified folder
@@ -454,7 +460,6 @@ Class | Method | HTTP request | Description
 - [RunTransportTaskBaseVM](docs/Model/RunTransportTaskBaseVM.md)
 - [RunWebhookTaskVM](docs/Model/RunWebhookTaskVM.md)
 - [SaveMode](docs/Model/SaveMode.md)
-- [SelectedFilesForDeletingVM](docs/Model/SelectedFilesForDeletingVM.md)
 - [SelectedFilesVM](docs/Model/SelectedFilesVM.md)
 - [ServerConfigurationVM](docs/Model/ServerConfigurationVM.md)
 - [SubscriptionAdministrate](docs/Model/SubscriptionAdministrate.md)

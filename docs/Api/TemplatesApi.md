@@ -9,7 +9,9 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**templateFolderAndFileGetCount()**](TemplatesApi.md#templateFolderAndFileGetCount) | **GET** /api/rp/v1/Templates/Folder/{id}/CountFolderAndFiles | Get count of files and folders what contains in a specified folder |
 | [**templateFolderAndFileGetFoldersAndFiles()**](TemplatesApi.md#templateFolderAndFileGetFoldersAndFiles) | **GET** /api/rp/v1/Templates/Folder/{id}/ListFolderAndFiles | Get all folders and files from specified folder |
 | [**templateFolderAndFileGetRecycleBinFoldersAndFiles()**](TemplatesApi.md#templateFolderAndFileGetRecycleBinFoldersAndFiles) | **GET** /api/rp/v1/Templates/{subscriptionId}/ListRecycleBinFolderAndFiles | Get all folders and files from recycle bin |
+| [**templateFolderAndFileMoveFilesToBin()**](TemplatesApi.md#templateFolderAndFileMoveFilesToBin) | **POST** /api/rp/v1/Templates/{subscriptionId}/ToBin | Move folders and files to bin |
 | [**templateFolderAndFileRecoverAllFromRecycleBin()**](TemplatesApi.md#templateFolderAndFileRecoverAllFromRecycleBin) | **POST** /api/rp/v1/Templates/{subscriptionId}/RecoverRecycleBin | Recover all folders and files from recycle bin |
+| [**templateFolderAndFileRecoverFiles()**](TemplatesApi.md#templateFolderAndFileRecoverFiles) | **POST** /api/rp/v1/Templates/{subscriptionId}/RecoverFiles | Recover folders and files from bin |
 | [**templateFoldersCalculateFolderSize()**](TemplatesApi.md#templateFoldersCalculateFolderSize) | **GET** /api/rp/v1/Templates/Folder/{id}/size | Get specified folder, calculate it&#39;s size |
 | [**templateFoldersCopyFolder()**](TemplatesApi.md#templateFoldersCopyFolder) | **POST** /api/rp/v1/Templates/Folder/{id}/Copy/{folderId} | Move folder to a specified folder |
 | [**templateFoldersDeleteFolder()**](TemplatesApi.md#templateFoldersDeleteFolder) | **DELETE** /api/rp/v1/Templates/Folder/{id} | Delete specified folder |
@@ -118,7 +120,7 @@ void (empty response body)
 ## `templateFolderAndFileDeleteFiles()`
 
 ```php
-templateFolderAndFileDeleteFiles($subscription_id, $selected_files_for_deleting_vm)
+templateFolderAndFileDeleteFiles($subscription_id, $selected_files_vm)
 ```
 
 Delete folders and files
@@ -148,10 +150,10 @@ $apiInstance = new OpenAPI\Client\Api\TemplatesApi(
     $config
 );
 $subscription_id = 'subscription_id_example'; // string | id of current subscription
-$selected_files_for_deleting_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesForDeletingVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesForDeletingVM | VM with files' ids and params of their destination
+$selected_files_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM | VM with files' ids and params of their destination
 
 try {
-    $apiInstance->templateFolderAndFileDeleteFiles($subscription_id, $selected_files_for_deleting_vm);
+    $apiInstance->templateFolderAndFileDeleteFiles($subscription_id, $selected_files_vm);
 } catch (Exception $e) {
     echo 'Exception when calling TemplatesApi->templateFolderAndFileDeleteFiles: ', $e->getMessage(), PHP_EOL;
 }
@@ -162,7 +164,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **subscription_id** | **string**| id of current subscription | |
-| **selected_files_for_deleting_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesForDeletingVM**](../Model/SelectedFilesForDeletingVM.md)| VM with files&#39; ids and params of their destination | [optional] |
+| **selected_files_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM**](../Model/SelectedFilesVM.md)| VM with files&#39; ids and params of their destination | [optional] |
 
 ### Return type
 
@@ -404,6 +406,72 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `templateFolderAndFileMoveFilesToBin()`
+
+```php
+templateFolderAndFileMoveFilesToBin($subscription_id, $selected_files_vm)
+```
+
+Move folders and files to bin
+
+User with a Delete permission can access this method.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\TemplatesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$subscription_id = 'subscription_id_example'; // string | id of current subscription
+$selected_files_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM | VM with files' ids and params of their destination
+
+try {
+    $apiInstance->templateFolderAndFileMoveFilesToBin($subscription_id, $selected_files_vm);
+} catch (Exception $e) {
+    echo 'Exception when calling TemplatesApi->templateFolderAndFileMoveFilesToBin: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| id of current subscription | |
+| **selected_files_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM**](../Model/SelectedFilesVM.md)| VM with files&#39; ids and params of their destination | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `templateFolderAndFileRecoverAllFromRecycleBin()`
 
 ```php
@@ -462,6 +530,72 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `templateFolderAndFileRecoverFiles()`
+
+```php
+templateFolderAndFileRecoverFiles($subscription_id, $selected_files_vm)
+```
+
+Recover folders and files from bin
+
+User with a SubscriptionCreate permission can access this method.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\TemplatesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$subscription_id = 'subscription_id_example'; // string | id of current subscription
+$selected_files_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM | VM with files' ids and params of their destination
+
+try {
+    $apiInstance->templateFolderAndFileRecoverFiles($subscription_id, $selected_files_vm);
+} catch (Exception $e) {
+    echo 'Exception when calling TemplatesApi->templateFolderAndFileRecoverFiles: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| id of current subscription | |
+| **selected_files_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM**](../Model/SelectedFilesVM.md)| VM with files&#39; ids and params of their destination | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1957,7 +2091,7 @@ $apiInstance = new OpenAPI\Client\Api\TemplatesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | report id
+$id = 'id_example'; // string | template id
 $export_template_vm = new \OpenAPI\Client\cloud\fastreport\model\ExportTemplateVM(); // \OpenAPI\Client\cloud\fastreport\model\ExportTemplateVM | export parameters (string only)
 
 try {
@@ -1972,7 +2106,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| report id | |
+| **id** | **string**| template id | |
 | **export_template_vm** | [**\OpenAPI\Client\cloud\fastreport\model\ExportTemplateVM**](../Model/ExportTemplateVM.md)| export parameters (string only) | [optional] |
 
 ### Return type

@@ -132,12 +132,36 @@ class TemplatesApiTest extends TestCase
     }
 
     /**
+     * Test case for templateFolderAndFileMoveFilesToBin
+     *
+     * Move folders and files to bin.
+     *
+     */
+    public function testTemplateFolderAndFileMoveFilesToBin()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for templateFolderAndFileRecoverAllFromRecycleBin
      *
      * Recover all folders and files from recycle bin.
      *
      */
     public function testTemplateFolderAndFileRecoverAllFromRecycleBin()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for templateFolderAndFileRecoverFiles
+     *
+     * Recover folders and files from bin.
+     *
+     */
+    public function testTemplateFolderAndFileRecoverFiles()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

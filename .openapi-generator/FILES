@@ -184,7 +184,6 @@ docs/Model/RunTransformTaskBaseVM.md
 docs/Model/RunTransportTaskBaseVM.md
 docs/Model/RunWebhookTaskVM.md
 docs/Model/SaveMode.md
-docs/Model/SelectedFilesForDeletingVM.md
 docs/Model/SelectedFilesVM.md
 docs/Model/ServerConfigurationVM.md
 docs/Model/SubscriptionAdministrate.md
@@ -446,7 +445,6 @@ lib/cloud/fastreport/model/RunTransformTaskBaseVM.php
 lib/cloud/fastreport/model/RunTransportTaskBaseVM.php
 lib/cloud/fastreport/model/RunWebhookTaskVM.php
 lib/cloud/fastreport/model/SaveMode.php
-lib/cloud/fastreport/model/SelectedFilesForDeletingVM.php
 lib/cloud/fastreport/model/SelectedFilesVM.php
 lib/cloud/fastreport/model/ServerConfigurationVM.php
 lib/cloud/fastreport/model/SubscriptionAdministrate.php
@@ -703,7 +701,6 @@ test/Model/RunTransformTaskBaseVMTest.php
 test/Model/RunTransportTaskBaseVMTest.php
 test/Model/RunWebhookTaskVMTest.php
 test/Model/SaveModeTest.php
-test/Model/SelectedFilesForDeletingVMTest.php
 test/Model/SelectedFilesVMTest.php
 test/Model/ServerConfigurationVMTest.php
 test/Model/SubscriptionAdministrateTest.php
