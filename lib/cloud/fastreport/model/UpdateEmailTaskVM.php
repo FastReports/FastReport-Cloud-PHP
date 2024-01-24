@@ -335,8 +335,8 @@ class UpdateEmailTaskVM extends UpdateTransportTaskBaseVM
             $invalidProperties[] = "invalid value for 'body', the character length must be smaller than or equal to 384000.";
         }
 
-        if (!is_null($this->container['body']) && (mb_strlen($this->container['body']) < 1)) {
-            $invalidProperties[] = "invalid value for 'body', the character length must be bigger than or equal to 1.";
+        if (!is_null($this->container['body']) && (mb_strlen($this->container['body']) < 0)) {
+            $invalidProperties[] = "invalid value for 'body', the character length must be bigger than or equal to 0.";
         }
 
         if (!is_null($this->container['password']) && (mb_strlen($this->container['password']) > 300)) {
@@ -359,8 +359,8 @@ class UpdateEmailTaskVM extends UpdateTransportTaskBaseVM
             $invalidProperties[] = "invalid value for 'subject', the character length must be smaller than or equal to 1000.";
         }
 
-        if (!is_null($this->container['subject']) && (mb_strlen($this->container['subject']) < 1)) {
-            $invalidProperties[] = "invalid value for 'subject', the character length must be bigger than or equal to 1.";
+        if (!is_null($this->container['subject']) && (mb_strlen($this->container['subject']) < 0)) {
+            $invalidProperties[] = "invalid value for 'subject', the character length must be bigger than or equal to 0.";
         }
 
         if (!is_null($this->container['to']) && (count($this->container['to']) > 200)) {
@@ -422,8 +422,8 @@ class UpdateEmailTaskVM extends UpdateTransportTaskBaseVM
         if (!is_null($body) && (mb_strlen($body) > 384000)) {
             throw new \InvalidArgumentException('invalid length for $body when calling UpdateEmailTaskVM., must be smaller than or equal to 384000.');
         }
-        if (!is_null($body) && (mb_strlen($body) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $body when calling UpdateEmailTaskVM., must be bigger than or equal to 1.');
+        if (!is_null($body) && (mb_strlen($body) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $body when calling UpdateEmailTaskVM., must be bigger than or equal to 0.');
         }
 
         $this->container['body'] = $body;
@@ -681,8 +681,8 @@ class UpdateEmailTaskVM extends UpdateTransportTaskBaseVM
         if (!is_null($subject) && (mb_strlen($subject) > 1000)) {
             throw new \InvalidArgumentException('invalid length for $subject when calling UpdateEmailTaskVM., must be smaller than or equal to 1000.');
         }
-        if (!is_null($subject) && (mb_strlen($subject) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $subject when calling UpdateEmailTaskVM., must be bigger than or equal to 1.');
+        if (!is_null($subject) && (mb_strlen($subject) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $subject when calling UpdateEmailTaskVM., must be bigger than or equal to 0.');
         }
 
         $this->container['subject'] = $subject;

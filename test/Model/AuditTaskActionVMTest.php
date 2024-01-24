@@ -87,4 +87,13 @@ class AuditTaskActionVMTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "file_name"
+     */
+    public function testPropertyFileName()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

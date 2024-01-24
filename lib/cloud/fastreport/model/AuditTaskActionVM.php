@@ -55,7 +55,8 @@ class AuditTaskActionVM extends AuditActionVM
       * @var string[]
       */
     protected static $openAPITypes = [
-        'message_id' => 'string'
+        'message_id' => 'string',
+        'file_name' => 'string'
     ];
 
     /**
@@ -66,7 +67,8 @@ class AuditTaskActionVM extends AuditActionVM
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'message_id' => null
+        'message_id' => null,
+        'file_name' => null
     ];
 
     /**
@@ -75,7 +77,8 @@ class AuditTaskActionVM extends AuditActionVM
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'message_id' => true
+        'message_id' => true,
+		'file_name' => true
     ];
 
     /**
@@ -164,7 +167,8 @@ class AuditTaskActionVM extends AuditActionVM
      * @var string[]
      */
     protected static $attributeMap = [
-        'message_id' => 'messageId'
+        'message_id' => 'messageId',
+        'file_name' => 'fileName'
     ];
 
     /**
@@ -173,7 +177,8 @@ class AuditTaskActionVM extends AuditActionVM
      * @var string[]
      */
     protected static $setters = [
-        'message_id' => 'setMessageId'
+        'message_id' => 'setMessageId',
+        'file_name' => 'setFileName'
     ];
 
     /**
@@ -182,7 +187,8 @@ class AuditTaskActionVM extends AuditActionVM
      * @var string[]
      */
     protected static $getters = [
-        'message_id' => 'getMessageId'
+        'message_id' => 'getMessageId',
+        'file_name' => 'getFileName'
     ];
 
     /**
@@ -239,6 +245,7 @@ class AuditTaskActionVM extends AuditActionVM
         parent::__construct($data);
 
         $this->setIfExists('message_id', $data ?? [], null);
+        $this->setIfExists('file_name', $data ?? [], null);
     }
 
     /**
@@ -313,6 +320,40 @@ class AuditTaskActionVM extends AuditActionVM
             }
         }
         $this->container['message_id'] = $message_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_name
+     *
+     * @return string|null
+     */
+    public function getFileName()
+    {
+        return $this->container['file_name'];
+    }
+
+    /**
+     * Sets file_name
+     *
+     * @param string|null $file_name file_name
+     *
+     * @return self
+     */
+    public function setFileName($file_name)
+    {
+        if (is_null($file_name)) {
+            array_push($this->openAPINullablesSetToNull, 'file_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('file_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['file_name'] = $file_name;
 
         return $this;
     }
