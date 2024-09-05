@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **corporate_server_mode** | **bool** |  | [optional]
 **last_sla_version** | **\DateTime** |  | [optional]
 **is_disabled** | **bool** |  | [optional]
-**frontend** | [**\OpenAPI\Client\cloud\fastreport\model\FrontendApp**](FrontendApp.md) |  | [optional]
+**frontend** | [**\OpenAPI\Client\cloud\fastreport\model\FrontendAppVM**](FrontendAppVM.md) |  | [optional]
 **invariant_locale** | **string** |  | [optional]
 **auth** | [**\OpenAPI\Client\cloud\fastreport\model\AuthConfigVM**](AuthConfigVM.md) |  | [optional]
 **designer_for_anons** | **bool** |  | [optional]
@@ -20,5 +20,7 @@ Name | Type | Description | Notes
 **home_page_link** | **string** |  | [optional]
 **auth_server_name** | **string** |  | [optional]
 **update_workspace_link** | **string** |  | [optional]
+**sharing_enabled** | **bool** |  | [optional]
+**t** | **string** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

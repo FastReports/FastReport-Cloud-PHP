@@ -10,10 +10,12 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**dataSourcesFetchData()**](DataSourcesApi.md#dataSourcesFetchData) | **GET** /api/data/v1/DataSources/{id}/fetch | This should connect to a database and set data structure |
 | [**dataSourcesGetAvailableDataSources()**](DataSourcesApi.md#dataSourcesGetAvailableDataSources) | **GET** /api/data/v1/DataSources | Returns all of the data sources, that current user have permission for in a subscription &lt;br /&gt;  The method will return minimal infomration about the datasources: &lt;br /&gt;  id, name, editedTime, status. |
 | [**dataSourcesGetDataSource()**](DataSourcesApi.md#dataSourcesGetDataSource) | **GET** /api/data/v1/DataSources/{id} | Get data source by id |
+| [**dataSourcesGetParameterTypes()**](DataSourcesApi.md#dataSourcesGetParameterTypes) | **GET** /api/data/v1/DataSources/parameterTypes/{dataSourceType} | Get data source parameter DataType&#39;s |
 | [**dataSourcesGetPermissions()**](DataSourcesApi.md#dataSourcesGetPermissions) | **GET** /api/data/v1/DataSources/{id}/permissions | Get all Data source permissions |
 | [**dataSourcesRenameDataSource()**](DataSourcesApi.md#dataSourcesRenameDataSource) | **PUT** /api/data/v1/DataSources/{id}/rename | Rename data source by id |
-| [**dataSourcesUpdateConnectionString()**](DataSourcesApi.md#dataSourcesUpdateConnectionString) | **PUT** /api/data/v1/DataSources/{id}/ConnectionString | Update data source&#39;s connection string by id |
+| [**dataSourcesUpdateConnectionString()**](DataSourcesApi.md#dataSourcesUpdateConnectionString) | **PUT** /api/data/v1/DataSources/{id}/connectionString | Update data source&#39;s connection string by id |
 | [**dataSourcesUpdatePermissions()**](DataSourcesApi.md#dataSourcesUpdatePermissions) | **POST** /api/data/v1/DataSources/{id}/permissions | Update permissions |
+| [**dataSourcesUpdateSelectCommands()**](DataSourcesApi.md#dataSourcesUpdateSelectCommands) | **PUT** /api/data/v1/DataSources/{id}/selectCommands | Update data source&#39;s select commands by id |
 | [**dataSourcesUpdateSubscriptionDataSource()**](DataSourcesApi.md#dataSourcesUpdateSubscriptionDataSource) | **PUT** /api/data/v1/DataSources/{id}/updateSubscription | Update data source&#39;s subscription |
 
 
@@ -401,6 +403,69 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `dataSourcesGetParameterTypes()`
+
+```php
+dataSourcesGetParameterTypes($data_source_type): \OpenAPI\Client\cloud\fastreport\model\DataSourceParameterTypesVM
+```
+
+Get data source parameter DataType's
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\DataSourcesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$data_source_type = new \OpenAPI\Client\cloud\fastreport\model\DataSourceConnectionType(); // DataSourceConnectionType | data source type (MsSql, MySql, etc.)
+
+try {
+    $result = $apiInstance->dataSourcesGetParameterTypes($data_source_type);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DataSourcesApi->dataSourcesGetParameterTypes: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **data_source_type** | [**DataSourceConnectionType**](../Model/.md)| data source type (MsSql, MySql, etc.) | |
+
+### Return type
+
+[**\OpenAPI\Client\cloud\fastreport\model\DataSourceParameterTypesVM**](../Model/DataSourceParameterTypesVM.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `dataSourcesGetPermissions()`
 
 ```php
@@ -644,6 +709,71 @@ try {
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `dataSourcesUpdateSelectCommands()`
+
+```php
+dataSourcesUpdateSelectCommands($id, $update_data_source_select_commands_vm): \OpenAPI\Client\cloud\fastreport\model\DataSourceVM
+```
+
+Update data source's select commands by id
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\DataSourcesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | data source id
+$update_data_source_select_commands_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateDataSourceSelectCommandsVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateDataSourceSelectCommandsVM | update viewmodel
+
+try {
+    $result = $apiInstance->dataSourcesUpdateSelectCommands($id, $update_data_source_select_commands_vm);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DataSourcesApi->dataSourcesUpdateSelectCommands: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| data source id | |
+| **update_data_source_select_commands_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateDataSourceSelectCommandsVM**](../Model/UpdateDataSourceSelectCommandsVM.md)| update viewmodel | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\cloud\fastreport\model\DataSourceVM**](../Model/DataSourceVM.md)
 
 ### Authorization
 

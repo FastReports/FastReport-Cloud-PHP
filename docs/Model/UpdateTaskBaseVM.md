@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cron_expression** | **string** |  | [optional]
-**delayed_run_time** | **\DateTime** |  | [optional]
+**starts_on** | **\DateTime** |  | [optional]
+**ends** | [**\OpenAPI\Client\cloud\fastreport\model\CreateTaskEndVM**](CreateTaskEndVM.md) |  | [optional]
 **name** | **string** |  | [optional]
 **t** | **string** |  |
 

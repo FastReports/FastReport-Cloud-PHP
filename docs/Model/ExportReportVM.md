@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **pages_count** | **int** |  | [optional]
 **format** | [**\OpenAPI\Client\cloud\fastreport\model\ExportFormat**](ExportFormat.md) |  | [optional]
 **export_parameters** | **array<string,string>** |  | [optional]
+**t** | **string** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

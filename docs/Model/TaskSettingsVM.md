@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **fetch_data** | **bool** |  | [optional]
 **thumbnail_report** | **bool** |  | [optional]
 **thumbnail_template** | **bool** |  | [optional]
+**t** | **string** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

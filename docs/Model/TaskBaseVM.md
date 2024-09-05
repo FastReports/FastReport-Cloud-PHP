@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cron_expression** | **string** |  | [optional]
-**delayed_run_time** | **\DateTime** |  | [optional]
-**delayed_was_run_time** | **\DateTime** |  | [optional]
+**starts_on** | **\DateTime** |  | [optional]
+**ends** | [**\OpenAPI\Client\cloud\fastreport\model\TaskEnd**](TaskEnd.md) |  | [optional]
 **id** | **string** |  | [optional]
 **name** | **string** |  | [optional]
-**recurrent_run_time** | **\DateTime** |  | [optional] [readonly]
-**recurrent_was_run_time** | **\DateTime** |  | [optional] [readonly]
+**recurrent_run_time** | **\DateTime** |  | [optional]
+**recurrent_was_run_time** | **\DateTime** |  | [optional]
 **subscription_id** | **string** |  | [optional]
 **t** | **string** |  |
 

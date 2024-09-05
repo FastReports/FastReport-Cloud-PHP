@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **string** |  | [optional]
 **is_active** | **bool** |  | [optional]
 **display_name** | **string** |  | [optional]
-**time_period_type** | [**TimePeriodType**](TimePeriodType.md) |  | [optional]
+**time_period_type** | [**\OpenAPI\Client\cloud\fastreport\model\TimePeriodType**](TimePeriodType.md) |  | [optional]
 **time_period** | **int** |  | [optional]
 **readonly_time_limit_type** | [**\OpenAPI\Client\cloud\fastreport\model\TimePeriodType**](TimePeriodType.md) |  | [optional]
 **readonly_time_limit** | **int** |  | [optional]
@@ -24,5 +24,6 @@ Name | Type | Description | Notes
 **unlimited_page** | **bool** |  | [optional]
 **page_limit** | **int** |  | [optional]
 **tasks** | [**\OpenAPI\Client\cloud\fastreport\model\TaskSettingsVM**](TaskSettingsVM.md) |  | [optional]
+**t** | **string** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

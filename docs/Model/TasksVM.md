@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **skip** | **int** |  | [optional]
 **take** | **int** |  | [optional]
 **tasks** | [**\OpenAPI\Client\cloud\fastreport\model\TaskBaseVM[]**](TaskBaseVM.md) |  | [optional]
+**t** | **string** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

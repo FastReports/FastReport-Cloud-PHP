@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**errors** | **array<string,string[]>** |  | [optional] [readonly]
+**errors** | **array<string,string[]>** |  | [optional]
 **type** | **string** |  | [optional]
 **title** | **string** |  | [optional]
 **status** | **int** |  | [optional]

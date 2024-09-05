@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **export_parameters** | **array<string,string>** |  | [optional]
-**format** | [**ExportFormat**](ExportFormat.md) |  | [optional]
+**format** | [**\OpenAPI\Client\cloud\fastreport\model\ExportFormat**](ExportFormat.md) |  | [optional]
 **pages_count** | **int** |  | [optional]
 **t** | **string** |  |
 

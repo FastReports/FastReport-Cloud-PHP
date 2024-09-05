@@ -6,7 +6,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | ------------- | ------------- | ------------- |
 | [**apiKeysCreateApiKey()**](ApiKeysApi.md#apiKeysCreateApiKey) | **POST** /api/manage/v1/ApiKeys | Create a new apikey, 5 apikeys for user. Hardcoded for ddos. |
 | [**apiKeysDeleteApiKey()**](ApiKeysApi.md#apiKeysDeleteApiKey) | **DELETE** /api/manage/v1/ApiKeys | Delete an apikey |
-| [**apiKeysGetApiKeys()**](ApiKeysApi.md#apiKeysGetApiKeys) | **GET** /api/manage/v1/ApiKeys | Returns list with all api keys of current user |
+| [**apiKeysGetApiKeys()**](ApiKeysApi.md#apiKeysGetApiKeys) | **GET** /api/manage/v1/ApiKeys | Returns list with all apikeys of current user |
 
 
 ## `apiKeysCreateApiKey()`
@@ -75,7 +75,7 @@ try {
 ## `apiKeysDeleteApiKey()`
 
 ```php
-apiKeysDeleteApiKey($delete_api_key_vm)
+apiKeysDeleteApiKey($delete_api_key_vm): \OpenAPI\Client\cloud\fastreport\model\ApiKeyVM
 ```
 
 Delete an apikey
@@ -105,7 +105,8 @@ $apiInstance = new OpenAPI\Client\Api\ApiKeysApi(
 $delete_api_key_vm = new \OpenAPI\Client\cloud\fastreport\model\DeleteApiKeyVM(); // \OpenAPI\Client\cloud\fastreport\model\DeleteApiKeyVM
 
 try {
-    $apiInstance->apiKeysDeleteApiKey($delete_api_key_vm);
+    $result = $apiInstance->apiKeysDeleteApiKey($delete_api_key_vm);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApiKeysApi->apiKeysDeleteApiKey: ', $e->getMessage(), PHP_EOL;
 }
@@ -119,7 +120,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\OpenAPI\Client\cloud\fastreport\model\ApiKeyVM**](../Model/ApiKeyVM.md)
 
 ### Authorization
 
@@ -140,7 +141,7 @@ void (empty response body)
 apiKeysGetApiKeys(): \OpenAPI\Client\cloud\fastreport\model\ApiKeysVM
 ```
 
-Returns list with all api keys of current user
+Returns list with all apikeys of current user
 
 Always work, it should make only 200 response (except if user is not authorized).
 

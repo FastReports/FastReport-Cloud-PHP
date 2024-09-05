@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**permissions** | [**\OpenAPI\Client\cloud\fastreport\model\FilePermissions**](FilePermissions.md) |  | [optional]
+**permissions** | [**\OpenAPI\Client\cloud\fastreport\model\FilePermissionsCRUDVM**](FilePermissionsCRUDVM.md) |  | [optional]
+**t** | **string** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

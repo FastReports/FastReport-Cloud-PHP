@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **ftp_port** | **int** |  | [optional]
 **ftp_username** | **string** |  | [optional]
 **use_sftp** | **bool** |  | [optional]
+**t** | **string** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
