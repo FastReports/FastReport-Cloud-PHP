@@ -54,6 +54,8 @@ class FileExecute
 
     public const NUMBER_16 = 16;
 
+    public const NUMBER_32 = 32;
+
     public const NUMBER_MINUS_1 = -1;
 
     /**
@@ -69,6 +71,7 @@ class FileExecute
             self::NUMBER_4,
             self::NUMBER_8,
             self::NUMBER_16,
+            self::NUMBER_32,
             self::NUMBER_MINUS_1
         ];
     }

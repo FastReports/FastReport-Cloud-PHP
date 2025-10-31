@@ -102,6 +102,7 @@ Class | Method | HTTP request | Description
 *DataSourcesApi* | [**dataSourcesFetchData**](docs/Api/DataSourcesApi.md#datasourcesfetchdata) | **GET** /api/data/v1/DataSources/{id}/fetch | This should connect to a database and set data structure
 *DataSourcesApi* | [**dataSourcesGetAvailableDataSources**](docs/Api/DataSourcesApi.md#datasourcesgetavailabledatasources) | **GET** /api/data/v1/DataSources | Returns all of the data sources, that current user have permission for in a subscription &lt;br /&gt;  The method will return minimal infomration about the datasources: &lt;br /&gt;  id, name, editedTime, status.
 *DataSourcesApi* | [**dataSourcesGetDataSource**](docs/Api/DataSourcesApi.md#datasourcesgetdatasource) | **GET** /api/data/v1/DataSources/{id} | Get data source by id
+*DataSourcesApi* | [**dataSourcesGetMyPermissions**](docs/Api/DataSourcesApi.md#datasourcesgetmypermissions) | **GET** /api/data/v1/DataSources/{id}/mypermissions | Get current user&#39;s permissions to Data source
 *DataSourcesApi* | [**dataSourcesGetParameterTypes**](docs/Api/DataSourcesApi.md#datasourcesgetparametertypes) | **GET** /api/data/v1/DataSources/parameterTypes/{dataSourceType} | Get data source parameter DataType&#39;s
 *DataSourcesApi* | [**dataSourcesGetPermissions**](docs/Api/DataSourcesApi.md#datasourcesgetpermissions) | **GET** /api/data/v1/DataSources/{id}/permissions | Get all Data source permissions
 *DataSourcesApi* | [**dataSourcesRenameDataSource**](docs/Api/DataSourcesApi.md#datasourcesrenamedatasource) | **PUT** /api/data/v1/DataSources/{id}/rename | Rename data source by id
@@ -122,14 +123,14 @@ Class | Method | HTTP request | Description
 *ExportsApi* | [**exportFolderAndFileClearRecycleBin**](docs/Api/ExportsApi.md#exportfolderandfileclearrecyclebin) | **DELETE** /api/rp/v1/Exports/{subscriptionId}/ClearRecycleBin | Delete all folders and files from recycle bin
 *ExportsApi* | [**exportFolderAndFileCopyFiles**](docs/Api/ExportsApi.md#exportfolderandfilecopyfiles) | **POST** /api/rp/v1/Exports/{subscriptionId}/CopyFiles | Copy folders and files to a specified folder
 *ExportsApi* | [**exportFolderAndFileCountRecycleBinFoldersAndFiles**](docs/Api/ExportsApi.md#exportfolderandfilecountrecyclebinfoldersandfiles) | **GET** /api/rp/v1/Exports/{subscriptionId}/CountRecycleBinFolderAndFiles | Count all folders and files from recycle bin
-*ExportsApi* | [**exportFolderAndFileDeleteFiles**](docs/Api/ExportsApi.md#exportfolderandfiledeletefiles) | **POST** /api/rp/v1/Exports/{subscriptionId}/DeleteFiles | Delete folders and files
-*ExportsApi* | [**exportFolderAndFileGetCount**](docs/Api/ExportsApi.md#exportfolderandfilegetcount) | **GET** /api/rp/v1/Exports/Folder/{id}/CountFolderAndFiles | Get count of files and folders what contains in a specified folder
+*ExportsApi* | [**exportFolderAndFileDeleteFiles**](docs/Api/ExportsApi.md#exportfolderandfiledeletefiles) | **POST** /api/rp/v1/Exports/{subscriptionId}/DeleteFiles | Delete folders and files from a folder or the recycle bin
+*ExportsApi* | [**exportFolderAndFileGetCount**](docs/Api/ExportsApi.md#exportfolderandfilegetcount) | **GET** /api/rp/v1/Exports/Folder/{id}/CountFolderAndFiles | Count folders and files in a folder
 *ExportsApi* | [**exportFolderAndFileGetFoldersAndFiles**](docs/Api/ExportsApi.md#exportfolderandfilegetfoldersandfiles) | **GET** /api/rp/v1/Exports/Folder/{id}/ListFolderAndFiles | Get all folders and files from specified folder
 *ExportsApi* | [**exportFolderAndFileGetRecycleBinFoldersAndFiles**](docs/Api/ExportsApi.md#exportfolderandfilegetrecyclebinfoldersandfiles) | **GET** /api/rp/v1/Exports/{subscriptionId}/ListRecycleBinFolderAndFiles | Get all folders and files from recycle bin
 *ExportsApi* | [**exportFolderAndFileMoveFiles**](docs/Api/ExportsApi.md#exportfolderandfilemovefiles) | **POST** /api/rp/v1/Exports/{subscriptionId}/MoveFiles | Move folders and files to a specified folder
-*ExportsApi* | [**exportFolderAndFileMoveFilesToBin**](docs/Api/ExportsApi.md#exportfolderandfilemovefilestobin) | **POST** /api/rp/v1/Exports/{subscriptionId}/ToBin | Move folders and files to bin
+*ExportsApi* | [**exportFolderAndFileMoveFilesToBin**](docs/Api/ExportsApi.md#exportfolderandfilemovefilestobin) | **POST** /api/rp/v1/Exports/{subscriptionId}/ToBin | Move folders and files to the recycle bin
 *ExportsApi* | [**exportFolderAndFileRecoverAllFromRecycleBin**](docs/Api/ExportsApi.md#exportfolderandfilerecoverallfromrecyclebin) | **POST** /api/rp/v1/Exports/{subscriptionId}/RecoverRecycleBin | Recover all folders and files from recycle bin
-*ExportsApi* | [**exportFolderAndFileRecoverFiles**](docs/Api/ExportsApi.md#exportfolderandfilerecoverfiles) | **POST** /api/rp/v1/Exports/{subscriptionId}/RecoverFiles | Recover folders and files from bin
+*ExportsApi* | [**exportFolderAndFileRecoverFiles**](docs/Api/ExportsApi.md#exportfolderandfilerecoverfiles) | **POST** /api/rp/v1/Exports/{subscriptionId}/RecoverFiles | Recover folders and files from the recycle bin
 *ExportsApi* | [**exportFoldersCalculateFolderSize**](docs/Api/ExportsApi.md#exportfolderscalculatefoldersize) | **GET** /api/rp/v1/Exports/Folder/{id}/size | Get specified folder, calculate it&#39;s size
 *ExportsApi* | [**exportFoldersCopyFolder**](docs/Api/ExportsApi.md#exportfolderscopyfolder) | **POST** /api/rp/v1/Exports/Folder/{id}/Copy/{folderId} | Move folder to a specified folder
 *ExportsApi* | [**exportFoldersDeleteFolder**](docs/Api/ExportsApi.md#exportfoldersdeletefolder) | **DELETE** /api/rp/v1/Exports/Folder/{id} | Delete specified folder
@@ -137,10 +138,11 @@ Class | Method | HTTP request | Description
 *ExportsApi* | [**exportFoldersGetFolder**](docs/Api/ExportsApi.md#exportfoldersgetfolder) | **GET** /api/rp/v1/Exports/Folder/{id} | Get specified folder
 *ExportsApi* | [**exportFoldersGetFolders**](docs/Api/ExportsApi.md#exportfoldersgetfolders) | **GET** /api/rp/v1/Exports/Folder/{id}/ListFolders | Get all folders from specified folder
 *ExportsApi* | [**exportFoldersGetFoldersCount**](docs/Api/ExportsApi.md#exportfoldersgetfolderscount) | **GET** /api/rp/v1/Exports/Folder/{id}/CountFolders | Get count of folders what contains in a specified folder
+*ExportsApi* | [**exportFoldersGetMyPermissions**](docs/Api/ExportsApi.md#exportfoldersgetmypermissions) | **GET** /api/rp/v1/Exports/Folder/{folderId}/mypermissions | Get user&#39;s permissions for a folder by id
 *ExportsApi* | [**exportFoldersGetOrCreate**](docs/Api/ExportsApi.md#exportfoldersgetorcreate) | **GET** /api/rp/v1/Exports/Folder/getOrCreate | Get specified folder
 *ExportsApi* | [**exportFoldersGetPermissions**](docs/Api/ExportsApi.md#exportfoldersgetpermissions) | **GET** /api/rp/v1/Exports/Folder/{id}/permissions | Get all folder permissions
-*ExportsApi* | [**exportFoldersGetRootFolder**](docs/Api/ExportsApi.md#exportfoldersgetrootfolder) | **GET** /api/rp/v1/Exports/Root | Get user&#39;s root folder (without parents)
-*ExportsApi* | [**exportFoldersMoveFolder**](docs/Api/ExportsApi.md#exportfoldersmovefolder) | **POST** /api/rp/v1/Exports/Folder/{id}/Move/{folderId} | Move folder to a specified folder
+*ExportsApi* | [**exportFoldersGetRootFolder**](docs/Api/ExportsApi.md#exportfoldersgetrootfolder) | **GET** /api/rp/v1/Exports/Root | Get workspace&#39;s root folder
+*ExportsApi* | [**exportFoldersMoveFolder**](docs/Api/ExportsApi.md#exportfoldersmovefolder) | **POST** /api/rp/v1/Exports/Folder/{id}/Move/{folderId} | Move folder into a specified folder
 *ExportsApi* | [**exportFoldersMoveFolderToBin**](docs/Api/ExportsApi.md#exportfoldersmovefoldertobin) | **DELETE** /api/rp/v1/Exports/Folder/{id}/ToBin | Move specified folder to recycle bin
 *ExportsApi* | [**exportFoldersPostFolder**](docs/Api/ExportsApi.md#exportfolderspostfolder) | **POST** /api/rp/v1/Exports/Folder/{id}/Folder | Create folder
 *ExportsApi* | [**exportFoldersRecoverFolder**](docs/Api/ExportsApi.md#exportfoldersrecoverfolder) | **POST** /api/rp/v1/Exports/Folder/{id}/Recover | Recover specified folder
@@ -148,15 +150,18 @@ Class | Method | HTTP request | Description
 *ExportsApi* | [**exportFoldersUpdateIcon**](docs/Api/ExportsApi.md#exportfoldersupdateicon) | **PUT** /api/rp/v1/Exports/Folder/{id}/Icon | Update a folder&#39;s icon
 *ExportsApi* | [**exportFoldersUpdatePermissions**](docs/Api/ExportsApi.md#exportfoldersupdatepermissions) | **POST** /api/rp/v1/Exports/{id}/permissions | Update permissions
 *ExportsApi* | [**exportFoldersUpdateTags**](docs/Api/ExportsApi.md#exportfoldersupdatetags) | **PUT** /api/rp/v1/Exports/Folder/{id}/UpdateTags | Update tags
-*ExportsApi* | [**exportsCopyFile**](docs/Api/ExportsApi.md#exportscopyfile) | **POST** /api/rp/v1/Exports/File/{id}/Copy/{folderId} | Copy file to a specified folder
-*ExportsApi* | [**exportsCreateSharingKey**](docs/Api/ExportsApi.md#exportscreatesharingkey) | **POST** /api/rp/v1/Exports/File/{id}/sharingKey | Create a new key, that can be used to share access to a file  (You need Administrate.Anon permission to create a new key)
+*ExportsApi* | [**exportsCopyFile**](docs/Api/ExportsApi.md#exportscopyfile) | **POST** /api/rp/v1/Exports/File/{id}/Copy/{folderId} | Copy a file into a specified folder
+*ExportsApi* | [**exportsCreateSharingKey**](docs/Api/ExportsApi.md#exportscreatesharingkey) | **POST** /api/rp/v1/Exports/File/{id}/sharingKey | Create a new key, that can be used to share access to a file &lt;br /&gt;  (You need Administrate.Anon permission to create a new key)
 *ExportsApi* | [**exportsDeleteFile**](docs/Api/ExportsApi.md#exportsdeletefile) | **DELETE** /api/rp/v1/Exports/File/{id} | Delete specified file
 *ExportsApi* | [**exportsDeleteSharingKey**](docs/Api/ExportsApi.md#exportsdeletesharingkey) | **DELETE** /api/rp/v1/Exports/File/{id}/sharingKey | Deletes a sharing key, making links, that utilizing it no longer work
+*ExportsApi* | [**exportsGetByTaskId**](docs/Api/ExportsApi.md#exportsgetbytaskid) | **GET** /api/rp/v1/Exports/File/Task/{taskId} | Get exports by specified task id
+*ExportsApi* | [**exportsGetByTaskMessageId**](docs/Api/ExportsApi.md#exportsgetbytaskmessageid) | **GET** /api/rp/v1/Exports/File/TaskMessage/{taskMessageId} | Get export by specified task message id
 *ExportsApi* | [**exportsGetFile**](docs/Api/ExportsApi.md#exportsgetfile) | **GET** /api/rp/v1/Exports/File/{id} | Get export by specified id
 *ExportsApi* | [**exportsGetFileHistory**](docs/Api/ExportsApi.md#exportsgetfilehistory) | **GET** /api/rp/v1/Exports/File/{id}/History | Returns list of actions, performed on this file
 *ExportsApi* | [**exportsGetFilesCount**](docs/Api/ExportsApi.md#exportsgetfilescount) | **GET** /api/rp/v1/Exports/Folder/{id}/CountFiles | Get count of files what contains in a specified folder
-*ExportsApi* | [**exportsGetFilesList**](docs/Api/ExportsApi.md#exportsgetfileslist) | **GET** /api/rp/v1/Exports/Folder/{id}/ListFiles | Get all files from specified folder. &lt;br /&gt;  User with Get Entity permission can access this method. &lt;br /&gt;  The method will returns minimal infomration about the file: &lt;br /&gt;  id, name, size, editedTime, createdTime, tags, status, statusReason.
-*ExportsApi* | [**exportsGetPermissions**](docs/Api/ExportsApi.md#exportsgetpermissions) | **GET** /api/rp/v1/Exports/File/{id}/permissions | 
+*ExportsApi* | [**exportsGetFilesList**](docs/Api/ExportsApi.md#exportsgetfileslist) | **GET** /api/rp/v1/Exports/Folder/{id}/ListFiles | Get files from the specified folder
+*ExportsApi* | [**exportsGetMyPermissions**](docs/Api/ExportsApi.md#exportsgetmypermissions) | **GET** /api/rp/v1/Exports/File/{id}/mypermissions | Get current user&#39;s permissions to a file
+*ExportsApi* | [**exportsGetPermissions**](docs/Api/ExportsApi.md#exportsgetpermissions) | **GET** /api/rp/v1/Exports/File/{id}/permissions | Get all permissions from a file. &lt;br /&gt;
 *ExportsApi* | [**exportsGetSharingKeys**](docs/Api/ExportsApi.md#exportsgetsharingkeys) | **GET** /api/rp/v1/Exports/File/{id}/sharingKeys | Returns all sharing keys, associated with the file
 *ExportsApi* | [**exportsMoveFile**](docs/Api/ExportsApi.md#exportsmovefile) | **POST** /api/rp/v1/Exports/File/{id}/Move/{folderId} | Move file to a specified folder
 *ExportsApi* | [**exportsMoveFileToBin**](docs/Api/ExportsApi.md#exportsmovefiletobin) | **DELETE** /api/rp/v1/Exports/File/{id}/ToBin | Move specified file to recycle bin
@@ -165,6 +170,27 @@ Class | Method | HTTP request | Description
 *ExportsApi* | [**exportsUpdateIcon**](docs/Api/ExportsApi.md#exportsupdateicon) | **PUT** /api/rp/v1/Exports/File/{id}/Icon | Update a files&#39;s icon
 *ExportsApi* | [**exportsUpdatePermissions**](docs/Api/ExportsApi.md#exportsupdatepermissions) | **POST** /api/rp/v1/Exports/File/{id}/permissions | Update permissions
 *ExportsApi* | [**exportsUpdateTags**](docs/Api/ExportsApi.md#exportsupdatetags) | **PUT** /api/rp/v1/Exports/File/{id}/UpdateTags | Update tags
+*FontsApi* | [**fontsAddPublicFont**](docs/Api/FontsApi.md#fontsaddpublicfont) | **POST** /api/v1/fonts/add | Allows user to add a font from a list of public fonts to their subscription
+*FontsApi* | [**fontsCountFontsAsync**](docs/Api/FontsApi.md#fontscountfontsasync) | **GET** /api/v1/fonts/count | Returns a number of fonts in a subscription
+*FontsApi* | [**fontsCountOccupiedSpace**](docs/Api/FontsApi.md#fontscountoccupiedspace) | **GET** /api/v1/fonts/counttotalsizebysubscription | returns storage space occupied by fonts in the subscription
+*FontsApi* | [**fontsCountPublicFontsAsync**](docs/Api/FontsApi.md#fontscountpublicfontsasync) | **GET** /api/v1/fonts/public/count | Returns a number of pulbic fonts
+*FontsApi* | [**fontsDeleteFont**](docs/Api/FontsApi.md#fontsdeletefont) | **DELETE** /api/v1/fonts/{id} | deletes a font from the subscirption by id
+*FontsApi* | [**fontsDownloadFont**](docs/Api/FontsApi.md#fontsdownloadfont) | **GET** /api/v1/fonts/{id}/download | Downloads font by it&#39;s id
+*FontsApi* | [**fontsDownloadPublicFont**](docs/Api/FontsApi.md#fontsdownloadpublicfont) | **GET** /api/v1/fonts/public/{id}/download | Downloads a public font by it&#39;s id
+*FontsApi* | [**fontsGetFontFamilies**](docs/Api/FontsApi.md#fontsgetfontfamilies) | **GET** /api/v1/fonts/families | Returns distinct font names from public and private font lists (excluding disabled fonts)
+*FontsApi* | [**fontsGetFonts**](docs/Api/FontsApi.md#fontsgetfonts) | **GET** /api/v1/fonts/list | returns a list of fonts in the subscription
+*FontsApi* | [**fontsGetFontsByReport**](docs/Api/FontsApi.md#fontsgetfontsbyreport) | **GET** /api/v1/fonts/ListByReport/{reportId} | Returns a list of fonts in the subscription by report id.
+*FontsApi* | [**fontsGetFontsByTemplate**](docs/Api/FontsApi.md#fontsgetfontsbytemplate) | **GET** /api/v1/fonts/ListByTemplate/{templateId} | Returns a list of fonts in the subscription by report id.
+*FontsApi* | [**fontsGetFontsCss**](docs/Api/FontsApi.md#fontsgetfontscss) | **GET** /api/v1/fonts/css | Creates a css stylesheet for a public font
+*FontsApi* | [**fontsGetFontsCssByReport**](docs/Api/FontsApi.md#fontsgetfontscssbyreport) | **GET** /api/v1/fonts/CssByReport/{reportId} | Creates a css stylesheet for a public fonts by report.
+*FontsApi* | [**fontsGetFontsCssByTemplate**](docs/Api/FontsApi.md#fontsgetfontscssbytemplate) | **GET** /api/v1/fonts/CssByTemplate/{templateId} | Creates a css stylesheet for a public font by template.
+*FontsApi* | [**fontsGetMyPermissions**](docs/Api/FontsApi.md#fontsgetmypermissions) | **GET** /api/v1/fonts/{id}/mypermissions | Get current user&#39;s permissions to a font
+*FontsApi* | [**fontsGetPermissions**](docs/Api/FontsApi.md#fontsgetpermissions) | **GET** /api/v1/fonts/{id}/permissions | Get font&#39;s permissions
+*FontsApi* | [**fontsGetPublicFonts**](docs/Api/FontsApi.md#fontsgetpublicfonts) | **GET** /api/v1/fonts/public/list | Returns a list of public fonts
+*FontsApi* | [**fontsGetPublicFontsCss**](docs/Api/FontsApi.md#fontsgetpublicfontscss) | **GET** /api/v1/fonts/public/css | Creates a css stylesheet for a public font
+*FontsApi* | [**fontsUpdateFont**](docs/Api/FontsApi.md#fontsupdatefont) | **PUT** /api/v1/fonts/{id} | updates a user font model
+*FontsApi* | [**fontsUpdatePermissions**](docs/Api/FontsApi.md#fontsupdatepermissions) | **PUT** /api/v1/fonts/{id}/permissions | Update permissions
+*FontsApi* | [**fontsUploadFont**](docs/Api/FontsApi.md#fontsuploadfont) | **POST** /api/v1/fonts/upload | Allows user to upload a new truetype font to their subscription
 *GroupUsersApi* | [**groupUsersAddUserToGroup**](docs/Api/GroupUsersApi.md#groupusersaddusertogroup) | **PUT** /api/manage/v1/Groups/{id}/Users/{userId} | Add user to the group by identifier
 *GroupUsersApi* | [**groupUsersGetUsersInGroup**](docs/Api/GroupUsersApi.md#groupusersgetusersingroup) | **GET** /api/manage/v1/Groups/{id}/Users | Returns users in the group by identifier
 *GroupUsersApi* | [**groupUsersLeaveFromGroup**](docs/Api/GroupUsersApi.md#groupusersleavefromgroup) | **DELETE** /api/manage/v1/Groups/{id}/leave | Leave from the group
@@ -173,6 +199,7 @@ Class | Method | HTTP request | Description
 *GroupsApi* | [**groupsDeleteGroup**](docs/Api/GroupsApi.md#groupsdeletegroup) | **DELETE** /api/manage/v1/Groups/{id} | Delete group by identifier
 *GroupsApi* | [**groupsGetGroup**](docs/Api/GroupsApi.md#groupsgetgroup) | **GET** /api/manage/v1/Groups/{id} | Gets group by identifier
 *GroupsApi* | [**groupsGetGroupList**](docs/Api/GroupsApi.md#groupsgetgrouplist) | **GET** /api/manage/v1/Groups | Returns a list of current user&#39;s groups&lt;br /&gt;  This method will return following data about groups : &lt;br /&gt;  Id, Name, Created time (UTC), Edited time (UTC), creator id, &lt;br /&gt;  editor id, subscription id
+*GroupsApi* | [**groupsGetMyPermissions**](docs/Api/GroupsApi.md#groupsgetmypermissions) | **GET** /api/manage/v1/Groups/{id}/mypermissions | Get current user&#39;s permissions to group
 *GroupsApi* | [**groupsGetPermissions**](docs/Api/GroupsApi.md#groupsgetpermissions) | **GET** /api/manage/v1/Groups/{id}/permissions | Gets group permissions by identifier
 *GroupsApi* | [**groupsRenameGroup**](docs/Api/GroupsApi.md#groupsrenamegroup) | **PUT** /api/manage/v1/Groups/{id}/rename | Rename group by identifier
 *GroupsApi* | [**groupsUpdatePermissions**](docs/Api/GroupsApi.md#groupsupdatepermissions) | **POST** /api/manage/v1/Groups/{id}/permissions | Update permissions
@@ -180,14 +207,14 @@ Class | Method | HTTP request | Description
 *ReportsApi* | [**reportFolderAndFileClearRecycleBin**](docs/Api/ReportsApi.md#reportfolderandfileclearrecyclebin) | **DELETE** /api/rp/v1/Reports/{subscriptionId}/ClearRecycleBin | Delete all folders and files from recycle bin
 *ReportsApi* | [**reportFolderAndFileCopyFiles**](docs/Api/ReportsApi.md#reportfolderandfilecopyfiles) | **POST** /api/rp/v1/Reports/{subscriptionId}/CopyFiles | Copy folders and files to a specified folder
 *ReportsApi* | [**reportFolderAndFileCountRecycleBinFoldersAndFiles**](docs/Api/ReportsApi.md#reportfolderandfilecountrecyclebinfoldersandfiles) | **GET** /api/rp/v1/Reports/{subscriptionId}/CountRecycleBinFolderAndFiles | Count all folders and files from recycle bin
-*ReportsApi* | [**reportFolderAndFileDeleteFiles**](docs/Api/ReportsApi.md#reportfolderandfiledeletefiles) | **POST** /api/rp/v1/Reports/{subscriptionId}/DeleteFiles | Delete folders and files
-*ReportsApi* | [**reportFolderAndFileGetCount**](docs/Api/ReportsApi.md#reportfolderandfilegetcount) | **GET** /api/rp/v1/Reports/Folder/{id}/CountFolderAndFiles | Get count of files and folders what contains in a specified folder
+*ReportsApi* | [**reportFolderAndFileDeleteFiles**](docs/Api/ReportsApi.md#reportfolderandfiledeletefiles) | **POST** /api/rp/v1/Reports/{subscriptionId}/DeleteFiles | Delete folders and files from a folder or the recycle bin
+*ReportsApi* | [**reportFolderAndFileGetCount**](docs/Api/ReportsApi.md#reportfolderandfilegetcount) | **GET** /api/rp/v1/Reports/Folder/{id}/CountFolderAndFiles | Count folders and files in a folder
 *ReportsApi* | [**reportFolderAndFileGetFoldersAndFiles**](docs/Api/ReportsApi.md#reportfolderandfilegetfoldersandfiles) | **GET** /api/rp/v1/Reports/Folder/{id}/ListFolderAndFiles | Get all folders and files from specified folder
 *ReportsApi* | [**reportFolderAndFileGetRecycleBinFoldersAndFiles**](docs/Api/ReportsApi.md#reportfolderandfilegetrecyclebinfoldersandfiles) | **GET** /api/rp/v1/Reports/{subscriptionId}/ListRecycleBinFolderAndFiles | Get all folders and files from recycle bin
 *ReportsApi* | [**reportFolderAndFileMoveFiles**](docs/Api/ReportsApi.md#reportfolderandfilemovefiles) | **POST** /api/rp/v1/Reports/{subscriptionId}/MoveFiles | Move folders and files to a specified folder
-*ReportsApi* | [**reportFolderAndFileMoveFilesToBin**](docs/Api/ReportsApi.md#reportfolderandfilemovefilestobin) | **POST** /api/rp/v1/Reports/{subscriptionId}/ToBin | Move folders and files to bin
+*ReportsApi* | [**reportFolderAndFileMoveFilesToBin**](docs/Api/ReportsApi.md#reportfolderandfilemovefilestobin) | **POST** /api/rp/v1/Reports/{subscriptionId}/ToBin | Move folders and files to the recycle bin
 *ReportsApi* | [**reportFolderAndFileRecoverAllFromRecycleBin**](docs/Api/ReportsApi.md#reportfolderandfilerecoverallfromrecyclebin) | **POST** /api/rp/v1/Reports/{subscriptionId}/RecoverRecycleBin | Recover all folders and files from recycle bin
-*ReportsApi* | [**reportFolderAndFileRecoverFiles**](docs/Api/ReportsApi.md#reportfolderandfilerecoverfiles) | **POST** /api/rp/v1/Reports/{subscriptionId}/RecoverFiles | Recover folders and files from bin
+*ReportsApi* | [**reportFolderAndFileRecoverFiles**](docs/Api/ReportsApi.md#reportfolderandfilerecoverfiles) | **POST** /api/rp/v1/Reports/{subscriptionId}/RecoverFiles | Recover folders and files from the recycle bin
 *ReportsApi* | [**reportFoldersCalculateFolderSize**](docs/Api/ReportsApi.md#reportfolderscalculatefoldersize) | **GET** /api/rp/v1/Reports/Folder/{id}/size | Get specified folder, calculate it&#39;s size
 *ReportsApi* | [**reportFoldersCopyFolder**](docs/Api/ReportsApi.md#reportfolderscopyfolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Copy/{folderId} | Move folder to a specified folder
 *ReportsApi* | [**reportFoldersDeleteFolder**](docs/Api/ReportsApi.md#reportfoldersdeletefolder) | **DELETE** /api/rp/v1/Reports/Folder/{id} | Delete specified folder
@@ -196,10 +223,11 @@ Class | Method | HTTP request | Description
 *ReportsApi* | [**reportFoldersGetFolder**](docs/Api/ReportsApi.md#reportfoldersgetfolder) | **GET** /api/rp/v1/Reports/Folder/{id} | Get specified folder
 *ReportsApi* | [**reportFoldersGetFolders**](docs/Api/ReportsApi.md#reportfoldersgetfolders) | **GET** /api/rp/v1/Reports/Folder/{id}/ListFolders | Get all folders from specified folder
 *ReportsApi* | [**reportFoldersGetFoldersCount**](docs/Api/ReportsApi.md#reportfoldersgetfolderscount) | **GET** /api/rp/v1/Reports/Folder/{id}/CountFolders | Get count of folders what contains in a specified folder
+*ReportsApi* | [**reportFoldersGetMyPermissions**](docs/Api/ReportsApi.md#reportfoldersgetmypermissions) | **GET** /api/rp/v1/Reports/Folder/{folderId}/mypermissions | Get user&#39;s permissions for a folder by id
 *ReportsApi* | [**reportFoldersGetOrCreate**](docs/Api/ReportsApi.md#reportfoldersgetorcreate) | **GET** /api/rp/v1/Reports/Folder/getOrCreate | Get specified folder
 *ReportsApi* | [**reportFoldersGetPermissions**](docs/Api/ReportsApi.md#reportfoldersgetpermissions) | **GET** /api/rp/v1/Reports/Folder/{id}/permissions | Get all folder permissions
-*ReportsApi* | [**reportFoldersGetRootFolder**](docs/Api/ReportsApi.md#reportfoldersgetrootfolder) | **GET** /api/rp/v1/Reports/Root | Get user&#39;s root folder (without parents)
-*ReportsApi* | [**reportFoldersMoveFolder**](docs/Api/ReportsApi.md#reportfoldersmovefolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Move/{folderId} | Move folder to a specified folder
+*ReportsApi* | [**reportFoldersGetRootFolder**](docs/Api/ReportsApi.md#reportfoldersgetrootfolder) | **GET** /api/rp/v1/Reports/Root | Get workspace&#39;s root folder
+*ReportsApi* | [**reportFoldersMoveFolder**](docs/Api/ReportsApi.md#reportfoldersmovefolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Move/{folderId} | Move folder into a specified folder
 *ReportsApi* | [**reportFoldersMoveFolderToBin**](docs/Api/ReportsApi.md#reportfoldersmovefoldertobin) | **DELETE** /api/rp/v1/Reports/Folder/{id}/ToBin | Move specified folder to recycle bin
 *ReportsApi* | [**reportFoldersPostFolder**](docs/Api/ReportsApi.md#reportfolderspostfolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Folder | Create folder
 *ReportsApi* | [**reportFoldersRecoverFolder**](docs/Api/ReportsApi.md#reportfoldersrecoverfolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Recover | Recover specified folder
@@ -207,16 +235,19 @@ Class | Method | HTTP request | Description
 *ReportsApi* | [**reportFoldersUpdateIcon**](docs/Api/ReportsApi.md#reportfoldersupdateicon) | **PUT** /api/rp/v1/Reports/Folder/{id}/Icon | Update a folder&#39;s icon
 *ReportsApi* | [**reportFoldersUpdatePermissions**](docs/Api/ReportsApi.md#reportfoldersupdatepermissions) | **POST** /api/rp/v1/Reports/{id}/permissions | Update permissions
 *ReportsApi* | [**reportFoldersUpdateTags**](docs/Api/ReportsApi.md#reportfoldersupdatetags) | **PUT** /api/rp/v1/Reports/Folder/{id}/UpdateTags | Update tags
-*ReportsApi* | [**reportsCopyFile**](docs/Api/ReportsApi.md#reportscopyfile) | **POST** /api/rp/v1/Reports/File/{id}/Copy/{folderId} | Copy file to a specified folder
-*ReportsApi* | [**reportsCreateSharingKey**](docs/Api/ReportsApi.md#reportscreatesharingkey) | **POST** /api/rp/v1/Reports/File/{id}/sharingKey | Create a new key, that can be used to share access to a file  (You need Administrate.Anon permission to create a new key)
+*ReportsApi* | [**reportsCopyFile**](docs/Api/ReportsApi.md#reportscopyfile) | **POST** /api/rp/v1/Reports/File/{id}/Copy/{folderId} | Copy a file into a specified folder
+*ReportsApi* | [**reportsCreateSharingKey**](docs/Api/ReportsApi.md#reportscreatesharingkey) | **POST** /api/rp/v1/Reports/File/{id}/sharingKey | Create a new key, that can be used to share access to a file &lt;br /&gt;  (You need Administrate.Anon permission to create a new key)
 *ReportsApi* | [**reportsDeleteFile**](docs/Api/ReportsApi.md#reportsdeletefile) | **DELETE** /api/rp/v1/Reports/File/{id} | Delete specified file
 *ReportsApi* | [**reportsDeleteSharingKey**](docs/Api/ReportsApi.md#reportsdeletesharingkey) | **DELETE** /api/rp/v1/Reports/File/{id}/sharingKey | Deletes a sharing key, making links, that utilizing it no longer work
 *ReportsApi* | [**reportsExport**](docs/Api/ReportsApi.md#reportsexport) | **POST** /api/rp/v1/Reports/File/{id}/Export | Export specified report to a specified format
+*ReportsApi* | [**reportsGetByTaskId**](docs/Api/ReportsApi.md#reportsgetbytaskid) | **GET** /api/rp/v1/Reports/File/Task/{taskId} | Get reports by specified task id
+*ReportsApi* | [**reportsGetByTaskMessageId**](docs/Api/ReportsApi.md#reportsgetbytaskmessageid) | **GET** /api/rp/v1/Reports/File/TaskMessage/{taskMessageId} | Get report by specified task message id
 *ReportsApi* | [**reportsGetFile**](docs/Api/ReportsApi.md#reportsgetfile) | **GET** /api/rp/v1/Reports/File/{id} | Get specified file
 *ReportsApi* | [**reportsGetFileHistory**](docs/Api/ReportsApi.md#reportsgetfilehistory) | **GET** /api/rp/v1/Reports/File/{id}/History | Returns list of actions, performed on this file
 *ReportsApi* | [**reportsGetFilesCount**](docs/Api/ReportsApi.md#reportsgetfilescount) | **GET** /api/rp/v1/Reports/Folder/{id}/CountFiles | Get count of files what contains in a specified folder
-*ReportsApi* | [**reportsGetFilesList**](docs/Api/ReportsApi.md#reportsgetfileslist) | **GET** /api/rp/v1/Reports/Folder/{id}/ListFiles | Get all files from specified folder. &lt;br /&gt;  User with Get Entity permission can access this method. &lt;br /&gt;  The method will returns minimal infomration about the file: &lt;br /&gt;  id, name, size, editedTime, createdTime, tags, status, statusReason.
-*ReportsApi* | [**reportsGetPermissions**](docs/Api/ReportsApi.md#reportsgetpermissions) | **GET** /api/rp/v1/Reports/File/{id}/permissions | 
+*ReportsApi* | [**reportsGetFilesList**](docs/Api/ReportsApi.md#reportsgetfileslist) | **GET** /api/rp/v1/Reports/Folder/{id}/ListFiles | Get files from the specified folder
+*ReportsApi* | [**reportsGetMyPermissions**](docs/Api/ReportsApi.md#reportsgetmypermissions) | **GET** /api/rp/v1/Reports/File/{id}/mypermissions | Get current user&#39;s permissions to a file
+*ReportsApi* | [**reportsGetPermissions**](docs/Api/ReportsApi.md#reportsgetpermissions) | **GET** /api/rp/v1/Reports/File/{id}/permissions | Get all permissions from a file. &lt;br /&gt;
 *ReportsApi* | [**reportsGetSharingKeys**](docs/Api/ReportsApi.md#reportsgetsharingkeys) | **GET** /api/rp/v1/Reports/File/{id}/sharingKeys | Returns all sharing keys, associated with the file
 *ReportsApi* | [**reportsMoveFile**](docs/Api/ReportsApi.md#reportsmovefile) | **POST** /api/rp/v1/Reports/File/{id}/Move/{folderId} | Move file to a specified folder
 *ReportsApi* | [**reportsMoveFileToBin**](docs/Api/ReportsApi.md#reportsmovefiletobin) | **DELETE** /api/rp/v1/Reports/File/{id}/ToBin | Move specified file to recycle bin
@@ -230,7 +261,7 @@ Class | Method | HTTP request | Description
 *ReportsApi* | [**reportsUploadFileV2**](docs/Api/ReportsApi.md#reportsuploadfilev2) | **POST** /api/rp/v2/Reports/Folder/{id}/File | Alternative api for upload a file to the specified folder!
 *SubscriptionGroupsApi* | [**subscriptionGroupsCountGroupsAsync**](docs/Api/SubscriptionGroupsApi.md#subscriptiongroupscountgroupsasync) | **GET** /api/manage/v1/Subscriptions/{subscriptionId}/count | Returns a number of groups in subscription
 *SubscriptionGroupsApi* | [**subscriptionGroupsGetGroupsList**](docs/Api/SubscriptionGroupsApi.md#subscriptiongroupsgetgroupslist) | **GET** /api/manage/v1/Subscriptions/{subscriptionId}/groups | returns groups of the subscription or subscription user
-*SubscriptionInvitesApi* | [**subscriptionInvitesAcceptInvite**](docs/Api/SubscriptionInvitesApi.md#subscriptioninvitesacceptinvite) | **GET** /api/manage/v1/Subscriptions/{subscriptionId}/invite/{accessToken}/accept | Add a user to the subscription using invite,  the added users will be displayed in the list of users of the subscription,  and these users will also have an active subscription.
+*SubscriptionInvitesApi* | [**subscriptionInvitesAcceptInvite**](docs/Api/SubscriptionInvitesApi.md#subscriptioninvitesacceptinvite) | **GET** /api/manage/v1/Subscriptions/{subscriptionId}/invite/{accessToken}/accept | Add the current user to the subscription using invite,
 *SubscriptionInvitesApi* | [**subscriptionInvitesCreateInvite**](docs/Api/SubscriptionInvitesApi.md#subscriptioninvitescreateinvite) | **POST** /api/manage/v1/Subscriptions/{subscriptionId}/invite | Create invite to subscription
 *SubscriptionInvitesApi* | [**subscriptionInvitesDeleteInvite**](docs/Api/SubscriptionInvitesApi.md#subscriptioninvitesdeleteinvite) | **DELETE** /api/manage/v1/Subscriptions/{subscriptionId}/invite/{accesstoken} | Delete invite with specified token
 *SubscriptionInvitesApi* | [**subscriptionInvitesGetInvites**](docs/Api/SubscriptionInvitesApi.md#subscriptioninvitesgetinvites) | **GET** /api/manage/v1/Subscriptions/{subscriptionId}/invites | Get list of invites in a subscription,  the added users will be displayed in the list of users of the subscription,  and these users will also have an active subscription.
@@ -240,7 +271,7 @@ Class | Method | HTTP request | Description
 *SubscriptionUsersApi* | [**subscriptionUsersCountUsersAsync**](docs/Api/SubscriptionUsersApi.md#subscriptionuserscountusersasync) | **GET** /api/manage/v1/Subscriptions/{subscriptionId}/UsersCount | Returns a number of users in subscription
 *SubscriptionUsersApi* | [**subscriptionUsersGetUsers**](docs/Api/SubscriptionUsersApi.md#subscriptionusersgetusers) | **GET** /api/manage/v1/Subscriptions/{subscriptionId}/users | Returns all users of subscription
 *SubscriptionUsersApi* | [**subscriptionUsersLeaveSubscripiton**](docs/Api/SubscriptionUsersApi.md#subscriptionusersleavesubscripiton) | **DELETE** /api/manage/v1/Subscriptions/{subscriptionId}/leave | Allows user to leave subscription,.
-*SubscriptionUsersApi* | [**subscriptionUsersRemoveUser**](docs/Api/SubscriptionUsersApi.md#subscriptionusersremoveuser) | **DELETE** /api/manage/v1/Subscriptions/{subscriptionId}/users/{userId} | Delete a user from the subscription,  the added users will be displayed in the list of users of the subscription,  and these users will also have an active subscription.
+*SubscriptionUsersApi* | [**subscriptionUsersRemoveUser**](docs/Api/SubscriptionUsersApi.md#subscriptionusersremoveuser) | **DELETE** /api/manage/v1/Subscriptions/{subscriptionId}/users/{userId} | Delete a user from the subscription,
 *SubscriptionsApi* | [**subscriptionsGetDefaultPermissions**](docs/Api/SubscriptionsApi.md#subscriptionsgetdefaultpermissions) | **GET** /api/manage/v1/Subscriptions/{subscriptionId}/defaultPermissions | Get subscription&#39;s default permissions for new entities
 *SubscriptionsApi* | [**subscriptionsGetMyPermissions**](docs/Api/SubscriptionsApi.md#subscriptionsgetmypermissions) | **GET** /api/manage/v1/Subscriptions/{subId}/mypermissions | Get user&#39;s permissions for a subscription by id
 *SubscriptionsApi* | [**subscriptionsGetPermissions**](docs/Api/SubscriptionsApi.md#subscriptionsgetpermissions) | **GET** /api/manage/v1/Subscriptions/{id}/permissions | Get permissions for a subscription by id
@@ -250,10 +281,13 @@ Class | Method | HTTP request | Description
 *SubscriptionsApi* | [**subscriptionsUpdateDefaultPermissions**](docs/Api/SubscriptionsApi.md#subscriptionsupdatedefaultpermissions) | **PUT** /api/manage/v1/Subscriptions/{subscriptionId}/defaultPermissions | Change subscription&#39;s default permissions for new entities
 *SubscriptionsApi* | [**subscriptionsUpdateLocale**](docs/Api/SubscriptionsApi.md#subscriptionsupdatelocale) | **PUT** /api/manage/v1/Subscriptions/{subscriptionId}/Locale | Update subscription&#39;s default locale
 *SubscriptionsApi* | [**subscriptionsUpdatePermissions**](docs/Api/SubscriptionsApi.md#subscriptionsupdatepermissions) | **POST** /api/manage/v1/Subscriptions/{id}/permissions | Update permissions
+*SubscriptionsApi* | [**subscriptionsUpdatePreviewType**](docs/Api/SubscriptionsApi.md#subscriptionsupdatepreviewtype) | **PUT** /api/manage/v1/Subscriptions/{subscriptionId}/PreviewType | Update subscription&#39;s preview type
+*SubscriptionsApi* | [**subscriptionsUpdateSubscriptionDomains**](docs/Api/SubscriptionsApi.md#subscriptionsupdatesubscriptiondomains) | **PUT** /api/manage/v1/Subscriptions/{subscriptionId}/Domains | Update subscription&#39;s allowed domains
 *TasksApi* | [**tasksCreateTask**](docs/Api/TasksApi.md#taskscreatetask) | **POST** /api/tasks/v1/Tasks | Create a new task
 *TasksApi* | [**tasksDeleteTask**](docs/Api/TasksApi.md#tasksdeletetask) | **DELETE** /api/tasks/v1/Tasks/{taskId} | Delete a task from a storage
 *TasksApi* | [**tasksGet**](docs/Api/TasksApi.md#tasksget) | **GET** /api/tasks/v1/Tasks/{taskId} | Get a task by a specified id
 *TasksApi* | [**tasksGetList**](docs/Api/TasksApi.md#tasksgetlist) | **GET** /api/tasks/v1/Tasks | Get tasks list
+*TasksApi* | [**tasksGetMyPermissions**](docs/Api/TasksApi.md#tasksgetmypermissions) | **GET** /api/tasks/v1/Tasks/{id}/mypermissions | Get current user&#39;s permissions to Task
 *TasksApi* | [**tasksGetPermissions**](docs/Api/TasksApi.md#tasksgetpermissions) | **GET** /api/tasks/v1/Tasks/{id}/permissions | Get all Task permissions
 *TasksApi* | [**tasksRenameTask**](docs/Api/TasksApi.md#tasksrenametask) | **PUT** /api/tasks/v1/Tasks/{taskId}/rename | Rename a task
 *TasksApi* | [**tasksRunTask**](docs/Api/TasksApi.md#tasksruntask) | **POST** /api/tasks/v1/Tasks/run | Run a task from request body
@@ -263,14 +297,14 @@ Class | Method | HTTP request | Description
 *TemplatesApi* | [**templateFolderAndFileClearRecycleBin**](docs/Api/TemplatesApi.md#templatefolderandfileclearrecyclebin) | **DELETE** /api/rp/v1/Templates/{subscriptionId}/ClearRecycleBin | Delete all folders and files from recycle bin
 *TemplatesApi* | [**templateFolderAndFileCopyFiles**](docs/Api/TemplatesApi.md#templatefolderandfilecopyfiles) | **POST** /api/rp/v1/Templates/{subscriptionId}/CopyFiles | Copy folders and files to a specified folder
 *TemplatesApi* | [**templateFolderAndFileCountRecycleBinFoldersAndFiles**](docs/Api/TemplatesApi.md#templatefolderandfilecountrecyclebinfoldersandfiles) | **GET** /api/rp/v1/Templates/{subscriptionId}/CountRecycleBinFolderAndFiles | Count all folders and files from recycle bin
-*TemplatesApi* | [**templateFolderAndFileDeleteFiles**](docs/Api/TemplatesApi.md#templatefolderandfiledeletefiles) | **POST** /api/rp/v1/Templates/{subscriptionId}/DeleteFiles | Delete folders and files
-*TemplatesApi* | [**templateFolderAndFileGetCount**](docs/Api/TemplatesApi.md#templatefolderandfilegetcount) | **GET** /api/rp/v1/Templates/Folder/{id}/CountFolderAndFiles | Get count of files and folders what contains in a specified folder
+*TemplatesApi* | [**templateFolderAndFileDeleteFiles**](docs/Api/TemplatesApi.md#templatefolderandfiledeletefiles) | **POST** /api/rp/v1/Templates/{subscriptionId}/DeleteFiles | Delete folders and files from a folder or the recycle bin
+*TemplatesApi* | [**templateFolderAndFileGetCount**](docs/Api/TemplatesApi.md#templatefolderandfilegetcount) | **GET** /api/rp/v1/Templates/Folder/{id}/CountFolderAndFiles | Count folders and files in a folder
 *TemplatesApi* | [**templateFolderAndFileGetFoldersAndFiles**](docs/Api/TemplatesApi.md#templatefolderandfilegetfoldersandfiles) | **GET** /api/rp/v1/Templates/Folder/{id}/ListFolderAndFiles | Get all folders and files from specified folder
 *TemplatesApi* | [**templateFolderAndFileGetRecycleBinFoldersAndFiles**](docs/Api/TemplatesApi.md#templatefolderandfilegetrecyclebinfoldersandfiles) | **GET** /api/rp/v1/Templates/{subscriptionId}/ListRecycleBinFolderAndFiles | Get all folders and files from recycle bin
 *TemplatesApi* | [**templateFolderAndFileMoveFiles**](docs/Api/TemplatesApi.md#templatefolderandfilemovefiles) | **POST** /api/rp/v1/Templates/{subscriptionId}/MoveFiles | Move folders and files to a specified folder
-*TemplatesApi* | [**templateFolderAndFileMoveFilesToBin**](docs/Api/TemplatesApi.md#templatefolderandfilemovefilestobin) | **POST** /api/rp/v1/Templates/{subscriptionId}/ToBin | Move folders and files to bin
+*TemplatesApi* | [**templateFolderAndFileMoveFilesToBin**](docs/Api/TemplatesApi.md#templatefolderandfilemovefilestobin) | **POST** /api/rp/v1/Templates/{subscriptionId}/ToBin | Move folders and files to the recycle bin
 *TemplatesApi* | [**templateFolderAndFileRecoverAllFromRecycleBin**](docs/Api/TemplatesApi.md#templatefolderandfilerecoverallfromrecyclebin) | **POST** /api/rp/v1/Templates/{subscriptionId}/RecoverRecycleBin | Recover all folders and files from recycle bin
-*TemplatesApi* | [**templateFolderAndFileRecoverFiles**](docs/Api/TemplatesApi.md#templatefolderandfilerecoverfiles) | **POST** /api/rp/v1/Templates/{subscriptionId}/RecoverFiles | Recover folders and files from bin
+*TemplatesApi* | [**templateFolderAndFileRecoverFiles**](docs/Api/TemplatesApi.md#templatefolderandfilerecoverfiles) | **POST** /api/rp/v1/Templates/{subscriptionId}/RecoverFiles | Recover folders and files from the recycle bin
 *TemplatesApi* | [**templateFoldersCalculateFolderSize**](docs/Api/TemplatesApi.md#templatefolderscalculatefoldersize) | **GET** /api/rp/v1/Templates/Folder/{id}/size | Get specified folder, calculate it&#39;s size
 *TemplatesApi* | [**templateFoldersCopyFolder**](docs/Api/TemplatesApi.md#templatefolderscopyfolder) | **POST** /api/rp/v1/Templates/Folder/{id}/Copy/{folderId} | Move folder to a specified folder
 *TemplatesApi* | [**templateFoldersDeleteFolder**](docs/Api/TemplatesApi.md#templatefoldersdeletefolder) | **DELETE** /api/rp/v1/Templates/Folder/{id} | Delete specified folder
@@ -279,10 +313,11 @@ Class | Method | HTTP request | Description
 *TemplatesApi* | [**templateFoldersGetFolder**](docs/Api/TemplatesApi.md#templatefoldersgetfolder) | **GET** /api/rp/v1/Templates/Folder/{id} | Get specified folder
 *TemplatesApi* | [**templateFoldersGetFolders**](docs/Api/TemplatesApi.md#templatefoldersgetfolders) | **GET** /api/rp/v1/Templates/Folder/{id}/ListFolders | Get all folders from specified folder
 *TemplatesApi* | [**templateFoldersGetFoldersCount**](docs/Api/TemplatesApi.md#templatefoldersgetfolderscount) | **GET** /api/rp/v1/Templates/Folder/{id}/CountFolders | Get count of folders what contains in a specified folder
+*TemplatesApi* | [**templateFoldersGetMyPermissions**](docs/Api/TemplatesApi.md#templatefoldersgetmypermissions) | **GET** /api/rp/v1/Templates/Folder/{folderId}/mypermissions | Get user&#39;s permissions for a folder by id
 *TemplatesApi* | [**templateFoldersGetOrCreate**](docs/Api/TemplatesApi.md#templatefoldersgetorcreate) | **GET** /api/rp/v1/Templates/Folder/getOrCreate | Get specified folder
 *TemplatesApi* | [**templateFoldersGetPermissions**](docs/Api/TemplatesApi.md#templatefoldersgetpermissions) | **GET** /api/rp/v1/Templates/Folder/{id}/permissions | Get all folder permissions
-*TemplatesApi* | [**templateFoldersGetRootFolder**](docs/Api/TemplatesApi.md#templatefoldersgetrootfolder) | **GET** /api/rp/v1/Templates/Root | Get user&#39;s root folder (without parents)
-*TemplatesApi* | [**templateFoldersMoveFolder**](docs/Api/TemplatesApi.md#templatefoldersmovefolder) | **POST** /api/rp/v1/Templates/Folder/{id}/Move/{folderId} | Move folder to a specified folder
+*TemplatesApi* | [**templateFoldersGetRootFolder**](docs/Api/TemplatesApi.md#templatefoldersgetrootfolder) | **GET** /api/rp/v1/Templates/Root | Get workspace&#39;s root folder
+*TemplatesApi* | [**templateFoldersMoveFolder**](docs/Api/TemplatesApi.md#templatefoldersmovefolder) | **POST** /api/rp/v1/Templates/Folder/{id}/Move/{folderId} | Move folder into a specified folder
 *TemplatesApi* | [**templateFoldersMoveFolderToBin**](docs/Api/TemplatesApi.md#templatefoldersmovefoldertobin) | **DELETE** /api/rp/v1/Templates/Folder/{id}/ToBin | Move specified folder to recycle bin
 *TemplatesApi* | [**templateFoldersPostFolder**](docs/Api/TemplatesApi.md#templatefolderspostfolder) | **POST** /api/rp/v1/Templates/Folder/{id}/Folder | Create folder
 *TemplatesApi* | [**templateFoldersPrepare**](docs/Api/TemplatesApi.md#templatefoldersprepare) | **POST** /api/rp/v1/Templates/Folder/{id}/Prepare | Prepare specified template folder to report folder
@@ -291,16 +326,17 @@ Class | Method | HTTP request | Description
 *TemplatesApi* | [**templateFoldersUpdateIcon**](docs/Api/TemplatesApi.md#templatefoldersupdateicon) | **PUT** /api/rp/v1/Templates/Folder/{id}/Icon | Update a folder&#39;s icon
 *TemplatesApi* | [**templateFoldersUpdatePermissions**](docs/Api/TemplatesApi.md#templatefoldersupdatepermissions) | **POST** /api/rp/v1/Templates/{id}/permissions | Update permissions
 *TemplatesApi* | [**templateFoldersUpdateTags**](docs/Api/TemplatesApi.md#templatefoldersupdatetags) | **PUT** /api/rp/v1/Templates/Folder/{id}/UpdateTags | Update tags
-*TemplatesApi* | [**templatesCopyFile**](docs/Api/TemplatesApi.md#templatescopyfile) | **POST** /api/rp/v1/Templates/File/{id}/Copy/{folderId} | Copy file to a specified folder
-*TemplatesApi* | [**templatesCreateSharingKey**](docs/Api/TemplatesApi.md#templatescreatesharingkey) | **POST** /api/rp/v1/Templates/File/{id}/sharingKey | Create a new key, that can be used to share access to a file  (You need Administrate.Anon permission to create a new key)
+*TemplatesApi* | [**templatesCopyFile**](docs/Api/TemplatesApi.md#templatescopyfile) | **POST** /api/rp/v1/Templates/File/{id}/Copy/{folderId} | Copy a file into a specified folder
+*TemplatesApi* | [**templatesCreateSharingKey**](docs/Api/TemplatesApi.md#templatescreatesharingkey) | **POST** /api/rp/v1/Templates/File/{id}/sharingKey | Create a new key, that can be used to share access to a file &lt;br /&gt;  (You need Administrate.Anon permission to create a new key)
 *TemplatesApi* | [**templatesDeleteFile**](docs/Api/TemplatesApi.md#templatesdeletefile) | **DELETE** /api/rp/v1/Templates/File/{id} | Delete specified file
 *TemplatesApi* | [**templatesDeleteSharingKey**](docs/Api/TemplatesApi.md#templatesdeletesharingkey) | **DELETE** /api/rp/v1/Templates/File/{id}/sharingKey | Deletes a sharing key, making links, that utilizing it no longer work
 *TemplatesApi* | [**templatesExport**](docs/Api/TemplatesApi.md#templatesexport) | **POST** /api/rp/v1/Templates/File/{id}/Export | Export specified report template to a specified format
 *TemplatesApi* | [**templatesGetFile**](docs/Api/TemplatesApi.md#templatesgetfile) | **GET** /api/rp/v1/Templates/File/{id} | Get specified file
 *TemplatesApi* | [**templatesGetFileHistory**](docs/Api/TemplatesApi.md#templatesgetfilehistory) | **GET** /api/rp/v1/Templates/File/{id}/History | Returns list of actions, performed on this file
 *TemplatesApi* | [**templatesGetFilesCount**](docs/Api/TemplatesApi.md#templatesgetfilescount) | **GET** /api/rp/v1/Templates/Folder/{id}/CountFiles | Get count of files what contains in a specified folder
-*TemplatesApi* | [**templatesGetFilesList**](docs/Api/TemplatesApi.md#templatesgetfileslist) | **GET** /api/rp/v1/Templates/Folder/{id}/ListFiles | Get all files from specified folder. &lt;br /&gt;  User with Get Entity permission can access this method. &lt;br /&gt;  The method will returns minimal infomration about the file: &lt;br /&gt;  id, name, size, editedTime, createdTime, tags, status, statusReason.
-*TemplatesApi* | [**templatesGetPermissions**](docs/Api/TemplatesApi.md#templatesgetpermissions) | **GET** /api/rp/v1/Templates/File/{id}/permissions | 
+*TemplatesApi* | [**templatesGetFilesList**](docs/Api/TemplatesApi.md#templatesgetfileslist) | **GET** /api/rp/v1/Templates/Folder/{id}/ListFiles | Get files from the specified folder
+*TemplatesApi* | [**templatesGetMyPermissions**](docs/Api/TemplatesApi.md#templatesgetmypermissions) | **GET** /api/rp/v1/Templates/File/{id}/mypermissions | Get current user&#39;s permissions to a file
+*TemplatesApi* | [**templatesGetPermissions**](docs/Api/TemplatesApi.md#templatesgetpermissions) | **GET** /api/rp/v1/Templates/File/{id}/permissions | Get all permissions from a file. &lt;br /&gt;
 *TemplatesApi* | [**templatesGetSharingKeys**](docs/Api/TemplatesApi.md#templatesgetsharingkeys) | **GET** /api/rp/v1/Templates/File/{id}/sharingKeys | Returns all sharing keys, associated with the file
 *TemplatesApi* | [**templatesMoveFile**](docs/Api/TemplatesApi.md#templatesmovefile) | **POST** /api/rp/v1/Templates/File/{id}/Move/{folderId} | Move file to a specified folder
 *TemplatesApi* | [**templatesMoveFileToBin**](docs/Api/TemplatesApi.md#templatesmovefiletobin) | **DELETE** /api/rp/v1/Templates/File/{id}/ToBin | Move specified file to recycle bin
@@ -311,10 +347,12 @@ Class | Method | HTTP request | Description
 *TemplatesApi* | [**templatesUpdateContent**](docs/Api/TemplatesApi.md#templatesupdatecontent) | **PUT** /api/rp/v1/Templates/File/{id}/Content | Updates contnet of the template. The method is deprecated, use the UpdateContentV2 method instead!
 *TemplatesApi* | [**templatesUpdateContentV2**](docs/Api/TemplatesApi.md#templatesupdatecontentv2) | **PUT** /api/rp/v2/Templates/File/{id}/Content | Updates contnet of the template.
 *TemplatesApi* | [**templatesUpdateIcon**](docs/Api/TemplatesApi.md#templatesupdateicon) | **PUT** /api/rp/v1/Templates/File/{id}/Icon | Update a files&#39;s icon
+*TemplatesApi* | [**templatesUpdateParameters**](docs/Api/TemplatesApi.md#templatesupdateparameters) | **PUT** /api/rp/v1/Templates/File/{id}/parameters | 
 *TemplatesApi* | [**templatesUpdatePermissions**](docs/Api/TemplatesApi.md#templatesupdatepermissions) | **POST** /api/rp/v1/Templates/File/{id}/permissions | Update permissions
 *TemplatesApi* | [**templatesUpdateTags**](docs/Api/TemplatesApi.md#templatesupdatetags) | **PUT** /api/rp/v1/Templates/File/{id}/UpdateTags | Update tags
 *TemplatesApi* | [**templatesUploadFile**](docs/Api/TemplatesApi.md#templatesuploadfile) | **POST** /api/rp/v1/Templates/Folder/{id}/File | Upload a file to the specified folder. The method is deprecated, use the UploadFileV2 method instead!
 *TemplatesApi* | [**templatesUploadFileV2**](docs/Api/TemplatesApi.md#templatesuploadfilev2) | **POST** /api/rp/v2/Templates/Folder/{id}/File | Alternative api for upload a file to the specified folder!
+*TemplatesApi* | [**templatesWasmStaticPreview**](docs/Api/TemplatesApi.md#templateswasmstaticpreview) | **POST** /api/rp/v1/Templates/File/{id}/WasmStaticPreview | Make preview for the report (template).  Generate a new or return exist prepared fpx file.  If template was changed will be returned a new.
 *UserNotificationsApi* | [**userNotificationsClearNotifications**](docs/Api/UserNotificationsApi.md#usernotificationsclearnotifications) | **DELETE** /api/manage/v1/notifications | Use this endpoint to \&quot;clear\&quot; your notifications
 *UserNotificationsApi* | [**userNotificationsGetNotifications**](docs/Api/UserNotificationsApi.md#usernotificationsgetnotifications) | **GET** /api/manage/v1/notifications | Use this endpoint to recieve notifications
 *UserProfileApi* | [**userProfileGetMyProfile**](docs/Api/UserProfileApi.md#userprofilegetmyprofile) | **GET** /api/manage/v1/UserProfile | Return current profile of the current user
@@ -327,6 +365,7 @@ Class | Method | HTTP request | Description
 ## Models
 
 - [AcceptAgreementsVM](docs/Model/AcceptAgreementsVM.md)
+- [AddPublicFontVM](docs/Model/AddPublicFontVM.md)
 - [AdminAdministrate](docs/Model/AdminAdministrate.md)
 - [AdminCreate](docs/Model/AdminCreate.md)
 - [AdminCreateAdminGetAdminUpdateAdminDeleteAdminExecuteAdminAdministratePermission](docs/Model/AdminCreateAdminGetAdminUpdateAdminDeleteAdminExecuteAdminAdministratePermission.md)
@@ -334,6 +373,10 @@ Class | Method | HTTP request | Description
 - [AdminExecute](docs/Model/AdminExecute.md)
 - [AdminExportFolderCreateVM](docs/Model/AdminExportFolderCreateVM.md)
 - [AdminFolderCreateVM](docs/Model/AdminFolderCreateVM.md)
+- [AdminFontUpdateVM](docs/Model/AdminFontUpdateVM.md)
+- [AdminFontUploadVM](docs/Model/AdminFontUploadVM.md)
+- [AdminFontVM](docs/Model/AdminFontVM.md)
+- [AdminFontsVM](docs/Model/AdminFontsVM.md)
 - [AdminGet](docs/Model/AdminGet.md)
 - [AdminPermission](docs/Model/AdminPermission.md)
 - [AdminReportFolderCreateVM](docs/Model/AdminReportFolderCreateVM.md)
@@ -383,12 +426,14 @@ Class | Method | HTTP request | Description
 - [CreateGroupVM](docs/Model/CreateGroupVM.md)
 - [CreateIfNotExistInternalVM](docs/Model/CreateIfNotExistInternalVM.md)
 - [CreatePrepareTemplateTaskVM](docs/Model/CreatePrepareTemplateTaskVM.md)
+- [CreateS3UploadTaskVM](docs/Model/CreateS3UploadTaskVM.md)
 - [CreateSubscriptionInviteVM](docs/Model/CreateSubscriptionInviteVM.md)
 - [CreateSubscriptionPeriodVM](docs/Model/CreateSubscriptionPeriodVM.md)
 - [CreateSubscriptionPlanVM](docs/Model/CreateSubscriptionPlanVM.md)
 - [CreateSubscriptionVM](docs/Model/CreateSubscriptionVM.md)
 - [CreateTaskBaseVM](docs/Model/CreateTaskBaseVM.md)
 - [CreateTaskEndVM](docs/Model/CreateTaskEndVM.md)
+- [CreateTelegramUploadTaskVM](docs/Model/CreateTelegramUploadTaskVM.md)
 - [CreateThumbnailReportTaskVM](docs/Model/CreateThumbnailReportTaskVM.md)
 - [CreateThumbnailTemplateTaskVM](docs/Model/CreateThumbnailTemplateTaskVM.md)
 - [CreateTransformTaskBaseVM](docs/Model/CreateTransformTaskBaseVM.md)
@@ -462,6 +507,16 @@ Class | Method | HTTP request | Description
 - [FolderRenameVM](docs/Model/FolderRenameVM.md)
 - [FolderSizeVM](docs/Model/FolderSizeVM.md)
 - [FolderTagsUpdateVM](docs/Model/FolderTagsUpdateVM.md)
+- [FontAdministrate](docs/Model/FontAdministrate.md)
+- [FontCreate](docs/Model/FontCreate.md)
+- [FontDelete](docs/Model/FontDelete.md)
+- [FontExecute](docs/Model/FontExecute.md)
+- [FontGet](docs/Model/FontGet.md)
+- [FontNamesVM](docs/Model/FontNamesVM.md)
+- [FontSizeVM](docs/Model/FontSizeVM.md)
+- [FontUpdate](docs/Model/FontUpdate.md)
+- [FontVM](docs/Model/FontVM.md)
+- [FontsVM](docs/Model/FontsVM.md)
 - [FrontendAppVM](docs/Model/FrontendAppVM.md)
 - [GroupAdministrate](docs/Model/GroupAdministrate.md)
 - [GroupCreate](docs/Model/GroupCreate.md)
@@ -485,6 +540,7 @@ Class | Method | HTTP request | Description
 - [PrepareTemplateVM](docs/Model/PrepareTemplateVM.md)
 - [PreviewReportVM](docs/Model/PreviewReportVM.md)
 - [PreviewTemplateVM](docs/Model/PreviewTemplateVM.md)
+- [PreviewType](docs/Model/PreviewType.md)
 - [ProblemDetails](docs/Model/ProblemDetails.md)
 - [ProblemLevel](docs/Model/ProblemLevel.md)
 - [ProblemType](docs/Model/ProblemType.md)
@@ -498,9 +554,12 @@ Class | Method | HTTP request | Description
 - [ReportCreateVM](docs/Model/ReportCreateVM.md)
 - [ReportFolderCreateVM](docs/Model/ReportFolderCreateVM.md)
 - [ReportInfo](docs/Model/ReportInfo.md)
+- [ReportParameter](docs/Model/ReportParameter.md)
+- [ReportParametersVM](docs/Model/ReportParametersVM.md)
 - [ReportVM](docs/Model/ReportVM.md)
 - [ReportsVM](docs/Model/ReportsVM.md)
 - [RestOfSpaceVM](docs/Model/RestOfSpaceVM.md)
+- [RestrictionsVM](docs/Model/RestrictionsVM.md)
 - [RunEmailTaskVM](docs/Model/RunEmailTaskVM.md)
 - [RunExportReportTaskVM](docs/Model/RunExportReportTaskVM.md)
 - [RunExportTemplateTaskVM](docs/Model/RunExportTemplateTaskVM.md)
@@ -508,12 +567,15 @@ Class | Method | HTTP request | Description
 - [RunFetchTaskVM](docs/Model/RunFetchTaskVM.md)
 - [RunInputFileVM](docs/Model/RunInputFileVM.md)
 - [RunPrepareTemplateTaskVM](docs/Model/RunPrepareTemplateTaskVM.md)
+- [RunS3UploadTaskVM](docs/Model/RunS3UploadTaskVM.md)
 - [RunTaskBaseVM](docs/Model/RunTaskBaseVM.md)
+- [RunTelegramUploadTaskVM](docs/Model/RunTelegramUploadTaskVM.md)
 - [RunThumbnailReportTaskVM](docs/Model/RunThumbnailReportTaskVM.md)
 - [RunThumbnailTemplateTaskVM](docs/Model/RunThumbnailTemplateTaskVM.md)
 - [RunTransformTaskBaseVM](docs/Model/RunTransformTaskBaseVM.md)
 - [RunTransportTaskBaseVM](docs/Model/RunTransportTaskBaseVM.md)
 - [RunWebhookTaskVM](docs/Model/RunWebhookTaskVM.md)
+- [S3UploadTaskVM](docs/Model/S3UploadTaskVM.md)
 - [SaveMode](docs/Model/SaveMode.md)
 - [SelectedFilesVM](docs/Model/SelectedFilesVM.md)
 - [ServerConfigurationVM](docs/Model/ServerConfigurationVM.md)
@@ -550,9 +612,10 @@ Class | Method | HTTP request | Description
 - [TaskPermissionsCRUDVM](docs/Model/TaskPermissionsCRUDVM.md)
 - [TaskPermissionsVM](docs/Model/TaskPermissionsVM.md)
 - [TaskSettingsVM](docs/Model/TaskSettingsVM.md)
+- [TaskType](docs/Model/TaskType.md)
 - [TaskUpdate](docs/Model/TaskUpdate.md)
 - [TasksVM](docs/Model/TasksVM.md)
-- [TemplateContentVM](docs/Model/TemplateContentVM.md)
+- [TelegramUploadTaskVM](docs/Model/TelegramUploadTaskVM.md)
 - [TemplateCreateAdminVM](docs/Model/TemplateCreateAdminVM.md)
 - [TemplateCreateFormVM](docs/Model/TemplateCreateFormVM.md)
 - [TemplateCreateVM](docs/Model/TemplateCreateVM.md)
@@ -586,20 +649,32 @@ Class | Method | HTTP request | Description
 - [UpdateGroupPermissionsVM](docs/Model/UpdateGroupPermissionsVM.md)
 - [UpdateGroupVM](docs/Model/UpdateGroupVM.md)
 - [UpdatePrepareTemplateTaskVM](docs/Model/UpdatePrepareTemplateTaskVM.md)
+- [UpdateS3UploadTaskVM](docs/Model/UpdateS3UploadTaskVM.md)
+- [UpdateSubscriptionDomainsVM](docs/Model/UpdateSubscriptionDomainsVM.md)
 - [UpdateSubscriptionLocaleVM](docs/Model/UpdateSubscriptionLocaleVM.md)
 - [UpdateSubscriptionPermissionsVM](docs/Model/UpdateSubscriptionPermissionsVM.md)
 - [UpdateSubscriptionPlanVM](docs/Model/UpdateSubscriptionPlanVM.md)
+- [UpdateSubscriptionPreviewTypeVM](docs/Model/UpdateSubscriptionPreviewTypeVM.md)
 - [UpdateSubscriptionVM](docs/Model/UpdateSubscriptionVM.md)
 - [UpdateTaskBaseVM](docs/Model/UpdateTaskBaseVM.md)
 - [UpdateTaskPermissionsVM](docs/Model/UpdateTaskPermissionsVM.md)
+- [UpdateTelegramUploadTaskVM](docs/Model/UpdateTelegramUploadTaskVM.md)
 - [UpdateThumbnailReportTaskVM](docs/Model/UpdateThumbnailReportTaskVM.md)
 - [UpdateThumbnailTemplateTaskVM](docs/Model/UpdateThumbnailTemplateTaskVM.md)
 - [UpdateTransformTaskBaseVM](docs/Model/UpdateTransformTaskBaseVM.md)
 - [UpdateTransportTaskBaseVM](docs/Model/UpdateTransportTaskBaseVM.md)
+- [UpdateUserFontPermissionsVM](docs/Model/UpdateUserFontPermissionsVM.md)
+- [UpdateUserFontVM](docs/Model/UpdateUserFontVM.md)
 - [UpdateUserProfileVM](docs/Model/UpdateUserProfileVM.md)
 - [UpdateUserSettingsVM](docs/Model/UpdateUserSettingsVM.md)
 - [UpdateUserVM](docs/Model/UpdateUserVM.md)
 - [UpdateWebhookTaskVM](docs/Model/UpdateWebhookTaskVM.md)
+- [UploadUserFontVM](docs/Model/UploadUserFontVM.md)
+- [UserFontPermissionCRUDVM](docs/Model/UserFontPermissionCRUDVM.md)
+- [UserFontPermissionsCRUDVM](docs/Model/UserFontPermissionsCRUDVM.md)
+- [UserFontPermissionsVM](docs/Model/UserFontPermissionsVM.md)
+- [UserFontVM](docs/Model/UserFontVM.md)
+- [UserFontsVM](docs/Model/UserFontsVM.md)
 - [UserIsAdminVM](docs/Model/UserIsAdminVM.md)
 - [UserProfileVM](docs/Model/UserProfileVM.md)
 - [UserResultVM](docs/Model/UserResultVM.md)

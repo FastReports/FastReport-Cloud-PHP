@@ -59,6 +59,7 @@ class DefaultPermissionsVM extends CloudBaseVM
         'data_source_permissions' => '\OpenAPI\Client\cloud\fastreport\model\DataSourcePermissionsCRUDVM',
         'group_permissions' => '\OpenAPI\Client\cloud\fastreport\model\GroupPermissionsCRUDVM',
         'task_permissions' => '\OpenAPI\Client\cloud\fastreport\model\TaskPermissionsCRUDVM',
+        'font_permissions' => '\OpenAPI\Client\cloud\fastreport\model\UserFontPermissionsCRUDVM',
         't' => 'string'
     ];
 
@@ -74,6 +75,7 @@ class DefaultPermissionsVM extends CloudBaseVM
         'data_source_permissions' => null,
         'group_permissions' => null,
         'task_permissions' => null,
+        'font_permissions' => null,
         't' => null
     ];
 
@@ -87,6 +89,7 @@ class DefaultPermissionsVM extends CloudBaseVM
         'data_source_permissions' => false,
         'group_permissions' => false,
         'task_permissions' => false,
+        'font_permissions' => false,
         't' => false
     ];
 
@@ -180,6 +183,7 @@ class DefaultPermissionsVM extends CloudBaseVM
         'data_source_permissions' => 'dataSourcePermissions',
         'group_permissions' => 'groupPermissions',
         'task_permissions' => 'taskPermissions',
+        'font_permissions' => 'fontPermissions',
         't' => '$t'
     ];
 
@@ -193,6 +197,7 @@ class DefaultPermissionsVM extends CloudBaseVM
         'data_source_permissions' => 'setDataSourcePermissions',
         'group_permissions' => 'setGroupPermissions',
         'task_permissions' => 'setTaskPermissions',
+        'font_permissions' => 'setFontPermissions',
         't' => 'setT'
     ];
 
@@ -206,6 +211,7 @@ class DefaultPermissionsVM extends CloudBaseVM
         'data_source_permissions' => 'getDataSourcePermissions',
         'group_permissions' => 'getGroupPermissions',
         'task_permissions' => 'getTaskPermissions',
+        'font_permissions' => 'getFontPermissions',
         't' => 'getT'
     ];
 
@@ -266,6 +272,7 @@ class DefaultPermissionsVM extends CloudBaseVM
         $this->setIfExists('data_source_permissions', $data ?? [], null);
         $this->setIfExists('group_permissions', $data ?? [], null);
         $this->setIfExists('task_permissions', $data ?? [], null);
+        $this->setIfExists('font_permissions', $data ?? [], null);
         $this->setIfExists('t', $data ?? [], null);
 
         // Initialize discriminator property with the model name.
@@ -421,6 +428,33 @@ class DefaultPermissionsVM extends CloudBaseVM
             throw new \InvalidArgumentException('non-nullable task_permissions cannot be null');
         }
         $this->container['task_permissions'] = $task_permissions;
+
+        return $this;
+    }
+
+    /**
+     * Gets font_permissions
+     *
+     * @return \OpenAPI\Client\cloud\fastreport\model\UserFontPermissionsCRUDVM|null
+     */
+    public function getFontPermissions()
+    {
+        return $this->container['font_permissions'];
+    }
+
+    /**
+     * Sets font_permissions
+     *
+     * @param \OpenAPI\Client\cloud\fastreport\model\UserFontPermissionsCRUDVM|null $font_permissions font_permissions
+     *
+     * @return self
+     */
+    public function setFontPermissions($font_permissions)
+    {
+        if (is_null($font_permissions)) {
+            throw new \InvalidArgumentException('non-nullable font_permissions cannot be null');
+        }
+        $this->container['font_permissions'] = $font_permissions;
 
         return $this;
     }

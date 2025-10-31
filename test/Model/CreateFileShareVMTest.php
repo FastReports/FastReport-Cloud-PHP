@@ -105,4 +105,13 @@ class CreateFileShareVMTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "t"
+     */
+    public function testPropertyT()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

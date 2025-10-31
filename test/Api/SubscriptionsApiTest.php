@@ -178,4 +178,28 @@ class SubscriptionsApiTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for subscriptionsUpdatePreviewType
+     *
+     * Update subscription's preview type.
+     *
+     */
+    public function testSubscriptionsUpdatePreviewType()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for subscriptionsUpdateSubscriptionDomains
+     *
+     * Update subscription's allowed domains.
+     *
+     */
+    public function testSubscriptionsUpdateSubscriptionDomains()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

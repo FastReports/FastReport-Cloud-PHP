@@ -144,6 +144,18 @@ class DataSourcesApiTest extends TestCase
     }
 
     /**
+     * Test case for dataSourcesGetMyPermissions
+     *
+     * Get current user's permissions to Data source.
+     *
+     */
+    public function testDataSourcesGetMyPermissions()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for dataSourcesGetParameterTypes
      *
      * Get data source parameter DataType's.

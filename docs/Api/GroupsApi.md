@@ -8,6 +8,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**groupsDeleteGroup()**](GroupsApi.md#groupsDeleteGroup) | **DELETE** /api/manage/v1/Groups/{id} | Delete group by identifier |
 | [**groupsGetGroup()**](GroupsApi.md#groupsGetGroup) | **GET** /api/manage/v1/Groups/{id} | Gets group by identifier |
 | [**groupsGetGroupList()**](GroupsApi.md#groupsGetGroupList) | **GET** /api/manage/v1/Groups | Returns a list of current user&#39;s groups&lt;br /&gt;  This method will return following data about groups : &lt;br /&gt;  Id, Name, Created time (UTC), Edited time (UTC), creator id, &lt;br /&gt;  editor id, subscription id |
+| [**groupsGetMyPermissions()**](GroupsApi.md#groupsGetMyPermissions) | **GET** /api/manage/v1/Groups/{id}/mypermissions | Get current user&#39;s permissions to group |
 | [**groupsGetPermissions()**](GroupsApi.md#groupsGetPermissions) | **GET** /api/manage/v1/Groups/{id}/permissions | Gets group permissions by identifier |
 | [**groupsRenameGroup()**](GroupsApi.md#groupsRenameGroup) | **PUT** /api/manage/v1/Groups/{id}/rename | Rename group by identifier |
 | [**groupsUpdatePermissions()**](GroupsApi.md#groupsUpdatePermissions) | **POST** /api/manage/v1/Groups/{id}/permissions | Update permissions |
@@ -252,6 +253,69 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\cloud\fastreport\model\GroupsVM**](../Model/GroupsVM.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `groupsGetMyPermissions()`
+
+```php
+groupsGetMyPermissions($id): \OpenAPI\Client\cloud\fastreport\model\GroupPermissionCRUDVM
+```
+
+Get current user's permissions to group
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Identifier of group
+
+try {
+    $result = $apiInstance->groupsGetMyPermissions($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupsApi->groupsGetMyPermissions: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Identifier of group | |
+
+### Return type
+
+[**\OpenAPI\Client\cloud\fastreport\model\GroupPermissionCRUDVM**](../Model/GroupPermissionCRUDVM.md)
 
 ### Authorization
 

@@ -27,8 +27,6 @@
  */
 
 namespace OpenAPI\Client\cloud\fastreport\model;
-
-use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
@@ -40,9 +38,9 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CreateTaskEndVM implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateTaskEndVM extends CloudBaseVM
 {
-    public const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = 't';
 
     /**
       * The original name of the model.
@@ -58,7 +56,8 @@ class CreateTaskEndVM implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'after' => 'int',
-        'on' => '\DateTime'
+        'on' => '\DateTime',
+        't' => 'string'
     ];
 
     /**
@@ -70,7 +69,8 @@ class CreateTaskEndVM implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'after' => 'int32',
-        'on' => 'date-time'
+        'on' => 'date-time',
+        't' => null
     ];
 
     /**
@@ -80,7 +80,8 @@ class CreateTaskEndVM implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'after' => true,
-        'on' => true
+        'on' => true,
+        't' => false
     ];
 
     /**
@@ -97,7 +98,7 @@ class CreateTaskEndVM implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes;
+        return self::$openAPITypes + parent::openAPITypes();
     }
 
     /**
@@ -107,7 +108,7 @@ class CreateTaskEndVM implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats;
+        return self::$openAPIFormats + parent::openAPIFormats();
     }
 
     /**
@@ -117,7 +118,7 @@ class CreateTaskEndVM implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static function openAPINullables(): array
     {
-        return self::$openAPINullables;
+        return self::$openAPINullables + parent::openAPINullables();
     }
 
     /**
@@ -170,7 +171,8 @@ class CreateTaskEndVM implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'after' => 'after',
-        'on' => 'on'
+        'on' => 'on',
+        't' => '$t'
     ];
 
     /**
@@ -180,7 +182,8 @@ class CreateTaskEndVM implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'after' => 'setAfter',
-        'on' => 'setOn'
+        'on' => 'setOn',
+        't' => 'setT'
     ];
 
     /**
@@ -190,7 +193,8 @@ class CreateTaskEndVM implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'after' => 'getAfter',
-        'on' => 'getOn'
+        'on' => 'getOn',
+        't' => 'getT'
     ];
 
     /**
@@ -201,7 +205,7 @@ class CreateTaskEndVM implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -211,7 +215,7 @@ class CreateTaskEndVM implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -221,7 +225,7 @@ class CreateTaskEndVM implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -235,12 +239,6 @@ class CreateTaskEndVM implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -250,8 +248,14 @@ class CreateTaskEndVM implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        parent::__construct($data);
+
         $this->setIfExists('after', $data ?? [], null);
         $this->setIfExists('on', $data ?? [], null);
+        $this->setIfExists('t', $data ?? [], null);
+
+        // Initialize discriminator property with the model name.
+        $this->container['t'] = static::$openAPIModelName;
     }
 
     /**
@@ -279,7 +283,7 @@ class CreateTaskEndVM implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         if (!is_null($this->container['after']) && ($this->container['after'] > 2147483647)) {
             $invalidProperties[] = "invalid value for 'after', must be smaller than or equal to 2147483647.";
@@ -289,6 +293,9 @@ class CreateTaskEndVM implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'after', must be bigger than or equal to 0.";
         }
 
+        if ($this->container['t'] === null) {
+            $invalidProperties[] = "'t' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -376,6 +383,33 @@ class CreateTaskEndVM implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['on'] = $on;
+
+        return $this;
+    }
+
+    /**
+     * Gets t
+     *
+     * @return string
+     */
+    public function getT()
+    {
+        return $this->container['t'];
+    }
+
+    /**
+     * Sets t
+     *
+     * @param string $t t
+     *
+     * @return self
+     */
+    public function setT($t)
+    {
+        if (is_null($t)) {
+            throw new \InvalidArgumentException('non-nullable t cannot be null');
+        }
+        $this->container['t'] = $t;
 
         return $this;
     }

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **templates_space_limit** | **int** |  | [optional]
 **reports_space_limit** | **int** |  | [optional]
 **exports_space_limit** | **int** |  | [optional]
+**fonts_space_limit** | **int** |  | [optional]
 **file_upload_size_limit** | **int** |  | [optional]
 **data_source_limit** | **int** |  | [optional]
 **max_users_count** | **int** |  | [optional]

@@ -58,6 +58,8 @@ class AnalysisResultVM extends CloudBaseVM
         'level' => '\OpenAPI\Client\cloud\fastreport\model\ProblemLevel',
         'detail' => 'string',
         'id' => 'string',
+        'suggestion' => 'string',
+        'items' => 'string[]',
         'subscription_id' => 'string',
         'file_id' => 'string',
         'collection_name' => 'string',
@@ -78,6 +80,8 @@ class AnalysisResultVM extends CloudBaseVM
         'level' => null,
         'detail' => null,
         'id' => null,
+        'suggestion' => null,
+        'items' => null,
         'subscription_id' => null,
         'file_id' => null,
         'collection_name' => null,
@@ -96,6 +100,8 @@ class AnalysisResultVM extends CloudBaseVM
         'level' => false,
         'detail' => true,
         'id' => true,
+        'suggestion' => true,
+        'items' => true,
         'subscription_id' => true,
         'file_id' => true,
         'collection_name' => true,
@@ -194,6 +200,8 @@ class AnalysisResultVM extends CloudBaseVM
         'level' => 'level',
         'detail' => 'detail',
         'id' => 'id',
+        'suggestion' => 'suggestion',
+        'items' => 'items',
         'subscription_id' => 'subscriptionId',
         'file_id' => 'fileId',
         'collection_name' => 'collectionName',
@@ -212,6 +220,8 @@ class AnalysisResultVM extends CloudBaseVM
         'level' => 'setLevel',
         'detail' => 'setDetail',
         'id' => 'setId',
+        'suggestion' => 'setSuggestion',
+        'items' => 'setItems',
         'subscription_id' => 'setSubscriptionId',
         'file_id' => 'setFileId',
         'collection_name' => 'setCollectionName',
@@ -230,6 +240,8 @@ class AnalysisResultVM extends CloudBaseVM
         'level' => 'getLevel',
         'detail' => 'getDetail',
         'id' => 'getId',
+        'suggestion' => 'getSuggestion',
+        'items' => 'getItems',
         'subscription_id' => 'getSubscriptionId',
         'file_id' => 'getFileId',
         'collection_name' => 'getCollectionName',
@@ -295,6 +307,8 @@ class AnalysisResultVM extends CloudBaseVM
         $this->setIfExists('level', $data ?? [], null);
         $this->setIfExists('detail', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('suggestion', $data ?? [], null);
+        $this->setIfExists('items', $data ?? [], null);
         $this->setIfExists('subscription_id', $data ?? [], null);
         $this->setIfExists('file_id', $data ?? [], null);
         $this->setIfExists('collection_name', $data ?? [], null);
@@ -443,6 +457,74 @@ class AnalysisResultVM extends CloudBaseVM
             }
         }
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets suggestion
+     *
+     * @return string|null
+     */
+    public function getSuggestion()
+    {
+        return $this->container['suggestion'];
+    }
+
+    /**
+     * Sets suggestion
+     *
+     * @param string|null $suggestion suggestion
+     *
+     * @return self
+     */
+    public function setSuggestion($suggestion)
+    {
+        if (is_null($suggestion)) {
+            array_push($this->openAPINullablesSetToNull, 'suggestion');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('suggestion', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['suggestion'] = $suggestion;
+
+        return $this;
+    }
+
+    /**
+     * Gets items
+     *
+     * @return string[]|null
+     */
+    public function getItems()
+    {
+        return $this->container['items'];
+    }
+
+    /**
+     * Sets items
+     *
+     * @param string[]|null $items items
+     *
+     * @return self
+     */
+    public function setItems($items)
+    {
+        if (is_null($items)) {
+            array_push($this->openAPINullablesSetToNull, 'items');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('items', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['items'] = $items;
 
         return $this;
     }

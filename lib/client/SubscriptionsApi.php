@@ -106,6 +106,16 @@ class SubscriptionsApi
             'text/json',
             'application/*+json',
         ],
+        'subscriptionsUpdatePreviewType' => [
+            'application/json',
+            'text/json',
+            'application/*+json',
+        ],
+        'subscriptionsUpdateSubscriptionDomains' => [
+            'application/json',
+            'text/json',
+            'application/*+json',
+        ],
     ];
 
     /**
@@ -3893,6 +3903,960 @@ class SubscriptionsApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation subscriptionsUpdatePreviewType
+     *
+     * Update subscription&#39;s preview type
+     *
+     * @param  string $subscription_id id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionPreviewTypeVM $update_subscription_preview_type_vm update VM (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['subscriptionsUpdatePreviewType'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\cloud\fastreport\model\SubscriptionVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails
+     */
+    public function subscriptionsUpdatePreviewType($subscription_id, $update_subscription_preview_type_vm, string $contentType = self::contentTypes['subscriptionsUpdatePreviewType'][0])
+    {
+        list($response) = $this->subscriptionsUpdatePreviewTypeWithHttpInfo($subscription_id, $update_subscription_preview_type_vm, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation subscriptionsUpdatePreviewTypeWithHttpInfo
+     *
+     * Update subscription&#39;s preview type
+     *
+     * @param  string $subscription_id id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionPreviewTypeVM $update_subscription_preview_type_vm update VM (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['subscriptionsUpdatePreviewType'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\cloud\fastreport\model\SubscriptionVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function subscriptionsUpdatePreviewTypeWithHttpInfo($subscription_id, $update_subscription_preview_type_vm, string $contentType = self::contentTypes['subscriptionsUpdatePreviewType'][0])
+    {
+        $request = $this->subscriptionsUpdatePreviewTypeRequest($subscription_id, $update_subscription_preview_type_vm, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\SubscriptionVM' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\SubscriptionVM' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\SubscriptionVM', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 402:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\cloud\fastreport\model\SubscriptionVM';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\SubscriptionVM',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation subscriptionsUpdatePreviewTypeAsync
+     *
+     * Update subscription&#39;s preview type
+     *
+     * @param  string $subscription_id id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionPreviewTypeVM $update_subscription_preview_type_vm update VM (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['subscriptionsUpdatePreviewType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function subscriptionsUpdatePreviewTypeAsync($subscription_id, $update_subscription_preview_type_vm, string $contentType = self::contentTypes['subscriptionsUpdatePreviewType'][0])
+    {
+        return $this->subscriptionsUpdatePreviewTypeAsyncWithHttpInfo($subscription_id, $update_subscription_preview_type_vm, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation subscriptionsUpdatePreviewTypeAsyncWithHttpInfo
+     *
+     * Update subscription&#39;s preview type
+     *
+     * @param  string $subscription_id id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionPreviewTypeVM $update_subscription_preview_type_vm update VM (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['subscriptionsUpdatePreviewType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function subscriptionsUpdatePreviewTypeAsyncWithHttpInfo($subscription_id, $update_subscription_preview_type_vm, string $contentType = self::contentTypes['subscriptionsUpdatePreviewType'][0])
+    {
+        $returnType = '\OpenAPI\Client\cloud\fastreport\model\SubscriptionVM';
+        $request = $this->subscriptionsUpdatePreviewTypeRequest($subscription_id, $update_subscription_preview_type_vm, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'subscriptionsUpdatePreviewType'
+     *
+     * @param  string $subscription_id id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionPreviewTypeVM $update_subscription_preview_type_vm update VM (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['subscriptionsUpdatePreviewType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function subscriptionsUpdatePreviewTypeRequest($subscription_id, $update_subscription_preview_type_vm, string $contentType = self::contentTypes['subscriptionsUpdatePreviewType'][0])
+    {
+
+        // verify the required parameter 'subscription_id' is set
+        if ($subscription_id === null || (is_array($subscription_id) && count($subscription_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $subscription_id when calling subscriptionsUpdatePreviewType'
+            );
+        }
+        if (!preg_match("/^[A-Fa-f0-9]{24}$/", $subscription_id)) {
+            throw new \InvalidArgumentException("invalid value for \"subscription_id\" when calling SubscriptionsApi.subscriptionsUpdatePreviewType, must conform to the pattern /^[A-Fa-f0-9]{24}$/.");
+        }
+        
+        // verify the required parameter 'update_subscription_preview_type_vm' is set
+        if ($update_subscription_preview_type_vm === null || (is_array($update_subscription_preview_type_vm) && count($update_subscription_preview_type_vm) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $update_subscription_preview_type_vm when calling subscriptionsUpdatePreviewType'
+            );
+        }
+
+
+        $resourcePath = '/api/manage/v1/Subscriptions/{subscriptionId}/PreviewType';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($subscription_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'subscriptionId' . '}',
+                ObjectSerializer::toPathValue($subscription_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($update_subscription_preview_type_vm)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_subscription_preview_type_vm));
+            } else {
+                $httpBody = $update_subscription_preview_type_vm;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation subscriptionsUpdateSubscriptionDomains
+     *
+     * Update subscription&#39;s allowed domains
+     *
+     * @param  string $subscription_id id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionDomainsVM $update_subscription_domains_vm update VM (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['subscriptionsUpdateSubscriptionDomains'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\cloud\fastreport\model\SubscriptionVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails
+     */
+    public function subscriptionsUpdateSubscriptionDomains($subscription_id, $update_subscription_domains_vm, string $contentType = self::contentTypes['subscriptionsUpdateSubscriptionDomains'][0])
+    {
+        list($response) = $this->subscriptionsUpdateSubscriptionDomainsWithHttpInfo($subscription_id, $update_subscription_domains_vm, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation subscriptionsUpdateSubscriptionDomainsWithHttpInfo
+     *
+     * Update subscription&#39;s allowed domains
+     *
+     * @param  string $subscription_id id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionDomainsVM $update_subscription_domains_vm update VM (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['subscriptionsUpdateSubscriptionDomains'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\cloud\fastreport\model\SubscriptionVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function subscriptionsUpdateSubscriptionDomainsWithHttpInfo($subscription_id, $update_subscription_domains_vm, string $contentType = self::contentTypes['subscriptionsUpdateSubscriptionDomains'][0])
+    {
+        $request = $this->subscriptionsUpdateSubscriptionDomainsRequest($subscription_id, $update_subscription_domains_vm, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\SubscriptionVM' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\SubscriptionVM' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\SubscriptionVM', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 402:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\cloud\fastreport\model\SubscriptionVM';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\SubscriptionVM',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation subscriptionsUpdateSubscriptionDomainsAsync
+     *
+     * Update subscription&#39;s allowed domains
+     *
+     * @param  string $subscription_id id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionDomainsVM $update_subscription_domains_vm update VM (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['subscriptionsUpdateSubscriptionDomains'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function subscriptionsUpdateSubscriptionDomainsAsync($subscription_id, $update_subscription_domains_vm, string $contentType = self::contentTypes['subscriptionsUpdateSubscriptionDomains'][0])
+    {
+        return $this->subscriptionsUpdateSubscriptionDomainsAsyncWithHttpInfo($subscription_id, $update_subscription_domains_vm, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation subscriptionsUpdateSubscriptionDomainsAsyncWithHttpInfo
+     *
+     * Update subscription&#39;s allowed domains
+     *
+     * @param  string $subscription_id id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionDomainsVM $update_subscription_domains_vm update VM (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['subscriptionsUpdateSubscriptionDomains'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function subscriptionsUpdateSubscriptionDomainsAsyncWithHttpInfo($subscription_id, $update_subscription_domains_vm, string $contentType = self::contentTypes['subscriptionsUpdateSubscriptionDomains'][0])
+    {
+        $returnType = '\OpenAPI\Client\cloud\fastreport\model\SubscriptionVM';
+        $request = $this->subscriptionsUpdateSubscriptionDomainsRequest($subscription_id, $update_subscription_domains_vm, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'subscriptionsUpdateSubscriptionDomains'
+     *
+     * @param  string $subscription_id id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionDomainsVM $update_subscription_domains_vm update VM (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['subscriptionsUpdateSubscriptionDomains'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function subscriptionsUpdateSubscriptionDomainsRequest($subscription_id, $update_subscription_domains_vm, string $contentType = self::contentTypes['subscriptionsUpdateSubscriptionDomains'][0])
+    {
+
+        // verify the required parameter 'subscription_id' is set
+        if ($subscription_id === null || (is_array($subscription_id) && count($subscription_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $subscription_id when calling subscriptionsUpdateSubscriptionDomains'
+            );
+        }
+        if (!preg_match("/^[A-Fa-f0-9]{24}$/", $subscription_id)) {
+            throw new \InvalidArgumentException("invalid value for \"subscription_id\" when calling SubscriptionsApi.subscriptionsUpdateSubscriptionDomains, must conform to the pattern /^[A-Fa-f0-9]{24}$/.");
+        }
+        
+        // verify the required parameter 'update_subscription_domains_vm' is set
+        if ($update_subscription_domains_vm === null || (is_array($update_subscription_domains_vm) && count($update_subscription_domains_vm) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $update_subscription_domains_vm when calling subscriptionsUpdateSubscriptionDomains'
+            );
+        }
+
+
+        $resourcePath = '/api/manage/v1/Subscriptions/{subscriptionId}/Domains';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($subscription_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'subscriptionId' . '}',
+                ObjectSerializer::toPathValue($subscription_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($update_subscription_domains_vm)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_subscription_domains_vm));
+            } else {
+                $httpBody = $update_subscription_domains_vm;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

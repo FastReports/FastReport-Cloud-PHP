@@ -107,6 +107,24 @@ class ExportVMTest extends TestCase
     }
 
     /**
+     * Test attribute "task_id"
+     */
+    public function testPropertyTaskId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "task_message_id"
+     */
+    public function testPropertyTaskMessageId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "t"
      */
     public function testPropertyT()

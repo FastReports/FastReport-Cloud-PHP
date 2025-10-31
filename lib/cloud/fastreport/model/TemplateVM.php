@@ -56,6 +56,7 @@ class TemplateVM extends FileVM
       */
     protected static $openAPITypes = [
         'report_info' => '\OpenAPI\Client\cloud\fastreport\model\ReportInfo',
+        'parameters' => '\OpenAPI\Client\cloud\fastreport\model\ReportParameter[]',
         't' => 'string'
     ];
 
@@ -68,6 +69,7 @@ class TemplateVM extends FileVM
       */
     protected static $openAPIFormats = [
         'report_info' => null,
+        'parameters' => null,
         't' => null
     ];
 
@@ -78,6 +80,7 @@ class TemplateVM extends FileVM
       */
     protected static array $openAPINullables = [
         'report_info' => false,
+        'parameters' => true,
         't' => false
     ];
 
@@ -168,6 +171,7 @@ class TemplateVM extends FileVM
      */
     protected static $attributeMap = [
         'report_info' => 'reportInfo',
+        'parameters' => 'parameters',
         't' => '$t'
     ];
 
@@ -178,6 +182,7 @@ class TemplateVM extends FileVM
      */
     protected static $setters = [
         'report_info' => 'setReportInfo',
+        'parameters' => 'setParameters',
         't' => 'setT'
     ];
 
@@ -188,6 +193,7 @@ class TemplateVM extends FileVM
      */
     protected static $getters = [
         'report_info' => 'getReportInfo',
+        'parameters' => 'getParameters',
         't' => 'getT'
     ];
 
@@ -245,6 +251,7 @@ class TemplateVM extends FileVM
         parent::__construct($data);
 
         $this->setIfExists('report_info', $data ?? [], null);
+        $this->setIfExists('parameters', $data ?? [], null);
         $this->setIfExists('t', $data ?? [], null);
 
         // Initialize discriminator property with the model name.
@@ -319,6 +326,40 @@ class TemplateVM extends FileVM
             throw new \InvalidArgumentException('non-nullable report_info cannot be null');
         }
         $this->container['report_info'] = $report_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets parameters
+     *
+     * @return \OpenAPI\Client\cloud\fastreport\model\ReportParameter[]|null
+     */
+    public function getParameters()
+    {
+        return $this->container['parameters'];
+    }
+
+    /**
+     * Sets parameters
+     *
+     * @param \OpenAPI\Client\cloud\fastreport\model\ReportParameter[]|null $parameters parameters
+     *
+     * @return self
+     */
+    public function setParameters($parameters)
+    {
+        if (is_null($parameters)) {
+            array_push($this->openAPINullablesSetToNull, 'parameters');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('parameters', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['parameters'] = $parameters;
 
         return $this;
     }

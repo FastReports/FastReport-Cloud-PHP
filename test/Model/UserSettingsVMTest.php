@@ -125,6 +125,15 @@ class UserSettingsVMTest extends TestCase
     }
 
     /**
+     * Test attribute "preview_type"
+     */
+    public function testPropertyPreviewType()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "t"
      */
     public function testPropertyT()

@@ -89,6 +89,15 @@ class TemplateVMTest extends TestCase
     }
 
     /**
+     * Test attribute "parameters"
+     */
+    public function testPropertyParameters()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "t"
      */
     public function testPropertyT()

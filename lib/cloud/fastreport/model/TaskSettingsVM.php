@@ -55,11 +55,14 @@ class TaskSettingsVM extends CloudBaseVM
       * @var string[]
       */
     protected static $openAPITypes = [
+        'is_scheduler_enabled' => 'bool',
         'prepare' => 'bool',
         'export_template' => 'bool',
         'export_report' => 'bool',
         'send_via_email' => 'bool',
         'upload_to_ftp' => 'bool',
+        'upload_to_s3' => 'bool',
+        'upload_to_telegram' => 'bool',
         'send_via_webhook' => 'bool',
         'fetch_data' => 'bool',
         'thumbnail_report' => 'bool',
@@ -75,11 +78,14 @@ class TaskSettingsVM extends CloudBaseVM
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'is_scheduler_enabled' => null,
         'prepare' => null,
         'export_template' => null,
         'export_report' => null,
         'send_via_email' => null,
         'upload_to_ftp' => null,
+        'upload_to_s3' => null,
+        'upload_to_telegram' => null,
         'send_via_webhook' => null,
         'fetch_data' => null,
         'thumbnail_report' => null,
@@ -93,11 +99,14 @@ class TaskSettingsVM extends CloudBaseVM
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'is_scheduler_enabled' => true,
         'prepare' => true,
         'export_template' => true,
         'export_report' => true,
         'send_via_email' => true,
         'upload_to_ftp' => true,
+        'upload_to_s3' => true,
+        'upload_to_telegram' => true,
         'send_via_webhook' => true,
         'fetch_data' => true,
         'thumbnail_report' => true,
@@ -191,11 +200,14 @@ class TaskSettingsVM extends CloudBaseVM
      * @var string[]
      */
     protected static $attributeMap = [
+        'is_scheduler_enabled' => 'isSchedulerEnabled',
         'prepare' => 'prepare',
         'export_template' => 'exportTemplate',
         'export_report' => 'exportReport',
         'send_via_email' => 'sendViaEmail',
         'upload_to_ftp' => 'uploadToFTP',
+        'upload_to_s3' => 'uploadToS3',
+        'upload_to_telegram' => 'uploadToTelegram',
         'send_via_webhook' => 'sendViaWebhook',
         'fetch_data' => 'fetchData',
         'thumbnail_report' => 'thumbnailReport',
@@ -209,11 +221,14 @@ class TaskSettingsVM extends CloudBaseVM
      * @var string[]
      */
     protected static $setters = [
+        'is_scheduler_enabled' => 'setIsSchedulerEnabled',
         'prepare' => 'setPrepare',
         'export_template' => 'setExportTemplate',
         'export_report' => 'setExportReport',
         'send_via_email' => 'setSendViaEmail',
         'upload_to_ftp' => 'setUploadToFtp',
+        'upload_to_s3' => 'setUploadToS3',
+        'upload_to_telegram' => 'setUploadToTelegram',
         'send_via_webhook' => 'setSendViaWebhook',
         'fetch_data' => 'setFetchData',
         'thumbnail_report' => 'setThumbnailReport',
@@ -227,11 +242,14 @@ class TaskSettingsVM extends CloudBaseVM
      * @var string[]
      */
     protected static $getters = [
+        'is_scheduler_enabled' => 'getIsSchedulerEnabled',
         'prepare' => 'getPrepare',
         'export_template' => 'getExportTemplate',
         'export_report' => 'getExportReport',
         'send_via_email' => 'getSendViaEmail',
         'upload_to_ftp' => 'getUploadToFtp',
+        'upload_to_s3' => 'getUploadToS3',
+        'upload_to_telegram' => 'getUploadToTelegram',
         'send_via_webhook' => 'getSendViaWebhook',
         'fetch_data' => 'getFetchData',
         'thumbnail_report' => 'getThumbnailReport',
@@ -292,11 +310,14 @@ class TaskSettingsVM extends CloudBaseVM
     {
         parent::__construct($data);
 
+        $this->setIfExists('is_scheduler_enabled', $data ?? [], null);
         $this->setIfExists('prepare', $data ?? [], null);
         $this->setIfExists('export_template', $data ?? [], null);
         $this->setIfExists('export_report', $data ?? [], null);
         $this->setIfExists('send_via_email', $data ?? [], null);
         $this->setIfExists('upload_to_ftp', $data ?? [], null);
+        $this->setIfExists('upload_to_s3', $data ?? [], null);
+        $this->setIfExists('upload_to_telegram', $data ?? [], null);
         $this->setIfExists('send_via_webhook', $data ?? [], null);
         $this->setIfExists('fetch_data', $data ?? [], null);
         $this->setIfExists('thumbnail_report', $data ?? [], null);
@@ -351,6 +372,40 @@ class TaskSettingsVM extends CloudBaseVM
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets is_scheduler_enabled
+     *
+     * @return bool|null
+     */
+    public function getIsSchedulerEnabled()
+    {
+        return $this->container['is_scheduler_enabled'];
+    }
+
+    /**
+     * Sets is_scheduler_enabled
+     *
+     * @param bool|null $is_scheduler_enabled is_scheduler_enabled
+     *
+     * @return self
+     */
+    public function setIsSchedulerEnabled($is_scheduler_enabled)
+    {
+        if (is_null($is_scheduler_enabled)) {
+            array_push($this->openAPINullablesSetToNull, 'is_scheduler_enabled');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_scheduler_enabled', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['is_scheduler_enabled'] = $is_scheduler_enabled;
+
+        return $this;
+    }
 
     /**
      * Gets prepare
@@ -518,6 +573,74 @@ class TaskSettingsVM extends CloudBaseVM
             }
         }
         $this->container['upload_to_ftp'] = $upload_to_ftp;
+
+        return $this;
+    }
+
+    /**
+     * Gets upload_to_s3
+     *
+     * @return bool|null
+     */
+    public function getUploadToS3()
+    {
+        return $this->container['upload_to_s3'];
+    }
+
+    /**
+     * Sets upload_to_s3
+     *
+     * @param bool|null $upload_to_s3 upload_to_s3
+     *
+     * @return self
+     */
+    public function setUploadToS3($upload_to_s3)
+    {
+        if (is_null($upload_to_s3)) {
+            array_push($this->openAPINullablesSetToNull, 'upload_to_s3');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('upload_to_s3', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['upload_to_s3'] = $upload_to_s3;
+
+        return $this;
+    }
+
+    /**
+     * Gets upload_to_telegram
+     *
+     * @return bool|null
+     */
+    public function getUploadToTelegram()
+    {
+        return $this->container['upload_to_telegram'];
+    }
+
+    /**
+     * Sets upload_to_telegram
+     *
+     * @param bool|null $upload_to_telegram upload_to_telegram
+     *
+     * @return self
+     */
+    public function setUploadToTelegram($upload_to_telegram)
+    {
+        if (is_null($upload_to_telegram)) {
+            array_push($this->openAPINullablesSetToNull, 'upload_to_telegram');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('upload_to_telegram', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['upload_to_telegram'] = $upload_to_telegram;
 
         return $this;
     }

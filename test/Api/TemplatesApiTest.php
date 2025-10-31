@@ -110,7 +110,7 @@ class TemplatesApiTest extends TestCase
     /**
      * Test case for templateFolderAndFileDeleteFiles
      *
-     * Delete folders and files.
+     * Delete folders and files from a folder or the recycle bin.
      *
      */
     public function testTemplateFolderAndFileDeleteFiles()
@@ -122,7 +122,7 @@ class TemplatesApiTest extends TestCase
     /**
      * Test case for templateFolderAndFileGetCount
      *
-     * Get count of files and folders what contains in a specified folder.
+     * Count folders and files in a folder.
      *
      */
     public function testTemplateFolderAndFileGetCount()
@@ -170,7 +170,7 @@ class TemplatesApiTest extends TestCase
     /**
      * Test case for templateFolderAndFileMoveFilesToBin
      *
-     * Move folders and files to bin.
+     * Move folders and files to the recycle bin.
      *
      */
     public function testTemplateFolderAndFileMoveFilesToBin()
@@ -194,7 +194,7 @@ class TemplatesApiTest extends TestCase
     /**
      * Test case for templateFolderAndFileRecoverFiles
      *
-     * Recover folders and files from bin.
+     * Recover folders and files from the recycle bin.
      *
      */
     public function testTemplateFolderAndFileRecoverFiles()
@@ -300,6 +300,18 @@ class TemplatesApiTest extends TestCase
     }
 
     /**
+     * Test case for templateFoldersGetMyPermissions
+     *
+     * Get user's permissions for a folder by id.
+     *
+     */
+    public function testTemplateFoldersGetMyPermissions()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for templateFoldersGetOrCreate
      *
      * Get specified folder.
@@ -326,7 +338,7 @@ class TemplatesApiTest extends TestCase
     /**
      * Test case for templateFoldersGetRootFolder
      *
-     * Get user's root folder (without parents).
+     * Get workspace's root folder.
      *
      */
     public function testTemplateFoldersGetRootFolder()
@@ -338,7 +350,7 @@ class TemplatesApiTest extends TestCase
     /**
      * Test case for templateFoldersMoveFolder
      *
-     * Move folder to a specified folder.
+     * Move folder into a specified folder.
      *
      */
     public function testTemplateFoldersMoveFolder()
@@ -446,7 +458,7 @@ class TemplatesApiTest extends TestCase
     /**
      * Test case for templatesCopyFile
      *
-     * Copy file to a specified folder.
+     * Copy a file into a specified folder.
      *
      */
     public function testTemplatesCopyFile()
@@ -458,7 +470,7 @@ class TemplatesApiTest extends TestCase
     /**
      * Test case for templatesCreateSharingKey
      *
-     * Create a new key, that can be used to share access to a file  (You need Administrate.Anon permission to create a new key).
+     * Create a new key, that can be used to share access to a file <br />  (You need Administrate.Anon permission to create a new key).
      *
      */
     public function testTemplatesCreateSharingKey()
@@ -542,7 +554,7 @@ class TemplatesApiTest extends TestCase
     /**
      * Test case for templatesGetFilesList
      *
-     * Get all files from specified folder. <br />  User with Get Entity permission can access this method. <br />  The method will returns minimal infomration about the file: <br />  id, name, size, editedTime, createdTime, tags, status, statusReason..
+     * Get files from the specified folder.
      *
      */
     public function testTemplatesGetFilesList()
@@ -552,9 +564,21 @@ class TemplatesApiTest extends TestCase
     }
 
     /**
+     * Test case for templatesGetMyPermissions
+     *
+     * Get current user's permissions to a file.
+     *
+     */
+    public function testTemplatesGetMyPermissions()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for templatesGetPermissions
      *
-     * .
+     * Get all permissions from a file. <br />.
      *
      */
     public function testTemplatesGetPermissions()
@@ -684,6 +708,18 @@ class TemplatesApiTest extends TestCase
     }
 
     /**
+     * Test case for templatesUpdateParameters
+     *
+     * .
+     *
+     */
+    public function testTemplatesUpdateParameters()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for templatesUpdatePermissions
      *
      * Update permissions.
@@ -726,6 +762,18 @@ class TemplatesApiTest extends TestCase
      *
      */
     public function testTemplatesUploadFileV2()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for templatesWasmStaticPreview
+     *
+     * Make preview for the report (template).  Generate a new or return exist prepared fpx file.  If template was changed will be returned a new..
+     *
+     */
+    public function testTemplatesWasmStaticPreview()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

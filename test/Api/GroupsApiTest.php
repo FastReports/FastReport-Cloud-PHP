@@ -120,6 +120,18 @@ class GroupsApiTest extends TestCase
     }
 
     /**
+     * Test case for groupsGetMyPermissions
+     *
+     * Get current user's permissions to group.
+     *
+     */
+    public function testGroupsGetMyPermissions()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for groupsGetPermissions
      *
      * Gets group permissions by identifier.

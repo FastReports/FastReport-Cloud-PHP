@@ -107,6 +107,24 @@ class UpdateSubscriptionVMTest extends TestCase
     }
 
     /**
+     * Test attribute "domains"
+     */
+    public function testPropertyDomains()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "preview_type"
+     */
+    public function testPropertyPreviewType()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "default_permissions"
      */
     public function testPropertyDefaultPermissions()

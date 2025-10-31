@@ -136,7 +136,7 @@ class SubscriptionInvitesApi
     /**
      * Operation subscriptionInvitesAcceptInvite
      *
-     * Add a user to the subscription using invite,  the added users will be displayed in the list of users of the subscription,  and these users will also have an active subscription.
+     * Add the current user to the subscription using invite,
      *
      * @param  string $subscription_id Idenitifier of subscription (required)
      * @param  string $access_token access token of the subscription (required)
@@ -154,7 +154,7 @@ class SubscriptionInvitesApi
     /**
      * Operation subscriptionInvitesAcceptInviteWithHttpInfo
      *
-     * Add a user to the subscription using invite,  the added users will be displayed in the list of users of the subscription,  and these users will also have an active subscription.
+     * Add the current user to the subscription using invite,
      *
      * @param  string $subscription_id Idenitifier of subscription (required)
      * @param  string $access_token access token of the subscription (required)
@@ -239,7 +239,7 @@ class SubscriptionInvitesApi
     /**
      * Operation subscriptionInvitesAcceptInviteAsync
      *
-     * Add a user to the subscription using invite,  the added users will be displayed in the list of users of the subscription,  and these users will also have an active subscription.
+     * Add the current user to the subscription using invite,
      *
      * @param  string $subscription_id Idenitifier of subscription (required)
      * @param  string $access_token access token of the subscription (required)
@@ -261,7 +261,7 @@ class SubscriptionInvitesApi
     /**
      * Operation subscriptionInvitesAcceptInviteAsyncWithHttpInfo
      *
-     * Add a user to the subscription using invite,  the added users will be displayed in the list of users of the subscription,  and these users will also have an active subscription.
+     * Add the current user to the subscription using invite,
      *
      * @param  string $subscription_id Idenitifier of subscription (required)
      * @param  string $access_token access token of the subscription (required)
@@ -1190,7 +1190,7 @@ class SubscriptionInvitesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\cloud\fastreport\model\SubscriptionInvitesVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails
+     * @return \OpenAPI\Client\cloud\fastreport\model\SubscriptionInvitesVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails
      */
     public function subscriptionInvitesGetInvites($subscription_id, string $contentType = self::contentTypes['subscriptionInvitesGetInvites'][0])
     {
@@ -1208,7 +1208,7 @@ class SubscriptionInvitesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\cloud\fastreport\model\SubscriptionInvitesVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\cloud\fastreport\model\SubscriptionInvitesVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function subscriptionInvitesGetInvitesWithHttpInfo($subscription_id, string $contentType = self::contentTypes['subscriptionInvitesGetInvites'][0])
     {
@@ -1278,6 +1278,33 @@ class SubscriptionInvitesApi
                         $response->getHeaders()
                     ];
                 case 400:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 402:
                     if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -1399,6 +1426,14 @@ class SubscriptionInvitesApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 402:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',

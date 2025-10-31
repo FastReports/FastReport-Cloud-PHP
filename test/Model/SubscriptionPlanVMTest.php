@@ -170,6 +170,15 @@ class SubscriptionPlanVMTest extends TestCase
     }
 
     /**
+     * Test attribute "fonts_space_limit"
+     */
+    public function testPropertyFontsSpaceLimit()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "file_upload_size_limit"
      */
     public function testPropertyFileUploadSizeLimit()

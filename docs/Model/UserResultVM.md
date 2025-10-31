@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **admin_permission** | [**\OpenAPI\Client\cloud\fastreport\model\AdminPermission**](AdminPermission.md) |  | [optional]
 **subscriptions** | **string[]** |  | [optional]
 **groups** | **string[]** |  | [optional]
+**domains** | **string[]** |  | [optional]
 **provider** | **string** |  | [optional]
 **email** | **string** |  | [optional]
 **name** | **string** |  | [optional]

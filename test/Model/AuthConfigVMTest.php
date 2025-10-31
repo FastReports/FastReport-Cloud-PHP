@@ -107,6 +107,15 @@ class AuthConfigVMTest extends TestCase
     }
 
     /**
+     * Test attribute "allow_local_sign_up"
+     */
+    public function testPropertyAllowLocalSignUp()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "t"
      */
     public function testPropertyT()

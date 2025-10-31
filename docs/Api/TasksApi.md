@@ -8,6 +8,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**tasksDeleteTask()**](TasksApi.md#tasksDeleteTask) | **DELETE** /api/tasks/v1/Tasks/{taskId} | Delete a task from a storage |
 | [**tasksGet()**](TasksApi.md#tasksGet) | **GET** /api/tasks/v1/Tasks/{taskId} | Get a task by a specified id |
 | [**tasksGetList()**](TasksApi.md#tasksGetList) | **GET** /api/tasks/v1/Tasks | Get tasks list |
+| [**tasksGetMyPermissions()**](TasksApi.md#tasksGetMyPermissions) | **GET** /api/tasks/v1/Tasks/{id}/mypermissions | Get current user&#39;s permissions to Task |
 | [**tasksGetPermissions()**](TasksApi.md#tasksGetPermissions) | **GET** /api/tasks/v1/Tasks/{id}/permissions | Get all Task permissions |
 | [**tasksRenameTask()**](TasksApi.md#tasksRenameTask) | **PUT** /api/tasks/v1/Tasks/{taskId}/rename | Rename a task |
 | [**tasksRunTask()**](TasksApi.md#tasksRunTask) | **POST** /api/tasks/v1/Tasks/run | Run a task from request body |
@@ -46,7 +47,7 @@ $apiInstance = new OpenAPI\Client\Api\TasksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$create_task_base_vm = new \OpenAPI\Client\cloud\fastreport\model\CreateTaskBaseVM(); // \OpenAPI\Client\cloud\fastreport\model\CreateTaskBaseVM | task's view model. You have to specify task type (type: \"ExportTemplate\")
+$create_task_base_vm = new \OpenAPI\Client\cloud\fastreport\model\CreateTaskBaseVM(); // \OpenAPI\Client\cloud\fastreport\model\CreateTaskBaseVM | task's view model. You have to specify task type by placing parameter \"$t\": \"Vm name\",              this parameters always must be on the first place
 
 try {
     $result = $apiInstance->tasksCreateTask($create_task_base_vm);
@@ -60,7 +61,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_task_base_vm** | [**\OpenAPI\Client\cloud\fastreport\model\CreateTaskBaseVM**](../Model/CreateTaskBaseVM.md)| task&#39;s view model. You have to specify task type (type: \&quot;ExportTemplate\&quot;) | [optional] |
+| **create_task_base_vm** | [**\OpenAPI\Client\cloud\fastreport\model\CreateTaskBaseVM**](../Model/CreateTaskBaseVM.md)| task&#39;s view model. You have to specify task type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on the first place | [optional] |
 
 ### Return type
 
@@ -207,7 +208,7 @@ try {
 ## `tasksGetList()`
 
 ```php
-tasksGetList($skip, $take, $subscription_id, $search_pattern): \OpenAPI\Client\cloud\fastreport\model\TasksVM
+tasksGetList($skip, $take, $use_projection, $subscription_id, $search_pattern, $task_type): \OpenAPI\Client\cloud\fastreport\model\TasksVM
 ```
 
 Get tasks list
@@ -236,11 +237,13 @@ $apiInstance = new OpenAPI\Client\Api\TasksApi(
 );
 $skip = 0; // int | number of tasks, that have to be skipped
 $take = 10; // int | number of tasks, that have to be returned
+$use_projection = false; // bool | use projection with only id and name
 $subscription_id = 'subscription_id_example'; // string | subscription id
 $search_pattern = ''; // string | 
+$task_type = new \OpenAPI\Client\cloud\fastreport\model\TaskType(); // TaskType | bit flag for types
 
 try {
-    $result = $apiInstance->tasksGetList($skip, $take, $subscription_id, $search_pattern);
+    $result = $apiInstance->tasksGetList($skip, $take, $use_projection, $subscription_id, $search_pattern, $task_type);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TasksApi->tasksGetList: ', $e->getMessage(), PHP_EOL;
@@ -253,12 +256,77 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **skip** | **int**| number of tasks, that have to be skipped | [optional] [default to 0] |
 | **take** | **int**| number of tasks, that have to be returned | [optional] [default to 10] |
+| **use_projection** | **bool**| use projection with only id and name | [optional] [default to false] |
 | **subscription_id** | **string**| subscription id | [optional] |
 | **search_pattern** | **string**|  | [optional] [default to &#39;&#39;] |
+| **task_type** | [**TaskType**](../Model/.md)| bit flag for types | [optional] |
 
 ### Return type
 
 [**\OpenAPI\Client\cloud\fastreport\model\TasksVM**](../Model/TasksVM.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `tasksGetMyPermissions()`
+
+```php
+tasksGetMyPermissions($id): \OpenAPI\Client\cloud\fastreport\model\TaskPermissionCRUDVM
+```
+
+Get current user's permissions to Task
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\TasksApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | task id
+
+try {
+    $result = $apiInstance->tasksGetMyPermissions($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TasksApi->tasksGetMyPermissions: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| task id | |
+
+### Return type
+
+[**\OpenAPI\Client\cloud\fastreport\model\TaskPermissionCRUDVM**](../Model/TaskPermissionCRUDVM.md)
 
 ### Authorization
 
@@ -404,7 +472,7 @@ try {
 ## `tasksRunTask()`
 
 ```php
-tasksRunTask($run_task_base_vm)
+tasksRunTask($run_task_base_vm): \OpenAPI\Client\cloud\fastreport\model\TaskMessageIdVM
 ```
 
 Run a task from request body
@@ -431,10 +499,11 @@ $apiInstance = new OpenAPI\Client\Api\TasksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$run_task_base_vm = new \OpenAPI\Client\cloud\fastreport\model\RunTaskBaseVM(); // \OpenAPI\Client\cloud\fastreport\model\RunTaskBaseVM | task's view model
+$run_task_base_vm = new \OpenAPI\Client\cloud\fastreport\model\RunTaskBaseVM(); // \OpenAPI\Client\cloud\fastreport\model\RunTaskBaseVM | task's view model. You have to specify task type by placing parameter \"$t\": \"Vm name\",              this parameters always must be on the first place
 
 try {
-    $apiInstance->tasksRunTask($run_task_base_vm);
+    $result = $apiInstance->tasksRunTask($run_task_base_vm);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TasksApi->tasksRunTask: ', $e->getMessage(), PHP_EOL;
 }
@@ -444,11 +513,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **run_task_base_vm** | [**\OpenAPI\Client\cloud\fastreport\model\RunTaskBaseVM**](../Model/RunTaskBaseVM.md)| task&#39;s view model | [optional] |
+| **run_task_base_vm** | [**\OpenAPI\Client\cloud\fastreport\model\RunTaskBaseVM**](../Model/RunTaskBaseVM.md)| task&#39;s view model. You have to specify task type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on the first place | [optional] |
 
 ### Return type
 
-void (empty response body)
+[**\OpenAPI\Client\cloud\fastreport\model\TaskMessageIdVM**](../Model/TaskMessageIdVM.md)
 
 ### Authorization
 
@@ -466,7 +535,7 @@ void (empty response body)
 ## `tasksRunTaskById()`
 
 ```php
-tasksRunTaskById($task_id)
+tasksRunTaskById($task_id): \OpenAPI\Client\cloud\fastreport\model\TaskMessageIdVM
 ```
 
 Run a task by id
@@ -496,7 +565,8 @@ $apiInstance = new OpenAPI\Client\Api\TasksApi(
 $task_id = 'task_id_example'; // string | task id
 
 try {
-    $apiInstance->tasksRunTaskById($task_id);
+    $result = $apiInstance->tasksRunTaskById($task_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TasksApi->tasksRunTaskById: ', $e->getMessage(), PHP_EOL;
 }
@@ -510,7 +580,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\OpenAPI\Client\cloud\fastreport\model\TaskMessageIdVM**](../Model/TaskMessageIdVM.md)
 
 ### Authorization
 
@@ -556,7 +626,7 @@ $apiInstance = new OpenAPI\Client\Api\TasksApi(
     $config
 );
 $id = 'id_example'; // string | task id
-$update_task_permissions_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateTaskPermissionsVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateTaskPermissionsVM | new permissions
+$update_task_permissions_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateTaskPermissionsVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateTaskPermissionsVM | new permissions. You have to specify VM type by placing parameter \"$t\": \"Vm name\",              this parameters always must be on first place
 
 try {
     $apiInstance->tasksUpdatePermissions($id, $update_task_permissions_vm);
@@ -570,7 +640,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| task id | |
-| **update_task_permissions_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateTaskPermissionsVM**](../Model/UpdateTaskPermissionsVM.md)| new permissions | [optional] |
+| **update_task_permissions_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateTaskPermissionsVM**](../Model/UpdateTaskPermissionsVM.md)| new permissions. You have to specify VM type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on first place | [optional] |
 
 ### Return type
 
@@ -620,7 +690,7 @@ $apiInstance = new OpenAPI\Client\Api\TasksApi(
     $config
 );
 $task_id = 'task_id_example'; // string | updating task id
-$update_task_base_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateTaskBaseVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateTaskBaseVM | task's view model. You have to specify task type (type: \"ExportTemplate\")
+$update_task_base_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateTaskBaseVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateTaskBaseVM | task's view model. You have to specify task type by placing parameter \"$t\": \"Vm name\",              this parameters always must be on first place
 
 try {
     $result = $apiInstance->tasksUpdateTask($task_id, $update_task_base_vm);
@@ -635,7 +705,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **task_id** | **string**| updating task id | |
-| **update_task_base_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateTaskBaseVM**](../Model/UpdateTaskBaseVM.md)| task&#39;s view model. You have to specify task type (type: \&quot;ExportTemplate\&quot;) | [optional] |
+| **update_task_base_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateTaskBaseVM**](../Model/UpdateTaskBaseVM.md)| task&#39;s view model. You have to specify task type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on first place | [optional] |
 
 ### Return type
 

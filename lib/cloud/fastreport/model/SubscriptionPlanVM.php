@@ -65,6 +65,7 @@ class SubscriptionPlanVM extends CloudBaseVM
         'templates_space_limit' => 'int',
         'reports_space_limit' => 'int',
         'exports_space_limit' => 'int',
+        'fonts_space_limit' => 'int',
         'file_upload_size_limit' => 'int',
         'data_source_limit' => 'int',
         'max_users_count' => 'int',
@@ -96,6 +97,7 @@ class SubscriptionPlanVM extends CloudBaseVM
         'templates_space_limit' => 'int64',
         'reports_space_limit' => 'int64',
         'exports_space_limit' => 'int64',
+        'fonts_space_limit' => 'int64',
         'file_upload_size_limit' => 'int64',
         'data_source_limit' => 'int32',
         'max_users_count' => 'int32',
@@ -125,6 +127,7 @@ class SubscriptionPlanVM extends CloudBaseVM
         'templates_space_limit' => true,
         'reports_space_limit' => true,
         'exports_space_limit' => true,
+        'fonts_space_limit' => true,
         'file_upload_size_limit' => true,
         'data_source_limit' => true,
         'max_users_count' => true,
@@ -234,6 +237,7 @@ class SubscriptionPlanVM extends CloudBaseVM
         'templates_space_limit' => 'templatesSpaceLimit',
         'reports_space_limit' => 'reportsSpaceLimit',
         'exports_space_limit' => 'exportsSpaceLimit',
+        'fonts_space_limit' => 'fontsSpaceLimit',
         'file_upload_size_limit' => 'fileUploadSizeLimit',
         'data_source_limit' => 'dataSourceLimit',
         'max_users_count' => 'maxUsersCount',
@@ -263,6 +267,7 @@ class SubscriptionPlanVM extends CloudBaseVM
         'templates_space_limit' => 'setTemplatesSpaceLimit',
         'reports_space_limit' => 'setReportsSpaceLimit',
         'exports_space_limit' => 'setExportsSpaceLimit',
+        'fonts_space_limit' => 'setFontsSpaceLimit',
         'file_upload_size_limit' => 'setFileUploadSizeLimit',
         'data_source_limit' => 'setDataSourceLimit',
         'max_users_count' => 'setMaxUsersCount',
@@ -292,6 +297,7 @@ class SubscriptionPlanVM extends CloudBaseVM
         'templates_space_limit' => 'getTemplatesSpaceLimit',
         'reports_space_limit' => 'getReportsSpaceLimit',
         'exports_space_limit' => 'getExportsSpaceLimit',
+        'fonts_space_limit' => 'getFontsSpaceLimit',
         'file_upload_size_limit' => 'getFileUploadSizeLimit',
         'data_source_limit' => 'getDataSourceLimit',
         'max_users_count' => 'getMaxUsersCount',
@@ -368,6 +374,7 @@ class SubscriptionPlanVM extends CloudBaseVM
         $this->setIfExists('templates_space_limit', $data ?? [], null);
         $this->setIfExists('reports_space_limit', $data ?? [], null);
         $this->setIfExists('exports_space_limit', $data ?? [], null);
+        $this->setIfExists('fonts_space_limit', $data ?? [], null);
         $this->setIfExists('file_upload_size_limit', $data ?? [], null);
         $this->setIfExists('data_source_limit', $data ?? [], null);
         $this->setIfExists('max_users_count', $data ?? [], null);
@@ -751,6 +758,40 @@ class SubscriptionPlanVM extends CloudBaseVM
             }
         }
         $this->container['exports_space_limit'] = $exports_space_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets fonts_space_limit
+     *
+     * @return int|null
+     */
+    public function getFontsSpaceLimit()
+    {
+        return $this->container['fonts_space_limit'];
+    }
+
+    /**
+     * Sets fonts_space_limit
+     *
+     * @param int|null $fonts_space_limit fonts_space_limit
+     *
+     * @return self
+     */
+    public function setFontsSpaceLimit($fonts_space_limit)
+    {
+        if (is_null($fonts_space_limit)) {
+            array_push($this->openAPINullablesSetToNull, 'fonts_space_limit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('fonts_space_limit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['fonts_space_limit'] = $fonts_space_limit;
 
         return $this;
     }

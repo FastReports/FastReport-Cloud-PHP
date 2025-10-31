@@ -120,6 +120,18 @@ class TasksApiTest extends TestCase
     }
 
     /**
+     * Test case for tasksGetMyPermissions
+     *
+     * Get current user's permissions to Task.
+     *
+     */
+    public function testTasksGetMyPermissions()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for tasksGetPermissions
      *
      * Get all Task permissions.

@@ -10,6 +10,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**dataSourcesFetchData()**](DataSourcesApi.md#dataSourcesFetchData) | **GET** /api/data/v1/DataSources/{id}/fetch | This should connect to a database and set data structure |
 | [**dataSourcesGetAvailableDataSources()**](DataSourcesApi.md#dataSourcesGetAvailableDataSources) | **GET** /api/data/v1/DataSources | Returns all of the data sources, that current user have permission for in a subscription &lt;br /&gt;  The method will return minimal infomration about the datasources: &lt;br /&gt;  id, name, editedTime, status. |
 | [**dataSourcesGetDataSource()**](DataSourcesApi.md#dataSourcesGetDataSource) | **GET** /api/data/v1/DataSources/{id} | Get data source by id |
+| [**dataSourcesGetMyPermissions()**](DataSourcesApi.md#dataSourcesGetMyPermissions) | **GET** /api/data/v1/DataSources/{id}/mypermissions | Get current user&#39;s permissions to Data source |
 | [**dataSourcesGetParameterTypes()**](DataSourcesApi.md#dataSourcesGetParameterTypes) | **GET** /api/data/v1/DataSources/parameterTypes/{dataSourceType} | Get data source parameter DataType&#39;s |
 | [**dataSourcesGetPermissions()**](DataSourcesApi.md#dataSourcesGetPermissions) | **GET** /api/data/v1/DataSources/{id}/permissions | Get all Data source permissions |
 | [**dataSourcesRenameDataSource()**](DataSourcesApi.md#dataSourcesRenameDataSource) | **PUT** /api/data/v1/DataSources/{id}/rename | Rename data source by id |
@@ -389,6 +390,69 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\cloud\fastreport\model\DataSourceVM**](../Model/DataSourceVM.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `dataSourcesGetMyPermissions()`
+
+```php
+dataSourcesGetMyPermissions($id): \OpenAPI\Client\cloud\fastreport\model\DataSourcePermissionCRUDVM
+```
+
+Get current user's permissions to Data source
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\DataSourcesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | data source id
+
+try {
+    $result = $apiInstance->dataSourcesGetMyPermissions($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DataSourcesApi->dataSourcesGetMyPermissions: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| data source id | |
+
+### Return type
+
+[**\OpenAPI\Client\cloud\fastreport\model\DataSourcePermissionCRUDVM**](../Model/DataSourcePermissionCRUDVM.md)
 
 ### Authorization
 

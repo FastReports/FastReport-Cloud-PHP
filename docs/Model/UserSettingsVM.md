@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **show_hidden_files_and_folders** | **bool** |  | [optional]
 **sla_accepted_date_time** | **\DateTime** |  | [optional]
 **subscribed_notifications** | [**\OpenAPI\Client\cloud\fastreport\model\AuditType[]**](AuditType.md) |  | [optional]
+**preview_type** | [**\OpenAPI\Client\cloud\fastreport\model\PreviewType**](PreviewType.md) |  | [optional]
 **t** | **string** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

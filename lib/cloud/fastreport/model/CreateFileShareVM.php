@@ -27,8 +27,6 @@
  */
 
 namespace OpenAPI\Client\cloud\fastreport\model;
-
-use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
@@ -40,9 +38,9 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CreateFileShareVM implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateFileShareVM extends CloudBaseVM
 {
-    public const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = 't';
 
     /**
       * The original name of the model.
@@ -59,7 +57,8 @@ class CreateFileShareVM implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $openAPITypes = [
         'expires' => '\DateTime',
         'name' => 'string',
-        'permission' => '\OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM'
+        'permission' => '\OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM',
+        't' => 'string'
     ];
 
     /**
@@ -72,7 +71,8 @@ class CreateFileShareVM implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $openAPIFormats = [
         'expires' => 'date-time',
         'name' => null,
-        'permission' => null
+        'permission' => null,
+        't' => null
     ];
 
     /**
@@ -83,7 +83,8 @@ class CreateFileShareVM implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static array $openAPINullables = [
         'expires' => true,
         'name' => true,
-        'permission' => false
+        'permission' => false,
+        't' => false
     ];
 
     /**
@@ -100,7 +101,7 @@ class CreateFileShareVM implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes;
+        return self::$openAPITypes + parent::openAPITypes();
     }
 
     /**
@@ -110,7 +111,7 @@ class CreateFileShareVM implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats;
+        return self::$openAPIFormats + parent::openAPIFormats();
     }
 
     /**
@@ -120,7 +121,7 @@ class CreateFileShareVM implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static function openAPINullables(): array
     {
-        return self::$openAPINullables;
+        return self::$openAPINullables + parent::openAPINullables();
     }
 
     /**
@@ -174,7 +175,8 @@ class CreateFileShareVM implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $attributeMap = [
         'expires' => 'expires',
         'name' => 'name',
-        'permission' => 'permission'
+        'permission' => 'permission',
+        't' => '$t'
     ];
 
     /**
@@ -185,7 +187,8 @@ class CreateFileShareVM implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $setters = [
         'expires' => 'setExpires',
         'name' => 'setName',
-        'permission' => 'setPermission'
+        'permission' => 'setPermission',
+        't' => 'setT'
     ];
 
     /**
@@ -196,7 +199,8 @@ class CreateFileShareVM implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $getters = [
         'expires' => 'getExpires',
         'name' => 'getName',
-        'permission' => 'getPermission'
+        'permission' => 'getPermission',
+        't' => 'getT'
     ];
 
     /**
@@ -207,7 +211,7 @@ class CreateFileShareVM implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -217,7 +221,7 @@ class CreateFileShareVM implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -227,7 +231,7 @@ class CreateFileShareVM implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -241,12 +245,6 @@ class CreateFileShareVM implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -256,9 +254,15 @@ class CreateFileShareVM implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
+        parent::__construct($data);
+
         $this->setIfExists('expires', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('permission', $data ?? [], null);
+        $this->setIfExists('t', $data ?? [], null);
+
+        // Initialize discriminator property with the model name.
+        $this->container['t'] = static::$openAPIModelName;
     }
 
     /**
@@ -286,8 +290,11 @@ class CreateFileShareVM implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['t'] === null) {
+            $invalidProperties[] = "'t' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -394,6 +401,33 @@ class CreateFileShareVM implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable permission cannot be null');
         }
         $this->container['permission'] = $permission;
+
+        return $this;
+    }
+
+    /**
+     * Gets t
+     *
+     * @return string
+     */
+    public function getT()
+    {
+        return $this->container['t'];
+    }
+
+    /**
+     * Sets t
+     *
+     * @param string $t t
+     *
+     * @return self
+     */
+    public function setT($t)
+    {
+        if (is_null($t)) {
+            throw new \InvalidArgumentException('non-nullable t cannot be null');
+        }
+        $this->container['t'] = $t;
 
         return $this;
     }

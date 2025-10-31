@@ -64,6 +64,10 @@ class AdminGet
 
     public const NUMBER_512 = 512;
 
+    public const NUMBER_1024 = 1024;
+
+    public const NUMBER_2048 = 2048;
+
     public const NUMBER_MINUS_1 = -1;
 
     /**
@@ -84,6 +88,8 @@ class AdminGet
             self::NUMBER_128,
             self::NUMBER_256,
             self::NUMBER_512,
+            self::NUMBER_1024,
+            self::NUMBER_2048,
             self::NUMBER_MINUS_1
         ];
     }

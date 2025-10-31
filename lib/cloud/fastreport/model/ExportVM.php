@@ -58,6 +58,8 @@ class ExportVM extends FileVM
         'format' => '\OpenAPI\Client\cloud\fastreport\model\ExportFormat',
         'report_id' => 'string',
         'template_id' => 'string',
+        'task_id' => 'string',
+        'task_message_id' => 'string',
         't' => 'string'
     ];
 
@@ -72,6 +74,8 @@ class ExportVM extends FileVM
         'format' => null,
         'report_id' => null,
         'template_id' => null,
+        'task_id' => null,
+        'task_message_id' => null,
         't' => null
     ];
 
@@ -84,6 +88,8 @@ class ExportVM extends FileVM
         'format' => false,
         'report_id' => true,
         'template_id' => true,
+        'task_id' => true,
+        'task_message_id' => true,
         't' => false
     ];
 
@@ -176,6 +182,8 @@ class ExportVM extends FileVM
         'format' => 'format',
         'report_id' => 'reportId',
         'template_id' => 'templateId',
+        'task_id' => 'taskId',
+        'task_message_id' => 'taskMessageId',
         't' => '$t'
     ];
 
@@ -188,6 +196,8 @@ class ExportVM extends FileVM
         'format' => 'setFormat',
         'report_id' => 'setReportId',
         'template_id' => 'setTemplateId',
+        'task_id' => 'setTaskId',
+        'task_message_id' => 'setTaskMessageId',
         't' => 'setT'
     ];
 
@@ -200,6 +210,8 @@ class ExportVM extends FileVM
         'format' => 'getFormat',
         'report_id' => 'getReportId',
         'template_id' => 'getTemplateId',
+        'task_id' => 'getTaskId',
+        'task_message_id' => 'getTaskMessageId',
         't' => 'getT'
     ];
 
@@ -259,6 +271,8 @@ class ExportVM extends FileVM
         $this->setIfExists('format', $data ?? [], null);
         $this->setIfExists('report_id', $data ?? [], null);
         $this->setIfExists('template_id', $data ?? [], null);
+        $this->setIfExists('task_id', $data ?? [], null);
+        $this->setIfExists('task_message_id', $data ?? [], null);
         $this->setIfExists('t', $data ?? [], null);
 
         // Initialize discriminator property with the model name.
@@ -401,6 +415,74 @@ class ExportVM extends FileVM
             }
         }
         $this->container['template_id'] = $template_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_id
+     *
+     * @return string|null
+     */
+    public function getTaskId()
+    {
+        return $this->container['task_id'];
+    }
+
+    /**
+     * Sets task_id
+     *
+     * @param string|null $task_id task_id
+     *
+     * @return self
+     */
+    public function setTaskId($task_id)
+    {
+        if (is_null($task_id)) {
+            array_push($this->openAPINullablesSetToNull, 'task_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('task_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['task_id'] = $task_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_message_id
+     *
+     * @return string|null
+     */
+    public function getTaskMessageId()
+    {
+        return $this->container['task_message_id'];
+    }
+
+    /**
+     * Sets task_message_id
+     *
+     * @param string|null $task_message_id task_message_id
+     *
+     * @return self
+     */
+    public function setTaskMessageId($task_message_id)
+    {
+        if (is_null($task_message_id)) {
+            array_push($this->openAPINullablesSetToNull, 'task_message_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('task_message_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['task_message_id'] = $task_message_id;
 
         return $this;
     }

@@ -140,6 +140,9 @@ class ReportsApi
         'reportFoldersGetFoldersCount' => [
             'application/json',
         ],
+        'reportFoldersGetMyPermissions' => [
+            'application/json',
+        ],
         'reportFoldersGetOrCreate' => [
             'application/json',
         ],
@@ -202,6 +205,12 @@ class ReportsApi
             'text/json',
             'application/*+json',
         ],
+        'reportsGetByTaskId' => [
+            'application/json',
+        ],
+        'reportsGetByTaskMessageId' => [
+            'application/json',
+        ],
         'reportsGetFile' => [
             'application/json',
         ],
@@ -212,6 +221,9 @@ class ReportsApi
             'application/json',
         ],
         'reportsGetFilesList' => [
+            'application/json',
+        ],
+        'reportsGetMyPermissions' => [
             'application/json',
         ],
         'reportsGetPermissions' => [
@@ -588,7 +600,7 @@ class ReportsApi
      * Copy folders and files to a specified folder
      *
      * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileCopyFiles'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -606,7 +618,7 @@ class ReportsApi
      * Copy folders and files to a specified folder
      *
      * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileCopyFiles'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -699,7 +711,7 @@ class ReportsApi
      * Copy folders and files to a specified folder
      *
      * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileCopyFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -721,7 +733,7 @@ class ReportsApi
      * Copy folders and files to a specified folder
      *
      * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileCopyFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -759,7 +771,7 @@ class ReportsApi
      * Create request for operation 'reportFolderAndFileCopyFiles'
      *
      * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileCopyFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -873,8 +885,8 @@ class ReportsApi
      * Count all folders and files from recycle bin
      *
      * @param  string $subscription_id subscription id (required)
-     * @param  string $search_pattern  (optional, default to '')
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  string $search_pattern search pattern used to only include matching files in the recycle bin count&lt;br /&gt;              (leave unspecified to count all files and folders) (optional, default to '')
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileCountRecycleBinFoldersAndFiles'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -893,8 +905,8 @@ class ReportsApi
      * Count all folders and files from recycle bin
      *
      * @param  string $subscription_id subscription id (required)
-     * @param  string $search_pattern  (optional, default to '')
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  string $search_pattern search pattern used to only include matching files in the recycle bin count&lt;br /&gt;              (leave unspecified to count all files and folders) (optional, default to '')
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileCountRecycleBinFoldersAndFiles'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1159,8 +1171,8 @@ class ReportsApi
      * Count all folders and files from recycle bin
      *
      * @param  string $subscription_id subscription id (required)
-     * @param  string $search_pattern  (optional, default to '')
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  string $search_pattern search pattern used to only include matching files in the recycle bin count&lt;br /&gt;              (leave unspecified to count all files and folders) (optional, default to '')
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileCountRecycleBinFoldersAndFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1182,8 +1194,8 @@ class ReportsApi
      * Count all folders and files from recycle bin
      *
      * @param  string $subscription_id subscription id (required)
-     * @param  string $search_pattern  (optional, default to '')
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  string $search_pattern search pattern used to only include matching files in the recycle bin count&lt;br /&gt;              (leave unspecified to count all files and folders) (optional, default to '')
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileCountRecycleBinFoldersAndFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1234,8 +1246,8 @@ class ReportsApi
      * Create request for operation 'reportFolderAndFileCountRecycleBinFoldersAndFiles'
      *
      * @param  string $subscription_id subscription id (required)
-     * @param  string $search_pattern  (optional, default to '')
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  string $search_pattern search pattern used to only include matching files in the recycle bin count&lt;br /&gt;              (leave unspecified to count all files and folders) (optional, default to '')
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileCountRecycleBinFoldersAndFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1364,10 +1376,10 @@ class ReportsApi
     /**
      * Operation reportFolderAndFileDeleteFiles
      *
-     * Delete folders and files
+     * Delete folders and files from a folder or the recycle bin
      *
-     * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $subscription_id id of the subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileDeleteFiles'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1382,10 +1394,10 @@ class ReportsApi
     /**
      * Operation reportFolderAndFileDeleteFilesWithHttpInfo
      *
-     * Delete folders and files
+     * Delete folders and files from a folder or the recycle bin
      *
-     * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $subscription_id id of the subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileDeleteFiles'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1475,10 +1487,10 @@ class ReportsApi
     /**
      * Operation reportFolderAndFileDeleteFilesAsync
      *
-     * Delete folders and files
+     * Delete folders and files from a folder or the recycle bin
      *
-     * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $subscription_id id of the subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileDeleteFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1497,10 +1509,10 @@ class ReportsApi
     /**
      * Operation reportFolderAndFileDeleteFilesAsyncWithHttpInfo
      *
-     * Delete folders and files
+     * Delete folders and files from a folder or the recycle bin
      *
-     * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $subscription_id id of the subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileDeleteFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1537,8 +1549,8 @@ class ReportsApi
     /**
      * Create request for operation 'reportFolderAndFileDeleteFiles'
      *
-     * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $subscription_id id of the subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileDeleteFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1649,10 +1661,10 @@ class ReportsApi
     /**
      * Operation reportFolderAndFileGetCount
      *
-     * Get count of files and folders what contains in a specified folder
+     * Count folders and files in a folder
      *
      * @param  string $id folder id (required)
-     * @param  string $search_pattern string, that must be incuded in file or folder name to be counted &lt;br /&gt;              (leave undefined to count all files and folders) (optional)
+     * @param  string $search_pattern search pattern used to only include matching files in the count&lt;br /&gt;              (leave unspecified to count all files and folders) (optional)
      * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileGetCount'] to see the possible values for this operation
      *
@@ -1669,10 +1681,10 @@ class ReportsApi
     /**
      * Operation reportFolderAndFileGetCountWithHttpInfo
      *
-     * Get count of files and folders what contains in a specified folder
+     * Count folders and files in a folder
      *
      * @param  string $id folder id (required)
-     * @param  string $search_pattern string, that must be incuded in file or folder name to be counted &lt;br /&gt;              (leave undefined to count all files and folders) (optional)
+     * @param  string $search_pattern search pattern used to only include matching files in the count&lt;br /&gt;              (leave unspecified to count all files and folders) (optional)
      * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileGetCount'] to see the possible values for this operation
      *
@@ -1935,10 +1947,10 @@ class ReportsApi
     /**
      * Operation reportFolderAndFileGetCountAsync
      *
-     * Get count of files and folders what contains in a specified folder
+     * Count folders and files in a folder
      *
      * @param  string $id folder id (required)
-     * @param  string $search_pattern string, that must be incuded in file or folder name to be counted &lt;br /&gt;              (leave undefined to count all files and folders) (optional)
+     * @param  string $search_pattern search pattern used to only include matching files in the count&lt;br /&gt;              (leave unspecified to count all files and folders) (optional)
      * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileGetCount'] to see the possible values for this operation
      *
@@ -1958,10 +1970,10 @@ class ReportsApi
     /**
      * Operation reportFolderAndFileGetCountAsyncWithHttpInfo
      *
-     * Get count of files and folders what contains in a specified folder
+     * Count folders and files in a folder
      *
      * @param  string $id folder id (required)
-     * @param  string $search_pattern string, that must be incuded in file or folder name to be counted &lt;br /&gt;              (leave undefined to count all files and folders) (optional)
+     * @param  string $search_pattern search pattern used to only include matching files in the count&lt;br /&gt;              (leave unspecified to count all files and folders) (optional)
      * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileGetCount'] to see the possible values for this operation
      *
@@ -2013,7 +2025,7 @@ class ReportsApi
      * Create request for operation 'reportFolderAndFileGetCount'
      *
      * @param  string $id folder id (required)
-     * @param  string $search_pattern string, that must be incuded in file or folder name to be counted &lt;br /&gt;              (leave undefined to count all files and folders) (optional)
+     * @param  string $search_pattern search pattern used to only include matching files in the count&lt;br /&gt;              (leave unspecified to count all files and folders) (optional)
      * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileGetCount'] to see the possible values for this operation
      *
@@ -2146,12 +2158,12 @@ class ReportsApi
      * Get all folders and files from specified folder
      *
      * @param  string $id folder id (required)
-     * @param  int $skip number of folder and files, that have to be skipped (optional, default to 0)
-     * @param  int $take number of folder and files, that have to be returned (optional, default to 10)
-     * @param  FileSorting $order_by indicates a field to sort by (optional)
-     * @param  bool $desc indicates if sorting is descending (optional, default to false)
-     * @param  string $search_pattern  (optional, default to '')
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  int $skip number of folder and files to skip (optional, default to 0)
+     * @param  int $take number of folder and files to take (optional, default to 10)
+     * @param  FileSorting $order_by a field to sort by (optional)
+     * @param  bool $desc if true - sorting will be done in the descending order, otherwise - ascending (optional, default to false)
+     * @param  string $search_pattern search pattern used to only include matching files in the result&lt;br /&gt;              (leave unspecified to list all files and folders) (optional, default to '')
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileGetFoldersAndFiles'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2170,12 +2182,12 @@ class ReportsApi
      * Get all folders and files from specified folder
      *
      * @param  string $id folder id (required)
-     * @param  int $skip number of folder and files, that have to be skipped (optional, default to 0)
-     * @param  int $take number of folder and files, that have to be returned (optional, default to 10)
-     * @param  FileSorting $order_by indicates a field to sort by (optional)
-     * @param  bool $desc indicates if sorting is descending (optional, default to false)
-     * @param  string $search_pattern  (optional, default to '')
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  int $skip number of folder and files to skip (optional, default to 0)
+     * @param  int $take number of folder and files to take (optional, default to 10)
+     * @param  FileSorting $order_by a field to sort by (optional)
+     * @param  bool $desc if true - sorting will be done in the descending order, otherwise - ascending (optional, default to false)
+     * @param  string $search_pattern search pattern used to only include matching files in the result&lt;br /&gt;              (leave unspecified to list all files and folders) (optional, default to '')
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileGetFoldersAndFiles'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2440,12 +2452,12 @@ class ReportsApi
      * Get all folders and files from specified folder
      *
      * @param  string $id folder id (required)
-     * @param  int $skip number of folder and files, that have to be skipped (optional, default to 0)
-     * @param  int $take number of folder and files, that have to be returned (optional, default to 10)
-     * @param  FileSorting $order_by indicates a field to sort by (optional)
-     * @param  bool $desc indicates if sorting is descending (optional, default to false)
-     * @param  string $search_pattern  (optional, default to '')
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  int $skip number of folder and files to skip (optional, default to 0)
+     * @param  int $take number of folder and files to take (optional, default to 10)
+     * @param  FileSorting $order_by a field to sort by (optional)
+     * @param  bool $desc if true - sorting will be done in the descending order, otherwise - ascending (optional, default to false)
+     * @param  string $search_pattern search pattern used to only include matching files in the result&lt;br /&gt;              (leave unspecified to list all files and folders) (optional, default to '')
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileGetFoldersAndFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2467,12 +2479,12 @@ class ReportsApi
      * Get all folders and files from specified folder
      *
      * @param  string $id folder id (required)
-     * @param  int $skip number of folder and files, that have to be skipped (optional, default to 0)
-     * @param  int $take number of folder and files, that have to be returned (optional, default to 10)
-     * @param  FileSorting $order_by indicates a field to sort by (optional)
-     * @param  bool $desc indicates if sorting is descending (optional, default to false)
-     * @param  string $search_pattern  (optional, default to '')
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  int $skip number of folder and files to skip (optional, default to 0)
+     * @param  int $take number of folder and files to take (optional, default to 10)
+     * @param  FileSorting $order_by a field to sort by (optional)
+     * @param  bool $desc if true - sorting will be done in the descending order, otherwise - ascending (optional, default to false)
+     * @param  string $search_pattern search pattern used to only include matching files in the result&lt;br /&gt;              (leave unspecified to list all files and folders) (optional, default to '')
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileGetFoldersAndFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2523,12 +2535,12 @@ class ReportsApi
      * Create request for operation 'reportFolderAndFileGetFoldersAndFiles'
      *
      * @param  string $id folder id (required)
-     * @param  int $skip number of folder and files, that have to be skipped (optional, default to 0)
-     * @param  int $take number of folder and files, that have to be returned (optional, default to 10)
-     * @param  FileSorting $order_by indicates a field to sort by (optional)
-     * @param  bool $desc indicates if sorting is descending (optional, default to false)
-     * @param  string $search_pattern  (optional, default to '')
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  int $skip number of folder and files to skip (optional, default to 0)
+     * @param  int $take number of folder and files to take (optional, default to 10)
+     * @param  FileSorting $order_by a field to sort by (optional)
+     * @param  bool $desc if true - sorting will be done in the descending order, otherwise - ascending (optional, default to false)
+     * @param  string $search_pattern search pattern used to only include matching files in the result&lt;br /&gt;              (leave unspecified to list all files and folders) (optional, default to '')
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileGetFoldersAndFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2712,12 +2724,12 @@ class ReportsApi
      * Get all folders and files from recycle bin
      *
      * @param  string $subscription_id subscription id (required)
-     * @param  int $skip number of folder and files, that have to be skipped (optional, default to 0)
-     * @param  int $take number of folder and files, that have to be returned (optional, default to 10)
-     * @param  FileSorting $order_by indicates a field to sort by (optional)
-     * @param  bool $desc indicates if sorting is descending (optional, default to false)
-     * @param  string $search_pattern  (optional, default to '')
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  int $skip number of folder and files to skip (optional, default to 0)
+     * @param  int $take number of folder and files to take (optional, default to 10)
+     * @param  FileSorting $order_by a field to sort by (optional)
+     * @param  bool $desc if true - sorting will be done in the descending order, otherwise - ascending (optional, default to false)
+     * @param  string $search_pattern search pattern used to only include matching files in the recycle bin&lt;br /&gt;              (leave unspecified to list all files and folders) (optional, default to '')
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileGetRecycleBinFoldersAndFiles'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2736,12 +2748,12 @@ class ReportsApi
      * Get all folders and files from recycle bin
      *
      * @param  string $subscription_id subscription id (required)
-     * @param  int $skip number of folder and files, that have to be skipped (optional, default to 0)
-     * @param  int $take number of folder and files, that have to be returned (optional, default to 10)
-     * @param  FileSorting $order_by indicates a field to sort by (optional)
-     * @param  bool $desc indicates if sorting is descending (optional, default to false)
-     * @param  string $search_pattern  (optional, default to '')
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  int $skip number of folder and files to skip (optional, default to 0)
+     * @param  int $take number of folder and files to take (optional, default to 10)
+     * @param  FileSorting $order_by a field to sort by (optional)
+     * @param  bool $desc if true - sorting will be done in the descending order, otherwise - ascending (optional, default to false)
+     * @param  string $search_pattern search pattern used to only include matching files in the recycle bin&lt;br /&gt;              (leave unspecified to list all files and folders) (optional, default to '')
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileGetRecycleBinFoldersAndFiles'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3006,12 +3018,12 @@ class ReportsApi
      * Get all folders and files from recycle bin
      *
      * @param  string $subscription_id subscription id (required)
-     * @param  int $skip number of folder and files, that have to be skipped (optional, default to 0)
-     * @param  int $take number of folder and files, that have to be returned (optional, default to 10)
-     * @param  FileSorting $order_by indicates a field to sort by (optional)
-     * @param  bool $desc indicates if sorting is descending (optional, default to false)
-     * @param  string $search_pattern  (optional, default to '')
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  int $skip number of folder and files to skip (optional, default to 0)
+     * @param  int $take number of folder and files to take (optional, default to 10)
+     * @param  FileSorting $order_by a field to sort by (optional)
+     * @param  bool $desc if true - sorting will be done in the descending order, otherwise - ascending (optional, default to false)
+     * @param  string $search_pattern search pattern used to only include matching files in the recycle bin&lt;br /&gt;              (leave unspecified to list all files and folders) (optional, default to '')
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileGetRecycleBinFoldersAndFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3033,12 +3045,12 @@ class ReportsApi
      * Get all folders and files from recycle bin
      *
      * @param  string $subscription_id subscription id (required)
-     * @param  int $skip number of folder and files, that have to be skipped (optional, default to 0)
-     * @param  int $take number of folder and files, that have to be returned (optional, default to 10)
-     * @param  FileSorting $order_by indicates a field to sort by (optional)
-     * @param  bool $desc indicates if sorting is descending (optional, default to false)
-     * @param  string $search_pattern  (optional, default to '')
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  int $skip number of folder and files to skip (optional, default to 0)
+     * @param  int $take number of folder and files to take (optional, default to 10)
+     * @param  FileSorting $order_by a field to sort by (optional)
+     * @param  bool $desc if true - sorting will be done in the descending order, otherwise - ascending (optional, default to false)
+     * @param  string $search_pattern search pattern used to only include matching files in the recycle bin&lt;br /&gt;              (leave unspecified to list all files and folders) (optional, default to '')
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileGetRecycleBinFoldersAndFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3089,12 +3101,12 @@ class ReportsApi
      * Create request for operation 'reportFolderAndFileGetRecycleBinFoldersAndFiles'
      *
      * @param  string $subscription_id subscription id (required)
-     * @param  int $skip number of folder and files, that have to be skipped (optional, default to 0)
-     * @param  int $take number of folder and files, that have to be returned (optional, default to 10)
-     * @param  FileSorting $order_by indicates a field to sort by (optional)
-     * @param  bool $desc indicates if sorting is descending (optional, default to false)
-     * @param  string $search_pattern  (optional, default to '')
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  int $skip number of folder and files to skip (optional, default to 0)
+     * @param  int $take number of folder and files to take (optional, default to 10)
+     * @param  FileSorting $order_by a field to sort by (optional)
+     * @param  bool $desc if true - sorting will be done in the descending order, otherwise - ascending (optional, default to false)
+     * @param  string $search_pattern search pattern used to only include matching files in the recycle bin&lt;br /&gt;              (leave unspecified to list all files and folders) (optional, default to '')
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileGetRecycleBinFoldersAndFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3278,7 +3290,7 @@ class ReportsApi
      * Move folders and files to a specified folder
      *
      * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileMoveFiles'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3296,7 +3308,7 @@ class ReportsApi
      * Move folders and files to a specified folder
      *
      * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileMoveFiles'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3389,7 +3401,7 @@ class ReportsApi
      * Move folders and files to a specified folder
      *
      * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileMoveFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3411,7 +3423,7 @@ class ReportsApi
      * Move folders and files to a specified folder
      *
      * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileMoveFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3449,7 +3461,7 @@ class ReportsApi
      * Create request for operation 'reportFolderAndFileMoveFiles'
      *
      * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileMoveFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3560,10 +3572,10 @@ class ReportsApi
     /**
      * Operation reportFolderAndFileMoveFilesToBin
      *
-     * Move folders and files to bin
+     * Move folders and files to the recycle bin
      *
-     * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $subscription_id id of the subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileMoveFilesToBin'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3578,10 +3590,10 @@ class ReportsApi
     /**
      * Operation reportFolderAndFileMoveFilesToBinWithHttpInfo
      *
-     * Move folders and files to bin
+     * Move folders and files to the recycle bin
      *
-     * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $subscription_id id of the subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileMoveFilesToBin'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3671,10 +3683,10 @@ class ReportsApi
     /**
      * Operation reportFolderAndFileMoveFilesToBinAsync
      *
-     * Move folders and files to bin
+     * Move folders and files to the recycle bin
      *
-     * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $subscription_id id of the subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileMoveFilesToBin'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3693,10 +3705,10 @@ class ReportsApi
     /**
      * Operation reportFolderAndFileMoveFilesToBinAsyncWithHttpInfo
      *
-     * Move folders and files to bin
+     * Move folders and files to the recycle bin
      *
-     * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $subscription_id id of the subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileMoveFilesToBin'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3733,8 +3745,8 @@ class ReportsApi
     /**
      * Create request for operation 'reportFolderAndFileMoveFilesToBin'
      *
-     * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $subscription_id id of the subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileMoveFilesToBin'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4117,10 +4129,10 @@ class ReportsApi
     /**
      * Operation reportFolderAndFileRecoverFiles
      *
-     * Recover folders and files from bin
+     * Recover folders and files from the recycle bin
      *
-     * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $subscription_id id the subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileRecoverFiles'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4135,10 +4147,10 @@ class ReportsApi
     /**
      * Operation reportFolderAndFileRecoverFilesWithHttpInfo
      *
-     * Recover folders and files from bin
+     * Recover folders and files from the recycle bin
      *
-     * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $subscription_id id the subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileRecoverFiles'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4228,10 +4240,10 @@ class ReportsApi
     /**
      * Operation reportFolderAndFileRecoverFilesAsync
      *
-     * Recover folders and files from bin
+     * Recover folders and files from the recycle bin
      *
-     * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $subscription_id id the subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileRecoverFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4250,10 +4262,10 @@ class ReportsApi
     /**
      * Operation reportFolderAndFileRecoverFilesAsyncWithHttpInfo
      *
-     * Recover folders and files from bin
+     * Recover folders and files from the recycle bin
      *
-     * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $subscription_id id the subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileRecoverFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4290,8 +4302,8 @@ class ReportsApi
     /**
      * Create request for operation 'reportFolderAndFileRecoverFiles'
      *
-     * @param  string $subscription_id id of current subscription (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm VM with files&#39; ids and params of their destination (optional)
+     * @param  string $subscription_id id the subscription (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM $selected_files_vm File selection VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFolderAndFileRecoverFiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7003,12 +7015,12 @@ class ReportsApi
      * Get all folders from specified folder
      *
      * @param  string $id folder id (required)
-     * @param  int $skip number of files, that have to be skipped (optional, default to 0)
-     * @param  int $take number of files, that have to be returned (optional, default to 10)
-     * @param  FileSorting $order_by  (optional)
-     * @param  bool $desc  (optional, default to false)
-     * @param  string $search_pattern  (optional, default to '')
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  int $skip number of folder and files to skip (optional, default to 0)
+     * @param  int $take number of folder and files to take (optional, default to 10)
+     * @param  FileSorting $order_by a field to sort by (optional)
+     * @param  bool $desc if true - sorting will be done in the descending order, otherwise - ascending (optional, default to false)
+     * @param  string $search_pattern search pattern used to only include matching files in the result&lt;br /&gt;              (leave unspecified to list all files and folders) (optional, default to '')
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersGetFolders'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7027,12 +7039,12 @@ class ReportsApi
      * Get all folders from specified folder
      *
      * @param  string $id folder id (required)
-     * @param  int $skip number of files, that have to be skipped (optional, default to 0)
-     * @param  int $take number of files, that have to be returned (optional, default to 10)
-     * @param  FileSorting $order_by  (optional)
-     * @param  bool $desc  (optional, default to false)
-     * @param  string $search_pattern  (optional, default to '')
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  int $skip number of folder and files to skip (optional, default to 0)
+     * @param  int $take number of folder and files to take (optional, default to 10)
+     * @param  FileSorting $order_by a field to sort by (optional)
+     * @param  bool $desc if true - sorting will be done in the descending order, otherwise - ascending (optional, default to false)
+     * @param  string $search_pattern search pattern used to only include matching files in the result&lt;br /&gt;              (leave unspecified to list all files and folders) (optional, default to '')
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersGetFolders'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7297,12 +7309,12 @@ class ReportsApi
      * Get all folders from specified folder
      *
      * @param  string $id folder id (required)
-     * @param  int $skip number of files, that have to be skipped (optional, default to 0)
-     * @param  int $take number of files, that have to be returned (optional, default to 10)
-     * @param  FileSorting $order_by  (optional)
-     * @param  bool $desc  (optional, default to false)
-     * @param  string $search_pattern  (optional, default to '')
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  int $skip number of folder and files to skip (optional, default to 0)
+     * @param  int $take number of folder and files to take (optional, default to 10)
+     * @param  FileSorting $order_by a field to sort by (optional)
+     * @param  bool $desc if true - sorting will be done in the descending order, otherwise - ascending (optional, default to false)
+     * @param  string $search_pattern search pattern used to only include matching files in the result&lt;br /&gt;              (leave unspecified to list all files and folders) (optional, default to '')
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersGetFolders'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7324,12 +7336,12 @@ class ReportsApi
      * Get all folders from specified folder
      *
      * @param  string $id folder id (required)
-     * @param  int $skip number of files, that have to be skipped (optional, default to 0)
-     * @param  int $take number of files, that have to be returned (optional, default to 10)
-     * @param  FileSorting $order_by  (optional)
-     * @param  bool $desc  (optional, default to false)
-     * @param  string $search_pattern  (optional, default to '')
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  int $skip number of folder and files to skip (optional, default to 0)
+     * @param  int $take number of folder and files to take (optional, default to 10)
+     * @param  FileSorting $order_by a field to sort by (optional)
+     * @param  bool $desc if true - sorting will be done in the descending order, otherwise - ascending (optional, default to false)
+     * @param  string $search_pattern search pattern used to only include matching files in the result&lt;br /&gt;              (leave unspecified to list all files and folders) (optional, default to '')
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersGetFolders'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7380,12 +7392,12 @@ class ReportsApi
      * Create request for operation 'reportFoldersGetFolders'
      *
      * @param  string $id folder id (required)
-     * @param  int $skip number of files, that have to be skipped (optional, default to 0)
-     * @param  int $take number of files, that have to be returned (optional, default to 10)
-     * @param  FileSorting $order_by  (optional)
-     * @param  bool $desc  (optional, default to false)
-     * @param  string $search_pattern  (optional, default to '')
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  int $skip number of folder and files to skip (optional, default to 0)
+     * @param  int $take number of folder and files to take (optional, default to 10)
+     * @param  FileSorting $order_by a field to sort by (optional)
+     * @param  bool $desc if true - sorting will be done in the descending order, otherwise - ascending (optional, default to false)
+     * @param  string $search_pattern search pattern used to only include matching files in the result&lt;br /&gt;              (leave unspecified to list all files and folders) (optional, default to '')
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersGetFolders'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7955,6 +7967,359 @@ class ReportsApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation reportFoldersGetMyPermissions
+     *
+     * Get user&#39;s permissions for a folder by id
+     *
+     * @param  string $folder_id folder id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersGetMyPermissions'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails
+     */
+    public function reportFoldersGetMyPermissions($folder_id, string $contentType = self::contentTypes['reportFoldersGetMyPermissions'][0])
+    {
+        list($response) = $this->reportFoldersGetMyPermissionsWithHttpInfo($folder_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation reportFoldersGetMyPermissionsWithHttpInfo
+     *
+     * Get user&#39;s permissions for a folder by id
+     *
+     * @param  string $folder_id folder id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersGetMyPermissions'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function reportFoldersGetMyPermissionsWithHttpInfo($folder_id, string $contentType = self::contentTypes['reportFoldersGetMyPermissions'][0])
+    {
+        $request = $this->reportFoldersGetMyPermissionsRequest($folder_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation reportFoldersGetMyPermissionsAsync
+     *
+     * Get user&#39;s permissions for a folder by id
+     *
+     * @param  string $folder_id folder id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersGetMyPermissions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function reportFoldersGetMyPermissionsAsync($folder_id, string $contentType = self::contentTypes['reportFoldersGetMyPermissions'][0])
+    {
+        return $this->reportFoldersGetMyPermissionsAsyncWithHttpInfo($folder_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation reportFoldersGetMyPermissionsAsyncWithHttpInfo
+     *
+     * Get user&#39;s permissions for a folder by id
+     *
+     * @param  string $folder_id folder id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersGetMyPermissions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function reportFoldersGetMyPermissionsAsyncWithHttpInfo($folder_id, string $contentType = self::contentTypes['reportFoldersGetMyPermissions'][0])
+    {
+        $returnType = '\OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM';
+        $request = $this->reportFoldersGetMyPermissionsRequest($folder_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'reportFoldersGetMyPermissions'
+     *
+     * @param  string $folder_id folder id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersGetMyPermissions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function reportFoldersGetMyPermissionsRequest($folder_id, string $contentType = self::contentTypes['reportFoldersGetMyPermissions'][0])
+    {
+
+        // verify the required parameter 'folder_id' is set
+        if ($folder_id === null || (is_array($folder_id) && count($folder_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $folder_id when calling reportFoldersGetMyPermissions'
+            );
+        }
+        if (!preg_match("/^[A-Fa-f0-9]{24}$/", $folder_id)) {
+            throw new \InvalidArgumentException("invalid value for \"folder_id\" when calling ReportsApi.reportFoldersGetMyPermissions, must conform to the pattern /^[A-Fa-f0-9]{24}$/.");
+        }
+        
+
+        $resourcePath = '/api/rp/v1/Reports/Folder/{folderId}/mypermissions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($folder_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'folderId' . '}',
+                ObjectSerializer::toPathValue($folder_id),
                 $resourcePath
             );
         }
@@ -8974,14 +9339,14 @@ class ReportsApi
     /**
      * Operation reportFoldersGetRootFolder
      *
-     * Get user&#39;s root folder (without parents)
+     * Get workspace&#39;s root folder
      *
      * @param  string $subscription_id subscription_id (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersGetRootFolder'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\cloud\fastreport\model\FileVM
+     * @return \OpenAPI\Client\cloud\fastreport\model\FileVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails
      */
     public function reportFoldersGetRootFolder($subscription_id = null, string $contentType = self::contentTypes['reportFoldersGetRootFolder'][0])
     {
@@ -8992,14 +9357,14 @@ class ReportsApi
     /**
      * Operation reportFoldersGetRootFolderWithHttpInfo
      *
-     * Get user&#39;s root folder (without parents)
+     * Get workspace&#39;s root folder
      *
      * @param  string $subscription_id (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersGetRootFolder'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\cloud\fastreport\model\FileVM, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\cloud\fastreport\model\FileVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function reportFoldersGetRootFolderWithHttpInfo($subscription_id = null, string $contentType = self::contentTypes['reportFoldersGetRootFolder'][0])
     {
@@ -9068,6 +9433,114 @@ class ReportsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 400:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 402:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\OpenAPI\Client\cloud\fastreport\model\FileVM';
@@ -9108,6 +9581,38 @@ class ReportsApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -9116,7 +9621,7 @@ class ReportsApi
     /**
      * Operation reportFoldersGetRootFolderAsync
      *
-     * Get user&#39;s root folder (without parents)
+     * Get workspace&#39;s root folder
      *
      * @param  string $subscription_id (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersGetRootFolder'] to see the possible values for this operation
@@ -9137,7 +9642,7 @@ class ReportsApi
     /**
      * Operation reportFoldersGetRootFolderAsyncWithHttpInfo
      *
-     * Get user&#39;s root folder (without parents)
+     * Get workspace&#39;s root folder
      *
      * @param  string $subscription_id (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersGetRootFolder'] to see the possible values for this operation
@@ -9287,9 +9792,9 @@ class ReportsApi
     /**
      * Operation reportFoldersMoveFolder
      *
-     * Move folder to a specified folder
+     * Move folder into a specified folder
      *
-     * @param  string $id moving folder id (required)
+     * @param  string $id folder id (required)
      * @param  string $folder_id destination folder id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersMoveFolder'] to see the possible values for this operation
      *
@@ -9306,9 +9811,9 @@ class ReportsApi
     /**
      * Operation reportFoldersMoveFolderWithHttpInfo
      *
-     * Move folder to a specified folder
+     * Move folder into a specified folder
      *
-     * @param  string $id moving folder id (required)
+     * @param  string $id folder id (required)
      * @param  string $folder_id destination folder id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersMoveFolder'] to see the possible values for this operation
      *
@@ -9571,9 +10076,9 @@ class ReportsApi
     /**
      * Operation reportFoldersMoveFolderAsync
      *
-     * Move folder to a specified folder
+     * Move folder into a specified folder
      *
-     * @param  string $id moving folder id (required)
+     * @param  string $id folder id (required)
      * @param  string $folder_id destination folder id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersMoveFolder'] to see the possible values for this operation
      *
@@ -9593,9 +10098,9 @@ class ReportsApi
     /**
      * Operation reportFoldersMoveFolderAsyncWithHttpInfo
      *
-     * Move folder to a specified folder
+     * Move folder into a specified folder
      *
-     * @param  string $id moving folder id (required)
+     * @param  string $id folder id (required)
      * @param  string $folder_id destination folder id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersMoveFolder'] to see the possible values for this operation
      *
@@ -9646,7 +10151,7 @@ class ReportsApi
     /**
      * Create request for operation 'reportFoldersMoveFolder'
      *
-     * @param  string $id moving folder id (required)
+     * @param  string $id folder id (required)
      * @param  string $folder_id destination folder id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersMoveFolder'] to see the possible values for this operation
      *
@@ -10514,7 +11019,7 @@ class ReportsApi
      * Recover specified folder
      *
      * @param  string $id folder id (required)
-     * @param  string $recovery_path  (optional)
+     * @param  string $recovery_path id of the folder, that recovered folder should be placed in (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersRecoverFolder'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -10532,7 +11037,7 @@ class ReportsApi
      * Recover specified folder
      *
      * @param  string $id folder id (required)
-     * @param  string $recovery_path  (optional)
+     * @param  string $recovery_path id of the folder, that recovered folder should be placed in (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersRecoverFolder'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -10625,7 +11130,7 @@ class ReportsApi
      * Recover specified folder
      *
      * @param  string $id folder id (required)
-     * @param  string $recovery_path  (optional)
+     * @param  string $recovery_path id of the folder, that recovered folder should be placed in (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersRecoverFolder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10647,7 +11152,7 @@ class ReportsApi
      * Recover specified folder
      *
      * @param  string $id folder id (required)
-     * @param  string $recovery_path  (optional)
+     * @param  string $recovery_path id of the folder, that recovered folder should be placed in (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersRecoverFolder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10685,7 +11190,7 @@ class ReportsApi
      * Create request for operation 'reportFoldersRecoverFolder'
      *
      * @param  string $id folder id (required)
-     * @param  string $recovery_path  (optional)
+     * @param  string $recovery_path id of the folder, that recovered folder should be placed in (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersRecoverFolder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11742,8 +12247,8 @@ class ReportsApi
      *
      * Update permissions
      *
-     * @param  string $id  (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM $update_file_permissions_vm  (optional)
+     * @param  string $id folder id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM $update_file_permissions_vm new permissions VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersUpdatePermissions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -11760,8 +12265,8 @@ class ReportsApi
      *
      * Update permissions
      *
-     * @param  string $id  (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM $update_file_permissions_vm  (optional)
+     * @param  string $id folder id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM $update_file_permissions_vm new permissions VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersUpdatePermissions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -11853,8 +12358,8 @@ class ReportsApi
      *
      * Update permissions
      *
-     * @param  string $id  (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM $update_file_permissions_vm  (optional)
+     * @param  string $id folder id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM $update_file_permissions_vm new permissions VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersUpdatePermissions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11875,8 +12380,8 @@ class ReportsApi
      *
      * Update permissions
      *
-     * @param  string $id  (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM $update_file_permissions_vm  (optional)
+     * @param  string $id folder id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM $update_file_permissions_vm new permissions VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersUpdatePermissions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11913,8 +12418,8 @@ class ReportsApi
     /**
      * Create request for operation 'reportFoldersUpdatePermissions'
      *
-     * @param  string $id  (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM $update_file_permissions_vm  (optional)
+     * @param  string $id folder id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM $update_file_permissions_vm new permissions VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportFoldersUpdatePermissions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12496,7 +13001,7 @@ class ReportsApi
     /**
      * Operation reportsCopyFile
      *
-     * Copy file to a specified folder
+     * Copy a file into a specified folder
      *
      * @param  string $id file id (required)
      * @param  string $folder_id folder id (required)
@@ -12515,7 +13020,7 @@ class ReportsApi
     /**
      * Operation reportsCopyFileWithHttpInfo
      *
-     * Copy file to a specified folder
+     * Copy a file into a specified folder
      *
      * @param  string $id file id (required)
      * @param  string $folder_id folder id (required)
@@ -12780,7 +13285,7 @@ class ReportsApi
     /**
      * Operation reportsCopyFileAsync
      *
-     * Copy file to a specified folder
+     * Copy a file into a specified folder
      *
      * @param  string $id file id (required)
      * @param  string $folder_id folder id (required)
@@ -12802,7 +13307,7 @@ class ReportsApi
     /**
      * Operation reportsCopyFileAsyncWithHttpInfo
      *
-     * Copy file to a specified folder
+     * Copy a file into a specified folder
      *
      * @param  string $id file id (required)
      * @param  string $folder_id folder id (required)
@@ -12977,7 +13482,7 @@ class ReportsApi
     /**
      * Operation reportsCreateSharingKey
      *
-     * Create a new key, that can be used to share access to a file  (You need Administrate.Anon permission to create a new key)
+     * Create a new key, that can be used to share access to a file &lt;br /&gt;  (You need Administrate.Anon permission to create a new key)
      *
      * @param  string $id file id (required)
      * @param  \OpenAPI\Client\cloud\fastreport\model\CreateFileShareVM $create_file_share_vm parameters for sharing key creation (optional)
@@ -12996,7 +13501,7 @@ class ReportsApi
     /**
      * Operation reportsCreateSharingKeyWithHttpInfo
      *
-     * Create a new key, that can be used to share access to a file  (You need Administrate.Anon permission to create a new key)
+     * Create a new key, that can be used to share access to a file &lt;br /&gt;  (You need Administrate.Anon permission to create a new key)
      *
      * @param  string $id file id (required)
      * @param  \OpenAPI\Client\cloud\fastreport\model\CreateFileShareVM $create_file_share_vm parameters for sharing key creation (optional)
@@ -13261,7 +13766,7 @@ class ReportsApi
     /**
      * Operation reportsCreateSharingKeyAsync
      *
-     * Create a new key, that can be used to share access to a file  (You need Administrate.Anon permission to create a new key)
+     * Create a new key, that can be used to share access to a file &lt;br /&gt;  (You need Administrate.Anon permission to create a new key)
      *
      * @param  string $id file id (required)
      * @param  \OpenAPI\Client\cloud\fastreport\model\CreateFileShareVM $create_file_share_vm parameters for sharing key creation (optional)
@@ -13283,7 +13788,7 @@ class ReportsApi
     /**
      * Operation reportsCreateSharingKeyAsyncWithHttpInfo
      *
-     * Create a new key, that can be used to share access to a file  (You need Administrate.Anon permission to create a new key)
+     * Create a new key, that can be used to share access to a file &lt;br /&gt;  (You need Administrate.Anon permission to create a new key)
      *
      * @param  string $id file id (required)
      * @param  \OpenAPI\Client\cloud\fastreport\model\CreateFileShareVM $create_file_share_vm parameters for sharing key creation (optional)
@@ -13799,7 +14304,7 @@ class ReportsApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 403:
+                case 402:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
@@ -13807,7 +14312,7 @@ class ReportsApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 402:
+                case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
@@ -14481,6 +14986,922 @@ class ReportsApi
     }
 
     /**
+     * Operation reportsGetByTaskId
+     *
+     * Get reports by specified task id
+     *
+     * @param  string $task_id task id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetByTaskId'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\cloud\fastreport\model\ReportsVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails
+     */
+    public function reportsGetByTaskId($task_id, string $contentType = self::contentTypes['reportsGetByTaskId'][0])
+    {
+        list($response) = $this->reportsGetByTaskIdWithHttpInfo($task_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation reportsGetByTaskIdWithHttpInfo
+     *
+     * Get reports by specified task id
+     *
+     * @param  string $task_id task id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetByTaskId'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\cloud\fastreport\model\ReportsVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function reportsGetByTaskIdWithHttpInfo($task_id, string $contentType = self::contentTypes['reportsGetByTaskId'][0])
+    {
+        $request = $this->reportsGetByTaskIdRequest($task_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ReportsVM' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ReportsVM' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ReportsVM', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 402:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\cloud\fastreport\model\ReportsVM';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ReportsVM',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation reportsGetByTaskIdAsync
+     *
+     * Get reports by specified task id
+     *
+     * @param  string $task_id task id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetByTaskId'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function reportsGetByTaskIdAsync($task_id, string $contentType = self::contentTypes['reportsGetByTaskId'][0])
+    {
+        return $this->reportsGetByTaskIdAsyncWithHttpInfo($task_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation reportsGetByTaskIdAsyncWithHttpInfo
+     *
+     * Get reports by specified task id
+     *
+     * @param  string $task_id task id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetByTaskId'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function reportsGetByTaskIdAsyncWithHttpInfo($task_id, string $contentType = self::contentTypes['reportsGetByTaskId'][0])
+    {
+        $returnType = '\OpenAPI\Client\cloud\fastreport\model\ReportsVM';
+        $request = $this->reportsGetByTaskIdRequest($task_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'reportsGetByTaskId'
+     *
+     * @param  string $task_id task id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetByTaskId'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function reportsGetByTaskIdRequest($task_id, string $contentType = self::contentTypes['reportsGetByTaskId'][0])
+    {
+
+        // verify the required parameter 'task_id' is set
+        if ($task_id === null || (is_array($task_id) && count($task_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $task_id when calling reportsGetByTaskId'
+            );
+        }
+        if (!preg_match("/^[A-Fa-f0-9]{24}$/", $task_id)) {
+            throw new \InvalidArgumentException("invalid value for \"task_id\" when calling ReportsApi.reportsGetByTaskId, must conform to the pattern /^[A-Fa-f0-9]{24}$/.");
+        }
+        
+
+        $resourcePath = '/api/rp/v1/Reports/File/Task/{taskId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($task_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'taskId' . '}',
+                ObjectSerializer::toPathValue($task_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation reportsGetByTaskMessageId
+     *
+     * Get report by specified task message id
+     *
+     * @param  string $task_message_id task message id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetByTaskMessageId'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\cloud\fastreport\model\ReportVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails
+     */
+    public function reportsGetByTaskMessageId($task_message_id, string $contentType = self::contentTypes['reportsGetByTaskMessageId'][0])
+    {
+        list($response) = $this->reportsGetByTaskMessageIdWithHttpInfo($task_message_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation reportsGetByTaskMessageIdWithHttpInfo
+     *
+     * Get report by specified task message id
+     *
+     * @param  string $task_message_id task message id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetByTaskMessageId'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\cloud\fastreport\model\ReportVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function reportsGetByTaskMessageIdWithHttpInfo($task_message_id, string $contentType = self::contentTypes['reportsGetByTaskMessageId'][0])
+    {
+        $request = $this->reportsGetByTaskMessageIdRequest($task_message_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ReportVM' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ReportVM' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ReportVM', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 402:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\cloud\fastreport\model\ReportVM';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ReportVM',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation reportsGetByTaskMessageIdAsync
+     *
+     * Get report by specified task message id
+     *
+     * @param  string $task_message_id task message id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetByTaskMessageId'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function reportsGetByTaskMessageIdAsync($task_message_id, string $contentType = self::contentTypes['reportsGetByTaskMessageId'][0])
+    {
+        return $this->reportsGetByTaskMessageIdAsyncWithHttpInfo($task_message_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation reportsGetByTaskMessageIdAsyncWithHttpInfo
+     *
+     * Get report by specified task message id
+     *
+     * @param  string $task_message_id task message id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetByTaskMessageId'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function reportsGetByTaskMessageIdAsyncWithHttpInfo($task_message_id, string $contentType = self::contentTypes['reportsGetByTaskMessageId'][0])
+    {
+        $returnType = '\OpenAPI\Client\cloud\fastreport\model\ReportVM';
+        $request = $this->reportsGetByTaskMessageIdRequest($task_message_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'reportsGetByTaskMessageId'
+     *
+     * @param  string $task_message_id task message id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetByTaskMessageId'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function reportsGetByTaskMessageIdRequest($task_message_id, string $contentType = self::contentTypes['reportsGetByTaskMessageId'][0])
+    {
+
+        // verify the required parameter 'task_message_id' is set
+        if ($task_message_id === null || (is_array($task_message_id) && count($task_message_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $task_message_id when calling reportsGetByTaskMessageId'
+            );
+        }
+        if (!preg_match("/^([0-9a-f]{8}([-][0-9a-f]{4}){3}[-][0-9a-f]{12})$/", $task_message_id)) {
+            throw new \InvalidArgumentException("invalid value for \"task_message_id\" when calling ReportsApi.reportsGetByTaskMessageId, must conform to the pattern /^([0-9a-f]{8}([-][0-9a-f]{4}){3}[-][0-9a-f]{12})$/.");
+        }
+        
+
+        $resourcePath = '/api/rp/v1/Reports/File/TaskMessage/{taskMessageId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($task_message_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'taskMessageId' . '}',
+                ObjectSerializer::toPathValue($task_message_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation reportsGetFile
      *
      * Get specified file
@@ -14943,9 +16364,9 @@ class ReportsApi
      *
      * Returns list of actions, performed on this file
      *
-     * @param  string $id  (required)
-     * @param  int $skip  (optional, default to 0)
-     * @param  int $take  (optional, default to 10)
+     * @param  string $id file id (required)
+     * @param  int $skip how many actions to skip (optional, default to 0)
+     * @param  int $take how many actions to take (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetFileHistory'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -14963,9 +16384,9 @@ class ReportsApi
      *
      * Returns list of actions, performed on this file
      *
-     * @param  string $id  (required)
-     * @param  int $skip  (optional, default to 0)
-     * @param  int $take  (optional, default to 10)
+     * @param  string $id file id (required)
+     * @param  int $skip how many actions to skip (optional, default to 0)
+     * @param  int $take how many actions to take (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetFileHistory'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -15229,9 +16650,9 @@ class ReportsApi
      *
      * Returns list of actions, performed on this file
      *
-     * @param  string $id  (required)
-     * @param  int $skip  (optional, default to 0)
-     * @param  int $take  (optional, default to 10)
+     * @param  string $id file id (required)
+     * @param  int $skip how many actions to skip (optional, default to 0)
+     * @param  int $take how many actions to take (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetFileHistory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -15252,9 +16673,9 @@ class ReportsApi
      *
      * Returns list of actions, performed on this file
      *
-     * @param  string $id  (required)
-     * @param  int $skip  (optional, default to 0)
-     * @param  int $take  (optional, default to 10)
+     * @param  string $id file id (required)
+     * @param  int $skip how many actions to skip (optional, default to 0)
+     * @param  int $take how many actions to take (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetFileHistory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -15304,9 +16725,9 @@ class ReportsApi
     /**
      * Create request for operation 'reportsGetFileHistory'
      *
-     * @param  string $id  (required)
-     * @param  int $skip  (optional, default to 0)
-     * @param  int $take  (optional, default to 10)
+     * @param  string $id file id (required)
+     * @param  int $skip how many actions to skip (optional, default to 0)
+     * @param  int $take how many actions to take (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetFileHistory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -15887,15 +17308,15 @@ class ReportsApi
     /**
      * Operation reportsGetFilesList
      *
-     * Get all files from specified folder. &lt;br /&gt;  User with Get Entity permission can access this method. &lt;br /&gt;  The method will returns minimal infomration about the file: &lt;br /&gt;  id, name, size, editedTime, createdTime, tags, status, statusReason.
+     * Get files from the specified folder
      *
      * @param  string $id folder id (required)
-     * @param  int $skip number of files, that have to be skipped (optional, default to 0)
-     * @param  int $take number of files, that have to be returned (optional, default to 10)
-     * @param  string $search_pattern  (optional)
-     * @param  FileSorting $order_by  (optional)
-     * @param  bool $desc  (optional, default to false)
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  int $skip number of files to skip (optional, default to 0)
+     * @param  int $take number of files to take (optional, default to 10)
+     * @param  string $search_pattern search pattern used to only include matching files in the result&lt;br /&gt;              (leave unspecified to list all files) (optional)
+     * @param  FileSorting $order_by a field to sort by (optional)
+     * @param  bool $desc if true - sorting will be done in the descending order, otherwise - ascending (optional, default to false)
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetFilesList'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -15911,15 +17332,15 @@ class ReportsApi
     /**
      * Operation reportsGetFilesListWithHttpInfo
      *
-     * Get all files from specified folder. &lt;br /&gt;  User with Get Entity permission can access this method. &lt;br /&gt;  The method will returns minimal infomration about the file: &lt;br /&gt;  id, name, size, editedTime, createdTime, tags, status, statusReason.
+     * Get files from the specified folder
      *
      * @param  string $id folder id (required)
-     * @param  int $skip number of files, that have to be skipped (optional, default to 0)
-     * @param  int $take number of files, that have to be returned (optional, default to 10)
-     * @param  string $search_pattern  (optional)
-     * @param  FileSorting $order_by  (optional)
-     * @param  bool $desc  (optional, default to false)
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  int $skip number of files to skip (optional, default to 0)
+     * @param  int $take number of files to take (optional, default to 10)
+     * @param  string $search_pattern search pattern used to only include matching files in the result&lt;br /&gt;              (leave unspecified to list all files) (optional)
+     * @param  FileSorting $order_by a field to sort by (optional)
+     * @param  bool $desc if true - sorting will be done in the descending order, otherwise - ascending (optional, default to false)
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetFilesList'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -16181,15 +17602,15 @@ class ReportsApi
     /**
      * Operation reportsGetFilesListAsync
      *
-     * Get all files from specified folder. &lt;br /&gt;  User with Get Entity permission can access this method. &lt;br /&gt;  The method will returns minimal infomration about the file: &lt;br /&gt;  id, name, size, editedTime, createdTime, tags, status, statusReason.
+     * Get files from the specified folder
      *
      * @param  string $id folder id (required)
-     * @param  int $skip number of files, that have to be skipped (optional, default to 0)
-     * @param  int $take number of files, that have to be returned (optional, default to 10)
-     * @param  string $search_pattern  (optional)
-     * @param  FileSorting $order_by  (optional)
-     * @param  bool $desc  (optional, default to false)
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  int $skip number of files to skip (optional, default to 0)
+     * @param  int $take number of files to take (optional, default to 10)
+     * @param  string $search_pattern search pattern used to only include matching files in the result&lt;br /&gt;              (leave unspecified to list all files) (optional)
+     * @param  FileSorting $order_by a field to sort by (optional)
+     * @param  bool $desc if true - sorting will be done in the descending order, otherwise - ascending (optional, default to false)
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetFilesList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -16208,15 +17629,15 @@ class ReportsApi
     /**
      * Operation reportsGetFilesListAsyncWithHttpInfo
      *
-     * Get all files from specified folder. &lt;br /&gt;  User with Get Entity permission can access this method. &lt;br /&gt;  The method will returns minimal infomration about the file: &lt;br /&gt;  id, name, size, editedTime, createdTime, tags, status, statusReason.
+     * Get files from the specified folder
      *
      * @param  string $id folder id (required)
-     * @param  int $skip number of files, that have to be skipped (optional, default to 0)
-     * @param  int $take number of files, that have to be returned (optional, default to 10)
-     * @param  string $search_pattern  (optional)
-     * @param  FileSorting $order_by  (optional)
-     * @param  bool $desc  (optional, default to false)
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  int $skip number of files to skip (optional, default to 0)
+     * @param  int $take number of files to take (optional, default to 10)
+     * @param  string $search_pattern search pattern used to only include matching files in the result&lt;br /&gt;              (leave unspecified to list all files) (optional)
+     * @param  FileSorting $order_by a field to sort by (optional)
+     * @param  bool $desc if true - sorting will be done in the descending order, otherwise - ascending (optional, default to false)
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetFilesList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -16267,12 +17688,12 @@ class ReportsApi
      * Create request for operation 'reportsGetFilesList'
      *
      * @param  string $id folder id (required)
-     * @param  int $skip number of files, that have to be skipped (optional, default to 0)
-     * @param  int $take number of files, that have to be returned (optional, default to 10)
-     * @param  string $search_pattern  (optional)
-     * @param  FileSorting $order_by  (optional)
-     * @param  bool $desc  (optional, default to false)
-     * @param  bool $use_regex  (optional, default to false)
+     * @param  int $skip number of files to skip (optional, default to 0)
+     * @param  int $take number of files to take (optional, default to 10)
+     * @param  string $search_pattern search pattern used to only include matching files in the result&lt;br /&gt;              (leave unspecified to list all files) (optional)
+     * @param  FileSorting $order_by a field to sort by (optional)
+     * @param  bool $desc if true - sorting will be done in the descending order, otherwise - ascending (optional, default to false)
+     * @param  bool $use_regex set this to true if you want to use regular expression to search (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetFilesList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -16451,9 +17872,364 @@ class ReportsApi
     }
 
     /**
+     * Operation reportsGetMyPermissions
+     *
+     * Get current user&#39;s permissions to a file
+     *
+     * @param  string $id file id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetMyPermissions'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails
+     */
+    public function reportsGetMyPermissions($id, string $contentType = self::contentTypes['reportsGetMyPermissions'][0])
+    {
+        list($response) = $this->reportsGetMyPermissionsWithHttpInfo($id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation reportsGetMyPermissionsWithHttpInfo
+     *
+     * Get current user&#39;s permissions to a file
+     *
+     * @param  string $id file id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetMyPermissions'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function reportsGetMyPermissionsWithHttpInfo($id, string $contentType = self::contentTypes['reportsGetMyPermissions'][0])
+    {
+        $request = $this->reportsGetMyPermissionsRequest($id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation reportsGetMyPermissionsAsync
+     *
+     * Get current user&#39;s permissions to a file
+     *
+     * @param  string $id file id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetMyPermissions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function reportsGetMyPermissionsAsync($id, string $contentType = self::contentTypes['reportsGetMyPermissions'][0])
+    {
+        return $this->reportsGetMyPermissionsAsyncWithHttpInfo($id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation reportsGetMyPermissionsAsyncWithHttpInfo
+     *
+     * Get current user&#39;s permissions to a file
+     *
+     * @param  string $id file id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetMyPermissions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function reportsGetMyPermissionsAsyncWithHttpInfo($id, string $contentType = self::contentTypes['reportsGetMyPermissions'][0])
+    {
+        $returnType = '\OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM';
+        $request = $this->reportsGetMyPermissionsRequest($id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'reportsGetMyPermissions'
+     *
+     * @param  string $id file id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetMyPermissions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function reportsGetMyPermissionsRequest($id, string $contentType = self::contentTypes['reportsGetMyPermissions'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling reportsGetMyPermissions'
+            );
+        }
+        if (!preg_match("/^[A-Fa-f0-9]{24}$/", $id)) {
+            throw new \InvalidArgumentException("invalid value for \"id\" when calling ReportsApi.reportsGetMyPermissions, must conform to the pattern /^[A-Fa-f0-9]{24}$/.");
+        }
+        
+
+        $resourcePath = '/api/rp/v1/Reports/File/{id}/mypermissions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation reportsGetPermissions
      *
-     * @param  string $id id (required)
+     * Get all permissions from a file. &lt;br /&gt;
+     *
+     * @param  string $id folder id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetPermissions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -16469,7 +18245,9 @@ class ReportsApi
     /**
      * Operation reportsGetPermissionsWithHttpInfo
      *
-     * @param  string $id (required)
+     * Get all permissions from a file. &lt;br /&gt;
+     *
+     * @param  string $id folder id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetPermissions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -16731,7 +18509,9 @@ class ReportsApi
     /**
      * Operation reportsGetPermissionsAsync
      *
-     * @param  string $id (required)
+     * Get all permissions from a file. &lt;br /&gt;
+     *
+     * @param  string $id folder id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetPermissions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -16750,7 +18530,9 @@ class ReportsApi
     /**
      * Operation reportsGetPermissionsAsyncWithHttpInfo
      *
-     * @param  string $id (required)
+     * Get all permissions from a file. &lt;br /&gt;
+     *
+     * @param  string $id folder id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetPermissions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -16800,7 +18582,7 @@ class ReportsApi
     /**
      * Create request for operation 'reportsGetPermissions'
      *
-     * @param  string $id (required)
+     * @param  string $id folder id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsGetPermissions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -17024,7 +18806,7 @@ class ReportsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 403:
+                case 402:
                     if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -17051,7 +18833,7 @@ class ReportsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 402:
+                case 403:
                     if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -17153,7 +18935,7 @@ class ReportsApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 403:
+                case 402:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
@@ -17161,7 +18943,7 @@ class ReportsApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 402:
+                case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
@@ -18117,7 +19899,7 @@ class ReportsApi
      * Recover specified file from bin
      *
      * @param  string $id file id (required)
-     * @param  string $recovery_path  (optional)
+     * @param  string $recovery_path id of the folder, where the file should be restored to (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsRecoverFile'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -18135,7 +19917,7 @@ class ReportsApi
      * Recover specified file from bin
      *
      * @param  string $id file id (required)
-     * @param  string $recovery_path  (optional)
+     * @param  string $recovery_path id of the folder, where the file should be restored to (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsRecoverFile'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -18228,7 +20010,7 @@ class ReportsApi
      * Recover specified file from bin
      *
      * @param  string $id file id (required)
-     * @param  string $recovery_path  (optional)
+     * @param  string $recovery_path id of the folder, where the file should be restored to (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsRecoverFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -18250,7 +20032,7 @@ class ReportsApi
      * Recover specified file from bin
      *
      * @param  string $id file id (required)
-     * @param  string $recovery_path  (optional)
+     * @param  string $recovery_path id of the folder, where the file should be restored to (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsRecoverFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -18288,7 +20070,7 @@ class ReportsApi
      * Create request for operation 'reportsRecoverFile'
      *
      * @param  string $id file id (required)
-     * @param  string $recovery_path  (optional)
+     * @param  string $recovery_path id of the folder, where the file should be restored to (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsRecoverFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -19816,8 +21598,8 @@ class ReportsApi
      *
      * Update permissions
      *
-     * @param  string $id  (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM $update_file_permissions_vm  (optional)
+     * @param  string $id file id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM $update_file_permissions_vm new permissions VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsUpdatePermissions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -19834,8 +21616,8 @@ class ReportsApi
      *
      * Update permissions
      *
-     * @param  string $id  (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM $update_file_permissions_vm  (optional)
+     * @param  string $id file id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM $update_file_permissions_vm new permissions VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsUpdatePermissions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -19927,8 +21709,8 @@ class ReportsApi
      *
      * Update permissions
      *
-     * @param  string $id  (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM $update_file_permissions_vm  (optional)
+     * @param  string $id file id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM $update_file_permissions_vm new permissions VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsUpdatePermissions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -19949,8 +21731,8 @@ class ReportsApi
      *
      * Update permissions
      *
-     * @param  string $id  (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM $update_file_permissions_vm  (optional)
+     * @param  string $id file id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM $update_file_permissions_vm new permissions VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsUpdatePermissions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -19987,8 +21769,8 @@ class ReportsApi
     /**
      * Create request for operation 'reportsUpdatePermissions'
      *
-     * @param  string $id  (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM $update_file_permissions_vm  (optional)
+     * @param  string $id file id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM $update_file_permissions_vm new permissions VM (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsUpdatePermissions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -20572,8 +22354,8 @@ class ReportsApi
      *
      * Upload a file to the specified folder. The method is deprecated, use the UploadFileV2 method instead!
      *
-     * @param  string $id Identifier of folder (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\ReportCreateVM $report_create_vm file&#39;s view model (optional)
+     * @param  string $id folder id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\ReportCreateVM $report_create_vm new file&#39;s view model (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsUploadFile'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -20592,8 +22374,8 @@ class ReportsApi
      *
      * Upload a file to the specified folder. The method is deprecated, use the UploadFileV2 method instead!
      *
-     * @param  string $id Identifier of folder (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\ReportCreateVM $report_create_vm file&#39;s view model (optional)
+     * @param  string $id folder id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\ReportCreateVM $report_create_vm new file&#39;s view model (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsUploadFile'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -20858,8 +22640,8 @@ class ReportsApi
      *
      * Upload a file to the specified folder. The method is deprecated, use the UploadFileV2 method instead!
      *
-     * @param  string $id Identifier of folder (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\ReportCreateVM $report_create_vm file&#39;s view model (optional)
+     * @param  string $id folder id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\ReportCreateVM $report_create_vm new file&#39;s view model (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsUploadFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -20881,8 +22663,8 @@ class ReportsApi
      *
      * Upload a file to the specified folder. The method is deprecated, use the UploadFileV2 method instead!
      *
-     * @param  string $id Identifier of folder (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\ReportCreateVM $report_create_vm file&#39;s view model (optional)
+     * @param  string $id folder id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\ReportCreateVM $report_create_vm new file&#39;s view model (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsUploadFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -20933,8 +22715,8 @@ class ReportsApi
     /**
      * Create request for operation 'reportsUploadFile'
      *
-     * @param  string $id Identifier of folder (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\ReportCreateVM $report_create_vm file&#39;s view model (optional)
+     * @param  string $id folder id (required)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\ReportCreateVM $report_create_vm new file&#39;s view model (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['reportsUploadFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplateContentVMTest
+ * TelegramUploadTaskVMTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TemplateContentVMTest Class Doc Comment
+ * TelegramUploadTaskVMTest Class Doc Comment
  *
  * @category    Class
- * @description TemplateContentVM
+ * @description TelegramUploadTaskVM
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TemplateContentVMTest extends TestCase
+class TelegramUploadTaskVMTest extends TestCase
 {
 
     /**
@@ -71,18 +71,36 @@ class TemplateContentVMTest extends TestCase
     }
 
     /**
-     * Test "TemplateContentVM"
+     * Test "TelegramUploadTaskVM"
      */
-    public function testTemplateContentVM()
+    public function testTelegramUploadTaskVM()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "content"
+     * Test attribute "contacts"
      */
-    public function testPropertyContent()
+    public function testPropertyContacts()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "text"
+     */
+    public function testPropertyText()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "parse_mode"
+     */
+    public function testPropertyParseMode()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

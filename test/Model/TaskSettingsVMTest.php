@@ -80,6 +80,15 @@ class TaskSettingsVMTest extends TestCase
     }
 
     /**
+     * Test attribute "is_scheduler_enabled"
+     */
+    public function testPropertyIsSchedulerEnabled()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "prepare"
      */
     public function testPropertyPrepare()
@@ -119,6 +128,24 @@ class TaskSettingsVMTest extends TestCase
      * Test attribute "upload_to_ftp"
      */
     public function testPropertyUploadToFtp()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "upload_to_s3"
+     */
+    public function testPropertyUploadToS3()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "upload_to_telegram"
+     */
+    public function testPropertyUploadToTelegram()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

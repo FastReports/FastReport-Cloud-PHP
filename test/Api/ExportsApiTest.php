@@ -110,7 +110,7 @@ class ExportsApiTest extends TestCase
     /**
      * Test case for exportFolderAndFileDeleteFiles
      *
-     * Delete folders and files.
+     * Delete folders and files from a folder or the recycle bin.
      *
      */
     public function testExportFolderAndFileDeleteFiles()
@@ -122,7 +122,7 @@ class ExportsApiTest extends TestCase
     /**
      * Test case for exportFolderAndFileGetCount
      *
-     * Get count of files and folders what contains in a specified folder.
+     * Count folders and files in a folder.
      *
      */
     public function testExportFolderAndFileGetCount()
@@ -170,7 +170,7 @@ class ExportsApiTest extends TestCase
     /**
      * Test case for exportFolderAndFileMoveFilesToBin
      *
-     * Move folders and files to bin.
+     * Move folders and files to the recycle bin.
      *
      */
     public function testExportFolderAndFileMoveFilesToBin()
@@ -194,7 +194,7 @@ class ExportsApiTest extends TestCase
     /**
      * Test case for exportFolderAndFileRecoverFiles
      *
-     * Recover folders and files from bin.
+     * Recover folders and files from the recycle bin.
      *
      */
     public function testExportFolderAndFileRecoverFiles()
@@ -288,6 +288,18 @@ class ExportsApiTest extends TestCase
     }
 
     /**
+     * Test case for exportFoldersGetMyPermissions
+     *
+     * Get user's permissions for a folder by id.
+     *
+     */
+    public function testExportFoldersGetMyPermissions()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for exportFoldersGetOrCreate
      *
      * Get specified folder.
@@ -314,7 +326,7 @@ class ExportsApiTest extends TestCase
     /**
      * Test case for exportFoldersGetRootFolder
      *
-     * Get user's root folder (without parents).
+     * Get workspace's root folder.
      *
      */
     public function testExportFoldersGetRootFolder()
@@ -326,7 +338,7 @@ class ExportsApiTest extends TestCase
     /**
      * Test case for exportFoldersMoveFolder
      *
-     * Move folder to a specified folder.
+     * Move folder into a specified folder.
      *
      */
     public function testExportFoldersMoveFolder()
@@ -422,7 +434,7 @@ class ExportsApiTest extends TestCase
     /**
      * Test case for exportsCopyFile
      *
-     * Copy file to a specified folder.
+     * Copy a file into a specified folder.
      *
      */
     public function testExportsCopyFile()
@@ -434,7 +446,7 @@ class ExportsApiTest extends TestCase
     /**
      * Test case for exportsCreateSharingKey
      *
-     * Create a new key, that can be used to share access to a file  (You need Administrate.Anon permission to create a new key).
+     * Create a new key, that can be used to share access to a file <br />  (You need Administrate.Anon permission to create a new key).
      *
      */
     public function testExportsCreateSharingKey()
@@ -462,6 +474,30 @@ class ExportsApiTest extends TestCase
      *
      */
     public function testExportsDeleteSharingKey()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for exportsGetByTaskId
+     *
+     * Get exports by specified task id.
+     *
+     */
+    public function testExportsGetByTaskId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for exportsGetByTaskMessageId
+     *
+     * Get export by specified task message id.
+     *
+     */
+    public function testExportsGetByTaskMessageId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -506,7 +542,7 @@ class ExportsApiTest extends TestCase
     /**
      * Test case for exportsGetFilesList
      *
-     * Get all files from specified folder. <br />  User with Get Entity permission can access this method. <br />  The method will returns minimal infomration about the file: <br />  id, name, size, editedTime, createdTime, tags, status, statusReason..
+     * Get files from the specified folder.
      *
      */
     public function testExportsGetFilesList()
@@ -516,9 +552,21 @@ class ExportsApiTest extends TestCase
     }
 
     /**
+     * Test case for exportsGetMyPermissions
+     *
+     * Get current user's permissions to a file.
+     *
+     */
+    public function testExportsGetMyPermissions()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for exportsGetPermissions
      *
-     * .
+     * Get all permissions from a file. <br />.
      *
      */
     public function testExportsGetPermissions()

@@ -13,6 +13,8 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**subscriptionsUpdateDefaultPermissions()**](SubscriptionsApi.md#subscriptionsUpdateDefaultPermissions) | **PUT** /api/manage/v1/Subscriptions/{subscriptionId}/defaultPermissions | Change subscription&#39;s default permissions for new entities |
 | [**subscriptionsUpdateLocale()**](SubscriptionsApi.md#subscriptionsUpdateLocale) | **PUT** /api/manage/v1/Subscriptions/{subscriptionId}/Locale | Update subscription&#39;s default locale |
 | [**subscriptionsUpdatePermissions()**](SubscriptionsApi.md#subscriptionsUpdatePermissions) | **POST** /api/manage/v1/Subscriptions/{id}/permissions | Update permissions |
+| [**subscriptionsUpdatePreviewType()**](SubscriptionsApi.md#subscriptionsUpdatePreviewType) | **PUT** /api/manage/v1/Subscriptions/{subscriptionId}/PreviewType | Update subscription&#39;s preview type |
+| [**subscriptionsUpdateSubscriptionDomains()**](SubscriptionsApi.md#subscriptionsUpdateSubscriptionDomains) | **PUT** /api/manage/v1/Subscriptions/{subscriptionId}/Domains | Update subscription&#39;s allowed domains |
 
 
 ## `subscriptionsGetDefaultPermissions()`
@@ -577,6 +579,136 @@ try {
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `subscriptionsUpdatePreviewType()`
+
+```php
+subscriptionsUpdatePreviewType($subscription_id, $update_subscription_preview_type_vm): \OpenAPI\Client\cloud\fastreport\model\SubscriptionVM
+```
+
+Update subscription's preview type
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\SubscriptionsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$subscription_id = 'subscription_id_example'; // string | id
+$update_subscription_preview_type_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionPreviewTypeVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionPreviewTypeVM | update VM
+
+try {
+    $result = $apiInstance->subscriptionsUpdatePreviewType($subscription_id, $update_subscription_preview_type_vm);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SubscriptionsApi->subscriptionsUpdatePreviewType: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| id | |
+| **update_subscription_preview_type_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionPreviewTypeVM**](../Model/UpdateSubscriptionPreviewTypeVM.md)| update VM | |
+
+### Return type
+
+[**\OpenAPI\Client\cloud\fastreport\model\SubscriptionVM**](../Model/SubscriptionVM.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `text/json`, `application/*+json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `subscriptionsUpdateSubscriptionDomains()`
+
+```php
+subscriptionsUpdateSubscriptionDomains($subscription_id, $update_subscription_domains_vm): \OpenAPI\Client\cloud\fastreport\model\SubscriptionVM
+```
+
+Update subscription's allowed domains
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\SubscriptionsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$subscription_id = 'subscription_id_example'; // string | id
+$update_subscription_domains_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionDomainsVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionDomainsVM | update VM
+
+try {
+    $result = $apiInstance->subscriptionsUpdateSubscriptionDomains($subscription_id, $update_subscription_domains_vm);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SubscriptionsApi->subscriptionsUpdateSubscriptionDomains: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **subscription_id** | **string**| id | |
+| **update_subscription_domains_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateSubscriptionDomainsVM**](../Model/UpdateSubscriptionDomainsVM.md)| update VM | |
+
+### Return type
+
+[**\OpenAPI\Client\cloud\fastreport\model\SubscriptionVM**](../Model/SubscriptionVM.md)
 
 ### Authorization
 

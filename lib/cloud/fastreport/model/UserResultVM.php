@@ -61,6 +61,7 @@ class UserResultVM extends CloudBaseVM
         'admin_permission' => '\OpenAPI\Client\cloud\fastreport\model\AdminPermission',
         'subscriptions' => 'string[]',
         'groups' => 'string[]',
+        'domains' => 'string[]',
         'provider' => 'string',
         'email' => 'string',
         'name' => 'string',
@@ -83,6 +84,7 @@ class UserResultVM extends CloudBaseVM
         'admin_permission' => null,
         'subscriptions' => null,
         'groups' => null,
+        'domains' => null,
         'provider' => null,
         'email' => null,
         'name' => null,
@@ -103,6 +105,7 @@ class UserResultVM extends CloudBaseVM
         'admin_permission' => false,
         'subscriptions' => true,
         'groups' => true,
+        'domains' => true,
         'provider' => true,
         'email' => true,
         'name' => true,
@@ -203,6 +206,7 @@ class UserResultVM extends CloudBaseVM
         'admin_permission' => 'adminPermission',
         'subscriptions' => 'subscriptions',
         'groups' => 'groups',
+        'domains' => 'domains',
         'provider' => 'provider',
         'email' => 'email',
         'name' => 'name',
@@ -223,6 +227,7 @@ class UserResultVM extends CloudBaseVM
         'admin_permission' => 'setAdminPermission',
         'subscriptions' => 'setSubscriptions',
         'groups' => 'setGroups',
+        'domains' => 'setDomains',
         'provider' => 'setProvider',
         'email' => 'setEmail',
         'name' => 'setName',
@@ -243,6 +248,7 @@ class UserResultVM extends CloudBaseVM
         'admin_permission' => 'getAdminPermission',
         'subscriptions' => 'getSubscriptions',
         'groups' => 'getGroups',
+        'domains' => 'getDomains',
         'provider' => 'getProvider',
         'email' => 'getEmail',
         'name' => 'getName',
@@ -310,6 +316,7 @@ class UserResultVM extends CloudBaseVM
         $this->setIfExists('admin_permission', $data ?? [], null);
         $this->setIfExists('subscriptions', $data ?? [], null);
         $this->setIfExists('groups', $data ?? [], null);
+        $this->setIfExists('domains', $data ?? [], null);
         $this->setIfExists('provider', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
@@ -545,6 +552,40 @@ class UserResultVM extends CloudBaseVM
             }
         }
         $this->container['groups'] = $groups;
+
+        return $this;
+    }
+
+    /**
+     * Gets domains
+     *
+     * @return string[]|null
+     */
+    public function getDomains()
+    {
+        return $this->container['domains'];
+    }
+
+    /**
+     * Sets domains
+     *
+     * @param string[]|null $domains domains
+     *
+     * @return self
+     */
+    public function setDomains($domains)
+    {
+        if (is_null($domains)) {
+            array_push($this->openAPINullablesSetToNull, 'domains');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('domains', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['domains'] = $domains;
 
         return $this;
     }

@@ -59,6 +59,7 @@ class UpdateUserSettingsVM extends CloudBaseVM
         'default_subscription' => 'string',
         'show_hidden_files_and_folders' => 'bool',
         'subscribed_notifications' => '\OpenAPI\Client\cloud\fastreport\model\AuditType[]',
+        'preview_type' => '\OpenAPI\Client\cloud\fastreport\model\PreviewType',
         't' => 'string'
     ];
 
@@ -74,6 +75,7 @@ class UpdateUserSettingsVM extends CloudBaseVM
         'default_subscription' => null,
         'show_hidden_files_and_folders' => null,
         'subscribed_notifications' => null,
+        'preview_type' => null,
         't' => null
     ];
 
@@ -87,6 +89,7 @@ class UpdateUserSettingsVM extends CloudBaseVM
         'default_subscription' => true,
         'show_hidden_files_and_folders' => true,
         'subscribed_notifications' => true,
+        'preview_type' => true,
         't' => false
     ];
 
@@ -180,6 +183,7 @@ class UpdateUserSettingsVM extends CloudBaseVM
         'default_subscription' => 'defaultSubscription',
         'show_hidden_files_and_folders' => 'showHiddenFilesAndFolders',
         'subscribed_notifications' => 'subscribedNotifications',
+        'preview_type' => 'previewType',
         't' => '$t'
     ];
 
@@ -193,6 +197,7 @@ class UpdateUserSettingsVM extends CloudBaseVM
         'default_subscription' => 'setDefaultSubscription',
         'show_hidden_files_and_folders' => 'setShowHiddenFilesAndFolders',
         'subscribed_notifications' => 'setSubscribedNotifications',
+        'preview_type' => 'setPreviewType',
         't' => 'setT'
     ];
 
@@ -206,6 +211,7 @@ class UpdateUserSettingsVM extends CloudBaseVM
         'default_subscription' => 'getDefaultSubscription',
         'show_hidden_files_and_folders' => 'getShowHiddenFilesAndFolders',
         'subscribed_notifications' => 'getSubscribedNotifications',
+        'preview_type' => 'getPreviewType',
         't' => 'getT'
     ];
 
@@ -266,6 +272,7 @@ class UpdateUserSettingsVM extends CloudBaseVM
         $this->setIfExists('default_subscription', $data ?? [], null);
         $this->setIfExists('show_hidden_files_and_folders', $data ?? [], null);
         $this->setIfExists('subscribed_notifications', $data ?? [], null);
+        $this->setIfExists('preview_type', $data ?? [], null);
         $this->setIfExists('t', $data ?? [], null);
 
         // Initialize discriminator property with the model name.
@@ -458,6 +465,40 @@ class UpdateUserSettingsVM extends CloudBaseVM
             }
         }
         $this->container['subscribed_notifications'] = $subscribed_notifications;
+
+        return $this;
+    }
+
+    /**
+     * Gets preview_type
+     *
+     * @return \OpenAPI\Client\cloud\fastreport\model\PreviewType|null
+     */
+    public function getPreviewType()
+    {
+        return $this->container['preview_type'];
+    }
+
+    /**
+     * Sets preview_type
+     *
+     * @param \OpenAPI\Client\cloud\fastreport\model\PreviewType|null $preview_type preview_type
+     *
+     * @return self
+     */
+    public function setPreviewType($preview_type)
+    {
+        if (is_null($preview_type)) {
+            array_push($this->openAPINullablesSetToNull, 'preview_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('preview_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['preview_type'] = $preview_type;
 
         return $this;
     }

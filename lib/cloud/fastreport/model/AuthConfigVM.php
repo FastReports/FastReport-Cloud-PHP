@@ -58,6 +58,7 @@ class AuthConfigVM extends CloudBaseVM
         'use_local' => 'bool',
         'use_open_id' => 'bool',
         'authority' => 'string',
+        'allow_local_sign_up' => 'bool',
         't' => 'string'
     ];
 
@@ -72,6 +73,7 @@ class AuthConfigVM extends CloudBaseVM
         'use_local' => null,
         'use_open_id' => null,
         'authority' => null,
+        'allow_local_sign_up' => null,
         't' => null
     ];
 
@@ -84,6 +86,7 @@ class AuthConfigVM extends CloudBaseVM
         'use_local' => false,
         'use_open_id' => false,
         'authority' => true,
+        'allow_local_sign_up' => false,
         't' => false
     ];
 
@@ -176,6 +179,7 @@ class AuthConfigVM extends CloudBaseVM
         'use_local' => 'useLocal',
         'use_open_id' => 'useOpenId',
         'authority' => 'authority',
+        'allow_local_sign_up' => 'allowLocalSignUp',
         't' => '$t'
     ];
 
@@ -188,6 +192,7 @@ class AuthConfigVM extends CloudBaseVM
         'use_local' => 'setUseLocal',
         'use_open_id' => 'setUseOpenId',
         'authority' => 'setAuthority',
+        'allow_local_sign_up' => 'setAllowLocalSignUp',
         't' => 'setT'
     ];
 
@@ -200,6 +205,7 @@ class AuthConfigVM extends CloudBaseVM
         'use_local' => 'getUseLocal',
         'use_open_id' => 'getUseOpenId',
         'authority' => 'getAuthority',
+        'allow_local_sign_up' => 'getAllowLocalSignUp',
         't' => 'getT'
     ];
 
@@ -259,6 +265,7 @@ class AuthConfigVM extends CloudBaseVM
         $this->setIfExists('use_local', $data ?? [], null);
         $this->setIfExists('use_open_id', $data ?? [], null);
         $this->setIfExists('authority', $data ?? [], null);
+        $this->setIfExists('allow_local_sign_up', $data ?? [], null);
         $this->setIfExists('t', $data ?? [], null);
 
         // Initialize discriminator property with the model name.
@@ -394,6 +401,33 @@ class AuthConfigVM extends CloudBaseVM
             }
         }
         $this->container['authority'] = $authority;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_local_sign_up
+     *
+     * @return bool|null
+     */
+    public function getAllowLocalSignUp()
+    {
+        return $this->container['allow_local_sign_up'];
+    }
+
+    /**
+     * Sets allow_local_sign_up
+     *
+     * @param bool|null $allow_local_sign_up allow_local_sign_up
+     *
+     * @return self
+     */
+    public function setAllowLocalSignUp($allow_local_sign_up)
+    {
+        if (is_null($allow_local_sign_up)) {
+            throw new \InvalidArgumentException('non-nullable allow_local_sign_up cannot be null');
+        }
+        $this->container['allow_local_sign_up'] = $allow_local_sign_up;
 
         return $this;
     }

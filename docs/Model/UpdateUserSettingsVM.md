@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **default_subscription** | **string** |  | [optional]
 **show_hidden_files_and_folders** | **bool** |  | [optional]
 **subscribed_notifications** | [**\OpenAPI\Client\cloud\fastreport\model\AuditType[]**](AuditType.md) |  | [optional]
+**preview_type** | [**\OpenAPI\Client\cloud\fastreport\model\PreviewType**](PreviewType.md) |  | [optional]
 **t** | **string** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

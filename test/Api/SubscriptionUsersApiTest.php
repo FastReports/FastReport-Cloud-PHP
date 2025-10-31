@@ -122,7 +122,7 @@ class SubscriptionUsersApiTest extends TestCase
     /**
      * Test case for subscriptionUsersRemoveUser
      *
-     * Delete a user from the subscription,  the added users will be displayed in the list of users of the subscription,  and these users will also have an active subscription..
+     * Delete a user from the subscription,.
      *
      */
     public function testSubscriptionUsersRemoveUser()

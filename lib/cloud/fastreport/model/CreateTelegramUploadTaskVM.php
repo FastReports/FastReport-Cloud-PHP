@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplateContentVM
+ * CreateTelegramUploadTaskVM
  *
  * PHP version 7.4
  *
@@ -30,7 +30,7 @@ namespace OpenAPI\Client\cloud\fastreport\model;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * TemplateContentVM Class Doc Comment
+ * CreateTelegramUploadTaskVM Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -38,7 +38,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TemplateContentVM extends CloudBaseVM
+class CreateTelegramUploadTaskVM extends CreateTransportTaskBaseVM
 {
     public const DISCRIMINATOR = 't';
 
@@ -47,7 +47,7 @@ class TemplateContentVM extends CloudBaseVM
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TemplateContentVM';
+    protected static $openAPIModelName = 'CreateTelegramUploadTaskVM';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,7 +55,10 @@ class TemplateContentVM extends CloudBaseVM
       * @var string[]
       */
     protected static $openAPITypes = [
-        'content' => 'string',
+        'bot_token' => 'string',
+        'contacts' => 'string[]',
+        'text' => 'string',
+        'parse_mode' => 'string',
         't' => 'string'
     ];
 
@@ -67,7 +70,10 @@ class TemplateContentVM extends CloudBaseVM
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'content' => 'byte',
+        'bot_token' => null,
+        'contacts' => null,
+        'text' => null,
+        'parse_mode' => null,
         't' => null
     ];
 
@@ -77,7 +83,10 @@ class TemplateContentVM extends CloudBaseVM
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'content' => true,
+        'bot_token' => true,
+        'contacts' => true,
+        'text' => true,
+        'parse_mode' => true,
         't' => false
     ];
 
@@ -167,7 +176,10 @@ class TemplateContentVM extends CloudBaseVM
      * @var string[]
      */
     protected static $attributeMap = [
-        'content' => 'content',
+        'bot_token' => 'botToken',
+        'contacts' => 'contacts',
+        'text' => 'text',
+        'parse_mode' => 'parseMode',
         't' => '$t'
     ];
 
@@ -177,7 +189,10 @@ class TemplateContentVM extends CloudBaseVM
      * @var string[]
      */
     protected static $setters = [
-        'content' => 'setContent',
+        'bot_token' => 'setBotToken',
+        'contacts' => 'setContacts',
+        'text' => 'setText',
+        'parse_mode' => 'setParseMode',
         't' => 'setT'
     ];
 
@@ -187,7 +202,10 @@ class TemplateContentVM extends CloudBaseVM
      * @var string[]
      */
     protected static $getters = [
-        'content' => 'getContent',
+        'bot_token' => 'getBotToken',
+        'contacts' => 'getContacts',
+        'text' => 'getText',
+        'parse_mode' => 'getParseMode',
         't' => 'getT'
     ];
 
@@ -244,7 +262,10 @@ class TemplateContentVM extends CloudBaseVM
     {
         parent::__construct($data);
 
-        $this->setIfExists('content', $data ?? [], null);
+        $this->setIfExists('bot_token', $data ?? [], null);
+        $this->setIfExists('contacts', $data ?? [], null);
+        $this->setIfExists('text', $data ?? [], null);
+        $this->setIfExists('parse_mode', $data ?? [], null);
         $this->setIfExists('t', $data ?? [], null);
 
         // Initialize discriminator property with the model name.
@@ -278,6 +299,26 @@ class TemplateContentVM extends CloudBaseVM
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if (!is_null($this->container['bot_token']) && (mb_strlen($this->container['bot_token']) > 400)) {
+            $invalidProperties[] = "invalid value for 'bot_token', the character length must be smaller than or equal to 400.";
+        }
+
+        if (!is_null($this->container['bot_token']) && (mb_strlen($this->container['bot_token']) < 1)) {
+            $invalidProperties[] = "invalid value for 'bot_token', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['contacts']) && (count($this->container['contacts']) > 200)) {
+            $invalidProperties[] = "invalid value for 'contacts', number of items must be less than or equal to 200.";
+        }
+
+        if (!is_null($this->container['text']) && (mb_strlen($this->container['text']) > 384000)) {
+            $invalidProperties[] = "invalid value for 'text', the character length must be smaller than or equal to 384000.";
+        }
+
+        if (!is_null($this->container['text']) && (mb_strlen($this->container['text']) < 0)) {
+            $invalidProperties[] = "invalid value for 'text', the character length must be bigger than or equal to 0.";
+        }
+
         if ($this->container['t'] === null) {
             $invalidProperties[] = "'t' can't be null";
         }
@@ -297,35 +338,155 @@ class TemplateContentVM extends CloudBaseVM
 
 
     /**
-     * Gets content
+     * Gets bot_token
      *
      * @return string|null
      */
-    public function getContent()
+    public function getBotToken()
     {
-        return $this->container['content'];
+        return $this->container['bot_token'];
     }
 
     /**
-     * Sets content
+     * Sets bot_token
      *
-     * @param string|null $content content
+     * @param string|null $bot_token bot_token
      *
      * @return self
      */
-    public function setContent($content)
+    public function setBotToken($bot_token)
     {
-        if (is_null($content)) {
-            array_push($this->openAPINullablesSetToNull, 'content');
+        if (is_null($bot_token)) {
+            array_push($this->openAPINullablesSetToNull, 'bot_token');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('content', $nullablesSetToNull);
+            $index = array_search('bot_token', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['content'] = $content;
+        if (!is_null($bot_token) && (mb_strlen($bot_token) > 400)) {
+            throw new \InvalidArgumentException('invalid length for $bot_token when calling CreateTelegramUploadTaskVM., must be smaller than or equal to 400.');
+        }
+        if (!is_null($bot_token) && (mb_strlen($bot_token) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $bot_token when calling CreateTelegramUploadTaskVM., must be bigger than or equal to 1.');
+        }
+
+        $this->container['bot_token'] = $bot_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets contacts
+     *
+     * @return string[]|null
+     */
+    public function getContacts()
+    {
+        return $this->container['contacts'];
+    }
+
+    /**
+     * Sets contacts
+     *
+     * @param string[]|null $contacts contacts
+     *
+     * @return self
+     */
+    public function setContacts($contacts)
+    {
+        if (is_null($contacts)) {
+            array_push($this->openAPINullablesSetToNull, 'contacts');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('contacts', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($contacts) && (count($contacts) > 200)) {
+            throw new \InvalidArgumentException('invalid value for $contacts when calling CreateTelegramUploadTaskVM., number of items must be less than or equal to 200.');
+        }
+        $this->container['contacts'] = $contacts;
+
+        return $this;
+    }
+
+    /**
+     * Gets text
+     *
+     * @return string|null
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string|null $text text
+     *
+     * @return self
+     */
+    public function setText($text)
+    {
+        if (is_null($text)) {
+            array_push($this->openAPINullablesSetToNull, 'text');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('text', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($text) && (mb_strlen($text) > 384000)) {
+            throw new \InvalidArgumentException('invalid length for $text when calling CreateTelegramUploadTaskVM., must be smaller than or equal to 384000.');
+        }
+        if (!is_null($text) && (mb_strlen($text) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $text when calling CreateTelegramUploadTaskVM., must be bigger than or equal to 0.');
+        }
+
+        $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Gets parse_mode
+     *
+     * @return string|null
+     */
+    public function getParseMode()
+    {
+        return $this->container['parse_mode'];
+    }
+
+    /**
+     * Sets parse_mode
+     *
+     * @param string|null $parse_mode parse_mode
+     *
+     * @return self
+     */
+    public function setParseMode($parse_mode)
+    {
+        if (is_null($parse_mode)) {
+            array_push($this->openAPINullablesSetToNull, 'parse_mode');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('parse_mode', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['parse_mode'] = $parse_mode;
 
         return $this;
     }

@@ -85,6 +85,9 @@ class TasksApi
         'tasksGetList' => [
             'application/json',
         ],
+        'tasksGetMyPermissions' => [
+            'application/json',
+        ],
         'tasksGetPermissions' => [
             'application/json',
         ],
@@ -162,7 +165,7 @@ class TasksApi
      *
      * Create a new task
      *
-     * @param  \OpenAPI\Client\cloud\fastreport\model\CreateTaskBaseVM $create_task_base_vm task&#39;s view model. You have to specify task type (type: \&quot;ExportTemplate\&quot;) (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\CreateTaskBaseVM $create_task_base_vm task&#39;s view model. You have to specify task type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on the first place (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksCreateTask'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -180,7 +183,7 @@ class TasksApi
      *
      * Create a new task
      *
-     * @param  \OpenAPI\Client\cloud\fastreport\model\CreateTaskBaseVM $create_task_base_vm task&#39;s view model. You have to specify task type (type: \&quot;ExportTemplate\&quot;) (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\CreateTaskBaseVM $create_task_base_vm task&#39;s view model. You have to specify task type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on the first place (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksCreateTask'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -444,7 +447,7 @@ class TasksApi
      *
      * Create a new task
      *
-     * @param  \OpenAPI\Client\cloud\fastreport\model\CreateTaskBaseVM $create_task_base_vm task&#39;s view model. You have to specify task type (type: \&quot;ExportTemplate\&quot;) (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\CreateTaskBaseVM $create_task_base_vm task&#39;s view model. You have to specify task type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on the first place (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksCreateTask'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -465,7 +468,7 @@ class TasksApi
      *
      * Create a new task
      *
-     * @param  \OpenAPI\Client\cloud\fastreport\model\CreateTaskBaseVM $create_task_base_vm task&#39;s view model. You have to specify task type (type: \&quot;ExportTemplate\&quot;) (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\CreateTaskBaseVM $create_task_base_vm task&#39;s view model. You have to specify task type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on the first place (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksCreateTask'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -515,7 +518,7 @@ class TasksApi
     /**
      * Create request for operation 'tasksCreateTask'
      *
-     * @param  \OpenAPI\Client\cloud\fastreport\model\CreateTaskBaseVM $create_task_base_vm task&#39;s view model. You have to specify task type (type: \&quot;ExportTemplate\&quot;) (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\CreateTaskBaseVM $create_task_base_vm task&#39;s view model. You have to specify task type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on the first place (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksCreateTask'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1342,17 +1345,19 @@ class TasksApi
      *
      * @param  int $skip number of tasks, that have to be skipped (optional, default to 0)
      * @param  int $take number of tasks, that have to be returned (optional, default to 10)
+     * @param  bool $use_projection use projection with only id and name (optional, default to false)
      * @param  string $subscription_id subscription id (optional)
      * @param  string $search_pattern  (optional, default to '')
+     * @param  TaskType $task_type bit flag for types (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksGetList'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\cloud\fastreport\model\TasksVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails
      */
-    public function tasksGetList($skip = 0, $take = 10, $subscription_id = null, $search_pattern = '', string $contentType = self::contentTypes['tasksGetList'][0])
+    public function tasksGetList($skip = 0, $take = 10, $use_projection = false, $subscription_id = null, $search_pattern = '', $task_type = null, string $contentType = self::contentTypes['tasksGetList'][0])
     {
-        list($response) = $this->tasksGetListWithHttpInfo($skip, $take, $subscription_id, $search_pattern, $contentType);
+        list($response) = $this->tasksGetListWithHttpInfo($skip, $take, $use_projection, $subscription_id, $search_pattern, $task_type, $contentType);
         return $response;
     }
 
@@ -1363,17 +1368,19 @@ class TasksApi
      *
      * @param  int $skip number of tasks, that have to be skipped (optional, default to 0)
      * @param  int $take number of tasks, that have to be returned (optional, default to 10)
+     * @param  bool $use_projection use projection with only id and name (optional, default to false)
      * @param  string $subscription_id subscription id (optional)
      * @param  string $search_pattern  (optional, default to '')
+     * @param  TaskType $task_type bit flag for types (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksGetList'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\cloud\fastreport\model\TasksVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function tasksGetListWithHttpInfo($skip = 0, $take = 10, $subscription_id = null, $search_pattern = '', string $contentType = self::contentTypes['tasksGetList'][0])
+    public function tasksGetListWithHttpInfo($skip = 0, $take = 10, $use_projection = false, $subscription_id = null, $search_pattern = '', $task_type = null, string $contentType = self::contentTypes['tasksGetList'][0])
     {
-        $request = $this->tasksGetListRequest($skip, $take, $subscription_id, $search_pattern, $contentType);
+        $request = $this->tasksGetListRequest($skip, $take, $use_projection, $subscription_id, $search_pattern, $task_type, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1630,16 +1637,18 @@ class TasksApi
      *
      * @param  int $skip number of tasks, that have to be skipped (optional, default to 0)
      * @param  int $take number of tasks, that have to be returned (optional, default to 10)
+     * @param  bool $use_projection use projection with only id and name (optional, default to false)
      * @param  string $subscription_id subscription id (optional)
      * @param  string $search_pattern  (optional, default to '')
+     * @param  TaskType $task_type bit flag for types (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksGetList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function tasksGetListAsync($skip = 0, $take = 10, $subscription_id = null, $search_pattern = '', string $contentType = self::contentTypes['tasksGetList'][0])
+    public function tasksGetListAsync($skip = 0, $take = 10, $use_projection = false, $subscription_id = null, $search_pattern = '', $task_type = null, string $contentType = self::contentTypes['tasksGetList'][0])
     {
-        return $this->tasksGetListAsyncWithHttpInfo($skip, $take, $subscription_id, $search_pattern, $contentType)
+        return $this->tasksGetListAsyncWithHttpInfo($skip, $take, $use_projection, $subscription_id, $search_pattern, $task_type, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1654,17 +1663,19 @@ class TasksApi
      *
      * @param  int $skip number of tasks, that have to be skipped (optional, default to 0)
      * @param  int $take number of tasks, that have to be returned (optional, default to 10)
+     * @param  bool $use_projection use projection with only id and name (optional, default to false)
      * @param  string $subscription_id subscription id (optional)
      * @param  string $search_pattern  (optional, default to '')
+     * @param  TaskType $task_type bit flag for types (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksGetList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function tasksGetListAsyncWithHttpInfo($skip = 0, $take = 10, $subscription_id = null, $search_pattern = '', string $contentType = self::contentTypes['tasksGetList'][0])
+    public function tasksGetListAsyncWithHttpInfo($skip = 0, $take = 10, $use_projection = false, $subscription_id = null, $search_pattern = '', $task_type = null, string $contentType = self::contentTypes['tasksGetList'][0])
     {
         $returnType = '\OpenAPI\Client\cloud\fastreport\model\TasksVM';
-        $request = $this->tasksGetListRequest($skip, $take, $subscription_id, $search_pattern, $contentType);
+        $request = $this->tasksGetListRequest($skip, $take, $use_projection, $subscription_id, $search_pattern, $task_type, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1707,14 +1718,16 @@ class TasksApi
      *
      * @param  int $skip number of tasks, that have to be skipped (optional, default to 0)
      * @param  int $take number of tasks, that have to be returned (optional, default to 10)
+     * @param  bool $use_projection use projection with only id and name (optional, default to false)
      * @param  string $subscription_id subscription id (optional)
      * @param  string $search_pattern  (optional, default to '')
+     * @param  TaskType $task_type bit flag for types (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksGetList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function tasksGetListRequest($skip = 0, $take = 10, $subscription_id = null, $search_pattern = '', string $contentType = self::contentTypes['tasksGetList'][0])
+    public function tasksGetListRequest($skip = 0, $take = 10, $use_projection = false, $subscription_id = null, $search_pattern = '', $task_type = null, string $contentType = self::contentTypes['tasksGetList'][0])
     {
 
         if ($skip !== null && $skip > 2147483647) {
@@ -1731,10 +1744,12 @@ class TasksApi
             throw new \InvalidArgumentException('invalid value for "$take" when calling TasksApi.tasksGetList, must be bigger than or equal to 1.');
         }
         
+
         if ($subscription_id !== null && !preg_match("/(^$)|(^[A-Fa-f0-9]{24}$)/", $subscription_id)) {
             throw new \InvalidArgumentException("invalid value for \"subscription_id\" when calling TasksApi.tasksGetList, must conform to the pattern /(^$)|(^[A-Fa-f0-9]{24}$)/.");
         }
         
+
 
 
         $resourcePath = '/api/tasks/v1/Tasks';
@@ -1764,6 +1779,15 @@ class TasksApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $use_projection,
+            'useProjection', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $subscription_id,
             'subscriptionId', // param base name
             'string', // openApiType
@@ -1780,8 +1804,405 @@ class TasksApi
             true, // explode
             false // required
         ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $task_type,
+            'taskType', // param base name
+            'TaskType', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation tasksGetMyPermissions
+     *
+     * Get current user&#39;s permissions to Task
+     *
+     * @param  string $id task id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksGetMyPermissions'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\cloud\fastreport\model\TaskPermissionCRUDVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails
+     */
+    public function tasksGetMyPermissions($id, string $contentType = self::contentTypes['tasksGetMyPermissions'][0])
+    {
+        list($response) = $this->tasksGetMyPermissionsWithHttpInfo($id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation tasksGetMyPermissionsWithHttpInfo
+     *
+     * Get current user&#39;s permissions to Task
+     *
+     * @param  string $id task id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksGetMyPermissions'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\cloud\fastreport\model\TaskPermissionCRUDVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function tasksGetMyPermissionsWithHttpInfo($id, string $contentType = self::contentTypes['tasksGetMyPermissions'][0])
+    {
+        $request = $this->tasksGetMyPermissionsRequest($id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\TaskPermissionCRUDVM' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\TaskPermissionCRUDVM' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\TaskPermissionCRUDVM', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\cloud\fastreport\model\TaskPermissionCRUDVM';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\TaskPermissionCRUDVM',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation tasksGetMyPermissionsAsync
+     *
+     * Get current user&#39;s permissions to Task
+     *
+     * @param  string $id task id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksGetMyPermissions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function tasksGetMyPermissionsAsync($id, string $contentType = self::contentTypes['tasksGetMyPermissions'][0])
+    {
+        return $this->tasksGetMyPermissionsAsyncWithHttpInfo($id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation tasksGetMyPermissionsAsyncWithHttpInfo
+     *
+     * Get current user&#39;s permissions to Task
+     *
+     * @param  string $id task id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksGetMyPermissions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function tasksGetMyPermissionsAsyncWithHttpInfo($id, string $contentType = self::contentTypes['tasksGetMyPermissions'][0])
+    {
+        $returnType = '\OpenAPI\Client\cloud\fastreport\model\TaskPermissionCRUDVM';
+        $request = $this->tasksGetMyPermissionsRequest($id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'tasksGetMyPermissions'
+     *
+     * @param  string $id task id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksGetMyPermissions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function tasksGetMyPermissionsRequest($id, string $contentType = self::contentTypes['tasksGetMyPermissions'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling tasksGetMyPermissions'
+            );
+        }
+        if (!preg_match("/^[A-Fa-f0-9]{24}$/", $id)) {
+            throw new \InvalidArgumentException("invalid value for \"id\" when calling TasksApi.tasksGetMyPermissions, must conform to the pattern /^[A-Fa-f0-9]{24}$/.");
+        }
+        
+
+        $resourcePath = '/api/tasks/v1/Tasks/{id}/mypermissions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2787,16 +3208,17 @@ class TasksApi
      *
      * Run a task from request body
      *
-     * @param  \OpenAPI\Client\cloud\fastreport\model\RunTaskBaseVM $run_task_base_vm task&#39;s view model (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\RunTaskBaseVM $run_task_base_vm task&#39;s view model. You have to specify task type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on the first place (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksRunTask'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \OpenAPI\Client\cloud\fastreport\model\TaskMessageIdVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails
      */
     public function tasksRunTask($run_task_base_vm = null, string $contentType = self::contentTypes['tasksRunTask'][0])
     {
-        $this->tasksRunTaskWithHttpInfo($run_task_base_vm, $contentType);
+        list($response) = $this->tasksRunTaskWithHttpInfo($run_task_base_vm, $contentType);
+        return $response;
     }
 
     /**
@@ -2804,12 +3226,12 @@ class TasksApi
      *
      * Run a task from request body
      *
-     * @param  \OpenAPI\Client\cloud\fastreport\model\RunTaskBaseVM $run_task_base_vm task&#39;s view model (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\RunTaskBaseVM $run_task_base_vm task&#39;s view model. You have to specify task type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on the first place (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksRunTask'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\cloud\fastreport\model\TaskMessageIdVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function tasksRunTaskWithHttpInfo($run_task_base_vm = null, string $contentType = self::contentTypes['tasksRunTask'][0])
     {
@@ -2850,10 +3272,182 @@ class TasksApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\TaskMessageIdVM' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\TaskMessageIdVM' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\TaskMessageIdVM', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 402:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\cloud\fastreport\model\TaskMessageIdVM';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\TaskMessageIdVM',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -2896,7 +3490,7 @@ class TasksApi
      *
      * Run a task from request body
      *
-     * @param  \OpenAPI\Client\cloud\fastreport\model\RunTaskBaseVM $run_task_base_vm task&#39;s view model (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\RunTaskBaseVM $run_task_base_vm task&#39;s view model. You have to specify task type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on the first place (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksRunTask'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2917,7 +3511,7 @@ class TasksApi
      *
      * Run a task from request body
      *
-     * @param  \OpenAPI\Client\cloud\fastreport\model\RunTaskBaseVM $run_task_base_vm task&#39;s view model (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\RunTaskBaseVM $run_task_base_vm task&#39;s view model. You have to specify task type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on the first place (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksRunTask'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2925,14 +3519,27 @@ class TasksApi
      */
     public function tasksRunTaskAsyncWithHttpInfo($run_task_base_vm = null, string $contentType = self::contentTypes['tasksRunTask'][0])
     {
-        $returnType = '';
+        $returnType = '\OpenAPI\Client\cloud\fastreport\model\TaskMessageIdVM';
         $request = $this->tasksRunTaskRequest($run_task_base_vm, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -2954,7 +3561,7 @@ class TasksApi
     /**
      * Create request for operation 'tasksRunTask'
      *
-     * @param  \OpenAPI\Client\cloud\fastreport\model\RunTaskBaseVM $run_task_base_vm task&#39;s view model (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\RunTaskBaseVM $run_task_base_vm task&#39;s view model. You have to specify task type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on the first place (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksRunTask'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3054,11 +3661,12 @@ class TasksApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \OpenAPI\Client\cloud\fastreport\model\TaskMessageIdVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails
      */
     public function tasksRunTaskById($task_id, string $contentType = self::contentTypes['tasksRunTaskById'][0])
     {
-        $this->tasksRunTaskByIdWithHttpInfo($task_id, $contentType);
+        list($response) = $this->tasksRunTaskByIdWithHttpInfo($task_id, $contentType);
+        return $response;
     }
 
     /**
@@ -3071,7 +3679,7 @@ class TasksApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\cloud\fastreport\model\TaskMessageIdVM|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails|\OpenAPI\Client\cloud\fastreport\model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function tasksRunTaskByIdWithHttpInfo($task_id, string $contentType = self::contentTypes['tasksRunTaskById'][0])
     {
@@ -3112,10 +3720,182 @@ class TasksApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\TaskMessageIdVM' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\TaskMessageIdVM' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\TaskMessageIdVM', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 402:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\cloud\fastreport\model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\cloud\fastreport\model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\cloud\fastreport\model\TaskMessageIdVM';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\cloud\fastreport\model\TaskMessageIdVM',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -3187,14 +3967,27 @@ class TasksApi
      */
     public function tasksRunTaskByIdAsyncWithHttpInfo($task_id, string $contentType = self::contentTypes['tasksRunTaskById'][0])
     {
-        $returnType = '';
+        $returnType = '\OpenAPI\Client\cloud\fastreport\model\TaskMessageIdVM';
         $request = $this->tasksRunTaskByIdRequest($task_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -3322,7 +4115,7 @@ class TasksApi
      * Update permissions
      *
      * @param  string $id task id (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateTaskPermissionsVM $update_task_permissions_vm new permissions (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateTaskPermissionsVM $update_task_permissions_vm new permissions. You have to specify VM type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on first place (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksUpdatePermissions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3340,7 +4133,7 @@ class TasksApi
      * Update permissions
      *
      * @param  string $id task id (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateTaskPermissionsVM $update_task_permissions_vm new permissions (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateTaskPermissionsVM $update_task_permissions_vm new permissions. You have to specify VM type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on first place (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksUpdatePermissions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3433,7 +4226,7 @@ class TasksApi
      * Update permissions
      *
      * @param  string $id task id (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateTaskPermissionsVM $update_task_permissions_vm new permissions (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateTaskPermissionsVM $update_task_permissions_vm new permissions. You have to specify VM type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on first place (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksUpdatePermissions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3455,7 +4248,7 @@ class TasksApi
      * Update permissions
      *
      * @param  string $id task id (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateTaskPermissionsVM $update_task_permissions_vm new permissions (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateTaskPermissionsVM $update_task_permissions_vm new permissions. You have to specify VM type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on first place (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksUpdatePermissions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3493,7 +4286,7 @@ class TasksApi
      * Create request for operation 'tasksUpdatePermissions'
      *
      * @param  string $id task id (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateTaskPermissionsVM $update_task_permissions_vm new permissions (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateTaskPermissionsVM $update_task_permissions_vm new permissions. You have to specify VM type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on first place (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksUpdatePermissions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3607,7 +4400,7 @@ class TasksApi
      * Update a task
      *
      * @param  string $task_id updating task id (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateTaskBaseVM $update_task_base_vm task&#39;s view model. You have to specify task type (type: \&quot;ExportTemplate\&quot;) (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateTaskBaseVM $update_task_base_vm task&#39;s view model. You have to specify task type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on first place (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksUpdateTask'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3626,7 +4419,7 @@ class TasksApi
      * Update a task
      *
      * @param  string $task_id updating task id (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateTaskBaseVM $update_task_base_vm task&#39;s view model. You have to specify task type (type: \&quot;ExportTemplate\&quot;) (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateTaskBaseVM $update_task_base_vm task&#39;s view model. You have to specify task type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on first place (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksUpdateTask'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3891,7 +4684,7 @@ class TasksApi
      * Update a task
      *
      * @param  string $task_id updating task id (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateTaskBaseVM $update_task_base_vm task&#39;s view model. You have to specify task type (type: \&quot;ExportTemplate\&quot;) (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateTaskBaseVM $update_task_base_vm task&#39;s view model. You have to specify task type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on first place (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksUpdateTask'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3913,7 +4706,7 @@ class TasksApi
      * Update a task
      *
      * @param  string $task_id updating task id (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateTaskBaseVM $update_task_base_vm task&#39;s view model. You have to specify task type (type: \&quot;ExportTemplate\&quot;) (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateTaskBaseVM $update_task_base_vm task&#39;s view model. You have to specify task type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on first place (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksUpdateTask'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3964,7 +4757,7 @@ class TasksApi
      * Create request for operation 'tasksUpdateTask'
      *
      * @param  string $task_id updating task id (required)
-     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateTaskBaseVM $update_task_base_vm task&#39;s view model. You have to specify task type (type: \&quot;ExportTemplate\&quot;) (optional)
+     * @param  \OpenAPI\Client\cloud\fastreport\model\UpdateTaskBaseVM $update_task_base_vm task&#39;s view model. You have to specify task type by placing parameter \&quot;$t\&quot;: \&quot;Vm name\&quot;,              this parameters always must be on first place (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tasksUpdateTask'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

@@ -12,7 +12,9 @@ Name | Type | Description | Notes
 **templates_folder** | [**\OpenAPI\Client\cloud\fastreport\model\SubscriptionFolder**](SubscriptionFolder.md) |  | [optional]
 **reports_folder** | [**\OpenAPI\Client\cloud\fastreport\model\SubscriptionFolder**](SubscriptionFolder.md) |  | [optional]
 **exports_folder** | [**\OpenAPI\Client\cloud\fastreport\model\SubscriptionFolder**](SubscriptionFolder.md) |  | [optional]
+**preview_type** | [**\OpenAPI\Client\cloud\fastreport\model\PreviewType**](PreviewType.md) |  | [optional]
 **tags** | **string[]** |  | [optional]
+**domains** | **string[]** |  | [optional]
 **t** | **string** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

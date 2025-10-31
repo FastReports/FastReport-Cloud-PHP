@@ -57,6 +57,8 @@ class ReportVM extends FileVM
     protected static $openAPITypes = [
         'template_id' => 'string',
         'report_info' => '\OpenAPI\Client\cloud\fastreport\model\ReportInfo',
+        'task_id' => 'string',
+        'task_message_id' => 'string',
         't' => 'string'
     ];
 
@@ -70,6 +72,8 @@ class ReportVM extends FileVM
     protected static $openAPIFormats = [
         'template_id' => null,
         'report_info' => null,
+        'task_id' => null,
+        'task_message_id' => null,
         't' => null
     ];
 
@@ -81,6 +85,8 @@ class ReportVM extends FileVM
     protected static array $openAPINullables = [
         'template_id' => true,
         'report_info' => false,
+        'task_id' => true,
+        'task_message_id' => true,
         't' => false
     ];
 
@@ -172,6 +178,8 @@ class ReportVM extends FileVM
     protected static $attributeMap = [
         'template_id' => 'templateId',
         'report_info' => 'reportInfo',
+        'task_id' => 'taskId',
+        'task_message_id' => 'taskMessageId',
         't' => '$t'
     ];
 
@@ -183,6 +191,8 @@ class ReportVM extends FileVM
     protected static $setters = [
         'template_id' => 'setTemplateId',
         'report_info' => 'setReportInfo',
+        'task_id' => 'setTaskId',
+        'task_message_id' => 'setTaskMessageId',
         't' => 'setT'
     ];
 
@@ -194,6 +204,8 @@ class ReportVM extends FileVM
     protected static $getters = [
         'template_id' => 'getTemplateId',
         'report_info' => 'getReportInfo',
+        'task_id' => 'getTaskId',
+        'task_message_id' => 'getTaskMessageId',
         't' => 'getT'
     ];
 
@@ -252,6 +264,8 @@ class ReportVM extends FileVM
 
         $this->setIfExists('template_id', $data ?? [], null);
         $this->setIfExists('report_info', $data ?? [], null);
+        $this->setIfExists('task_id', $data ?? [], null);
+        $this->setIfExists('task_message_id', $data ?? [], null);
         $this->setIfExists('t', $data ?? [], null);
 
         // Initialize discriminator property with the model name.
@@ -360,6 +374,74 @@ class ReportVM extends FileVM
             throw new \InvalidArgumentException('non-nullable report_info cannot be null');
         }
         $this->container['report_info'] = $report_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_id
+     *
+     * @return string|null
+     */
+    public function getTaskId()
+    {
+        return $this->container['task_id'];
+    }
+
+    /**
+     * Sets task_id
+     *
+     * @param string|null $task_id task_id
+     *
+     * @return self
+     */
+    public function setTaskId($task_id)
+    {
+        if (is_null($task_id)) {
+            array_push($this->openAPINullablesSetToNull, 'task_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('task_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['task_id'] = $task_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_message_id
+     *
+     * @return string|null
+     */
+    public function getTaskMessageId()
+    {
+        return $this->container['task_message_id'];
+    }
+
+    /**
+     * Sets task_message_id
+     *
+     * @param string|null $task_message_id task_message_id
+     *
+     * @return self
+     */
+    public function setTaskMessageId($task_message_id)
+    {
+        if (is_null($task_message_id)) {
+            array_push($this->openAPINullablesSetToNull, 'task_message_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('task_message_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['task_message_id'] = $task_message_id;
 
         return $this;
     }

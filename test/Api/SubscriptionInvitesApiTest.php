@@ -74,7 +74,7 @@ class SubscriptionInvitesApiTest extends TestCase
     /**
      * Test case for subscriptionInvitesAcceptInvite
      *
-     * Add a user to the subscription using invite,  the added users will be displayed in the list of users of the subscription,  and these users will also have an active subscription..
+     * Add the current user to the subscription using invite,.
      *
      */
     public function testSubscriptionInvitesAcceptInvite()

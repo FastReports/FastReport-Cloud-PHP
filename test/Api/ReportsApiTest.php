@@ -110,7 +110,7 @@ class ReportsApiTest extends TestCase
     /**
      * Test case for reportFolderAndFileDeleteFiles
      *
-     * Delete folders and files.
+     * Delete folders and files from a folder or the recycle bin.
      *
      */
     public function testReportFolderAndFileDeleteFiles()
@@ -122,7 +122,7 @@ class ReportsApiTest extends TestCase
     /**
      * Test case for reportFolderAndFileGetCount
      *
-     * Get count of files and folders what contains in a specified folder.
+     * Count folders and files in a folder.
      *
      */
     public function testReportFolderAndFileGetCount()
@@ -170,7 +170,7 @@ class ReportsApiTest extends TestCase
     /**
      * Test case for reportFolderAndFileMoveFilesToBin
      *
-     * Move folders and files to bin.
+     * Move folders and files to the recycle bin.
      *
      */
     public function testReportFolderAndFileMoveFilesToBin()
@@ -194,7 +194,7 @@ class ReportsApiTest extends TestCase
     /**
      * Test case for reportFolderAndFileRecoverFiles
      *
-     * Recover folders and files from bin.
+     * Recover folders and files from the recycle bin.
      *
      */
     public function testReportFolderAndFileRecoverFiles()
@@ -300,6 +300,18 @@ class ReportsApiTest extends TestCase
     }
 
     /**
+     * Test case for reportFoldersGetMyPermissions
+     *
+     * Get user's permissions for a folder by id.
+     *
+     */
+    public function testReportFoldersGetMyPermissions()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for reportFoldersGetOrCreate
      *
      * Get specified folder.
@@ -326,7 +338,7 @@ class ReportsApiTest extends TestCase
     /**
      * Test case for reportFoldersGetRootFolder
      *
-     * Get user's root folder (without parents).
+     * Get workspace's root folder.
      *
      */
     public function testReportFoldersGetRootFolder()
@@ -338,7 +350,7 @@ class ReportsApiTest extends TestCase
     /**
      * Test case for reportFoldersMoveFolder
      *
-     * Move folder to a specified folder.
+     * Move folder into a specified folder.
      *
      */
     public function testReportFoldersMoveFolder()
@@ -434,7 +446,7 @@ class ReportsApiTest extends TestCase
     /**
      * Test case for reportsCopyFile
      *
-     * Copy file to a specified folder.
+     * Copy a file into a specified folder.
      *
      */
     public function testReportsCopyFile()
@@ -446,7 +458,7 @@ class ReportsApiTest extends TestCase
     /**
      * Test case for reportsCreateSharingKey
      *
-     * Create a new key, that can be used to share access to a file  (You need Administrate.Anon permission to create a new key).
+     * Create a new key, that can be used to share access to a file <br />  (You need Administrate.Anon permission to create a new key).
      *
      */
     public function testReportsCreateSharingKey()
@@ -492,6 +504,30 @@ class ReportsApiTest extends TestCase
     }
 
     /**
+     * Test case for reportsGetByTaskId
+     *
+     * Get reports by specified task id.
+     *
+     */
+    public function testReportsGetByTaskId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for reportsGetByTaskMessageId
+     *
+     * Get report by specified task message id.
+     *
+     */
+    public function testReportsGetByTaskMessageId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for reportsGetFile
      *
      * Get specified file.
@@ -530,7 +566,7 @@ class ReportsApiTest extends TestCase
     /**
      * Test case for reportsGetFilesList
      *
-     * Get all files from specified folder. <br />  User with Get Entity permission can access this method. <br />  The method will returns minimal infomration about the file: <br />  id, name, size, editedTime, createdTime, tags, status, statusReason..
+     * Get files from the specified folder.
      *
      */
     public function testReportsGetFilesList()
@@ -540,9 +576,21 @@ class ReportsApiTest extends TestCase
     }
 
     /**
+     * Test case for reportsGetMyPermissions
+     *
+     * Get current user's permissions to a file.
+     *
+     */
+    public function testReportsGetMyPermissions()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for reportsGetPermissions
      *
-     * .
+     * Get all permissions from a file. <br />.
      *
      */
     public function testReportsGetPermissions()

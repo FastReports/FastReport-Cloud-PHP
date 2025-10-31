@@ -56,7 +56,9 @@ class ServerConfigurationVM extends CloudBaseVM
       */
     protected static $openAPITypes = [
         'title' => 'string',
+        'company_name' => 'string',
         'logo_link' => 'string',
+        'favicon_link' => 'string',
         'copyright' => 'string',
         'corporate_server_mode' => 'bool',
         'last_sla_version' => '\DateTime',
@@ -84,7 +86,9 @@ class ServerConfigurationVM extends CloudBaseVM
       */
     protected static $openAPIFormats = [
         'title' => null,
+        'company_name' => null,
         'logo_link' => null,
+        'favicon_link' => null,
         'copyright' => null,
         'corporate_server_mode' => null,
         'last_sla_version' => 'date-time',
@@ -110,7 +114,9 @@ class ServerConfigurationVM extends CloudBaseVM
       */
     protected static array $openAPINullables = [
         'title' => true,
+        'company_name' => true,
         'logo_link' => true,
+        'favicon_link' => true,
         'copyright' => true,
         'corporate_server_mode' => false,
         'last_sla_version' => true,
@@ -216,7 +222,9 @@ class ServerConfigurationVM extends CloudBaseVM
      */
     protected static $attributeMap = [
         'title' => 'title',
+        'company_name' => 'companyName',
         'logo_link' => 'logoLink',
+        'favicon_link' => 'faviconLink',
         'copyright' => 'copyright',
         'corporate_server_mode' => 'corporateServerMode',
         'last_sla_version' => 'lastSLAVersion',
@@ -242,7 +250,9 @@ class ServerConfigurationVM extends CloudBaseVM
      */
     protected static $setters = [
         'title' => 'setTitle',
+        'company_name' => 'setCompanyName',
         'logo_link' => 'setLogoLink',
+        'favicon_link' => 'setFaviconLink',
         'copyright' => 'setCopyright',
         'corporate_server_mode' => 'setCorporateServerMode',
         'last_sla_version' => 'setLastSlaVersion',
@@ -268,7 +278,9 @@ class ServerConfigurationVM extends CloudBaseVM
      */
     protected static $getters = [
         'title' => 'getTitle',
+        'company_name' => 'getCompanyName',
         'logo_link' => 'getLogoLink',
+        'favicon_link' => 'getFaviconLink',
         'copyright' => 'getCopyright',
         'corporate_server_mode' => 'getCorporateServerMode',
         'last_sla_version' => 'getLastSlaVersion',
@@ -341,7 +353,9 @@ class ServerConfigurationVM extends CloudBaseVM
         parent::__construct($data);
 
         $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('company_name', $data ?? [], null);
         $this->setIfExists('logo_link', $data ?? [], null);
+        $this->setIfExists('favicon_link', $data ?? [], null);
         $this->setIfExists('copyright', $data ?? [], null);
         $this->setIfExists('corporate_server_mode', $data ?? [], null);
         $this->setIfExists('last_sla_version', $data ?? [], null);
@@ -443,6 +457,40 @@ class ServerConfigurationVM extends CloudBaseVM
     }
 
     /**
+     * Gets company_name
+     *
+     * @return string|null
+     */
+    public function getCompanyName()
+    {
+        return $this->container['company_name'];
+    }
+
+    /**
+     * Sets company_name
+     *
+     * @param string|null $company_name company_name
+     *
+     * @return self
+     */
+    public function setCompanyName($company_name)
+    {
+        if (is_null($company_name)) {
+            array_push($this->openAPINullablesSetToNull, 'company_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('company_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['company_name'] = $company_name;
+
+        return $this;
+    }
+
+    /**
      * Gets logo_link
      *
      * @return string|null
@@ -472,6 +520,40 @@ class ServerConfigurationVM extends CloudBaseVM
             }
         }
         $this->container['logo_link'] = $logo_link;
+
+        return $this;
+    }
+
+    /**
+     * Gets favicon_link
+     *
+     * @return string|null
+     */
+    public function getFaviconLink()
+    {
+        return $this->container['favicon_link'];
+    }
+
+    /**
+     * Sets favicon_link
+     *
+     * @param string|null $favicon_link favicon_link
+     *
+     * @return self
+     */
+    public function setFaviconLink($favicon_link)
+    {
+        if (is_null($favicon_link)) {
+            array_push($this->openAPINullablesSetToNull, 'favicon_link');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('favicon_link', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['favicon_link'] = $favicon_link;
 
         return $this;
     }

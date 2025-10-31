@@ -1659,7 +1659,7 @@ class SubscriptionUsersApi
     /**
      * Operation subscriptionUsersRemoveUser
      *
-     * Delete a user from the subscription,  the added users will be displayed in the list of users of the subscription,  and these users will also have an active subscription.
+     * Delete a user from the subscription,
      *
      * @param  string $subscription_id Idenitifier of subscription (required)
      * @param  string $user_id Idenitifier of user (required)
@@ -1677,7 +1677,7 @@ class SubscriptionUsersApi
     /**
      * Operation subscriptionUsersRemoveUserWithHttpInfo
      *
-     * Delete a user from the subscription,  the added users will be displayed in the list of users of the subscription,  and these users will also have an active subscription.
+     * Delete a user from the subscription,
      *
      * @param  string $subscription_id Idenitifier of subscription (required)
      * @param  string $user_id Idenitifier of user (required)
@@ -1770,7 +1770,7 @@ class SubscriptionUsersApi
     /**
      * Operation subscriptionUsersRemoveUserAsync
      *
-     * Delete a user from the subscription,  the added users will be displayed in the list of users of the subscription,  and these users will also have an active subscription.
+     * Delete a user from the subscription,
      *
      * @param  string $subscription_id Idenitifier of subscription (required)
      * @param  string $user_id Idenitifier of user (required)
@@ -1792,7 +1792,7 @@ class SubscriptionUsersApi
     /**
      * Operation subscriptionUsersRemoveUserAsyncWithHttpInfo
      *
-     * Delete a user from the subscription,  the added users will be displayed in the list of users of the subscription,  and these users will also have an active subscription.
+     * Delete a user from the subscription,
      *
      * @param  string $subscription_id Idenitifier of subscription (required)
      * @param  string $user_id Idenitifier of user (required)

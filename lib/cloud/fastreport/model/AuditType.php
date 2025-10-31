@@ -194,6 +194,34 @@ class AuditType
 
     public const FILE_CREATED = 'File_Created';
 
+    public const TASK_CREATED_S3_UPLOAD = 'Task_Created_S3Upload';
+
+    public const TASK_DELETED_S3_UPLOAD = 'Task_Deleted_S3Upload';
+
+    public const TASK_UPDATED_S3_UPLOAD = 'Task_Updated_S3Upload';
+
+    public const TASK_IN_QUEUE_S3_UPLOAD = 'Task_InQueue_S3Upload';
+
+    public const TASK_IN_PROCESS_S3_UPLOAD = 'Task_InProcess_S3Upload';
+
+    public const TASK_SUCCESS_S3_UPLOAD = 'Task_Success_S3Upload';
+
+    public const TASK_FAIL_S3_UPLOAD = 'Task_Fail_S3Upload';
+
+    public const TASK_CREATED_TELEGRAM_UPLOAD = 'Task_Created_TelegramUpload';
+
+    public const TASK_DELETED_TELEGRAM_UPLOAD = 'Task_Deleted_TelegramUpload';
+
+    public const TASK_UPDATED_TELEGRAM_UPLOAD = 'Task_Updated_TelegramUpload';
+
+    public const TASK_IN_QUEUE_TELEGRAM_UPLOAD = 'Task_InQueue_TelegramUpload';
+
+    public const TASK_IN_PROCESS_TELEGRAM_UPLOAD = 'Task_InProcess_TelegramUpload';
+
+    public const TASK_SUCCESS_TELEGRAM_UPLOAD = 'Task_Success_TelegramUpload';
+
+    public const TASK_FAIL_TELEGRAM_UPLOAD = 'Task_Fail_TelegramUpload';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -276,7 +304,21 @@ class AuditType
             self::TASK_IN_PROCESS_FTP_UPLOAD,
             self::TASK_SUCCESS_FTP_UPLOAD,
             self::TASK_FAIL_FTP_UPLOAD,
-            self::FILE_CREATED
+            self::FILE_CREATED,
+            self::TASK_CREATED_S3_UPLOAD,
+            self::TASK_DELETED_S3_UPLOAD,
+            self::TASK_UPDATED_S3_UPLOAD,
+            self::TASK_IN_QUEUE_S3_UPLOAD,
+            self::TASK_IN_PROCESS_S3_UPLOAD,
+            self::TASK_SUCCESS_S3_UPLOAD,
+            self::TASK_FAIL_S3_UPLOAD,
+            self::TASK_CREATED_TELEGRAM_UPLOAD,
+            self::TASK_DELETED_TELEGRAM_UPLOAD,
+            self::TASK_UPDATED_TELEGRAM_UPLOAD,
+            self::TASK_IN_QUEUE_TELEGRAM_UPLOAD,
+            self::TASK_IN_PROCESS_TELEGRAM_UPLOAD,
+            self::TASK_SUCCESS_TELEGRAM_UPLOAD,
+            self::TASK_FAIL_TELEGRAM_UPLOAD
         ];
     }
 }

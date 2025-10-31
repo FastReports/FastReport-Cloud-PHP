@@ -5,7 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | **string** |  | [optional]
+**company_name** | **string** |  | [optional]
 **logo_link** | **string** |  | [optional]
+**favicon_link** | **string** |  | [optional]
 **copyright** | **string** |  | [optional]
 **corporate_server_mode** | **bool** |  | [optional]
 **last_sla_version** | **\DateTime** |  | [optional]

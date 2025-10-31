@@ -134,6 +134,15 @@ class UserResultVMTest extends TestCase
     }
 
     /**
+     * Test attribute "domains"
+     */
+    public function testPropertyDomains()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "provider"
      */
     public function testPropertyProvider()

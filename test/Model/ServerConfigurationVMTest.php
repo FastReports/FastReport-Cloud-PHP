@@ -89,9 +89,27 @@ class ServerConfigurationVMTest extends TestCase
     }
 
     /**
+     * Test attribute "company_name"
+     */
+    public function testPropertyCompanyName()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "logo_link"
      */
     public function testPropertyLogoLink()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "favicon_link"
+     */
+    public function testPropertyFaviconLink()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

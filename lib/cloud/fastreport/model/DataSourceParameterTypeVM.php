@@ -27,8 +27,6 @@
  */
 
 namespace OpenAPI\Client\cloud\fastreport\model;
-
-use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
@@ -40,9 +38,9 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DataSourceParameterTypeVM implements ModelInterface, ArrayAccess, \JsonSerializable
+class DataSourceParameterTypeVM extends CloudBaseVM
 {
-    public const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = 't';
 
     /**
       * The original name of the model.
@@ -58,7 +56,8 @@ class DataSourceParameterTypeVM implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'value' => 'int'
+        'value' => 'int',
+        't' => 'string'
     ];
 
     /**
@@ -70,7 +69,8 @@ class DataSourceParameterTypeVM implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'value' => 'int32'
+        'value' => 'int32',
+        't' => null
     ];
 
     /**
@@ -80,7 +80,8 @@ class DataSourceParameterTypeVM implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static array $openAPINullables = [
         'name' => true,
-        'value' => false
+        'value' => false,
+        't' => false
     ];
 
     /**
@@ -97,7 +98,7 @@ class DataSourceParameterTypeVM implements ModelInterface, ArrayAccess, \JsonSer
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes;
+        return self::$openAPITypes + parent::openAPITypes();
     }
 
     /**
@@ -107,7 +108,7 @@ class DataSourceParameterTypeVM implements ModelInterface, ArrayAccess, \JsonSer
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats;
+        return self::$openAPIFormats + parent::openAPIFormats();
     }
 
     /**
@@ -117,7 +118,7 @@ class DataSourceParameterTypeVM implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static function openAPINullables(): array
     {
-        return self::$openAPINullables;
+        return self::$openAPINullables + parent::openAPINullables();
     }
 
     /**
@@ -170,7 +171,8 @@ class DataSourceParameterTypeVM implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'value' => 'value'
+        'value' => 'value',
+        't' => '$t'
     ];
 
     /**
@@ -180,7 +182,8 @@ class DataSourceParameterTypeVM implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $setters = [
         'name' => 'setName',
-        'value' => 'setValue'
+        'value' => 'setValue',
+        't' => 'setT'
     ];
 
     /**
@@ -190,7 +193,8 @@ class DataSourceParameterTypeVM implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $getters = [
         'name' => 'getName',
-        'value' => 'getValue'
+        'value' => 'getValue',
+        't' => 'getT'
     ];
 
     /**
@@ -201,7 +205,7 @@ class DataSourceParameterTypeVM implements ModelInterface, ArrayAccess, \JsonSer
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -211,7 +215,7 @@ class DataSourceParameterTypeVM implements ModelInterface, ArrayAccess, \JsonSer
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -221,7 +225,7 @@ class DataSourceParameterTypeVM implements ModelInterface, ArrayAccess, \JsonSer
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -235,12 +239,6 @@ class DataSourceParameterTypeVM implements ModelInterface, ArrayAccess, \JsonSer
     }
 
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -250,8 +248,14 @@ class DataSourceParameterTypeVM implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(array $data = null)
     {
+        parent::__construct($data);
+
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('value', $data ?? [], null);
+        $this->setIfExists('t', $data ?? [], null);
+
+        // Initialize discriminator property with the model name.
+        $this->container['t'] = static::$openAPIModelName;
     }
 
     /**
@@ -279,8 +283,11 @@ class DataSourceParameterTypeVM implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['t'] === null) {
+            $invalidProperties[] = "'t' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -353,6 +360,33 @@ class DataSourceParameterTypeVM implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable value cannot be null');
         }
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets t
+     *
+     * @return string
+     */
+    public function getT()
+    {
+        return $this->container['t'];
+    }
+
+    /**
+     * Sets t
+     *
+     * @param string $t t
+     *
+     * @return self
+     */
+    public function setT($t)
+    {
+        if (is_null($t)) {
+            throw new \InvalidArgumentException('non-nullable t cannot be null');
+        }
+        $this->container['t'] = $t;
 
         return $this;
     }

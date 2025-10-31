@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **level** | [**\OpenAPI\Client\cloud\fastreport\model\ProblemLevel**](ProblemLevel.md) |  | [optional]
 **detail** | **string** |  | [optional]
 **id** | **string** |  | [optional]
+**suggestion** | **string** |  | [optional]
+**items** | **string[]** |  | [optional]
 **subscription_id** | **string** |  | [optional]
 **file_id** | **string** |  | [optional]
 **collection_name** | **string** |  | [optional]

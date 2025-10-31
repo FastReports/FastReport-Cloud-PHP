@@ -103,7 +103,7 @@ $apiInstance = new OpenAPI\Client\Api\SubscriptionPlansApi(
     new GuzzleHttp\Client(),
     $config
 );
-$skip = 0; // int | Variable for pagination, defautl value is 0
+$skip = 0; // int | Variable for pagination, default value is 0
 $take = 10; // int | Variable for pagination, default value is 10
 
 try {
@@ -118,7 +118,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **skip** | **int**| Variable for pagination, defautl value is 0 | [optional] [default to 0] |
+| **skip** | **int**| Variable for pagination, default value is 0 | [optional] [default to 0] |
 | **take** | **int**| Variable for pagination, default value is 10 | [optional] [default to 10] |
 
 ### Return type

@@ -152,9 +152,27 @@ class SubscriptionVMTest extends TestCase
     }
 
     /**
+     * Test attribute "preview_type"
+     */
+    public function testPropertyPreviewType()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "tags"
      */
     public function testPropertyTags()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "domains"
+     */
+    public function testPropertyDomains()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

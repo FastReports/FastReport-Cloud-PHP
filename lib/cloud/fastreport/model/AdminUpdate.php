@@ -56,6 +56,8 @@ class AdminUpdate
 
     public const NUMBER_32 = 32;
 
+    public const NUMBER_64 = 64;
+
     public const NUMBER_MINUS_1 = -1;
 
     /**
@@ -72,6 +74,7 @@ class AdminUpdate
             self::NUMBER_8,
             self::NUMBER_16,
             self::NUMBER_32,
+            self::NUMBER_64,
             self::NUMBER_MINUS_1
         ];
     }

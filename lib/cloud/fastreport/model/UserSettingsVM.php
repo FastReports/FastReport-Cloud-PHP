@@ -60,6 +60,7 @@ class UserSettingsVM extends CloudBaseVM
         'show_hidden_files_and_folders' => 'bool',
         'sla_accepted_date_time' => '\DateTime',
         'subscribed_notifications' => '\OpenAPI\Client\cloud\fastreport\model\AuditType[]',
+        'preview_type' => '\OpenAPI\Client\cloud\fastreport\model\PreviewType',
         't' => 'string'
     ];
 
@@ -76,6 +77,7 @@ class UserSettingsVM extends CloudBaseVM
         'show_hidden_files_and_folders' => null,
         'sla_accepted_date_time' => 'date-time',
         'subscribed_notifications' => null,
+        'preview_type' => null,
         't' => null
     ];
 
@@ -90,6 +92,7 @@ class UserSettingsVM extends CloudBaseVM
         'show_hidden_files_and_folders' => false,
         'sla_accepted_date_time' => true,
         'subscribed_notifications' => true,
+        'preview_type' => false,
         't' => false
     ];
 
@@ -184,6 +187,7 @@ class UserSettingsVM extends CloudBaseVM
         'show_hidden_files_and_folders' => 'showHiddenFilesAndFolders',
         'sla_accepted_date_time' => 'slaAcceptedDateTime',
         'subscribed_notifications' => 'subscribedNotifications',
+        'preview_type' => 'previewType',
         't' => '$t'
     ];
 
@@ -198,6 +202,7 @@ class UserSettingsVM extends CloudBaseVM
         'show_hidden_files_and_folders' => 'setShowHiddenFilesAndFolders',
         'sla_accepted_date_time' => 'setSlaAcceptedDateTime',
         'subscribed_notifications' => 'setSubscribedNotifications',
+        'preview_type' => 'setPreviewType',
         't' => 'setT'
     ];
 
@@ -212,6 +217,7 @@ class UserSettingsVM extends CloudBaseVM
         'show_hidden_files_and_folders' => 'getShowHiddenFilesAndFolders',
         'sla_accepted_date_time' => 'getSlaAcceptedDateTime',
         'subscribed_notifications' => 'getSubscribedNotifications',
+        'preview_type' => 'getPreviewType',
         't' => 'getT'
     ];
 
@@ -273,6 +279,7 @@ class UserSettingsVM extends CloudBaseVM
         $this->setIfExists('show_hidden_files_and_folders', $data ?? [], null);
         $this->setIfExists('sla_accepted_date_time', $data ?? [], null);
         $this->setIfExists('subscribed_notifications', $data ?? [], null);
+        $this->setIfExists('preview_type', $data ?? [], null);
         $this->setIfExists('t', $data ?? [], null);
 
         // Initialize discriminator property with the model name.
@@ -485,6 +492,33 @@ class UserSettingsVM extends CloudBaseVM
             }
         }
         $this->container['subscribed_notifications'] = $subscribed_notifications;
+
+        return $this;
+    }
+
+    /**
+     * Gets preview_type
+     *
+     * @return \OpenAPI\Client\cloud\fastreport\model\PreviewType|null
+     */
+    public function getPreviewType()
+    {
+        return $this->container['preview_type'];
+    }
+
+    /**
+     * Sets preview_type
+     *
+     * @param \OpenAPI\Client\cloud\fastreport\model\PreviewType|null $preview_type preview_type
+     *
+     * @return self
+     */
+    public function setPreviewType($preview_type)
+    {
+        if (is_null($preview_type)) {
+            throw new \InvalidArgumentException('non-nullable preview_type cannot be null');
+        }
+        $this->container['preview_type'] = $preview_type;
 
         return $this;
     }

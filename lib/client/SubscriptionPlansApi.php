@@ -518,7 +518,7 @@ class SubscriptionPlansApi
      *
      * Returns a list of active subscription plans that can be issued to the user.
      *
-     * @param  int $skip Variable for pagination, defautl value is 0 (optional, default to 0)
+     * @param  int $skip Variable for pagination, default value is 0 (optional, default to 0)
      * @param  int $take Variable for pagination, default value is 10 (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['subscriptionPlansGetSubscriptionPlans'] to see the possible values for this operation
      *
@@ -537,7 +537,7 @@ class SubscriptionPlansApi
      *
      * Returns a list of active subscription plans that can be issued to the user.
      *
-     * @param  int $skip Variable for pagination, defautl value is 0 (optional, default to 0)
+     * @param  int $skip Variable for pagination, default value is 0 (optional, default to 0)
      * @param  int $take Variable for pagination, default value is 10 (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['subscriptionPlansGetSubscriptionPlans'] to see the possible values for this operation
      *
@@ -697,7 +697,7 @@ class SubscriptionPlansApi
      *
      * Returns a list of active subscription plans that can be issued to the user.
      *
-     * @param  int $skip Variable for pagination, defautl value is 0 (optional, default to 0)
+     * @param  int $skip Variable for pagination, default value is 0 (optional, default to 0)
      * @param  int $take Variable for pagination, default value is 10 (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['subscriptionPlansGetSubscriptionPlans'] to see the possible values for this operation
      *
@@ -719,7 +719,7 @@ class SubscriptionPlansApi
      *
      * Returns a list of active subscription plans that can be issued to the user.
      *
-     * @param  int $skip Variable for pagination, defautl value is 0 (optional, default to 0)
+     * @param  int $skip Variable for pagination, default value is 0 (optional, default to 0)
      * @param  int $take Variable for pagination, default value is 10 (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['subscriptionPlansGetSubscriptionPlans'] to see the possible values for this operation
      *
@@ -770,7 +770,7 @@ class SubscriptionPlansApi
     /**
      * Create request for operation 'subscriptionPlansGetSubscriptionPlans'
      *
-     * @param  int $skip Variable for pagination, defautl value is 0 (optional, default to 0)
+     * @param  int $skip Variable for pagination, default value is 0 (optional, default to 0)
      * @param  int $take Variable for pagination, default value is 10 (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['subscriptionPlansGetSubscriptionPlans'] to see the possible values for this operation
      *

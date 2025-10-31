@@ -58,6 +58,8 @@ class UpdateSubscriptionVM extends CloudBaseVM
         'name' => 'string',
         'locale' => 'string',
         'tags' => 'string[]',
+        'domains' => 'string[]',
+        'preview_type' => '\OpenAPI\Client\cloud\fastreport\model\PreviewType',
         'default_permissions' => '\OpenAPI\Client\cloud\fastreport\model\DefaultPermissionsVM',
         't' => 'string'
     ];
@@ -73,6 +75,8 @@ class UpdateSubscriptionVM extends CloudBaseVM
         'name' => null,
         'locale' => null,
         'tags' => null,
+        'domains' => null,
+        'preview_type' => null,
         'default_permissions' => null,
         't' => null
     ];
@@ -86,6 +90,8 @@ class UpdateSubscriptionVM extends CloudBaseVM
         'name' => true,
         'locale' => true,
         'tags' => true,
+        'domains' => true,
+        'preview_type' => true,
         'default_permissions' => false,
         't' => false
     ];
@@ -179,6 +185,8 @@ class UpdateSubscriptionVM extends CloudBaseVM
         'name' => 'name',
         'locale' => 'locale',
         'tags' => 'tags',
+        'domains' => 'domains',
+        'preview_type' => 'previewType',
         'default_permissions' => 'defaultPermissions',
         't' => '$t'
     ];
@@ -192,6 +200,8 @@ class UpdateSubscriptionVM extends CloudBaseVM
         'name' => 'setName',
         'locale' => 'setLocale',
         'tags' => 'setTags',
+        'domains' => 'setDomains',
+        'preview_type' => 'setPreviewType',
         'default_permissions' => 'setDefaultPermissions',
         't' => 'setT'
     ];
@@ -205,6 +215,8 @@ class UpdateSubscriptionVM extends CloudBaseVM
         'name' => 'getName',
         'locale' => 'getLocale',
         'tags' => 'getTags',
+        'domains' => 'getDomains',
+        'preview_type' => 'getPreviewType',
         'default_permissions' => 'getDefaultPermissions',
         't' => 'getT'
     ];
@@ -265,6 +277,8 @@ class UpdateSubscriptionVM extends CloudBaseVM
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('locale', $data ?? [], null);
         $this->setIfExists('tags', $data ?? [], null);
+        $this->setIfExists('domains', $data ?? [], null);
+        $this->setIfExists('preview_type', $data ?? [], null);
         $this->setIfExists('default_permissions', $data ?? [], null);
         $this->setIfExists('t', $data ?? [], null);
 
@@ -313,6 +327,10 @@ class UpdateSubscriptionVM extends CloudBaseVM
 
         if (!is_null($this->container['tags']) && (count($this->container['tags']) > 5)) {
             $invalidProperties[] = "invalid value for 'tags', number of items must be less than or equal to 5.";
+        }
+
+        if (!is_null($this->container['domains']) && (count($this->container['domains']) > 10)) {
+            $invalidProperties[] = "invalid value for 'domains', number of items must be less than or equal to 10.";
         }
 
         if ($this->container['t'] === null) {
@@ -447,6 +465,78 @@ class UpdateSubscriptionVM extends CloudBaseVM
             throw new \InvalidArgumentException('invalid value for $tags when calling UpdateSubscriptionVM., number of items must be less than or equal to 5.');
         }
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets domains
+     *
+     * @return string[]|null
+     */
+    public function getDomains()
+    {
+        return $this->container['domains'];
+    }
+
+    /**
+     * Sets domains
+     *
+     * @param string[]|null $domains domains
+     *
+     * @return self
+     */
+    public function setDomains($domains)
+    {
+        if (is_null($domains)) {
+            array_push($this->openAPINullablesSetToNull, 'domains');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('domains', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($domains) && (count($domains) > 10)) {
+            throw new \InvalidArgumentException('invalid value for $domains when calling UpdateSubscriptionVM., number of items must be less than or equal to 10.');
+        }
+        $this->container['domains'] = $domains;
+
+        return $this;
+    }
+
+    /**
+     * Gets preview_type
+     *
+     * @return \OpenAPI\Client\cloud\fastreport\model\PreviewType|null
+     */
+    public function getPreviewType()
+    {
+        return $this->container['preview_type'];
+    }
+
+    /**
+     * Sets preview_type
+     *
+     * @param \OpenAPI\Client\cloud\fastreport\model\PreviewType|null $preview_type preview_type
+     *
+     * @return self
+     */
+    public function setPreviewType($preview_type)
+    {
+        if (is_null($preview_type)) {
+            array_push($this->openAPINullablesSetToNull, 'preview_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('preview_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['preview_type'] = $preview_type;
 
         return $this;
     }

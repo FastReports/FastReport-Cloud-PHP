@@ -60,6 +60,8 @@ class AdminCreate
 
     public const NUMBER_128 = 128;
 
+    public const NUMBER_256 = 256;
+
     public const NUMBER_MINUS_1 = -1;
 
     /**
@@ -78,6 +80,7 @@ class AdminCreate
             self::NUMBER_32,
             self::NUMBER_64,
             self::NUMBER_128,
+            self::NUMBER_256,
             self::NUMBER_MINUS_1
         ];
     }

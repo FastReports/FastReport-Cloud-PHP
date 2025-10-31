@@ -7,14 +7,14 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**reportFolderAndFileClearRecycleBin()**](ReportsApi.md#reportFolderAndFileClearRecycleBin) | **DELETE** /api/rp/v1/Reports/{subscriptionId}/ClearRecycleBin | Delete all folders and files from recycle bin |
 | [**reportFolderAndFileCopyFiles()**](ReportsApi.md#reportFolderAndFileCopyFiles) | **POST** /api/rp/v1/Reports/{subscriptionId}/CopyFiles | Copy folders and files to a specified folder |
 | [**reportFolderAndFileCountRecycleBinFoldersAndFiles()**](ReportsApi.md#reportFolderAndFileCountRecycleBinFoldersAndFiles) | **GET** /api/rp/v1/Reports/{subscriptionId}/CountRecycleBinFolderAndFiles | Count all folders and files from recycle bin |
-| [**reportFolderAndFileDeleteFiles()**](ReportsApi.md#reportFolderAndFileDeleteFiles) | **POST** /api/rp/v1/Reports/{subscriptionId}/DeleteFiles | Delete folders and files |
-| [**reportFolderAndFileGetCount()**](ReportsApi.md#reportFolderAndFileGetCount) | **GET** /api/rp/v1/Reports/Folder/{id}/CountFolderAndFiles | Get count of files and folders what contains in a specified folder |
+| [**reportFolderAndFileDeleteFiles()**](ReportsApi.md#reportFolderAndFileDeleteFiles) | **POST** /api/rp/v1/Reports/{subscriptionId}/DeleteFiles | Delete folders and files from a folder or the recycle bin |
+| [**reportFolderAndFileGetCount()**](ReportsApi.md#reportFolderAndFileGetCount) | **GET** /api/rp/v1/Reports/Folder/{id}/CountFolderAndFiles | Count folders and files in a folder |
 | [**reportFolderAndFileGetFoldersAndFiles()**](ReportsApi.md#reportFolderAndFileGetFoldersAndFiles) | **GET** /api/rp/v1/Reports/Folder/{id}/ListFolderAndFiles | Get all folders and files from specified folder |
 | [**reportFolderAndFileGetRecycleBinFoldersAndFiles()**](ReportsApi.md#reportFolderAndFileGetRecycleBinFoldersAndFiles) | **GET** /api/rp/v1/Reports/{subscriptionId}/ListRecycleBinFolderAndFiles | Get all folders and files from recycle bin |
 | [**reportFolderAndFileMoveFiles()**](ReportsApi.md#reportFolderAndFileMoveFiles) | **POST** /api/rp/v1/Reports/{subscriptionId}/MoveFiles | Move folders and files to a specified folder |
-| [**reportFolderAndFileMoveFilesToBin()**](ReportsApi.md#reportFolderAndFileMoveFilesToBin) | **POST** /api/rp/v1/Reports/{subscriptionId}/ToBin | Move folders and files to bin |
+| [**reportFolderAndFileMoveFilesToBin()**](ReportsApi.md#reportFolderAndFileMoveFilesToBin) | **POST** /api/rp/v1/Reports/{subscriptionId}/ToBin | Move folders and files to the recycle bin |
 | [**reportFolderAndFileRecoverAllFromRecycleBin()**](ReportsApi.md#reportFolderAndFileRecoverAllFromRecycleBin) | **POST** /api/rp/v1/Reports/{subscriptionId}/RecoverRecycleBin | Recover all folders and files from recycle bin |
-| [**reportFolderAndFileRecoverFiles()**](ReportsApi.md#reportFolderAndFileRecoverFiles) | **POST** /api/rp/v1/Reports/{subscriptionId}/RecoverFiles | Recover folders and files from bin |
+| [**reportFolderAndFileRecoverFiles()**](ReportsApi.md#reportFolderAndFileRecoverFiles) | **POST** /api/rp/v1/Reports/{subscriptionId}/RecoverFiles | Recover folders and files from the recycle bin |
 | [**reportFoldersCalculateFolderSize()**](ReportsApi.md#reportFoldersCalculateFolderSize) | **GET** /api/rp/v1/Reports/Folder/{id}/size | Get specified folder, calculate it&#39;s size |
 | [**reportFoldersCopyFolder()**](ReportsApi.md#reportFoldersCopyFolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Copy/{folderId} | Move folder to a specified folder |
 | [**reportFoldersDeleteFolder()**](ReportsApi.md#reportFoldersDeleteFolder) | **DELETE** /api/rp/v1/Reports/Folder/{id} | Delete specified folder |
@@ -23,10 +23,11 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**reportFoldersGetFolder()**](ReportsApi.md#reportFoldersGetFolder) | **GET** /api/rp/v1/Reports/Folder/{id} | Get specified folder |
 | [**reportFoldersGetFolders()**](ReportsApi.md#reportFoldersGetFolders) | **GET** /api/rp/v1/Reports/Folder/{id}/ListFolders | Get all folders from specified folder |
 | [**reportFoldersGetFoldersCount()**](ReportsApi.md#reportFoldersGetFoldersCount) | **GET** /api/rp/v1/Reports/Folder/{id}/CountFolders | Get count of folders what contains in a specified folder |
+| [**reportFoldersGetMyPermissions()**](ReportsApi.md#reportFoldersGetMyPermissions) | **GET** /api/rp/v1/Reports/Folder/{folderId}/mypermissions | Get user&#39;s permissions for a folder by id |
 | [**reportFoldersGetOrCreate()**](ReportsApi.md#reportFoldersGetOrCreate) | **GET** /api/rp/v1/Reports/Folder/getOrCreate | Get specified folder |
 | [**reportFoldersGetPermissions()**](ReportsApi.md#reportFoldersGetPermissions) | **GET** /api/rp/v1/Reports/Folder/{id}/permissions | Get all folder permissions |
-| [**reportFoldersGetRootFolder()**](ReportsApi.md#reportFoldersGetRootFolder) | **GET** /api/rp/v1/Reports/Root | Get user&#39;s root folder (without parents) |
-| [**reportFoldersMoveFolder()**](ReportsApi.md#reportFoldersMoveFolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Move/{folderId} | Move folder to a specified folder |
+| [**reportFoldersGetRootFolder()**](ReportsApi.md#reportFoldersGetRootFolder) | **GET** /api/rp/v1/Reports/Root | Get workspace&#39;s root folder |
+| [**reportFoldersMoveFolder()**](ReportsApi.md#reportFoldersMoveFolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Move/{folderId} | Move folder into a specified folder |
 | [**reportFoldersMoveFolderToBin()**](ReportsApi.md#reportFoldersMoveFolderToBin) | **DELETE** /api/rp/v1/Reports/Folder/{id}/ToBin | Move specified folder to recycle bin |
 | [**reportFoldersPostFolder()**](ReportsApi.md#reportFoldersPostFolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Folder | Create folder |
 | [**reportFoldersRecoverFolder()**](ReportsApi.md#reportFoldersRecoverFolder) | **POST** /api/rp/v1/Reports/Folder/{id}/Recover | Recover specified folder |
@@ -34,16 +35,19 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**reportFoldersUpdateIcon()**](ReportsApi.md#reportFoldersUpdateIcon) | **PUT** /api/rp/v1/Reports/Folder/{id}/Icon | Update a folder&#39;s icon |
 | [**reportFoldersUpdatePermissions()**](ReportsApi.md#reportFoldersUpdatePermissions) | **POST** /api/rp/v1/Reports/{id}/permissions | Update permissions |
 | [**reportFoldersUpdateTags()**](ReportsApi.md#reportFoldersUpdateTags) | **PUT** /api/rp/v1/Reports/Folder/{id}/UpdateTags | Update tags |
-| [**reportsCopyFile()**](ReportsApi.md#reportsCopyFile) | **POST** /api/rp/v1/Reports/File/{id}/Copy/{folderId} | Copy file to a specified folder |
-| [**reportsCreateSharingKey()**](ReportsApi.md#reportsCreateSharingKey) | **POST** /api/rp/v1/Reports/File/{id}/sharingKey | Create a new key, that can be used to share access to a file  (You need Administrate.Anon permission to create a new key) |
+| [**reportsCopyFile()**](ReportsApi.md#reportsCopyFile) | **POST** /api/rp/v1/Reports/File/{id}/Copy/{folderId} | Copy a file into a specified folder |
+| [**reportsCreateSharingKey()**](ReportsApi.md#reportsCreateSharingKey) | **POST** /api/rp/v1/Reports/File/{id}/sharingKey | Create a new key, that can be used to share access to a file &lt;br /&gt;  (You need Administrate.Anon permission to create a new key) |
 | [**reportsDeleteFile()**](ReportsApi.md#reportsDeleteFile) | **DELETE** /api/rp/v1/Reports/File/{id} | Delete specified file |
 | [**reportsDeleteSharingKey()**](ReportsApi.md#reportsDeleteSharingKey) | **DELETE** /api/rp/v1/Reports/File/{id}/sharingKey | Deletes a sharing key, making links, that utilizing it no longer work |
 | [**reportsExport()**](ReportsApi.md#reportsExport) | **POST** /api/rp/v1/Reports/File/{id}/Export | Export specified report to a specified format |
+| [**reportsGetByTaskId()**](ReportsApi.md#reportsGetByTaskId) | **GET** /api/rp/v1/Reports/File/Task/{taskId} | Get reports by specified task id |
+| [**reportsGetByTaskMessageId()**](ReportsApi.md#reportsGetByTaskMessageId) | **GET** /api/rp/v1/Reports/File/TaskMessage/{taskMessageId} | Get report by specified task message id |
 | [**reportsGetFile()**](ReportsApi.md#reportsGetFile) | **GET** /api/rp/v1/Reports/File/{id} | Get specified file |
 | [**reportsGetFileHistory()**](ReportsApi.md#reportsGetFileHistory) | **GET** /api/rp/v1/Reports/File/{id}/History | Returns list of actions, performed on this file |
 | [**reportsGetFilesCount()**](ReportsApi.md#reportsGetFilesCount) | **GET** /api/rp/v1/Reports/Folder/{id}/CountFiles | Get count of files what contains in a specified folder |
-| [**reportsGetFilesList()**](ReportsApi.md#reportsGetFilesList) | **GET** /api/rp/v1/Reports/Folder/{id}/ListFiles | Get all files from specified folder. &lt;br /&gt;  User with Get Entity permission can access this method. &lt;br /&gt;  The method will returns minimal infomration about the file: &lt;br /&gt;  id, name, size, editedTime, createdTime, tags, status, statusReason. |
-| [**reportsGetPermissions()**](ReportsApi.md#reportsGetPermissions) | **GET** /api/rp/v1/Reports/File/{id}/permissions |  |
+| [**reportsGetFilesList()**](ReportsApi.md#reportsGetFilesList) | **GET** /api/rp/v1/Reports/Folder/{id}/ListFiles | Get files from the specified folder |
+| [**reportsGetMyPermissions()**](ReportsApi.md#reportsGetMyPermissions) | **GET** /api/rp/v1/Reports/File/{id}/mypermissions | Get current user&#39;s permissions to a file |
+| [**reportsGetPermissions()**](ReportsApi.md#reportsGetPermissions) | **GET** /api/rp/v1/Reports/File/{id}/permissions | Get all permissions from a file. &lt;br /&gt; |
 | [**reportsGetSharingKeys()**](ReportsApi.md#reportsGetSharingKeys) | **GET** /api/rp/v1/Reports/File/{id}/sharingKeys | Returns all sharing keys, associated with the file |
 | [**reportsMoveFile()**](ReportsApi.md#reportsMoveFile) | **POST** /api/rp/v1/Reports/File/{id}/Move/{folderId} | Move file to a specified folder |
 | [**reportsMoveFileToBin()**](ReportsApi.md#reportsMoveFileToBin) | **DELETE** /api/rp/v1/Reports/File/{id}/ToBin | Move specified file to recycle bin |
@@ -154,7 +158,7 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     $config
 );
 $subscription_id = 'subscription_id_example'; // string | id of current subscription
-$selected_files_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM | VM with files' ids and params of their destination
+$selected_files_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM | File selection VM
 
 try {
     $apiInstance->reportFolderAndFileCopyFiles($subscription_id, $selected_files_vm);
@@ -168,7 +172,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **subscription_id** | **string**| id of current subscription | |
-| **selected_files_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM**](../Model/SelectedFilesVM.md)| VM with files&#39; ids and params of their destination | [optional] |
+| **selected_files_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM**](../Model/SelectedFilesVM.md)| File selection VM | [optional] |
 
 ### Return type
 
@@ -220,8 +224,8 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     $config
 );
 $subscription_id = 'subscription_id_example'; // string | subscription id
-$search_pattern = ''; // string | 
-$use_regex = false; // bool | 
+$search_pattern = ''; // string | search pattern used to only include matching files in the recycle bin count<br />              (leave unspecified to count all files and folders)
+$use_regex = false; // bool | set this to true if you want to use regular expression to search
 
 try {
     $result = $apiInstance->reportFolderAndFileCountRecycleBinFoldersAndFiles($subscription_id, $search_pattern, $use_regex);
@@ -236,8 +240,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **subscription_id** | **string**| subscription id | |
-| **search_pattern** | **string**|  | [optional] [default to &#39;&#39;] |
-| **use_regex** | **bool**|  | [optional] [default to false] |
+| **search_pattern** | **string**| search pattern used to only include matching files in the recycle bin count&lt;br /&gt;              (leave unspecified to count all files and folders) | [optional] [default to &#39;&#39;] |
+| **use_regex** | **bool**| set this to true if you want to use regular expression to search | [optional] [default to false] |
 
 ### Return type
 
@@ -262,7 +266,7 @@ try {
 reportFolderAndFileDeleteFiles($subscription_id, $selected_files_vm)
 ```
 
-Delete folders and files
+Delete folders and files from a folder or the recycle bin
 
 User with a Delete permission can access this method.
 
@@ -288,8 +292,8 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$subscription_id = 'subscription_id_example'; // string | id of current subscription
-$selected_files_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM | VM with files' ids and params of their destination
+$subscription_id = 'subscription_id_example'; // string | id of the subscription
+$selected_files_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM | File selection VM
 
 try {
     $apiInstance->reportFolderAndFileDeleteFiles($subscription_id, $selected_files_vm);
@@ -302,8 +306,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **subscription_id** | **string**| id of current subscription | |
-| **selected_files_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM**](../Model/SelectedFilesVM.md)| VM with files&#39; ids and params of their destination | [optional] |
+| **subscription_id** | **string**| id of the subscription | |
+| **selected_files_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM**](../Model/SelectedFilesVM.md)| File selection VM | [optional] |
 
 ### Return type
 
@@ -328,7 +332,7 @@ void (empty response body)
 reportFolderAndFileGetCount($id, $search_pattern, $use_regex): \OpenAPI\Client\cloud\fastreport\model\CountVM
 ```
 
-Get count of files and folders what contains in a specified folder
+Count folders and files in a folder
 
 User with a Get Count permission can access this method.
 
@@ -355,7 +359,7 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     $config
 );
 $id = 'id_example'; // string | folder id
-$search_pattern = 'search_pattern_example'; // string | string, that must be incuded in file or folder name to be counted <br />              (leave undefined to count all files and folders)
+$search_pattern = 'search_pattern_example'; // string | search pattern used to only include matching files in the count<br />              (leave unspecified to count all files and folders)
 $use_regex = false; // bool | set this to true if you want to use regular expression to search
 
 try {
@@ -371,7 +375,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| folder id | |
-| **search_pattern** | **string**| string, that must be incuded in file or folder name to be counted &lt;br /&gt;              (leave undefined to count all files and folders) | [optional] |
+| **search_pattern** | **string**| search pattern used to only include matching files in the count&lt;br /&gt;              (leave unspecified to count all files and folders) | [optional] |
 | **use_regex** | **bool**| set this to true if you want to use regular expression to search | [optional] [default to false] |
 
 ### Return type
@@ -424,12 +428,12 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     $config
 );
 $id = 'id_example'; // string | folder id
-$skip = 0; // int | number of folder and files, that have to be skipped
-$take = 10; // int | number of folder and files, that have to be returned
-$order_by = new \OpenAPI\Client\cloud\fastreport\model\FileSorting(); // FileSorting | indicates a field to sort by
-$desc = false; // bool | indicates if sorting is descending
-$search_pattern = ''; // string | 
-$use_regex = false; // bool | 
+$skip = 0; // int | number of folder and files to skip
+$take = 10; // int | number of folder and files to take
+$order_by = new \OpenAPI\Client\cloud\fastreport\model\FileSorting(); // FileSorting | a field to sort by
+$desc = false; // bool | if true - sorting will be done in the descending order, otherwise - ascending
+$search_pattern = ''; // string | search pattern used to only include matching files in the result<br />              (leave unspecified to list all files and folders)
+$use_regex = false; // bool | set this to true if you want to use regular expression to search
 
 try {
     $result = $apiInstance->reportFolderAndFileGetFoldersAndFiles($id, $skip, $take, $order_by, $desc, $search_pattern, $use_regex);
@@ -444,12 +448,12 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| folder id | |
-| **skip** | **int**| number of folder and files, that have to be skipped | [optional] [default to 0] |
-| **take** | **int**| number of folder and files, that have to be returned | [optional] [default to 10] |
-| **order_by** | [**FileSorting**](../Model/.md)| indicates a field to sort by | [optional] |
-| **desc** | **bool**| indicates if sorting is descending | [optional] [default to false] |
-| **search_pattern** | **string**|  | [optional] [default to &#39;&#39;] |
-| **use_regex** | **bool**|  | [optional] [default to false] |
+| **skip** | **int**| number of folder and files to skip | [optional] [default to 0] |
+| **take** | **int**| number of folder and files to take | [optional] [default to 10] |
+| **order_by** | [**FileSorting**](../Model/.md)| a field to sort by | [optional] |
+| **desc** | **bool**| if true - sorting will be done in the descending order, otherwise - ascending | [optional] [default to false] |
+| **search_pattern** | **string**| search pattern used to only include matching files in the result&lt;br /&gt;              (leave unspecified to list all files and folders) | [optional] [default to &#39;&#39;] |
+| **use_regex** | **bool**| set this to true if you want to use regular expression to search | [optional] [default to false] |
 
 ### Return type
 
@@ -501,12 +505,12 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     $config
 );
 $subscription_id = 'subscription_id_example'; // string | subscription id
-$skip = 0; // int | number of folder and files, that have to be skipped
-$take = 10; // int | number of folder and files, that have to be returned
-$order_by = new \OpenAPI\Client\cloud\fastreport\model\FileSorting(); // FileSorting | indicates a field to sort by
-$desc = false; // bool | indicates if sorting is descending
-$search_pattern = ''; // string | 
-$use_regex = false; // bool | 
+$skip = 0; // int | number of folder and files to skip
+$take = 10; // int | number of folder and files to take
+$order_by = new \OpenAPI\Client\cloud\fastreport\model\FileSorting(); // FileSorting | a field to sort by
+$desc = false; // bool | if true - sorting will be done in the descending order, otherwise - ascending
+$search_pattern = ''; // string | search pattern used to only include matching files in the recycle bin<br />              (leave unspecified to list all files and folders)
+$use_regex = false; // bool | set this to true if you want to use regular expression to search
 
 try {
     $result = $apiInstance->reportFolderAndFileGetRecycleBinFoldersAndFiles($subscription_id, $skip, $take, $order_by, $desc, $search_pattern, $use_regex);
@@ -521,12 +525,12 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **subscription_id** | **string**| subscription id | |
-| **skip** | **int**| number of folder and files, that have to be skipped | [optional] [default to 0] |
-| **take** | **int**| number of folder and files, that have to be returned | [optional] [default to 10] |
-| **order_by** | [**FileSorting**](../Model/.md)| indicates a field to sort by | [optional] |
-| **desc** | **bool**| indicates if sorting is descending | [optional] [default to false] |
-| **search_pattern** | **string**|  | [optional] [default to &#39;&#39;] |
-| **use_regex** | **bool**|  | [optional] [default to false] |
+| **skip** | **int**| number of folder and files to skip | [optional] [default to 0] |
+| **take** | **int**| number of folder and files to take | [optional] [default to 10] |
+| **order_by** | [**FileSorting**](../Model/.md)| a field to sort by | [optional] |
+| **desc** | **bool**| if true - sorting will be done in the descending order, otherwise - ascending | [optional] [default to false] |
+| **search_pattern** | **string**| search pattern used to only include matching files in the recycle bin&lt;br /&gt;              (leave unspecified to list all files and folders) | [optional] [default to &#39;&#39;] |
+| **use_regex** | **bool**| set this to true if you want to use regular expression to search | [optional] [default to false] |
 
 ### Return type
 
@@ -578,7 +582,7 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     $config
 );
 $subscription_id = 'subscription_id_example'; // string | id of current subscription
-$selected_files_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM | VM with files' ids and params of their destination
+$selected_files_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM | File selection VM
 
 try {
     $apiInstance->reportFolderAndFileMoveFiles($subscription_id, $selected_files_vm);
@@ -592,7 +596,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **subscription_id** | **string**| id of current subscription | |
-| **selected_files_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM**](../Model/SelectedFilesVM.md)| VM with files&#39; ids and params of their destination | [optional] |
+| **selected_files_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM**](../Model/SelectedFilesVM.md)| File selection VM | [optional] |
 
 ### Return type
 
@@ -617,9 +621,9 @@ void (empty response body)
 reportFolderAndFileMoveFilesToBin($subscription_id, $selected_files_vm)
 ```
 
-Move folders and files to bin
+Move folders and files to the recycle bin
 
-User with a Delete permission can access this method.
+User with a Delete Entity permission can access this method.
 
 ### Example
 
@@ -643,8 +647,8 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$subscription_id = 'subscription_id_example'; // string | id of current subscription
-$selected_files_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM | VM with files' ids and params of their destination
+$subscription_id = 'subscription_id_example'; // string | id of the subscription
+$selected_files_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM | File selection VM
 
 try {
     $apiInstance->reportFolderAndFileMoveFilesToBin($subscription_id, $selected_files_vm);
@@ -657,8 +661,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **subscription_id** | **string**| id of current subscription | |
-| **selected_files_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM**](../Model/SelectedFilesVM.md)| VM with files&#39; ids and params of their destination | [optional] |
+| **subscription_id** | **string**| id of the subscription | |
+| **selected_files_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM**](../Model/SelectedFilesVM.md)| File selection VM | [optional] |
 
 ### Return type
 
@@ -747,7 +751,7 @@ void (empty response body)
 reportFolderAndFileRecoverFiles($subscription_id, $selected_files_vm)
 ```
 
-Recover folders and files from bin
+Recover folders and files from the recycle bin
 
 User with a SubscriptionCreate permission can access this method.
 
@@ -773,8 +777,8 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$subscription_id = 'subscription_id_example'; // string | id of current subscription
-$selected_files_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM | VM with files' ids and params of their destination
+$subscription_id = 'subscription_id_example'; // string | id the subscription
+$selected_files_vm = new \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM(); // \OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM | File selection VM
 
 try {
     $apiInstance->reportFolderAndFileRecoverFiles($subscription_id, $selected_files_vm);
@@ -787,8 +791,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **subscription_id** | **string**| id of current subscription | |
-| **selected_files_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM**](../Model/SelectedFilesVM.md)| VM with files&#39; ids and params of their destination | [optional] |
+| **subscription_id** | **string**| id the subscription | |
+| **selected_files_vm** | [**\OpenAPI\Client\cloud\fastreport\model\SelectedFilesVM**](../Model/SelectedFilesVM.md)| File selection VM | [optional] |
 
 ### Return type
 
@@ -1233,12 +1237,12 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     $config
 );
 $id = 'id_example'; // string | folder id
-$skip = 0; // int | number of files, that have to be skipped
-$take = 10; // int | number of files, that have to be returned
-$order_by = new \OpenAPI\Client\cloud\fastreport\model\FileSorting(); // FileSorting | 
-$desc = false; // bool | 
-$search_pattern = ''; // string | 
-$use_regex = false; // bool | 
+$skip = 0; // int | number of folder and files to skip
+$take = 10; // int | number of folder and files to take
+$order_by = new \OpenAPI\Client\cloud\fastreport\model\FileSorting(); // FileSorting | a field to sort by
+$desc = false; // bool | if true - sorting will be done in the descending order, otherwise - ascending
+$search_pattern = ''; // string | search pattern used to only include matching files in the result<br />              (leave unspecified to list all files and folders)
+$use_regex = false; // bool | set this to true if you want to use regular expression to search
 
 try {
     $result = $apiInstance->reportFoldersGetFolders($id, $skip, $take, $order_by, $desc, $search_pattern, $use_regex);
@@ -1253,12 +1257,12 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| folder id | |
-| **skip** | **int**| number of files, that have to be skipped | [optional] [default to 0] |
-| **take** | **int**| number of files, that have to be returned | [optional] [default to 10] |
-| **order_by** | [**FileSorting**](../Model/.md)|  | [optional] |
-| **desc** | **bool**|  | [optional] [default to false] |
-| **search_pattern** | **string**|  | [optional] [default to &#39;&#39;] |
-| **use_regex** | **bool**|  | [optional] [default to false] |
+| **skip** | **int**| number of folder and files to skip | [optional] [default to 0] |
+| **take** | **int**| number of folder and files to take | [optional] [default to 10] |
+| **order_by** | [**FileSorting**](../Model/.md)| a field to sort by | [optional] |
+| **desc** | **bool**| if true - sorting will be done in the descending order, otherwise - ascending | [optional] [default to false] |
+| **search_pattern** | **string**| search pattern used to only include matching files in the result&lt;br /&gt;              (leave unspecified to list all files and folders) | [optional] [default to &#39;&#39;] |
+| **use_regex** | **bool**| set this to true if you want to use regular expression to search | [optional] [default to false] |
 
 ### Return type
 
@@ -1342,6 +1346,69 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `reportFoldersGetMyPermissions()`
+
+```php
+reportFoldersGetMyPermissions($folder_id): \OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM
+```
+
+Get user's permissions for a folder by id
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$folder_id = 'folder_id_example'; // string | folder id
+
+try {
+    $result = $apiInstance->reportFoldersGetMyPermissions($folder_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->reportFoldersGetMyPermissions: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **folder_id** | **string**| folder id | |
+
+### Return type
+
+[**\OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM**](../Model/FilePermissionCRUDVM.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `reportFoldersGetOrCreate()`
 
 ```php
@@ -1350,7 +1417,7 @@ reportFoldersGetOrCreate($name, $subscription_id, $parent_id): \OpenAPI\Client\c
 
 Get specified folder
 
-User with a Get Entity permission can access this method.
+User with a Get (and/or Create) Entity permission can access this method.
 
 ### Example
 
@@ -1480,9 +1547,7 @@ try {
 reportFoldersGetRootFolder($subscription_id): \OpenAPI\Client\cloud\fastreport\model\FileVM
 ```
 
-Get user's root folder (without parents)
-
-> Breakchange. Now user model doesn't contain a root folders.  This method can return error 400 and 404 when subscription is not found.
+Get workspace's root folder
 
 ### Example
 
@@ -1545,9 +1610,9 @@ try {
 reportFoldersMoveFolder($id, $folder_id): \OpenAPI\Client\cloud\fastreport\model\FileVM
 ```
 
-Move folder to a specified folder
+Move folder into a specified folder
 
-User with a Update Place permission for a folder and Create Entity  for a Parent Folder can access this method.
+User with a Update Place permission for a folder and Create Entity  for a destination Folder can access this method.
 
 ### Example
 
@@ -1571,7 +1636,7 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | moving folder id
+$id = 'id_example'; // string | folder id
 $folder_id = 'folder_id_example'; // string | destination folder id
 
 try {
@@ -1586,7 +1651,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| moving folder id | |
+| **id** | **string**| folder id | |
 | **folder_id** | **string**| destination folder id | |
 
 ### Return type
@@ -1678,7 +1743,7 @@ reportFoldersPostFolder($id, $report_folder_create_vm): \OpenAPI\Client\cloud\fa
 
 Create folder
 
-User with a Create Entity permisison can access this method.
+User with a Create Entity permission can access this method.
 
 ### Example
 
@@ -1745,7 +1810,7 @@ reportFoldersRecoverFolder($id, $recovery_path)
 
 Recover specified folder
 
-User with a Delete Entity permission can access this method.
+User with a Create RecycleBin permission can access this method.
 
 ### Example
 
@@ -1770,7 +1835,7 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     $config
 );
 $id = 'id_example'; // string | folder id
-$recovery_path = 'recovery_path_example'; // string | 
+$recovery_path = 'recovery_path_example'; // string | id of the folder, that recovered folder should be placed in
 
 try {
     $apiInstance->reportFoldersRecoverFolder($id, $recovery_path);
@@ -1784,7 +1849,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| folder id | |
-| **recovery_path** | **string**|  | [optional] |
+| **recovery_path** | **string**| id of the folder, that recovered folder should be placed in | [optional] |
 
 ### Return type
 
@@ -1811,7 +1876,7 @@ reportFoldersRenameFolder($id, $folder_rename_vm): \OpenAPI\Client\cloud\fastrep
 
 Rename a folder
 
-User with a Update Name permision can access this method.
+User with a Update Name permission can access this method.
 
 ### Example
 
@@ -1967,8 +2032,8 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | 
-$update_file_permissions_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM | 
+$id = 'id_example'; // string | folder id
+$update_file_permissions_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM | new permissions VM
 
 try {
     $apiInstance->reportFoldersUpdatePermissions($id, $update_file_permissions_vm);
@@ -1981,8 +2046,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
-| **update_file_permissions_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM**](../Model/UpdateFilePermissionsVM.md)|  | [optional] |
+| **id** | **string**| folder id | |
+| **update_file_permissions_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM**](../Model/UpdateFilePermissionsVM.md)| new permissions VM | [optional] |
 
 ### Return type
 
@@ -2074,7 +2139,7 @@ try {
 reportsCopyFile($id, $folder_id): \OpenAPI\Client\cloud\fastreport\model\ReportVM
 ```
 
-Copy file to a specified folder
+Copy a file into a specified folder
 
 ### Example
 
@@ -2139,7 +2204,7 @@ try {
 reportsCreateSharingKey($id, $create_file_share_vm): \OpenAPI\Client\cloud\fastreport\model\FileSharingKeysVM
 ```
 
-Create a new key, that can be used to share access to a file  (You need Administrate.Anon permission to create a new key)
+Create a new key, that can be used to share access to a file <br />  (You need Administrate.Anon permission to create a new key)
 
 ### Example
 
@@ -2393,6 +2458,132 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `reportsGetByTaskId()`
+
+```php
+reportsGetByTaskId($task_id): \OpenAPI\Client\cloud\fastreport\model\ReportsVM
+```
+
+Get reports by specified task id
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$task_id = 'task_id_example'; // string | task id
+
+try {
+    $result = $apiInstance->reportsGetByTaskId($task_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->reportsGetByTaskId: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **task_id** | **string**| task id | |
+
+### Return type
+
+[**\OpenAPI\Client\cloud\fastreport\model\ReportsVM**](../Model/ReportsVM.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `reportsGetByTaskMessageId()`
+
+```php
+reportsGetByTaskMessageId($task_message_id): \OpenAPI\Client\cloud\fastreport\model\ReportVM
+```
+
+Get report by specified task message id
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$task_message_id = 'task_message_id_example'; // string | task message id
+
+try {
+    $result = $apiInstance->reportsGetByTaskMessageId($task_message_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->reportsGetByTaskMessageId: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **task_message_id** | **string**| task message id | |
+
+### Return type
+
+[**\OpenAPI\Client\cloud\fastreport\model\ReportVM**](../Model/ReportVM.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `reportsGetFile()`
 
 ```php
@@ -2488,9 +2679,9 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | 
-$skip = 0; // int | 
-$take = 10; // int | 
+$id = 'id_example'; // string | file id
+$skip = 0; // int | how many actions to skip
+$take = 10; // int | how many actions to take
 
 try {
     $result = $apiInstance->reportsGetFileHistory($id, $skip, $take);
@@ -2504,9 +2695,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
-| **skip** | **int**|  | [optional] [default to 0] |
-| **take** | **int**|  | [optional] [default to 10] |
+| **id** | **string**| file id | |
+| **skip** | **int**| how many actions to skip | [optional] [default to 0] |
+| **take** | **int**| how many actions to take | [optional] [default to 10] |
 
 ### Return type
 
@@ -2596,7 +2787,9 @@ try {
 reportsGetFilesList($id, $skip, $take, $search_pattern, $order_by, $desc, $use_regex): \OpenAPI\Client\cloud\fastreport\model\ReportsVM
 ```
 
-Get all files from specified folder. <br />  User with Get Entity permission can access this method. <br />  The method will returns minimal infomration about the file: <br />  id, name, size, editedTime, createdTime, tags, status, statusReason.
+Get files from the specified folder
+
+User with a Get Entity permission can access this method.
 
 ### Example
 
@@ -2621,12 +2814,12 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     $config
 );
 $id = 'id_example'; // string | folder id
-$skip = 0; // int | number of files, that have to be skipped
-$take = 10; // int | number of files, that have to be returned
-$search_pattern = 'search_pattern_example'; // string | 
-$order_by = new \OpenAPI\Client\cloud\fastreport\model\FileSorting(); // FileSorting | 
-$desc = false; // bool | 
-$use_regex = false; // bool | 
+$skip = 0; // int | number of files to skip
+$take = 10; // int | number of files to take
+$search_pattern = 'search_pattern_example'; // string | search pattern used to only include matching files in the result<br />              (leave unspecified to list all files)
+$order_by = new \OpenAPI\Client\cloud\fastreport\model\FileSorting(); // FileSorting | a field to sort by
+$desc = false; // bool | if true - sorting will be done in the descending order, otherwise - ascending
+$use_regex = false; // bool | set this to true if you want to use regular expression to search
 
 try {
     $result = $apiInstance->reportsGetFilesList($id, $skip, $take, $search_pattern, $order_by, $desc, $use_regex);
@@ -2641,12 +2834,12 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| folder id | |
-| **skip** | **int**| number of files, that have to be skipped | [optional] [default to 0] |
-| **take** | **int**| number of files, that have to be returned | [optional] [default to 10] |
-| **search_pattern** | **string**|  | [optional] |
-| **order_by** | [**FileSorting**](../Model/.md)|  | [optional] |
-| **desc** | **bool**|  | [optional] [default to false] |
-| **use_regex** | **bool**|  | [optional] [default to false] |
+| **skip** | **int**| number of files to skip | [optional] [default to 0] |
+| **take** | **int**| number of files to take | [optional] [default to 10] |
+| **search_pattern** | **string**| search pattern used to only include matching files in the result&lt;br /&gt;              (leave unspecified to list all files) | [optional] |
+| **order_by** | [**FileSorting**](../Model/.md)| a field to sort by | [optional] |
+| **desc** | **bool**| if true - sorting will be done in the descending order, otherwise - ascending | [optional] [default to false] |
+| **use_regex** | **bool**| set this to true if you want to use regular expression to search | [optional] [default to false] |
 
 ### Return type
 
@@ -2665,13 +2858,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `reportsGetPermissions()`
+## `reportsGetMyPermissions()`
 
 ```php
-reportsGetPermissions($id): \OpenAPI\Client\cloud\fastreport\model\FilePermissionsVM
+reportsGetMyPermissions($id): \OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM
 ```
 
-
+Get current user's permissions to a file
 
 ### Example
 
@@ -2695,7 +2888,70 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string
+$id = 'id_example'; // string | file id
+
+try {
+    $result = $apiInstance->reportsGetMyPermissions($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->reportsGetMyPermissions: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| file id | |
+
+### Return type
+
+[**\OpenAPI\Client\cloud\fastreport\model\FilePermissionCRUDVM**](../Model/FilePermissionCRUDVM.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [JWT](../../README.md#JWT)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `reportsGetPermissions()`
+
+```php
+reportsGetPermissions($id): \OpenAPI\Client\cloud\fastreport\model\FilePermissionsVM
+```
+
+Get all permissions from a file. <br />
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure HTTP basic authorization: ApiKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure Bearer (JWT) authorization: JWT
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | folder id
 
 try {
     $result = $apiInstance->reportsGetPermissions($id);
@@ -2709,7 +2965,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
+| **id** | **string**| folder id | |
 
 ### Return type
 
@@ -2930,7 +3186,7 @@ reportsRecoverFile($id, $recovery_path)
 
 Recover specified file from bin
 
-User with Delete permission can access the method.
+
 
 ### Example
 
@@ -2955,7 +3211,7 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     $config
 );
 $id = 'id_example'; // string | file id
-$recovery_path = 'recovery_path_example'; // string | 
+$recovery_path = 'recovery_path_example'; // string | id of the folder, where the file should be restored to
 
 try {
     $apiInstance->reportsRecoverFile($id, $recovery_path);
@@ -2969,7 +3225,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| file id | |
-| **recovery_path** | **string**|  | [optional] |
+| **recovery_path** | **string**| id of the folder, where the file should be restored to | [optional] |
 
 ### Return type
 
@@ -3217,8 +3473,8 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | 
-$update_file_permissions_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM | 
+$id = 'id_example'; // string | file id
+$update_file_permissions_vm = new \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM(); // \OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM | new permissions VM
 
 try {
     $apiInstance->reportsUpdatePermissions($id, $update_file_permissions_vm);
@@ -3231,8 +3487,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**|  | |
-| **update_file_permissions_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM**](../Model/UpdateFilePermissionsVM.md)|  | [optional] |
+| **id** | **string**| file id | |
+| **update_file_permissions_vm** | [**\OpenAPI\Client\cloud\fastreport\model\UpdateFilePermissionsVM**](../Model/UpdateFilePermissionsVM.md)| new permissions VM | [optional] |
 
 ### Return type
 
@@ -3350,8 +3606,8 @@ $apiInstance = new OpenAPI\Client\Api\ReportsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | Identifier of folder
-$report_create_vm = new \OpenAPI\Client\cloud\fastreport\model\ReportCreateVM(); // \OpenAPI\Client\cloud\fastreport\model\ReportCreateVM | file's view model
+$id = 'id_example'; // string | folder id
+$report_create_vm = new \OpenAPI\Client\cloud\fastreport\model\ReportCreateVM(); // \OpenAPI\Client\cloud\fastreport\model\ReportCreateVM | new file's view model
 
 try {
     $result = $apiInstance->reportsUploadFile($id, $report_create_vm);
@@ -3365,8 +3621,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Identifier of folder | |
-| **report_create_vm** | [**\OpenAPI\Client\cloud\fastreport\model\ReportCreateVM**](../Model/ReportCreateVM.md)| file&#39;s view model | [optional] |
+| **id** | **string**| folder id | |
+| **report_create_vm** | [**\OpenAPI\Client\cloud\fastreport\model\ReportCreateVM**](../Model/ReportCreateVM.md)| new file&#39;s view model | [optional] |
 
 ### Return type
 

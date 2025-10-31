@@ -107,6 +107,24 @@ class AnalysisResultVMTest extends TestCase
     }
 
     /**
+     * Test attribute "suggestion"
+     */
+    public function testPropertySuggestion()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "items"
+     */
+    public function testPropertyItems()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "subscription_id"
      */
     public function testPropertySubscriptionId()

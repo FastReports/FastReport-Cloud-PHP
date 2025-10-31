@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **name** | **string** |  | [optional]
 **locale** | **string** |  | [optional]
 **tags** | **string[]** |  | [optional]
+**domains** | **string[]** |  | [optional]
+**preview_type** | [**\OpenAPI\Client\cloud\fastreport\model\PreviewType**](PreviewType.md) |  | [optional]
 **default_permissions** | [**\OpenAPI\Client\cloud\fastreport\model\DefaultPermissionsVM**](DefaultPermissionsVM.md) |  | [optional]
 **t** | **string** |  |
 

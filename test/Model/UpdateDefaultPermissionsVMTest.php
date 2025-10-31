@@ -116,6 +116,15 @@ class UpdateDefaultPermissionsVMTest extends TestCase
     }
 
     /**
+     * Test attribute "font_permissions"
+     */
+    public function testPropertyFontPermissions()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "t"
      */
     public function testPropertyT()

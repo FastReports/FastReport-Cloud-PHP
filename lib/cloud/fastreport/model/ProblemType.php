@@ -60,6 +60,10 @@ class ProblemType
 
     public const FILES_WITH_DELETED_PARENTS = 'FilesWithDeletedParents';
 
+    public const ENTITIES_WITH_THE_SAME_NAME = 'EntitiesWithTheSameName';
+
+    public const WRONG_USER_ID = 'WrongUserId';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -75,7 +79,9 @@ class ProblemType
             self::LOST_FILE_CHUNKS,
             self::WRONG_SUBSCRIPITON_SIZES,
             self::FILES_WITHOUT_CHUNKS,
-            self::FILES_WITH_DELETED_PARENTS
+            self::FILES_WITH_DELETED_PARENTS,
+            self::ENTITIES_WITH_THE_SAME_NAME,
+            self::WRONG_USER_ID
         ];
     }
 }

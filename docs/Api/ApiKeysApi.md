@@ -75,7 +75,7 @@ try {
 ## `apiKeysDeleteApiKey()`
 
 ```php
-apiKeysDeleteApiKey($delete_api_key_vm): \OpenAPI\Client\cloud\fastreport\model\ApiKeyVM
+apiKeysDeleteApiKey($delete_api_key_vm)
 ```
 
 Delete an apikey
@@ -105,8 +105,7 @@ $apiInstance = new OpenAPI\Client\Api\ApiKeysApi(
 $delete_api_key_vm = new \OpenAPI\Client\cloud\fastreport\model\DeleteApiKeyVM(); // \OpenAPI\Client\cloud\fastreport\model\DeleteApiKeyVM
 
 try {
-    $result = $apiInstance->apiKeysDeleteApiKey($delete_api_key_vm);
-    print_r($result);
+    $apiInstance->apiKeysDeleteApiKey($delete_api_key_vm);
 } catch (Exception $e) {
     echo 'Exception when calling ApiKeysApi->apiKeysDeleteApiKey: ', $e->getMessage(), PHP_EOL;
 }
@@ -120,7 +119,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\cloud\fastreport\model\ApiKeyVM**](../Model/ApiKeyVM.md)
+void (empty response body)
 
 ### Authorization
 

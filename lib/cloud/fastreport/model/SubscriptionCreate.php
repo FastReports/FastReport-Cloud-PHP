@@ -58,6 +58,8 @@ class SubscriptionCreate
 
     public const NUMBER_64 = 64;
 
+    public const NUMBER_128 = 128;
+
     public const NUMBER_MINUS_1 = -1;
 
     /**
@@ -75,6 +77,7 @@ class SubscriptionCreate
             self::NUMBER_16,
             self::NUMBER_32,
             self::NUMBER_64,
+            self::NUMBER_128,
             self::NUMBER_MINUS_1
         ];
     }

@@ -63,7 +63,9 @@ class SubscriptionVM extends CloudBaseVM
         'templates_folder' => '\OpenAPI\Client\cloud\fastreport\model\SubscriptionFolder',
         'reports_folder' => '\OpenAPI\Client\cloud\fastreport\model\SubscriptionFolder',
         'exports_folder' => '\OpenAPI\Client\cloud\fastreport\model\SubscriptionFolder',
+        'preview_type' => '\OpenAPI\Client\cloud\fastreport\model\PreviewType',
         'tags' => 'string[]',
+        'domains' => 'string[]',
         't' => 'string'
     ];
 
@@ -83,7 +85,9 @@ class SubscriptionVM extends CloudBaseVM
         'templates_folder' => null,
         'reports_folder' => null,
         'exports_folder' => null,
+        'preview_type' => null,
         'tags' => null,
+        'domains' => null,
         't' => null
     ];
 
@@ -101,7 +105,9 @@ class SubscriptionVM extends CloudBaseVM
         'templates_folder' => false,
         'reports_folder' => false,
         'exports_folder' => false,
+        'preview_type' => false,
         'tags' => true,
+        'domains' => true,
         't' => false
     ];
 
@@ -199,7 +205,9 @@ class SubscriptionVM extends CloudBaseVM
         'templates_folder' => 'templatesFolder',
         'reports_folder' => 'reportsFolder',
         'exports_folder' => 'exportsFolder',
+        'preview_type' => 'previewType',
         'tags' => 'tags',
+        'domains' => 'domains',
         't' => '$t'
     ];
 
@@ -217,7 +225,9 @@ class SubscriptionVM extends CloudBaseVM
         'templates_folder' => 'setTemplatesFolder',
         'reports_folder' => 'setReportsFolder',
         'exports_folder' => 'setExportsFolder',
+        'preview_type' => 'setPreviewType',
         'tags' => 'setTags',
+        'domains' => 'setDomains',
         't' => 'setT'
     ];
 
@@ -235,7 +245,9 @@ class SubscriptionVM extends CloudBaseVM
         'templates_folder' => 'getTemplatesFolder',
         'reports_folder' => 'getReportsFolder',
         'exports_folder' => 'getExportsFolder',
+        'preview_type' => 'getPreviewType',
         'tags' => 'getTags',
+        'domains' => 'getDomains',
         't' => 'getT'
     ];
 
@@ -300,7 +312,9 @@ class SubscriptionVM extends CloudBaseVM
         $this->setIfExists('templates_folder', $data ?? [], null);
         $this->setIfExists('reports_folder', $data ?? [], null);
         $this->setIfExists('exports_folder', $data ?? [], null);
+        $this->setIfExists('preview_type', $data ?? [], null);
         $this->setIfExists('tags', $data ?? [], null);
+        $this->setIfExists('domains', $data ?? [], null);
         $this->setIfExists('t', $data ?? [], null);
 
         // Initialize discriminator property with the model name.
@@ -597,6 +611,33 @@ class SubscriptionVM extends CloudBaseVM
     }
 
     /**
+     * Gets preview_type
+     *
+     * @return \OpenAPI\Client\cloud\fastreport\model\PreviewType|null
+     */
+    public function getPreviewType()
+    {
+        return $this->container['preview_type'];
+    }
+
+    /**
+     * Sets preview_type
+     *
+     * @param \OpenAPI\Client\cloud\fastreport\model\PreviewType|null $preview_type preview_type
+     *
+     * @return self
+     */
+    public function setPreviewType($preview_type)
+    {
+        if (is_null($preview_type)) {
+            throw new \InvalidArgumentException('non-nullable preview_type cannot be null');
+        }
+        $this->container['preview_type'] = $preview_type;
+
+        return $this;
+    }
+
+    /**
      * Gets tags
      *
      * @return string[]|null
@@ -626,6 +667,40 @@ class SubscriptionVM extends CloudBaseVM
             }
         }
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets domains
+     *
+     * @return string[]|null
+     */
+    public function getDomains()
+    {
+        return $this->container['domains'];
+    }
+
+    /**
+     * Sets domains
+     *
+     * @param string[]|null $domains domains
+     *
+     * @return self
+     */
+    public function setDomains($domains)
+    {
+        if (is_null($domains)) {
+            array_push($this->openAPINullablesSetToNull, 'domains');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('domains', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['domains'] = $domains;
 
         return $this;
     }
